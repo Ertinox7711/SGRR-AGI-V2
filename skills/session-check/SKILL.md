@@ -26,7 +26,9 @@ Shell for the OS (PowerShell on Windows, bash elsewhere):
 - settings.json: model=opus, env.CLAUDE_CODE_SUBAGENT_MODEL=sonnet.
 - hooks: UserPromptSubmit / SessionStart / PreCompact / Stop + PreToolUse `pitfall-tips` coach.
 - enabledPlugins has `superpowers@claude-plugins-official`=true (report plugin count, >= 12).
-- memory/MEMORY.md + PITFALLS.md present.
+- memory index present at EITHER `~/.claude/memory/MEMORY.md` OR a project-scoped
+  `~/.claude/projects/<encoded-cwd>/memory/MEMORY.md` (Claude Code keeps memory global
+  or per-project - accept either, only flag if BOTH are absent); PITFALLS.md present.
 
 ## C. Live proof (attest from your own session - disk cannot prove this)
 - Is the Skill tool available right now? Did using-superpowers load this session?

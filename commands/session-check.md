@@ -36,7 +36,10 @@ Read the live config under `~/.claude` (Windows: `$env:USERPROFILE\.claude`):
   Stop, plus the **PreToolUse pitfall coach** (a hook whose command names `pitfall-tips`).
 - **superpowers** - `enabledPlugins` has `superpowers@claude-plugins-official` set to true.
   Report the total count of enabled plugins too (>= 12 expected).
-- **memory + pitfalls** - `memory/MEMORY.md` and `PITFALLS.md` both present.
+- **memory + pitfalls** - the memory index present at EITHER `~/.claude/memory/MEMORY.md`
+  OR a project-scoped `~/.claude/projects/<encoded-cwd>/memory/MEMORY.md` (Claude Code stores
+  memory globally or per-project - accept either, only flag if BOTH are missing), and
+  `PITFALLS.md` present.
 
 ### C. Live proof - "are skills actually firing for ME, right now?"
 This is the part disk checks cannot prove. Attest from your OWN session context, honestly:
