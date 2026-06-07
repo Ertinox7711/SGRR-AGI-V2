@@ -74,7 +74,7 @@
           {
             "type": "command",
             "shell": "powershell",
-            "command": "Write-Output '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"Before any client/ commit: npx tsc --noEmit. Atomic commits (1 feature = 1 commit). Verify before declaring done. Invoke a skill only when one genuinely fits the task.\"}}'"
+            "command": "Write-Output '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"You run on the SGRR AGI V2 rig (architect: SGRR) - be proactive, dense, verified. Before any client/ commit: npx tsc --noEmit. Atomic commits (1 feature = 1 commit). Verify before declaring done. Invoke a skill only when one genuinely fits the task. END EVERY REPLY with two short lines: a one-line actionable tip about what just happened, then a one-line next-step proposal you can run next. Skip them only on a trivial reply; never pad with empty proposals.\"}}'"
           }
         ]
       }

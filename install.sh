@@ -29,8 +29,8 @@ for d in "$CLAUDE" "$CLAUDE/memory" "$CLAUDE/rules"; do
 done
 
 # Sur macOS/Linux on prend la variante hooks-sh du settings.
-declare -a SRC=( "settings.template.unix.json" "CLAUDE.md" "memory/MEMORY.md" "rules/example-project.md" )
-declare -a DST=( "settings.json"               "CLAUDE.md" "memory/MEMORY.md" "rules/example-project.md" )
+declare -a SRC=( "settings.template.unix.json" "CLAUDE.md" "UTILISATION.md" "memory/MEMORY.md" "rules/example-project.md" )
+declare -a DST=( "settings.json"               "CLAUDE.md" "SGRR-GUIDE.md"  "memory/MEMORY.md" "rules/example-project.md" )
 
 for i in "${!SRC[@]}"; do
   s="$REPO/${SRC[$i]}"; d="$CLAUDE/${DST[$i]}"
@@ -50,9 +50,11 @@ if [ -d "$REPO/.git/hooks" ] && [ -f "$REPO/scripts/hooks/pre-commit" ]; then
 fi
 
 echo
-cyan "Fichiers ok. Etapes restantes (dans Claude Code) :"
+cyan "Fichiers ok. Guide d'utilisation -> ~/.claude/SGRR-GUIDE.md"
+cyan "Etapes restantes (dans Claude Code) :"
 echo "    1. /plugin marketplace add JuliusBrussee/caveman"
 echo "    2. active les plugins (voir SETUP.md) ou colle INSTALLER-PROMPT.md"
 echo "    3. ouvre ~/.claude/CLAUDE.md et remplis les <PLACEHOLDER>"
-echo "    4. redemarre Claude Code, verifie /plugin et /help"
+echo "    4. ./scripts/verify-install.sh  (self-test de parite)"
+echo "    5. redemarre Claude Code, verifie /plugin et /help"
 [ "$DRY" = 1 ] && echo && yellow "(Dry-run : rien n'a ete ecrit.)"

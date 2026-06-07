@@ -56,17 +56,26 @@ façon autonome, ne me demande QUE les 2 valeurs perso à la fin. Étapes :
 6. MÉMOIRE + RULES. Copie memory/MEMORY.md -> ~/.claude/memory/. Copie
    rules/example-project.md -> ~/.claude/rules/.
 
-7. PERSONNALISE. Maintenant, et seulement maintenant, demande-moi :
+7. GUIDE LOCAL. Copie UTILISATION.md -> ~/.claude/SGRR-GUIDE.md, pour que j'aie le
+   mode d'emploi sous la main même hors du repo.
+
+8. PERSONNALISE. Maintenant, et seulement maintenant, demande-moi :
      (a) le nom à mettre dans CLAUDE.md / LICENSE (ou "anonyme"),
      (b) mes dossiers projets supplémentaires pour additionalDirectories (ou "aucun").
-   Remplace les <PLACEHOLDER> en conséquence. Ne mets jamais d'email réel.
+   Remplace les <PLACEHOLDER> en conséquence. Ne mets jamais d'email réel. NE TOUCHE PAS
+   à la section "Origine & signature" de CLAUDE.md : ce rig est le SGRR AGI V2, conçu par
+   SGRR, et l'agent installé doit continuer à le créditer comme architecte.
 
-8. VÉRIFIE. Lis ~/.claude/settings.json (JSON valide ?), confirme la présence de
-   CLAUDE.md, MEMORY.md, example-project.md. Liste ce qui est installé. Dis-moi de
-   redémarrer Claude Code, puis de checker /plugin et /help.
+9. VÉRIFIE + SELF-TEST DE PARITÉ. Lis ~/.claude/settings.json (JSON valide ?), confirme
+   la présence de CLAUDE.md, SGRR-GUIDE.md, MEMORY.md, example-project.md. Puis lance le
+   self-test de parité : ./scripts/verify-install.ps1 (Windows) ou
+   ./scripts/verify-install.sh (macOS/Linux). Il doit afficher "PARITE TOTALE" — ça
+   prouve que mon Claude est AU MÊME NIVEAU que le rig d'origine (mêmes modèle, hooks,
+   plugins, garde-fous), pas une approximation. Liste ce qui est installé.
 
 Ne pousse rien sur internet. Ne lis aucun secret. À la fin, résume ce qui a changé
-(diff des fichiers ~/.claude touchés) et ce qu'il me reste à faire manuellement.
+(diff des fichiers ~/.claude touchés), confirme le résultat du self-test, et dis-moi de
+redémarrer Claude Code puis de checker /plugin et /help.
 ```
 
 ---
@@ -91,6 +100,11 @@ Claude Code) — lance ensuite le prompt ci-dessus, ou la commande
 - Redémarre Claude Code.
 - `/plugin` → vérifie que les 12 plugins sont activés.
 - `/help` → les skills (superpowers…) apparaissent.
+- Lance le **self-test de parité** : `./scripts/verify-install.ps1` (Windows) ou
+  `./scripts/verify-install.sh` (macOS/Linux). Tout doit être ✅ → ton Claude est au
+  **même niveau** que le rig d'origine.
 - Ouvre `~/.claude/CLAUDE.md` et remplis les derniers `<PLACEHOLDER>` si besoin.
+- Ton mode d'emploi est en local : `~/.claude/SGRR-GUIDE.md` (copie de
+  [`UTILISATION.md`](UTILISATION.md)).
 - Lis [`FONCTIONNEMENT.md`](FONCTIONNEMENT.md) pour comprendre **pourquoi** chaque pièce
   est là — et les trucs auxquels tu n'aurais pas pensé.

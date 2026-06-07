@@ -33,6 +33,7 @@ foreach ($d in @($claude, (Join-Path $claude 'memory'), (Join-Path $claude 'rule
 $files = @(
   @{ src = 'settings.template.json';   dst = 'settings.json' },
   @{ src = 'CLAUDE.md';                dst = 'CLAUDE.md' },
+  @{ src = 'UTILISATION.md';           dst = 'SGRR-GUIDE.md' },
   @{ src = 'memory\MEMORY.md';         dst = 'memory\MEMORY.md' },
   @{ src = 'rules\example-project.md'; dst = 'rules\example-project.md' }
 )
@@ -61,9 +62,11 @@ if ((Test-Path $gitHooks) -and (Test-Path $preCommitSrc)) {
 }
 
 Write-Host ""
-Step "Fichiers ok. Etapes restantes (dans Claude Code) :"
+Step "Fichiers ok. Guide d'utilisation -> ~/.claude/SGRR-GUIDE.md"
+Step "Etapes restantes (dans Claude Code) :"
 Write-Host "    1. /plugin marketplace add JuliusBrussee/caveman"
 Write-Host "    2. active les plugins (voir SETUP.md) ou colle INSTALLER-PROMPT.md"
 Write-Host "    3. ouvre ~/.claude/CLAUDE.md et remplis les <PLACEHOLDER>"
-Write-Host "    4. redemarre Claude Code, verifie /plugin et /help"
+Write-Host "    4. ./scripts/verify-install.ps1  (self-test de parite)"
+Write-Host "    5. redemarre Claude Code, verifie /plugin et /help"
 if ($DryRun) { Write-Host "`n(Dry-run : rien n'a ete ecrit.)" -ForegroundColor Yellow }
