@@ -98,6 +98,16 @@
             "timeout": 8
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"$env:USERPROFILE\\.claude\\scripts\\rig-audit-nudge.ps1\"",
+            "timeout": 8
+          }
+        ]
       }
     ],
     "PreCompact": [

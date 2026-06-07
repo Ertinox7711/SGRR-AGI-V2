@@ -95,6 +95,15 @@
             "timeout": 8
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$HOME/.claude/scripts/rig-audit-nudge.sh\"",
+            "timeout": 8
+          }
+        ]
       }
     ],
     "PreCompact": [
