@@ -21,6 +21,9 @@ qui te laisse partager ton setup publiquement **sans fuiter une seule donnée pe
 
 ### ⭐ Si ce rig te fait gagner du temps, mets une étoile — ça aide à le rendre N°1.
 
+[![GitHub stars](https://img.shields.io/github/stars/Ertinox7711/SGRR-AGI-V2?style=social)](https://github.com/Ertinox7711/SGRR-AGI-V2/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Ertinox7711/SGRR-AGI-V2?style=social)](https://github.com/Ertinox7711/SGRR-AGI-V2/network/members)
+
 </div>
 
 ---
