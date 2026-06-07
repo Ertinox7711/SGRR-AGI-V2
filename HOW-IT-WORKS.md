@@ -68,6 +68,7 @@ context**. We use them as automatic reminder injections:
 | `UserPromptSubmit` | every message | "Before a client/ commit: `npx tsc --noEmit`. Atomic commits. Verify before done." |
 | `PreCompact` | before context compression | "Save durable facts to memory before losing context." |
 | `Stop` | end of turn | "If code changed: tests passing? tsc clean? nothing uncommitted?" |
+| `PreToolUse` (pitfall coach) | before a Bash command runs | matches the command against known traps and injects the relevant **PITFALLS** lesson *before* it executes — advice only, never auto-allow/block. |
 
 This is what maintains discipline **without you having to repeat it**. Model
 drifts? The hook re-injects it, every turn. The Windows version uses PowerShell;
@@ -165,9 +166,9 @@ The ones that make the real difference — and that 95% of people miss:
 7. **The 403 → Scrapling reflex.** One global setting that turns "scraping is broken"
    into "scraping works". Before fiddling with headers: stealth fetch.
 
-8. **Backup before overwriting.** The installer makes `.bak-<date>` copies of your
-   existing `settings.json`/`CLAUDE.md`. Never destroy a config without a backup —
-   obvious once you've been burned once.
+8. **Backup before touching anything.** The installer makes `.bak-<date>` copies before it
+   **smart-merges** your `settings.json` (unions the rig in, keeps your keys) or overwrites
+   `CLAUDE.md`. Never destroy a config without a backup — obvious once you've been burned once.
 
 9. **`effortLevel: medium` is a dial.** Crank it up for deep reasoning, dial it down
    for throughput. Most people don't know it exists.
@@ -182,6 +183,12 @@ The ones that make the real difference — and that 95% of people miss:
     new hook events, new capabilities. The **update watcher** (`scripts/check-cc-updates.*`,
     `SessionStart` hook) detects every release and has you *propose* adoptions. The rig
     is never more than one version behind — it self-improves instead of going stale.
+
+12. **It learns from mistakes, not just features.** Chasing *new* capabilities is half
+    the game; the other half is never re-paying for *old* mistakes. `PITFALLS.md` encodes
+    13 hard-won traps, and a `PreToolUse` hook (`scripts/pitfall-tips.*`) surfaces the
+    matching lesson the instant you're about to repeat one — advice only, throttled for
+    coaching tips, every-time for destructive ones. Avoiding a known trap beats adding a feature.
 
 ---
 

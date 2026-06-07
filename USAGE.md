@@ -129,5 +129,26 @@ Same levers, same behavior, same level.
 
 ---
 
+## 9. The rig warns you before you trip
+
+Beyond doing work fast, the rig actively **stops you repeating known mistakes**.
+
+- **Live coaching.** A `PreToolUse` hook (`scripts/pitfall-tips.*`) watches the commands
+  about to run. The instant one matches a known trap — `--no-verify`, `git push --force`,
+  `git reset --hard`, `git clean`, `rm -rf`, even a plain `push`/`commit` — it injects the
+  matching lesson from [`PITFALLS.md`](PITFALLS.md) *before* the command fires. Destructive
+  matches warn **every time**; gentle coaching tips are throttled (a few hours) so they
+  never nag. It only ever **advises** — the real block stays `permissions.ask`.
+- **The catalog.** [`PITFALLS.md`](PITFALLS.md) holds all **13** traps in full
+  (symptom → rule → cheap check). Read it once end to end; it's the institutional memory
+  of a power-user, generalized so it leaks nothing.
+- **The installer touches *your own* Claude too.** Install doesn't just drop files in a
+  folder — it **smart-merges** the rig's hooks, permissions and plugins into your live
+  `~/.claude/settings.json` (backing it up first, preserving every key you already have;
+  re-running adds nothing twice). So the coaching, the memory
+  nudge, and the update watch are wired into *your* daily Claude, not just a copy on disk.
+
+---
+
 > Built by **SGRR** · `SGRR AGI V2`. You're running a 1:1 replica — use it as such:
 > clear intent, fast validation, and let the agent run.

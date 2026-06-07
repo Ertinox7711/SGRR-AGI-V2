@@ -38,6 +38,12 @@ Optional / off by default: `skill-creator`, `claude-md-management`, `hookify`,
 
 ## 2. settings.json
 
+> ⚠️ **Already have a `~/.claude/settings.json`?** The `install.ps1` / `install.sh`
+> scripts **smart-merge** the rig config into it (backup first, your keys preserved,
+> idempotent) — prefer them over this manual step. The raw `cp` below **overwrites**
+> the file wholesale: only use it on a fresh `~/.claude`, or back up and merge your
+> existing keys by hand first.
+
 ```
 # Windows
 cp settings.template.json  $env:USERPROFILE\.claude\settings.json

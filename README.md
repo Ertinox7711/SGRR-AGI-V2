@@ -16,6 +16,7 @@ lets you share your setup publicly **without leaking a single piece of personal 
 ![Secrets](https://img.shields.io/badge/secrets-0_included-2ea043)
 ![Self-improving](https://img.shields.io/badge/self--improving-yes-ef4444)
 ![Parity](https://img.shields.io/badge/parity-self--test-eab308)
+![Pitfalls](https://img.shields.io/badge/pitfalls-13_encoded-f97316)
 
 <sub>🏗️ Designed by **SGRR** · `Claude Code` · `Anthropic` · `AI agent` · `scaffold` · `dotfiles` · `hooks` · `skills` · `subagents` · `MCP` · `memory` · `template`</sub>
 
@@ -97,6 +98,7 @@ The single most important thing in the repo: **you paste one prompt, it installs
 | **[`settings.template.unix.json`](settings.template.unix.json)** | Same thing, `sh` hooks for macOS/Linux. |
 | **[`CLAUDE.md`](CLAUDE.md)** | The "proactive AGI" philosophy — depersonalized, with the SGRR signature. |
 | **[`USAGE.md`](USAGE.md)** | **Practical guide** to using the rig well — copied locally (`~/.claude/SGRR-GUIDE.md`) at install. |
+| **[`PITFALLS.md`](PITFALLS.md)** | **13 hard-won traps** the rig refuses to repeat — each a universal rule, surfaced *live* by a `PreToolUse` hook the moment a risky command matches. |
 | **[`COMPARISON.md`](COMPARISON.md)** | The benchmark against the biggest Claude Code repos on GitHub. |
 | **[`HOW-IT-WORKS.md`](HOW-IT-WORKS.md)** | The back of the machine: how each piece works, and why. |
 | **[`SECURITY.md`](SECURITY.md)** | Security model + threat model ("people will dig for your info"). |
@@ -108,6 +110,7 @@ The single most important thing in the repo: **you paste one prompt, it installs
 | `scripts/verify-install.*` | **Parity self-test**: proves your install = the original rig. |
 | `scripts/check-cc-updates.*` | **Claude Code update watch**: a `SessionStart` hook that spots every new version, tells you, and proposes adoptions — one half of the **self-improvement loop**. |
 | `scripts/rig-audit-nudge.*` | Periodic `SessionStart` nudge (every 7 days) reminding you to run `/rig-audit` — the other half of the loop. |
+| `scripts/pitfall-tips.*` | `PreToolUse` coach: matches a command against known traps and injects the matching **PITFALLS** lesson before it runs (advice only). |
 | `scripts/preflight-scrub.*` | Anti-leak audit of the whole repo, to run before a push. |
 | `scripts/hooks/pre-commit` | Local barrier: rejects a commit that contains a secret/PII. |
 | `.gitleaks.toml` · `.github/workflows/secret-scan.yml` | **Automatic secret scan on every push** (continuous defense). |
@@ -175,6 +178,22 @@ self-improvement loop, in two halves:
   worth creating, settings drift, hook opportunities). It's **report-only** — it changes
   nothing until you pick the items. A `SessionStart` nudge (`scripts/rig-audit-nudge.*`,
   every 7 days) reminds you it exists. **No personal data ever leaves your machine.**
+
+---
+
+## 🧨 A rig that learns from mistakes
+
+A self-improving rig isn't only about *new* features — it's about never re-paying for
+*old* mistakes. **[`PITFALLS.md`](PITFALLS.md)** is the institutional memory of a
+power-user: **13 traps** (mock drift, blind commits, secret leaks, the `--no-verify`
+bypass, destructive ops with no backup, prompt-injection via config…), each generalized
+to a universal rule — **symptom → rule → cheap check**.
+
+They don't sit in a file you'll forget. A **`PreToolUse` hook** (`scripts/pitfall-tips.*`)
+watches what you're about to run and **injects the matching lesson before the command
+executes** — destructive matches every time, coaching tips throttled so they nudge without
+nagging. The hook only ever *advises*; blocking stays the job of `permissions.ask`. The
+condensed list also rides in `CLAUDE.md`, loaded every session.
 
 ---
 
