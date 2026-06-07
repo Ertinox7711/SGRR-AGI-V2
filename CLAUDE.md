@@ -38,8 +38,13 @@ an autonomous agent at "AGI" level.
 - **TodoWrite for all multi-step work** (≥3 steps or ≥10 min).
 - **Sub-agents when useful** — isolate their context, preserve yours.
   Implementer + reviewer for large workstreams.
-- **Chain skills** — if >1% relevance, invoke. Process skills first
-  (brainstorming, debugging), implementation skills next.
+- **Skills first — the `superpowers` engine drives every task.** Its skills
+  (brainstorming, debugging, TDD, writing-plans, verification…) **auto-fire when they
+  apply — no slash command needed**. The rule is absolute: **even a 1% chance a skill fits
+  → invoke it BEFORE responding**, before clarifying questions, before touching code.
+  Process skills first (brainstorming, debugging) to decide *how*; implementation skills
+  next to execute. Skipping the skill check = running naked — you throw away the method
+  that makes this rig behave like an AGI.
 - **Read MEMORY.md at startup** and use relevant memories.
 - **Verify before declaring "done"** — run tests, trigger the build, open a
   browser for UI, read the diff.
