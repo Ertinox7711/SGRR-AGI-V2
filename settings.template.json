@@ -88,6 +88,16 @@
             "command": "Write-Output '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"Read MEMORY.md at start. Anticipate, parallelize independent tool calls, verify before declaring done.\"}}'"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"$env:USERPROFILE\\.claude\\scripts\\check-cc-updates.ps1\"",
+            "timeout": 8
+          }
+        ]
       }
     ],
     "PreCompact": [

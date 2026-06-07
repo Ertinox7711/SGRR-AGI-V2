@@ -23,7 +23,7 @@ function Ok($msg)   { Write-Host "    ok  $msg" -ForegroundColor Green }
 function Warn($msg) { Write-Host "    !!  $msg" -ForegroundColor Yellow }
 
 Step "Cible : $claude"
-foreach ($d in @($claude, (Join-Path $claude 'memory'), (Join-Path $claude 'rules'))) {
+foreach ($d in @($claude, (Join-Path $claude 'memory'), (Join-Path $claude 'rules'), (Join-Path $claude 'scripts'))) {
   if (-not (Test-Path $d)) {
     if ($DryRun) { Warn "creerait $d" } else { New-Item -ItemType Directory -Force -Path $d | Out-Null; Ok "cree $d" }
   }
@@ -51,6 +51,14 @@ foreach ($f in $files) {
 
   if ($DryRun) { Warn "copierait $($f.src) -> $($f.dst)" }
   else { Copy-Item $srcPath $dstPath -Force; Ok "installe $($f.dst)" }
+}
+
+# Installe le script de veille des MAJ Claude Code (appele par le hook SessionStart)
+$updSrc = Join-Path $repo 'scripts\check-cc-updates.ps1'
+$updDst = Join-Path $claude 'scripts\check-cc-updates.ps1'
+if (Test-Path $updSrc) {
+  if ($DryRun) { Warn "installerait la veille MAJ -> scripts\check-cc-updates.ps1" }
+  else { Copy-Item $updSrc $updDst -Force; Ok "veille MAJ installee -> scripts\check-cc-updates.ps1" }
 }
 
 # Installe le hook pre-commit dans CE repo (protege tes futurs commits de fuites)

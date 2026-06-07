@@ -76,6 +76,10 @@ else { Bad "rules/ vide ou absent" }
 if (Test-Path (Join-Path $claude 'SGRR-GUIDE.md')) { Ok "SGRR-GUIDE.md present (guide d'utilisation local)" }
 else { Bad "SGRR-GUIDE.md absent (copie UTILISATION.md)" }
 
+# 11. Veille des MAJ Claude Code (boucle d'auto-amelioration)
+if (Test-Path (Join-Path $claude 'scripts\check-cc-updates.ps1')) { Ok "veille MAJ presente (scripts/check-cc-updates.ps1)" }
+else { Bad "veille MAJ absente (copie scripts/check-cc-updates.ps1 -> ~/.claude/scripts/)" }
+
 # Verdict
 Head "Resultat : $pass OK / $fail FAIL"
 if ($fail -eq 0) {

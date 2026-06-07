@@ -22,7 +22,7 @@ green() { printf '\033[32m    ok  %s\033[0m\n' "$1"; }
 yellow(){ printf '\033[33m    !!  %s\033[0m\n' "$1"; }
 
 cyan "Cible : $CLAUDE"
-for d in "$CLAUDE" "$CLAUDE/memory" "$CLAUDE/rules"; do
+for d in "$CLAUDE" "$CLAUDE/memory" "$CLAUDE/rules" "$CLAUDE/scripts"; do
   if [ ! -d "$d" ]; then
     if [ "$DRY" = 1 ]; then yellow "creerait $d"; else mkdir -p "$d"; green "cree $d"; fi
   fi
@@ -42,6 +42,12 @@ for i in "${!SRC[@]}"; do
   if [ "$DRY" = 1 ]; then yellow "copierait ${SRC[$i]} -> ${DST[$i]}"
   else cp "$s" "$d"; green "installe ${DST[$i]}"; fi
 done
+
+# Installe le script de veille des MAJ Claude Code (appele par le hook SessionStart)
+if [ -f "$REPO/scripts/check-cc-updates.sh" ]; then
+  if [ "$DRY" = 1 ]; then yellow "installerait la veille MAJ -> scripts/check-cc-updates.sh"
+  else cp "$REPO/scripts/check-cc-updates.sh" "$CLAUDE/scripts/check-cc-updates.sh"; chmod +x "$CLAUDE/scripts/check-cc-updates.sh"; green "veille MAJ installee -> scripts/check-cc-updates.sh"; fi
+fi
 
 # Installe le hook pre-commit dans CE repo
 if [ -d "$REPO/.git/hooks" ] && [ -f "$REPO/scripts/hooks/pre-commit" ]; then

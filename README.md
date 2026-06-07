@@ -77,6 +77,7 @@ Le truc le plus important du repo : **tu colles un prompt, ça installe tout.**
 | **[`rules/example-project.md`](rules/example-project.md)** | Exemple de rule `paths:` qui se charge en lazy (contexte léger). |
 | **[`install.ps1`](install.ps1)** / **[`install.sh`](install.sh)** | Installeurs fichiers (sans Claude), avec backup auto. |
 | `scripts/verify-install.*` | **Self-test de parité** : prouve que ton install = le rig d'origine. |
+| `scripts/check-cc-updates.*` | **Veille des MAJ Claude Code** : hook `SessionStart` qui repère chaque nouvelle version, te prévient et propose les adoptions — la **boucle d'auto-amélioration** du rig. |
 | `scripts/preflight-scrub.*` | Audit anti-fuite de tout le repo, à lancer avant un push. |
 | `scripts/hooks/pre-commit` | Barrage local : refuse un commit qui contient un secret/PII. |
 | `.gitleaks.toml` · `.github/workflows/secret-scan.yml` | Scan de secrets **automatique à chaque push** (défense continue). |
@@ -101,7 +102,8 @@ Le patron canonique : **Commande → Agent → Skill** — mais avec une nuance 
 > montre les **deux**.
 
 Le tout posé sur 6 fondations : `settings.json` (la seule loi réellement appliquée),
-**hooks** (injection de contexte + tips par tour), **mémoire** (fichiers persistants),
+**hooks** (injection de contexte + tips par tour + **veille des MAJ** qui s'auto-améliore),
+**mémoire** (fichiers persistants),
 **MCP** (docs live, navigateur), **plugins**, **rules** (contexte paresseux). Détail
 complet → **[`FONCTIONNEMENT.md`](FONCTIONNEMENT.md)**.
 

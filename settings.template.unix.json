@@ -86,6 +86,15 @@
             "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"Read MEMORY.md at start. Anticipate, parallelize independent tool calls, verify before declaring done.\"}}'"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$HOME/.claude/scripts/check-cc-updates.sh\"",
+            "timeout": 8
+          }
+        ]
       }
     ],
     "PreCompact": [

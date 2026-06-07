@@ -65,6 +65,7 @@ contexte de Claude**. On les utilise pour des piqûres de rappel automatiques :
 | Hook | Quand | Ce qu'il injecte |
 |------|-------|------------------|
 | `SessionStart` | début de session | « Lis MEMORY.md. Anticipe, parallélise, vérifie avant de dire fait. » |
+| `SessionStart` (veille MAJ) | début de session, **throttlé 12 h** | détecte une **nouvelle version de Claude Code** et te demande d'aller lire le changelog + proposer les adoptions au rig. |
 | `UserPromptSubmit` | à chaque message | « Avant un commit client/ : `npx tsc --noEmit`. Commits atomiques. Vérifie avant fait. » |
 | `PreCompact` | avant compression du contexte | « Sauve les faits durables en mémoire avant de perdre le contexte. » |
 | `Stop` | fin de tour | « Si du code a changé : tests passent ? tsc clean ? rien d'oublié non commité ? » |
@@ -72,6 +73,12 @@ contexte de Claude**. On les utilise pour des piqûres de rappel automatiques :
 C'est ça qui maintient la discipline **sans que tu aies à la répéter**. Le modèle
 oublie ? Le hook lui re-dit, chaque tour. La version Windows utilise PowerShell ; la
 variante `settings.template.unix.json` utilise `echo`.
+
+> 🔄 **La boucle d'auto-amélioration.** Le 2ᵉ hook `SessionStart` (`scripts/check-cc-updates.*`)
+> compare la dernière version publiée de Claude Code à celle qu'il t'a déjà signalée. Dès
+> qu'une version sort, il injecte un ordre : *va lire le changelog, préviens-moi, propose ce
+> qu'on adopte*. Le rig se tient donc à jour tout seul — il ne fige pas. Appel réseau limité
+> à 1 fois / 12 h, échec silencieux, **zéro donnée perso**, cache dans `~/.claude/.cc-update-cache.json`.
 
 ## 3. Mémoire — des fichiers, pas une base de données
 
@@ -171,6 +178,12 @@ Ceux qui font la vraie différence et que 95 % des gens ratent :
     secrets, ton email (jusque dans l'auteur des commits git !), tes chemins, tes noms
     de projets. Partager le rig sans le scrubber, c'est une fuite. Tout ce repo est
     construit pour partager la **capacité** sans la **donnée perso** → [`SECURITE.md`](SECURITE.md).
+
+11. **Un rig qui se met à jour tout seul.** Claude Code bouge vite (plusieurs versions
+    par semaine). Un setup figé rate les nouveautés — nouveaux réglages `settings.json`,
+    nouveaux events de hooks, nouvelles capacités. La **veille MAJ** (`scripts/check-cc-updates.*`,
+    hook `SessionStart`) détecte chaque release et te fait *proposer* les adoptions. Le rig
+    n'est jamais en retard de plus d'une version — il s'auto-améliore au lieu de rouiller.
 
 ---
 

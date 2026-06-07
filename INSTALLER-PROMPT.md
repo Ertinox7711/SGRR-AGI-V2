@@ -30,7 +30,7 @@ config Claude Code (~/.claude, ou $env:USERPROFILE\.claude sur Windows). Procèd
 façon autonome, ne me demande QUE les 2 valeurs perso à la fin. Étapes :
 
 1. DÉTECTE l'OS (Windows / macOS / Linux) et le dossier ~/.claude. Crée-le s'il manque,
-   ainsi que ~/.claude/memory et ~/.claude/rules.
+   ainsi que ~/.claude/memory, ~/.claude/rules et ~/.claude/scripts.
 
 2. SAUVEGARDE l'existant. Si ~/.claude/settings.json ou ~/.claude/CLAUDE.md existent
    déjà, copie-les en .bak-<date> avant d'écrire. Ne détruis jamais sans backup.
@@ -53,8 +53,11 @@ façon autonome, ne me demande QUE les 2 valeurs perso à la fin. Étapes :
 
 5. CLAUDE.md. Copie CLAUDE.md du repo vers ~/.claude/CLAUDE.md.
 
-6. MÉMOIRE + RULES. Copie memory/MEMORY.md -> ~/.claude/memory/. Copie
-   rules/example-project.md -> ~/.claude/rules/.
+6. MÉMOIRE + RULES + VEILLE. Copie memory/MEMORY.md -> ~/.claude/memory/. Copie
+   rules/example-project.md -> ~/.claude/rules/. Copie le script de veille des MAJ vers
+   ~/.claude/scripts/ : check-cc-updates.ps1 (Windows) ou check-cc-updates.sh (macOS/Linux).
+   Le hook SessionStart du settings l'appelle pour repérer chaque nouvelle version de
+   Claude Code, te prévenir, et proposer les adoptions — c'est la boucle d'auto-amélioration.
 
 7. GUIDE LOCAL. Copie UTILISATION.md -> ~/.claude/SGRR-GUIDE.md, pour que j'aie le
    mode d'emploi sous la main même hors du repo.

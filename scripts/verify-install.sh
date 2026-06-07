@@ -60,6 +60,9 @@ if ls "$CLAUDE"/rules/*.md >/dev/null 2>&1; then ok "rules/*.md present (lazy-lo
 # 10. guide local
 [ -f "$CLAUDE/SGRR-GUIDE.md" ] && ok "SGRR-GUIDE.md present (guide d'utilisation local)" || bad "SGRR-GUIDE.md absent (copie UTILISATION.md)"
 
+# 11. veille des MAJ Claude Code (boucle d'auto-amelioration)
+[ -f "$CLAUDE/scripts/check-cc-updates.sh" ] && ok "veille MAJ presente (scripts/check-cc-updates.sh)" || bad "veille MAJ absente (copie scripts/check-cc-updates.sh -> ~/.claude/scripts/)"
+
 head "Resultat : $PASS OK / $FAIL FAIL"
 if [ "$FAIL" -eq 0 ]; then
   printf '\033[32mPARITE TOTALE. Ton Claude applique exactement le rig SGRR AGI V2.\033[0m\n'
