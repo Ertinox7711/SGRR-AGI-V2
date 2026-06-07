@@ -1,0 +1,58 @@
+# Config gitleaks — SGRR AGI V2
+# Étend les règles par défaut avec des motifs spécifiques au domaine.
+# Doc : https://github.com/gitleaks/gitleaks
+
+title = "SGRR AGI V2 secret scan"
+
+[extend]
+useDefault = true   # garde les ~150 règles intégrées (AWS, GitHub, Stripe, etc.)
+
+# --- Règles custom -----------------------------------------------------------
+
+[[rules]]
+id = "shopify-access-token"
+description = "Shopify access/secret token"
+regex = '''shp(at|ca|pa|ss)_[a-fA-F0-9]{32}'''
+tags = ["shopify", "token"]
+
+[[rules]]
+id = "anthropic-api-key"
+description = "Anthropic API key"
+regex = '''sk-ant-[a-zA-Z0-9_\-]{20,}'''
+tags = ["anthropic", "key"]
+
+[[rules]]
+id = "openai-api-key"
+description = "OpenAI API key"
+regex = '''sk-[a-zA-Z0-9]{20,}T3BlbkFJ[a-zA-Z0-9]{20,}'''
+tags = ["openai", "key"]
+
+[[rules]]
+id = "generic-bearer-secret"
+description = "Generic high-entropy secret assignment"
+regex = '''(?i)(api[_-]?key|secret|token|passwd|password)\s*[:=]\s*['"][a-zA-Z0-9_\-]{24,}['"]'''
+tags = ["generic"]
+
+[[rules]]
+id = "absolute-home-path"
+description = "Absolute user home path (leaks identity)"
+regex = '''([A-Za-z]:\\Users\\[^\\/<>"' ]+)|(/home/[^/<>"' ]+)|(/Users/[^/<>"' ]+)'''
+tags = ["pii", "path"]
+
+# --- Allowlist : ce qui n'est PAS une fuite --------------------------------
+
+[allowlist]
+description = "Placeholders, exemples, et chemins génériques autorisés"
+regexes = [
+  '''<[A-Z_]+>''',                         # <PLACEHOLDER>, <YOUR_NAME>...
+  '''users\.noreply\.github\.com''',       # email noreply GitHub
+  '''example\.(com|org)''',
+  '''/home/(user|runner|youruser)\b''',    # chemins d'exemple génériques
+  '''[A-Za-z]:\\Users\\(you|user|name)\b''',
+  '''sk-ant-api03-EXAMPLE''',
+]
+paths = [
+  '''\.gitleaks\.toml$''',                 # ce fichier contient les motifs eux-mêmes
+  '''SECURITE\.md$''',                     # le doc sécurité cite des formes de tokens
+  '''(^|/)assets/''',                      # SVG décoratifs
+]

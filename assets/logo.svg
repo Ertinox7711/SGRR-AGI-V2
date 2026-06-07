@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="brand-grad-h" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="inner-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.05"/>
+    </linearGradient>
+    <filter id="glow-sm">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-lg">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="256" height="256" fill="#0a0a0f"/>
+
+  <!-- Outer hexagon ring -->
+  <!-- Hexagon centered at 128,128 with circumradius 108 -->
+  <!-- Points: top=128,20  top-right=113.6,20  ... using flat-top hex -->
+  <!-- Pointy-top hex: vertices at angles 90,30,-30,-90,-150,150 degrees from center -->
+  <!-- r=108: -->
+  <!-- 90°:  (128, 20)         -->
+  <!-- 30°:  (128+54, 20+93.5) = (182, 113.5) ... let me compute properly -->
+  <!-- pointy-top hex vertices with r=106, center=128,128 -->
+  <!-- angle 90  = (128 + 106*cos90,  128 - 106*sin90)  = (128, 22)   -->
+  <!-- angle 30  = (128 + 106*cos30,  128 - 106*sin30)  = (128+91.8, 128-53) = (219.8, 75) -->
+  <!-- angle -30 = (128 + 106*cos(-30), 128 - 106*sin(-30)) = (219.8, 181) -->
+  <!-- angle -90 = (128, 234) -->
+  <!-- angle -150= (36.2, 181) -->
+  <!-- angle 150 = (36.2, 75) -->
+  <polygon
+    points="128,22 219.8,75 219.8,181 128,234 36.2,181 36.2,75"
+    fill="none"
+    stroke="url(#brand-grad)"
+    stroke-width="1.8"
+    opacity="0.6"
+  />
+
+  <!-- Inner hexagon (slightly smaller, filled subtle) -->
+  <!-- r=90 -->
+  <!-- 90°:  (128, 38) -->
+  <!-- 30°:  (128+77.9, 128-45) = (205.9, 83) -->
+  <!-- -30°: (205.9, 173) -->
+  <!-- -90°: (128, 218) -->
+  <!-- -150°:(50.1, 173) -->
+  <!-- 150°: (50.1, 83) -->
+  <polygon
+    points="128,38 205.9,83 205.9,173 128,218 50.1,173 50.1,83"
+    fill="url(#inner-glow)"
+    stroke="url(#brand-grad)"
+    stroke-width="0.8"
+    opacity="0.35"
+  />
+
+  <!-- Circuit node dots at hex vertices (outer) -->
+  <circle cx="128" cy="22" r="3.5" fill="#22d3ee" opacity="0.7" filter="url(#glow-sm)"/>
+  <circle cx="219.8" cy="75" r="3.5" fill="#818cf8" opacity="0.7" filter="url(#glow-sm)"/>
+  <circle cx="219.8" cy="181" r="3.5" fill="#a78bfa" opacity="0.7" filter="url(#glow-sm)"/>
+  <circle cx="128" cy="234" r="3.5" fill="#a78bfa" opacity="0.7" filter="url(#glow-sm)"/>
+  <circle cx="36.2" cy="181" r="3.5" fill="#818cf8" opacity="0.7" filter="url(#glow-sm)"/>
+  <circle cx="36.2" cy="75" r="3.5" fill="#22d3ee" opacity="0.7" filter="url(#glow-sm)"/>
+
+  <!-- Diagonal accent lines (circuit feel) from center to nodes -->
+  <line x1="128" y1="128" x2="219.8" y2="75" stroke="#818cf8" stroke-width="0.8" opacity="0.18"/>
+  <line x1="128" y1="128" x2="36.2" y2="75" stroke="#22d3ee" stroke-width="0.8" opacity="0.18"/>
+  <line x1="128" y1="128" x2="219.8" y2="181" stroke="#a78bfa" stroke-width="0.8" opacity="0.18"/>
+  <line x1="128" y1="128" x2="36.2" y2="181" stroke="#818cf8" stroke-width="0.8" opacity="0.18"/>
+
+  <!-- ══════════════════════════════
+       Stylized "S" glyph from nodes
+  ══════════════════════════════ -->
+  <!-- The S is built from two arcs + nodes forming a flowing circuit S -->
+  <!-- Upper arc: left-to-right, center roughly 128,100 -->
+  <!-- Lower arc: right-to-left, center roughly 128,156 -->
+
+  <!-- Upper half of S: arc going from top-left to center-right -->
+  <path
+    d="M 98,88 C 98,72 162,72 162,88 C 162,104 98,104 98,120 C 98,128 108,132 128,132"
+    fill="none"
+    stroke="url(#brand-grad-h)"
+    stroke-width="6"
+    stroke-linecap="round"
+    filter="url(#glow-sm)"
+  />
+
+  <!-- Lower half of S: arc continuing from center to bottom-right -->
+  <path
+    d="M 128,124 C 148,124 158,128 158,136 C 158,152 94,152 94,168 C 94,184 158,184 158,168"
+    fill="none"
+    stroke="url(#brand-grad-h)"
+    stroke-width="6"
+    stroke-linecap="round"
+    filter="url(#glow-sm)"
+  />
+
+  <!-- Node dots on S path key points -->
+  <circle cx="98" cy="88" r="4.5" fill="#22d3ee" opacity="0.85" filter="url(#glow-sm)"/>
+  <circle cx="162" cy="88" r="3.5" fill="#818cf8" opacity="0.75" filter="url(#glow-sm)"/>
+  <circle cx="128" cy="128" r="5" fill="#818cf8" opacity="0.9" filter="url(#glow-lg)"/>
+  <circle cx="94" cy="168" r="3.5" fill="#818cf8" opacity="0.75" filter="url(#glow-sm)"/>
+  <circle cx="158" cy="168" r="4.5" fill="#a78bfa" opacity="0.85" filter="url(#glow-sm)"/>
+
+  <!-- Center glow dot -->
+  <circle cx="128" cy="128" r="2" fill="white" opacity="0.6"/>
+
+  <!-- Bottom wordmark: SGRR  -->
+  <text x="128" y="252" text-anchor="middle"
+    font-family="-apple-system, 'Segoe UI', Roboto, sans-serif"
+    font-size="10" font-weight="700" letter-spacing="4"
+    fill="url(#brand-grad)" opacity="0.75">SGRR</text>
+</svg>

@@ -1,0 +1,53 @@
+# ── SECRETS — NE JAMAIS COMMITER ────────────────────────────────────
+# Hard-block. Tout ce qui pourrait contenir une clé, un token, un credential.
+.credentials.json
+*.credentials.json
+credentials.json
+*.env
+.env
+.env.*
+settings.local.json
+*.local.json
+claude-office-config.env
+*secret*
+*token*
+*apikey*
+*api-key*
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+*service-account*.json
+gcp-*.json
+# Formes de tokens Shopify / Stripe / OpenAI / Anthropic / GitHub
+shpat_*
+shpss_*
+sk-*
+rk_*
+ghp_*
+gho_*
+
+# ── DOSSIERS SENSIBLES ──────────────────────────────────────────────
+.aws/
+.ssh/
+.gnupg/
+
+# ── BRUIT LOCAL / RUNTIME ───────────────────────────────────────────
+history.jsonl
+*.log
+*.bak
+*.bak-*
+cache/
+debug/
+shell-snapshots/
+session-env/
+sessions/
+todos/
+file-history/
+paste-cache/
+projects/
+node_modules/
+.DS_Store
+Thumbs.db

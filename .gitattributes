@@ -1,0 +1,18 @@
+# Fins de ligne déterministes — un pote qui clone sur Mac/Linux ne doit pas
+# récupérer des scripts cassés par des \r (CRLF).
+* text=auto eol=lf
+
+# Scripts shell + hook git : LF obligatoire (sinon le shebang casse sous Unix).
+*.sh            text eol=lf
+*.bash          text eol=lf
+scripts/hooks/* text eol=lf
+
+# Scripts PowerShell : CRLF (Windows natif).
+*.ps1 text eol=crlf
+
+# Binaires éventuels — pas de normalisation.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary

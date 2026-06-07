@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360">
+  <defs>
+    <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="brand-grad-v" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="bg-fade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="60%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="dot-grid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.8" fill="#22d3ee" opacity="0.12"/>
+    </pattern>
+    <mask id="right-fade">
+      <linearGradient id="mask-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="black"/>
+        <stop offset="40%" stop-color="white"/>
+        <stop offset="100%" stop-color="white"/>
+      </linearGradient>
+      <rect width="1280" height="360" fill="url(#mask-grad)"/>
+    </mask>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="360" fill="url(#bg-fade)"/>
+
+  <!-- Dot grid on right side -->
+  <rect x="640" y="0" width="640" height="360" fill="url(#dot-grid)" mask="url(#right-fade)" opacity="0.7"/>
+
+  <!-- Decorative circuit nodes — right panel -->
+  <!-- Horizontal rails -->
+  <line x1="820" y1="100" x2="1180" y2="100" stroke="#22d3ee" stroke-width="0.6" opacity="0.18"/>
+  <line x1="780" y1="180" x2="1220" y2="180" stroke="#818cf8" stroke-width="0.6" opacity="0.18"/>
+  <line x1="820" y1="260" x2="1180" y2="260" stroke="#a78bfa" stroke-width="0.6" opacity="0.18"/>
+  <!-- Vertical connectors -->
+  <line x1="900" y1="100" x2="900" y2="260" stroke="#22d3ee" stroke-width="0.6" opacity="0.12"/>
+  <line x1="1060" y1="100" x2="1060" y2="260" stroke="#818cf8" stroke-width="0.6" opacity="0.12"/>
+  <line x1="1160" y1="100" x2="1160" y2="260" stroke="#a78bfa" stroke-width="0.6" opacity="0.12"/>
+  <!-- Node dots -->
+  <circle cx="900" cy="100" r="4" fill="none" stroke="#22d3ee" stroke-width="1.2" opacity="0.5"/>
+  <circle cx="900" cy="100" r="1.5" fill="#22d3ee" opacity="0.6"/>
+  <circle cx="1060" cy="100" r="4" fill="none" stroke="#818cf8" stroke-width="1.2" opacity="0.5"/>
+  <circle cx="1060" cy="100" r="1.5" fill="#818cf8" opacity="0.6"/>
+  <circle cx="1160" cy="100" r="4" fill="none" stroke="#a78bfa" stroke-width="1.2" opacity="0.5"/>
+  <circle cx="1160" cy="100" r="1.5" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="900" cy="180" r="4" fill="none" stroke="#22d3ee" stroke-width="1.2" opacity="0.4"/>
+  <circle cx="900" cy="180" r="1.5" fill="#22d3ee" opacity="0.5"/>
+  <circle cx="1060" cy="180" r="6" fill="none" stroke="#818cf8" stroke-width="1.2" opacity="0.45"/>
+  <circle cx="1060" cy="180" r="2" fill="#818cf8" opacity="0.55"/>
+  <circle cx="1160" cy="180" r="4" fill="none" stroke="#a78bfa" stroke-width="1.2" opacity="0.4"/>
+  <circle cx="1160" cy="180" r="1.5" fill="#a78bfa" opacity="0.5"/>
+  <circle cx="900" cy="260" r="4" fill="none" stroke="#22d3ee" stroke-width="1.2" opacity="0.4"/>
+  <circle cx="900" cy="260" r="1.5" fill="#22d3ee" opacity="0.5"/>
+  <circle cx="1060" cy="260" r="4" fill="none" stroke="#818cf8" stroke-width="1.2" opacity="0.4"/>
+  <circle cx="1060" cy="260" r="1.5" fill="#818cf8" opacity="0.5"/>
+  <circle cx="1160" cy="260" r="4" fill="none" stroke="#a78bfa" stroke-width="1.2" opacity="0.4"/>
+  <circle cx="1160" cy="260" r="1.5" fill="#a78bfa" opacity="0.5"/>
+  <!-- Extra scattered nodes -->
+  <circle cx="970" cy="140" r="2.5" fill="none" stroke="#22d3ee" stroke-width="1" opacity="0.3"/>
+  <circle cx="970" cy="140" r="1" fill="#22d3ee" opacity="0.4"/>
+  <circle cx="1110" cy="220" r="2.5" fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.3"/>
+  <circle cx="1110" cy="220" r="1" fill="#a78bfa" opacity="0.4"/>
+
+  <!-- Left content area -->
+  <!-- Bracket accent top-left -->
+  <path d="M 80 78 L 64 78 L 64 96" fill="none" stroke="url(#brand-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bracket accent bottom-left -->
+  <path d="M 80 282 L 64 282 L 64 264" fill="none" stroke="url(#brand-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Wordmark -->
+  <text
+    x="80" y="182"
+    font-family="-apple-system, 'Segoe UI', Roboto, sans-serif"
+    font-size="84"
+    font-weight="800"
+    letter-spacing="-1"
+    fill="url(#brand-grad)"
+    filter="url(#glow)"
+  >SGRR AGI V2</text>
+
+  <!-- Gradient underline bar -->
+  <rect x="80" y="200" width="540" height="2.5" rx="1.25" fill="url(#brand-grad)" opacity="0.85"/>
+
+  <!-- Tagline -->
+  <text
+    x="80" y="244"
+    font-family="-apple-system, 'Segoe UI', Roboto, sans-serif"
+    font-size="20"
+    font-weight="400"
+    letter-spacing="0.2"
+    fill="#e6edf3"
+    opacity="0.82"
+  >Le scaffold qui transforme Claude Code en agent autonome.</text>
+
+  <!-- Subtle label bottom-right -->
+  <text
+    x="1200" y="338"
+    font-family="-apple-system, 'Segoe UI', Roboto, sans-serif"
+    font-size="11"
+    font-weight="400"
+    fill="#7d8590"
+    text-anchor="end"
+    opacity="0.55"
+  >SGRR AGI V2 · Claude Code Power-Rig</text>
+</svg>
