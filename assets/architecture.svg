@@ -31,29 +31,29 @@
   <text x="500" y="44" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="700" letter-spacing="0.5" fill="#e6edf3">Architecture — SGRR AGI V2</text>
   <rect x="200" y="52" width="600" height="1.5" rx="0.75" fill="url(#brand-grad)" opacity="0.5"/>
 
-  <!-- ═══ SECTION 1: comment une Skill se déclenche ═══ -->
-  <text x="500" y="80" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="500" fill="#7d8590" letter-spacing="1.5">DÉCLENCHEMENT D'UNE SKILL — 2 chemins</text>
+  <!-- ═══ SECTION 1: how a Skill is triggered ═══ -->
+  <text x="500" y="80" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="500" fill="#7d8590" letter-spacing="1.5">SKILL TRIGGER — 2 paths</text>
 
   <!-- Box: Message (trigger) -->
   <rect x="56" y="98" width="132" height="72" rx="8" fill="#161b22" stroke="#22d3ee" stroke-width="1.2" filter="url(#box-shadow)"/>
-  <text x="122" y="126" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#22d3ee">Tout message</text>
-  <text x="122" y="146" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#7d8590">Claude l'évalue</text>
-  <text x="122" y="160" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#7d8590">à chaque tour</text>
+  <text x="122" y="126" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#22d3ee">Any message</text>
+  <text x="122" y="146" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#7d8590">Claude evaluates</text>
+  <text x="122" y="160" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#7d8590">each turn</text>
 
   <!-- Top lane: Commande → Agent → Skill -->
   <rect x="252" y="104" width="150" height="50" rx="8" fill="#161b22" stroke="#22d3ee" stroke-width="1.1" filter="url(#box-shadow)"/>
-  <text x="327" y="125" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#22d3ee">Commande</text>
-  <text x="327" y="142" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">/slash · optionnelle</text>
+  <text x="327" y="125" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#22d3ee">Command</text>
+  <text x="327" y="142" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">/slash · optional</text>
 
   <rect x="442" y="104" width="178" height="50" rx="8" fill="#161b22" stroke="#818cf8" stroke-width="1.1" filter="url(#box-shadow)"/>
   <text x="531" y="125" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#818cf8">Agent</text>
-  <text x="531" y="142" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">sous-agent · contexte isolé</text>
+  <text x="531" y="142" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">subagent · isolated context</text>
 
   <!-- Skill box (tall, target of both lanes) -->
   <rect x="700" y="98" width="226" height="86" rx="9" fill="#12101c" stroke="#a78bfa" stroke-width="1.4" filter="url(#box-shadow)"/>
   <text x="813" y="128" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700" fill="#a78bfa">Skill</text>
-  <text x="813" y="148" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#7d8590">savoir / procédure</text>
-  <text x="813" y="163" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#7d8590">réutilisable, injectée</text>
+  <text x="813" y="148" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#7d8590">knowledge / procedure</text>
+  <text x="813" y="163" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#7d8590">reusable, injected</text>
 
   <!-- Arrows: orchestration lane -->
   <line x1="188" y1="126" x2="252" y2="126" stroke="url(#arrow-grad-h)" stroke-width="1.7" marker-end="url(#arrowhead)"/>
@@ -64,49 +64,49 @@
   <!-- Arrow: DIRECT / auto-invocation (no command) -->
   <path d="M150,170 L150,196 L690,196" fill="none" stroke="#22d3ee" stroke-width="1.7" stroke-dasharray="5 3" marker-end="url(#arrowhead-cyan)"/>
   <line x1="690" y1="196" x2="700" y2="176" stroke="#22d3ee" stroke-width="1.7" stroke-dasharray="5 3"/>
-  <text x="430" y="212" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600" fill="#22d3ee">auto-invocation — Claude déclenche la skill dès qu'elle est pertinente, SANS commande</text>
+  <text x="430" y="212" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600" fill="#22d3ee">auto-invocation — Claude triggers the skill when relevant, WITHOUT a command</text>
 
   <!-- ═══ MODEL band ═══ -->
   <rect x="80" y="238" width="840" height="46" rx="8" fill="#0f1318" stroke="#22d3ee" stroke-width="1" stroke-dasharray="4 3" opacity="0.9"/>
-  <text x="500" y="266" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#e6edf3"><tspan fill="#7d8590" font-size="10" letter-spacing="1.5">MODÈLE   </tspan><tspan fill="#22d3ee">Opus</tspan><tspan fill="#7d8590"> boucle principale   ·   </tspan><tspan fill="#818cf8">Sonnet</tspan><tspan fill="#7d8590"> sous-agents (config CLAUDE_CODE_SUBAGENT_MODEL)</tspan></text>
+  <text x="500" y="266" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#e6edf3"><tspan fill="#7d8590" font-size="10" letter-spacing="1.5">MODEL   </tspan><tspan fill="#22d3ee">Opus</tspan><tspan fill="#7d8590"> main loop   ·   </tspan><tspan fill="#818cf8">Sonnet</tspan><tspan fill="#7d8590"> subagents (config CLAUDE_CODE_SUBAGENT_MODEL)</tspan></text>
 
   <!-- connector -->
   <line x1="500" y1="284" x2="500" y2="312" stroke="#7d8590" stroke-width="1" stroke-dasharray="3 2" opacity="0.3"/>
 
   <!-- ═══ FOUNDATIONS ═══ -->
-  <text x="500" y="308" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="500" fill="#7d8590" letter-spacing="1.5">LES 6 FONDATIONS</text>
+  <text x="500" y="308" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="500" fill="#7d8590" letter-spacing="1.5">THE 6 FOUNDATIONS</text>
 
   <!-- 1 settings.json -->
   <rect x="50" y="320" width="140" height="92" rx="7" fill="#161b22" stroke="#30363d" stroke-width="1" filter="url(#box-shadow)"/>
   <rect x="50" y="320" width="140" height="3" rx="1.5" fill="#22d3ee" opacity="0.7"/>
   <text x="120" y="347" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#e6edf3">settings.json</text>
-  <text x="120" y="366" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">Filet de permissions</text>
+  <text x="120" y="366" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">Permission layer</text>
   <text x="120" y="381" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">allow · ask · deny</text>
-  <text x="120" y="401" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#22d3ee" opacity="0.7">la seule loi réelle</text>
+  <text x="120" y="401" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#22d3ee" opacity="0.7">the only real law</text>
 
   <!-- 2 Hooks -->
   <rect x="202" y="320" width="140" height="92" rx="7" fill="#161b22" stroke="#30363d" stroke-width="1" filter="url(#box-shadow)"/>
   <rect x="202" y="320" width="140" height="3" rx="1.5" fill="#818cf8" opacity="0.7"/>
   <text x="272" y="347" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#e6edf3">Hooks</text>
-  <text x="272" y="366" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">Injection de contexte</text>
-  <text x="272" y="381" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">+ tips à chaque tour</text>
+  <text x="272" y="366" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">Context injection</text>
+  <text x="272" y="381" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">+ tips each turn</text>
   <text x="272" y="401" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#818cf8" opacity="0.7">lifecycle</text>
 
-  <!-- 3 Mémoire -->
+  <!-- 3 Memory -->
   <rect x="354" y="320" width="140" height="92" rx="7" fill="#161b22" stroke="#30363d" stroke-width="1" filter="url(#box-shadow)"/>
   <rect x="354" y="320" width="140" height="3" rx="1.5" fill="#a78bfa" opacity="0.7"/>
-  <text x="424" y="347" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#e6edf3">Mémoire</text>
-  <text x="424" y="366" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">Fichiers persistants</text>
+  <text x="424" y="347" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#e6edf3">Memory</text>
+  <text x="424" y="366" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">Persistent files</text>
   <text x="424" y="381" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">+ index MEMORY.md</text>
-  <text x="424" y="401" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#a78bfa" opacity="0.7">persistance</text>
+  <text x="424" y="401" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#a78bfa" opacity="0.7">persistence</text>
 
   <!-- 4 MCP -->
   <rect x="506" y="320" width="140" height="92" rx="7" fill="#161b22" stroke="#30363d" stroke-width="1" filter="url(#box-shadow)"/>
   <rect x="506" y="320" width="140" height="3" rx="1.5" fill="#22d3ee" opacity="0.7"/>
   <text x="576" y="347" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#e6edf3">MCP</text>
   <text x="576" y="366" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">context7 · playwright</text>
-  <text x="576" y="381" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">docs live · navigateur</text>
-  <text x="576" y="401" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#22d3ee" opacity="0.7">outils externes</text>
+  <text x="576" y="381" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">live docs · browser</text>
+  <text x="576" y="401" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#22d3ee" opacity="0.7">external tools</text>
 
   <!-- 5 Plugins -->
   <rect x="658" y="320" width="140" height="92" rx="7" fill="#161b22" stroke="#30363d" stroke-width="1" filter="url(#box-shadow)"/>
@@ -116,11 +116,12 @@
   <text x="728" y="381" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">feature-dev · …</text>
   <text x="728" y="401" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#818cf8" opacity="0.7">skills + agents</text>
 
+
   <!-- 6 Rules -->
   <rect x="810" y="320" width="140" height="92" rx="7" fill="#161b22" stroke="#30363d" stroke-width="1" filter="url(#box-shadow)"/>
   <rect x="810" y="320" width="140" height="3" rx="1.5" fill="#a78bfa" opacity="0.7"/>
   <text x="880" y="347" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#e6edf3">Rules</text>
-  <text x="880" y="366" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">Contexte paresseux</text>
+  <text x="880" y="366" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">Lazy context</text>
   <text x="880" y="381" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#7d8590">paths: · CLAUDE.md</text>
   <text x="880" y="401" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#a78bfa" opacity="0.7">instruction</text>
 
@@ -136,9 +137,9 @@
 
   <!-- Output -->
   <rect x="280" y="456" width="440" height="56" rx="8" fill="#0f1318" stroke="url(#brand-grad)" stroke-width="1.5" filter="url(#box-shadow)"/>
-  <text x="500" y="479" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="500" fill="#7d8590" letter-spacing="1">SORTIE</text>
-  <text x="500" y="498" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#e6edf3">Code · Fichiers · Actions · Commits · Deploy</text>
+  <text x="500" y="479" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="500" fill="#7d8590" letter-spacing="1">OUTPUT</text>
+  <text x="500" y="498" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#e6edf3">Code · Files · Actions · Commits · Deploy</text>
 
   <!-- Footer with creator credit -->
-  <text x="500" y="556" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#7d8590" opacity="0.7">Créé par <tspan fill="#a78bfa">SGRR</tspan>  ·  SGRR AGI V2 — Claude Code Power-Rig Scaffold</text>
+  <text x="500" y="556" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#7d8590" opacity="0.7">Created by <tspan fill="#a78bfa">SGRR</tspan>  ·  SGRR AGI V2 — Claude Code Power-Rig Scaffold</text>
 </svg>

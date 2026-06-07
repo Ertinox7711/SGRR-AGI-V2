@@ -1,13 +1,13 @@
-# Config gitleaks — SGRR AGI V2
-# Étend les règles par défaut avec des motifs spécifiques au domaine.
-# Doc : https://github.com/gitleaks/gitleaks
+# gitleaks config — SGRR AGI V2
+# Extends the default ruleset with domain-specific patterns.
+# Docs: https://github.com/gitleaks/gitleaks
 
 title = "SGRR AGI V2 secret scan"
 
 [extend]
-useDefault = true   # garde les ~150 règles intégrées (AWS, GitHub, Stripe, etc.)
+useDefault = true   # keep the ~150 built-in rules (AWS, GitHub, Stripe, etc.)
 
-# --- Règles custom -----------------------------------------------------------
+# --- Custom rules ------------------------------------------------------------
 
 [[rules]]
 id = "shopify-access-token"
@@ -39,20 +39,20 @@ description = "Absolute user home path (leaks identity)"
 regex = '''([A-Za-z]:\\Users\\[^\\/<>"' ]+)|(/home/[^/<>"' ]+)|(/Users/[^/<>"' ]+)'''
 tags = ["pii", "path"]
 
-# --- Allowlist : ce qui n'est PAS une fuite --------------------------------
+# --- Allowlist: what is NOT a leak ------------------------------------------
 
 [allowlist]
-description = "Placeholders, exemples, et chemins génériques autorisés"
+description = "Placeholders, examples, and generic paths that are allowed"
 regexes = [
   '''<[A-Z_]+>''',                         # <PLACEHOLDER>, <YOUR_NAME>...
-  '''users\.noreply\.github\.com''',       # email noreply GitHub
+  '''users\.noreply\.github\.com''',       # GitHub noreply email
   '''example\.(com|org)''',
-  '''/home/(user|runner|youruser)\b''',    # chemins d'exemple génériques
+  '''/home/(user|runner|youruser)\b''',    # generic example paths
   '''[A-Za-z]:\\Users\\(you|user|name)\b''',
   '''sk-ant-api03-EXAMPLE''',
 ]
 paths = [
-  '''\.gitleaks\.toml$''',                 # ce fichier contient les motifs eux-mêmes
-  '''SECURITE\.md$''',                     # le doc sécurité cite des formes de tokens
-  '''(^|/)assets/''',                      # SVG décoratifs
+  '''\.gitleaks\.toml$''',                 # this file holds the patterns themselves
+  '''SECURITY\.md$''',                     # the security doc cites token shapes
+  '''(^|/)assets/''',                      # decorative SVGs
 ]

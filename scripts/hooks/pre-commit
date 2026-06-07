@@ -1,46 +1,46 @@
 #!/usr/bin/env bash
-# pre-commit — barrage anti-fuite (SGRR AGI V2)
-# Scanne le diff STAGED. Refuse le commit si un motif de secret / PII apparaît.
-# Installé par install.ps1 / install.sh dans .git/hooks/pre-commit.
-# Git for Windows fournit bash, donc ce hook marche aussi sous Windows.
+# pre-commit — leak guard (SGRR AGI V2)
+# Scans the STAGED diff. Rejects the commit if a secret / PII pattern shows up.
+# Installed by install.ps1 / install.sh into .git/hooks/pre-commit.
+# Git for Windows ships bash, so this hook works on Windows too.
 set -euo pipefail
 
-# Fichiers staged (Added/Copied/Modified), en ignorant les binaires gérés par .gitignore.
+# Staged files (Added/Copied/Modified), ignoring binaries handled by .gitignore.
 staged=$(git diff --cached --name-only --diff-filter=ACM)
 [ -z "$staged" ] && exit 0
 
-# Le contenu staged à inspecter (diff ajoutées uniquement).
+# The staged content to inspect (added lines only).
 added=$(git diff --cached --unified=0 -- $staged | grep -E '^\+' | grep -Ev '^\+\+\+' || true)
 
 fail=0
-flag() { printf '\033[31m[pre-commit] FUITE: %s\033[0m\n' "$1" >&2; fail=1; }
+flag() { printf '\033[31m[pre-commit] LEAK: %s\033[0m\n' "$1" >&2; fail=1; }
 
-# Motifs de secrets (les placeholders <...> et noreply sont exclus plus bas)
-echo "$added" | grep -Eq 'shp(at|ca|pa|ss)_[a-fA-F0-9]{32}'        && flag "token Shopify"
-echo "$added" | grep -Eq 'sk-ant-[a-zA-Z0-9_-]{20,}'               && flag "clé Anthropic"
-echo "$added" | grep -Eq 'sk-[a-zA-Z0-9]{20,}T3BlbkFJ'             && flag "clé OpenAI"
-echo "$added" | grep -Eq 'gh[pousr]_[A-Za-z0-9]{36,}'              && flag "token GitHub"
-echo "$added" | grep -Eq 'AKIA[0-9A-Z]{16}'                        && flag "clé AWS"
-echo "$added" | grep -Eq 'xox[baprs]-[A-Za-z0-9-]{10,}'            && flag "token Slack"
+# Secret patterns (<...> placeholders and noreply are excluded below)
+echo "$added" | grep -Eq 'shp(at|ca|pa|ss)_[a-fA-F0-9]{32}'        && flag "Shopify token"
+echo "$added" | grep -Eq 'sk-ant-[a-zA-Z0-9_-]{20,}'               && flag "Anthropic key"
+echo "$added" | grep -Eq 'sk-[a-zA-Z0-9]{20,}T3BlbkFJ'             && flag "OpenAI key"
+echo "$added" | grep -Eq 'gh[pousr]_[A-Za-z0-9]{36,}'              && flag "GitHub token"
+echo "$added" | grep -Eq 'AKIA[0-9A-Z]{16}'                        && flag "AWS key"
+echo "$added" | grep -Eq 'xox[baprs]-[A-Za-z0-9-]{10,}'            && flag "Slack token"
 echo "$added" | grep -Eiq '(api[_-]?key|secret|password|passwd|token)[[:space:]]*[:=][[:space:]]*['"'"'"][A-Za-z0-9_-]{24,}['"'"'"]' \
-  && ! echo "$added" | grep -Eq '<[A-Z_]+>' && flag "secret générique assigné"
+  && ! echo "$added" | grep -Eq '<[A-Z_]+>' && flag "generic assigned secret"
 
-# PII : chemins home absolus
+# PII: absolute home paths
 echo "$added" | grep -Eq '([A-Za-z]:\\Users\\[^\\/<> ]+)|(/home/[^/<> ]+)|(/Users/[^/<> ]+)' \
-  && ! echo "$added" | grep -Eq '(you|user|name|runner)\b' && flag "chemin home absolu"
+  && ! echo "$added" | grep -Eq '(you|user|name|runner)\b' && flag "absolute home path"
 
-# PII : email réel (autorise noreply / example)
+# PII: real email (noreply / example allowed)
 if echo "$added" | grep -Eioq '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'; then
   if echo "$added" | grep -Eio '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' \
        | grep -Eiv '(noreply|users\.noreply\.github\.com|example\.(com|org)|@placeholder)' | grep -q '@'; then
-    flag "email réel"
+    flag "real email"
   fi
 fi
 
 if [ "$fail" -ne 0 ]; then
   echo "" >&2
-  echo "Commit refusé : retire le secret/PII ci-dessus, ou si c'est un faux positif," >&2
-  echo "ajuste .gitleaks.toml puis 'git commit --no-verify' (en connaissance de cause)." >&2
+  echo "Commit rejected: remove the secret/PII above, or if it's a false positive," >&2
+  echo "adjust .gitleaks.toml then 'git commit --no-verify' (knowing what you're doing)." >&2
   exit 1
 fi
 exit 0

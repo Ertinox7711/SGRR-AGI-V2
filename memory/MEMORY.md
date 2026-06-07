@@ -1,31 +1,31 @@
 <!--
-  MEMORY.md — l'index de ta mémoire persistante, basée fichiers.
-  Chargé dans le contexte à chaque session. UNE LIGNE par mémoire. Aucun contenu de mémoire ici.
+  MEMORY.md — the index of your persistent, file-based memory.
+  Loaded into context at every session. ONE LINE per memory. No memory content here.
 
-  Chaque mémoire est son propre fichier dans ce dossier, avec un frontmatter :
+  Each memory is its own file in this folder, with a frontmatter block:
 
   ---
-  name: <slug-court-en-kebab-case>
-  description: <résumé une ligne — sert à juger la pertinence au rappel>
+  name: <short-kebab-case-slug>
+  description: <one-line summary — used to judge relevance at recall time>
   metadata:
     type: user | feedback | project | reference
   ---
 
-  <le fait. Pour feedback/project, enchaîne avec des lignes **Why:** et **How to apply:**.
-   Lie les mémoires liées avec [[leur-name]].>
+  <the fact. For feedback/project entries, follow with **Why:** and **How to apply:** lines.
+   Link related memories with [[their-name]].>
 
-  Types :
-    user      — qui est l'utilisateur (rôle, expertise, préférences)
-    feedback  — guidance sur ta façon de bosser (corrections + approches validées) ; inclus le pourquoi
-    project   — travail en cours / objectifs / contraintes non dérivables du code ou du git
-    reference — pointeurs vers des ressources externes (URLs, dashboards, tickets)
+  Types:
+    user      — who the user is (role, expertise, preferences)
+    feedback  — guidance on how you work (corrections + validated approaches); include the why
+    project   — ongoing work / goals / constraints not derivable from code or git
+    reference — pointers to external resources (URLs, dashboards, tickets)
 
-  Ajoute une ligne pointeur ci-dessous par mémoire :  - [Titre](fichier.md) — accroche
-  Supprime ce bloc de commentaire dès que tu as de vraies mémoires.
+  Add one pointer line below per memory:  - [Title](file.md) — one-liner hook
+  Delete this comment block once you have real memories.
 -->
 
-# Index Mémoire
+# Memory Index
 
-<!-- Exemple (supprime quand tu en ajoutes des vraies) :
-- [Commande de build](build-command.md) — le projet build avec `pnpm turbo build`, pas `pnpm build`
+<!-- Example (delete when you add real ones):
+- [Build command](build-command.md) — project builds with `pnpm turbo build`, not `pnpm build`
 -->

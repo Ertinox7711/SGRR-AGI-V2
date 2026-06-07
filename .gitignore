@@ -1,5 +1,5 @@
-# ── SECRETS — NE JAMAIS COMMITER ────────────────────────────────────
-# Hard-block. Tout ce qui pourrait contenir une clé, un token, un credential.
+# ── SECRETS — NEVER COMMIT ──────────────────────────────────────────
+# Hard-block. Anything that could hold a key, a token, or a credential.
 .credentials.json
 *.credentials.json
 credentials.json
@@ -8,7 +8,6 @@ credentials.json
 .env.*
 settings.local.json
 *.local.json
-claude-office-config.env
 *secret*
 *token*
 *apikey*
@@ -21,7 +20,7 @@ id_rsa
 id_ed25519
 *service-account*.json
 gcp-*.json
-# Formes de tokens Shopify / Stripe / OpenAI / Anthropic / GitHub
+# Shopify / Stripe / OpenAI / Anthropic / GitHub token shapes
 shpat_*
 shpss_*
 sk-*
@@ -30,16 +29,16 @@ ghp_*
 gho_*
 
 # ── EXCEPTIONS ──────────────────────────────────────────────────────
-# Fichiers légitimes du repo dont le NOM matche un motif ci-dessus
-# (ex : "secret-scan.yml" contient "secret" mais c'est notre workflow).
+# Legit repo files whose NAME matches a pattern above
+# (e.g. "secret-scan.yml" contains "secret" but it's our workflow).
 !.github/workflows/secret-scan.yml
 
-# ── DOSSIERS SENSIBLES ──────────────────────────────────────────────
+# ── SENSITIVE FOLDERS ───────────────────────────────────────────────
 .aws/
 .ssh/
 .gnupg/
 
-# ── BRUIT LOCAL / RUNTIME ───────────────────────────────────────────
+# ── LOCAL / RUNTIME NOISE ───────────────────────────────────────────
 history.jsonl
 *.log
 *.bak

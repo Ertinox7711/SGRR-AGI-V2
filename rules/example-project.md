@@ -1,25 +1,25 @@
 ---
-paths: ["**/mon-projet/**"]
+paths: ["**/<your-project>/**"]
 ---
-# Règle de projet exemple (chargement paresseux)
+# Example project rule (lazy-loaded)
 
-Ce fichier se charge dans le contexte **uniquement** quand Claude lit ou édite un
-fichier dont le chemin matche le glob `paths:` ci-dessus — contrairement à
-`CLAUDE.md`, qui se charge à chaque session.
+This file is loaded into context **only** when Claude reads or edits a file
+whose path matches the `paths:` glob above — unlike `CLAUDE.md`, which loads
+at every session.
 
-Utilise ce patron pour garder l'autonomie spécifique d'un projet hors de ton contexte global :
+Use this pattern to keep project-specific behavior out of your global context:
 
-- Un fichier de règle par projet, scopé par `paths:`.
-- Mets ici les instructions « comment se comporter dans CE projet » (commandes de build,
-  étapes de deploy, contraintes métier, pointeur vers la mémoire maître).
-- Ton `CLAUDE.md` global reste léger et universel.
+- One rule file per project, scoped with `paths:`.
+- Put "how to behave in THIS project" instructions here (build commands,
+  deploy steps, business constraints, pointer to the master memory).
+- Your global `CLAUDE.md` stays light and universal.
 
-Remplace `mon-projet` ci-dessus par le vrai nom de ton dossier projet, et réécris le
-corps ci-dessous pour ce projet.
+Replace `<your-project>` above with the real name of your project folder, and
+rewrite the body below for that project.
 
-## mon-projet — autonomie
+## <your-project> — autonomy
 
-- Lis le `CLAUDE.md` de ce projet d'abord, s'il existe (mémoire maître).
-- Autonome de bout en bout : déduis l'intention, agis. Confirme seulement le
-  destructif + le visible-aux-autres.
-- Vérifie avant « fait » : run le build / les tests, lis le diff.
+- Read this project's `CLAUDE.md` first if it exists (master memory).
+- End-to-end autonomous: infer intent, act. Confirm only destructive actions
+  and anything visible to others.
+- Verify before declaring done: run the build / tests, read the diff.

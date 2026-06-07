@@ -2,11 +2,11 @@
 <#
   verify-install.ps1 — SGRR AGI V2 (Windows)
 
-  Self-test de PARITE : prouve que ton install ~/.claude applique EXACTEMENT
-  la meme config et la meme philosophie que le rig d'origine. Pas "a peu pres".
+  PARITY self-test: proves your ~/.claude install applies EXACTLY the same config and
+  the same philosophy as the original rig. Not "roughly".
 
-  Sortie : une ligne par controle (OK / FAIL), un verdict, un code retour.
-    exit 0 = parite totale ; exit 1 = au moins un ecart.
+  Output: one line per check (OK / FAIL), a verdict, an exit code.
+    exit 0 = full parity ; exit 1 = at least one gap.
 
   Usage:  ./scripts/verify-install.ps1
 #>
@@ -19,73 +19,80 @@ function Ok($m)   { Write-Host "  [OK]   $m" -ForegroundColor Green; $script:pas
 function Bad($m)  { Write-Host "  [FAIL] $m" -ForegroundColor Red;   $script:fail++ }
 function Head($m) { Write-Host "`n$m" -ForegroundColor Cyan }
 
-Head "SGRR AGI V2 — self-test de parite ($claude)"
+Head "SGRR AGI V2 — parity self-test ($claude)"
 
-# 1. settings.json existe + JSON valide
+# 1. settings.json exists + valid JSON
 $settingsPath = Join-Path $claude 'settings.json'
 $settings = $null
 if (Test-Path $settingsPath) {
-  try { $settings = Get-Content $settingsPath -Raw | ConvertFrom-Json; Ok "settings.json present et JSON valide" }
-  catch { Bad "settings.json present mais JSON INVALIDE : $($_.Exception.Message)" }
-} else { Bad "settings.json absent" }
+  try { $settings = Get-Content $settingsPath -Raw | ConvertFrom-Json; Ok "settings.json present and valid JSON" }
+  catch { Bad "settings.json present but INVALID JSON: $($_.Exception.Message)" }
+} else { Bad "settings.json missing" }
 
 if ($settings) {
-  # 2. Modele principal = opus
-  if ($settings.model -eq 'opus') { Ok "model = opus (intelligence max sur la boucle principale)" }
-  else { Bad "model = '$($settings.model)' (attendu : opus)" }
+  # 2. Main model = opus
+  if ($settings.model -eq 'opus') { Ok "model = opus (max intelligence on the main loop)" }
+  else { Bad "model = '$($settings.model)' (expected: opus)" }
 
-  # 3. Sous-agents sur Sonnet (facture / 5)
-  if ($settings.env.CLAUDE_CODE_SUBAGENT_MODEL -eq 'sonnet') { Ok "sous-agents = sonnet (cout grunt-work divise)" }
-  else { Bad "CLAUDE_CODE_SUBAGENT_MODEL = '$($settings.env.CLAUDE_CODE_SUBAGENT_MODEL)' (attendu : sonnet)" }
+  # 3. Sub-agents on Sonnet (billed / 5)
+  if ($settings.env.CLAUDE_CODE_SUBAGENT_MODEL -eq 'sonnet') { Ok "sub-agents = sonnet (grunt-work cost divided)" }
+  else { Bad "CLAUDE_CODE_SUBAGENT_MODEL = '$($settings.env.CLAUDE_CODE_SUBAGENT_MODEL)' (expected: sonnet)" }
 
-  # 4. 12 plugins actives
+  # 4. 12 plugins enabled
   $plugins = @()
   if ($settings.enabledPlugins) { $plugins = ($settings.enabledPlugins.PSObject.Properties | Where-Object { $_.Value -eq $true }).Name }
-  if ($plugins.Count -ge 12) { Ok "$($plugins.Count) plugins actives (>= 12 attendus)" }
-  else { Bad "$($plugins.Count) plugins actives (12 attendus — relance /plugin)" }
+  if ($plugins.Count -ge 12) { Ok "$($plugins.Count) plugins enabled (>= 12 expected)" }
+  else { Bad "$($plugins.Count) plugins enabled (12 expected — re-run /plugin)" }
 
-  # 5. Les 4 hooks d'injection de contexte
+  # 5. The 4 context-injection hooks
   $needHooks = 'UserPromptSubmit','SessionStart','PreCompact','Stop'
   $haveHooks = @(); if ($settings.hooks) { $haveHooks = $settings.hooks.PSObject.Properties.Name }
   $missing = $needHooks | Where-Object { $_ -notin $haveHooks }
-  if (-not $missing) { Ok "4 hooks presents (UserPromptSubmit/SessionStart/PreCompact/Stop)" }
-  else { Bad "hooks manquants : $($missing -join ', ')" }
+  if (-not $missing) { Ok "4 hooks present (UserPromptSubmit/SessionStart/PreCompact/Stop)" }
+  else { Bad "missing hooks: $($missing -join ', ')" }
 
-  # 6. Filet de permissions destructives
+  # 6. Destructive-permission safety net
   $askCount = 0; if ($settings.permissions.ask) { $askCount = @($settings.permissions.ask).Count }
-  if ($askCount -ge 10) { Ok "$askCount commandes destructives sous confirmation (permissions.ask)" }
-  else { Bad "permissions.ask trop court ($askCount) — garde-fous incomplets" }
+  if ($askCount -ge 10) { Ok "$askCount destructive commands gated behind confirmation (permissions.ask)" }
+  else { Bad "permissions.ask too short ($askCount) — safety net incomplete" }
 }
 
-# 7. CLAUDE.md present + signature SGRR
+# 7. CLAUDE.md present + SGRR signature
 $claudeMd = Join-Path $claude 'CLAUDE.md'
 if (Test-Path $claudeMd) {
-  if (Select-String -Path $claudeMd -Pattern 'SGRR AGI V2' -Quiet) { Ok "CLAUDE.md present (signature SGRR AGI V2 detectee)" }
-  else { Ok "CLAUDE.md present (signature absente — perso ou supprimee, OK)" }
-} else { Bad "CLAUDE.md absent" }
+  if (Select-String -Path $claudeMd -Pattern 'SGRR AGI V2' -Quiet) { Ok "CLAUDE.md present (SGRR AGI V2 signature detected)" }
+  else { Ok "CLAUDE.md present (signature absent — custom or removed, OK)" }
+} else { Bad "CLAUDE.md missing" }
 
-# 8. Memoire
-if (Test-Path (Join-Path $claude 'memory\MEMORY.md')) { Ok "memory/MEMORY.md present" } else { Bad "memory/MEMORY.md absent" }
+# 8. Memory
+if (Test-Path (Join-Path $claude 'memory\MEMORY.md')) { Ok "memory/MEMORY.md present" } else { Bad "memory/MEMORY.md missing" }
 
-# 9. Rules (contexte paresseux)
+# 9. Rules (lazy context)
 $rulesDir = Join-Path $claude 'rules'
 if ((Test-Path $rulesDir) -and (Get-ChildItem $rulesDir -Filter *.md -ErrorAction SilentlyContinue)) { Ok "rules/*.md present (lazy-loading paths:)" }
-else { Bad "rules/ vide ou absent" }
+else { Bad "rules/ empty or missing" }
 
-# 10. Guide local
-if (Test-Path (Join-Path $claude 'SGRR-GUIDE.md')) { Ok "SGRR-GUIDE.md present (guide d'utilisation local)" }
-else { Bad "SGRR-GUIDE.md absent (copie UTILISATION.md)" }
+# 10. Local guide
+if (Test-Path (Join-Path $claude 'SGRR-GUIDE.md')) { Ok "SGRR-GUIDE.md present (local usage guide)" }
+else { Bad "SGRR-GUIDE.md missing (copy USAGE.md)" }
 
-# 11. Veille des MAJ Claude Code (boucle d'auto-amelioration)
-if (Test-Path (Join-Path $claude 'scripts\check-cc-updates.ps1')) { Ok "veille MAJ presente (scripts/check-cc-updates.ps1)" }
-else { Bad "veille MAJ absente (copie scripts/check-cc-updates.ps1 -> ~/.claude/scripts/)" }
+# 11. Claude Code update watch (self-improvement loop)
+if (Test-Path (Join-Path $claude 'scripts\check-cc-updates.ps1')) { Ok "update watch present (scripts/check-cc-updates.ps1)" }
+else { Bad "update watch missing (copy scripts/check-cc-updates.ps1 -> ~/.claude/scripts/)" }
+
+# 12. Rig self-audit (/rig-audit command + periodic nudge)
+$auditCmd = Test-Path (Join-Path $claude 'commands\rig-audit.md')
+$auditNudge = Test-Path (Join-Path $claude 'scripts\rig-audit-nudge.ps1')
+if ($auditCmd -and $auditNudge) { Ok "rig self-audit present (/rig-audit command + periodic nudge)" }
+elseif ($auditCmd) { Bad "rig-audit nudge missing (copy scripts/rig-audit-nudge.ps1)" }
+else { Bad "/rig-audit command missing (copy commands/rig-audit.md -> ~/.claude/commands/)" }
 
 # Verdict
-Head "Resultat : $pass OK / $fail FAIL"
+Head "Result: $pass OK / $fail FAIL"
 if ($fail -eq 0) {
-  Write-Host "PARITE TOTALE. Ton Claude applique exactement le rig SGRR AGI V2." -ForegroundColor Green
+  Write-Host "FULL PARITY. Your Claude applies the SGRR AGI V2 rig exactly." -ForegroundColor Green
   exit 0
 } else {
-  Write-Host "ECART detecte. Corrige les [FAIL] ci-dessus puis relance." -ForegroundColor Yellow
+  Write-Host "GAP detected. Fix the [FAIL] lines above, then re-run." -ForegroundColor Yellow
   exit 1
 }

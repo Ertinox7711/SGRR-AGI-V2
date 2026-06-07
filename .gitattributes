@@ -1,16 +1,16 @@
-# Fins de ligne déterministes — un pote qui clone sur Mac/Linux ne doit pas
-# récupérer des scripts cassés par des \r (CRLF).
+# Deterministic line endings — a friend who clones on Mac/Linux must not
+# get scripts broken by \r (CRLF).
 * text=auto eol=lf
 
-# Scripts shell + hook git : LF obligatoire (sinon le shebang casse sous Unix).
+# Shell scripts + git hook: LF required (otherwise the shebang breaks on Unix).
 *.sh            text eol=lf
 *.bash          text eol=lf
 scripts/hooks/* text eol=lf
 
-# Scripts PowerShell : CRLF (Windows natif).
+# PowerShell scripts: CRLF (native Windows).
 *.ps1 text eol=crlf
 
-# Binaires éventuels — pas de normalisation.
+# Possible binaries — no normalization.
 *.png binary
 *.jpg binary
 *.jpeg binary

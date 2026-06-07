@@ -1,25 +1,25 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="SGRR AGI V2 — scaffold Claude Code" width="100%" />
+<img src="assets/banner.svg" alt="SGRR AGI V2 — Claude Code scaffold" width="100%" />
 
-# SGRR AGI V2 — le power-rig Claude Code
+# SGRR AGI V2 — the Claude Code power-rig
 
-**Transforme une install fraîche de Claude Code en agent autonome, proactif et de niveau « AGI ». En un seul prompt.**
+**Turn a fresh Claude Code install into an autonomous, proactive, "AGI"-grade agent. In a single prompt.**
 
-Config (`settings.json`), philosophie de comportement (`CLAUDE.md`), hooks d'injection de
-contexte, système de mémoire, manifeste de plugins/skills — **et** un pipeline de sécurité
-qui te laisse partager ton setup publiquement **sans fuiter une seule donnée perso**.
+Config (`settings.json`), behavioral philosophy (`CLAUDE.md`), context-injection
+hooks, a memory system, a plugin/skill manifest — **and** a security pipeline that
+lets you share your setup publicly **without leaking a single piece of personal data**.
 
-![Licence](https://img.shields.io/badge/licence-MIT-22d3ee)
+![License](https://img.shields.io/badge/license-MIT-22d3ee)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-ready-818cf8)
 ![Setup](https://img.shields.io/badge/setup-1_prompt-a78bfa)
-![Secrets](https://img.shields.io/badge/secrets-0_inclus-2ea043)
-![Langue](https://img.shields.io/badge/🇫🇷-natif-ef4444)
-![Parité](https://img.shields.io/badge/parité-self--test-eab308)
+![Secrets](https://img.shields.io/badge/secrets-0_included-2ea043)
+![Self-improving](https://img.shields.io/badge/self--improving-yes-ef4444)
+![Parity](https://img.shields.io/badge/parity-self--test-eab308)
 
-<sub>🏗️ Conçu par **SGRR** · `Claude Code` · `Anthropic` · `AI agent` · `scaffold` · `dotfiles` · `hooks` · `skills` · `subagents` · `MCP` · `memory` · `template`</sub>
+<sub>🏗️ Designed by **SGRR** · `Claude Code` · `Anthropic` · `AI agent` · `scaffold` · `dotfiles` · `hooks` · `skills` · `subagents` · `MCP` · `memory` · `template`</sub>
 
-### ⭐ Si ce rig te fait gagner du temps, mets une étoile — ça aide à le rendre N°1.
+### ⭐ If this rig saves you time, drop a star — it helps push it to N°1.
 
 [![GitHub stars](https://img.shields.io/github/stars/Ertinox7711/SGRR-AGI-V2?style=social)](https://github.com/Ertinox7711/SGRR-AGI-V2/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Ertinox7711/SGRR-AGI-V2?style=social)](https://github.com/Ertinox7711/SGRR-AGI-V2/network/members)
@@ -28,132 +28,194 @@ qui te laisse partager ton setup publiquement **sans fuiter une seule donnée pe
 
 ---
 
-## 🧠 C'est quoi ?
+## 🧠 What is it?
 
-Une **recette**, pas un **cerveau**.
+A **recipe**, not a **brain**.
 
-L'intelligence, c'est Claude (Opus) + l'orchestration du modèle. Ce repo duplique le
-**scaffold** autour : les réglages, les instructions de comportement, l'architecture
-mémoire, et la liste de *quels* plugins/skills installer et *d'où*. Tu gardes ton
-propre abonnement Claude Code, et tu amènes tes propres secrets.
+The intelligence is Claude (Opus) + the model's orchestration. This repo duplicates
+the **scaffold** around it: the settings, the behavioral instructions, the memory
+architecture, and the list of *which* plugins/skills to install and *from where*.
+You keep your own Claude Code subscription, and you bring your own secrets.
 
-> Quelqu'un clone ce repo → lance **un seul prompt** → il a **exactement le même rig
-> que moi** (capacité 1:1, prouvée par un self-test de parité), sans aucun de mes secrets
-> ni de mes projets privés.
+> Someone clones this repo → runs **a single prompt** → they get **exactly the same
+> rig I run** (1:1 capability, proven by a parity self-test), without any of my secrets
+> or my private projects.
 
-**👉 On se compare à toute la concurrence (et on l'éteint) dans [`COMPARAISON.md`](COMPARAISON.md).**
-
----
-
-## ⚡ Installation en 1 prompt
-
-Le truc le plus important du repo : **tu colles un prompt, ça installe tout.**
-
-1. Ouvre Claude Code dans le dossier cloné.
-2. Copie-colle le contenu de **[`INSTALLER-PROMPT.md`](INSTALLER-PROMPT.md)**.
-3. Claude ajoute les marketplaces, active les plugins, écrit `settings.json` et
-   `CLAUDE.md`, crée la mémoire et les rules, installe le guide en local, puis lance
-   un **self-test de parité**. **Fini.**
-
-> Préfères un script ? `./install.ps1` (Windows) ou `./install.sh` (macOS/Linux)
-> font la partie fichiers. Détails dans **[`SETUP.md`](SETUP.md)**.
+**👉 We benchmark against the whole field (and shut it down) in [`COMPARISON.md`](COMPARISON.md).**
 
 ---
 
-## 📦 Ce qu'il y a dedans
+## 🚀 Raw performance — what actually makes it fast
 
-| Fichier | Rôle |
-|--------|------|
-| **[`INSTALLER-PROMPT.md`](INSTALLER-PROMPT.md)** | Le prompt unique qui installe tout le rig. |
-| **[`settings.template.json`](settings.template.json)** | `settings.json` prêt (Windows) : filet de permissions (`allow`/`ask`/`deny`), sous-agents pas chers (Sonnet), hooks d'injection (**tips à chaque tour**). **Zéro secret.** |
-| **[`settings.template.unix.json`](settings.template.unix.json)** | Même chose, hooks `sh` pour macOS/Linux. |
-| **[`CLAUDE.md`](CLAUDE.md)** | La philosophie « AGI proactif » — dépersonnalisée, avec la signature SGRR. |
-| **[`UTILISATION.md`](UTILISATION.md)** | **Guide pratique** « bien utiliser le rig » — copié en local (`~/.claude/SGRR-GUIDE.md`) à l'install. |
-| **[`COMPARAISON.md`](COMPARAISON.md)** | Le benchmark face aux plus gros repos Claude Code de GitHub. |
-| **[`FONCTIONNEMENT.md`](FONCTIONNEMENT.md)** | Le verso de la mécanique : comment chaque pièce marche, et pourquoi. |
-| **[`SECURITE.md`](SECURITE.md)** | Modèle de sécurité + modèle de menace (« des malins vont chercher tes infos »). |
-| **[`SETUP.md`](SETUP.md)** | Manifeste d'install manuel, plugin par plugin. |
-| **[`memory/MEMORY.md`](memory/MEMORY.md)** | Template du système de mémoire persistante. |
-| **[`rules/example-project.md`](rules/example-project.md)** | Exemple de rule `paths:` qui se charge en lazy (contexte léger). |
-| **[`install.ps1`](install.ps1)** / **[`install.sh`](install.sh)** | Installeurs fichiers (sans Claude), avec backup auto. |
-| `scripts/verify-install.*` | **Self-test de parité** : prouve que ton install = le rig d'origine. |
-| `scripts/check-cc-updates.*` | **Veille des MAJ Claude Code** : hook `SessionStart` qui repère chaque nouvelle version, te prévient et propose les adoptions — la **boucle d'auto-amélioration** du rig. |
-| `scripts/preflight-scrub.*` | Audit anti-fuite de tout le repo, à lancer avant un push. |
-| `scripts/hooks/pre-commit` | Barrage local : refuse un commit qui contient un secret/PII. |
-| `.gitleaks.toml` · `.github/workflows/secret-scan.yml` | Scan de secrets **automatique à chaque push** (défense continue). |
+No fluff. The concrete levers that make this rig outrun a default Claude Code, in raw terms:
+
+- **~5× cheaper sub-agents.** The main loop stays on **Opus** (max reasoning); every
+  sub-agent (explorer, reviewer, translator…) runs on **Sonnet** via
+  `CLAUDE_CODE_SUBAGENT_MODEL`. You pay Sonnet for grunt-work, Opus for decisions.
+  On a large codebase that's the difference between burning your quota and barely feeling it.
+- **Parallelism is a reflex, not an afterthought.** `CLAUDE.md` forces independent tool
+  calls into a **single message** — 5 reads at once instead of 5 round-trips. Same for
+  sub-agents: independent work is dispatched together.
+- **Lazy `paths:` rules instead of one bloated `CLAUDE.md`.** Per-project context loads
+  **only** when you touch that project. 20 projects, zero overhead on a session that
+  doesn't touch them. The context stays sharp, so the model stays fast.
+- **Discipline enforced by hooks, not hope.** A `UserPromptSubmit` hook re-injects the
+  rules (atomic commits, `tsc` before commit, verify-before-done) **every turn** — the
+  model can't drift. No re-explaining, no wasted turns.
+- **The `ask` net is real enforcement.** `permissions.ask` intercepts every destructive
+  command *before* it runs, while file edits flow through `acceptEdits` with zero friction.
+  Maximum speed on safe work, a hard stop on dangerous work.
+- **It self-improves.** Two `SessionStart` hooks keep the rig current: one watches for
+  new Claude Code releases, the other nudges you to run **`/rig-audit`** (below). The
+  setup never goes stale — it gets *better* the longer you run it.
+
+Full mechanics, with the traps 95% of people miss → **[`HOW-IT-WORKS.md`](HOW-IT-WORKS.md)**.
+
+---
+
+## ⚡ 1-prompt install
+
+The single most important thing in the repo: **you paste one prompt, it installs everything.**
+
+1. Open Claude Code in the cloned folder.
+2. Copy-paste the contents of **[`INSTALLER-PROMPT.md`](INSTALLER-PROMPT.md)**.
+3. Claude adds the marketplaces, enables the plugins, writes `settings.json` and
+   `CLAUDE.md`, creates the memory and the rules, installs the guide locally, then runs
+   a **parity self-test**. **Done.**
+
+> Prefer a script? `./install.ps1` (Windows) or `./install.sh` (macOS/Linux) handle the
+> file part. Details in **[`SETUP.md`](SETUP.md)**.
+
+---
+
+## 📦 What's inside
+
+| File | Role |
+|------|------|
+| **[`INSTALLER-PROMPT.md`](INSTALLER-PROMPT.md)** | The single prompt that installs the whole rig. |
+| **[`settings.template.json`](settings.template.json)** | Ready `settings.json` (Windows): permission net (`allow`/`ask`/`deny`), cheap sub-agents (Sonnet), injection hooks (**tips every turn**). **Zero secrets.** |
+| **[`settings.template.unix.json`](settings.template.unix.json)** | Same thing, `sh` hooks for macOS/Linux. |
+| **[`CLAUDE.md`](CLAUDE.md)** | The "proactive AGI" philosophy — depersonalized, with the SGRR signature. |
+| **[`USAGE.md`](USAGE.md)** | **Practical guide** to using the rig well — copied locally (`~/.claude/SGRR-GUIDE.md`) at install. |
+| **[`COMPARISON.md`](COMPARISON.md)** | The benchmark against the biggest Claude Code repos on GitHub. |
+| **[`HOW-IT-WORKS.md`](HOW-IT-WORKS.md)** | The back of the machine: how each piece works, and why. |
+| **[`SECURITY.md`](SECURITY.md)** | Security model + threat model ("people will dig for your info"). |
+| **[`SETUP.md`](SETUP.md)** | Manual install manifest, plugin by plugin. |
+| **[`memory/MEMORY.md`](memory/MEMORY.md)** | Template for the persistent memory system. |
+| **[`rules/example-project.md`](rules/example-project.md)** | Example `paths:` rule that loads lazily (light context). |
+| **[`commands/rig-audit.md`](commands/rig-audit.md)** | The **`/rig-audit`** command: analyzes all your sessions + project folders and proposes concrete upgrades to the rig. **Report-only.** |
+| **[`install.ps1`](install.ps1)** / **[`install.sh`](install.sh)** | File installers (no Claude), with auto-backup. |
+| `scripts/verify-install.*` | **Parity self-test**: proves your install = the original rig. |
+| `scripts/check-cc-updates.*` | **Claude Code update watch**: a `SessionStart` hook that spots every new version, tells you, and proposes adoptions — one half of the **self-improvement loop**. |
+| `scripts/rig-audit-nudge.*` | Periodic `SessionStart` nudge (every 7 days) reminding you to run `/rig-audit` — the other half of the loop. |
+| `scripts/preflight-scrub.*` | Anti-leak audit of the whole repo, to run before a push. |
+| `scripts/hooks/pre-commit` | Local barrier: rejects a commit that contains a secret/PII. |
+| `.gitleaks.toml` · `.github/workflows/secret-scan.yml` | **Automatic secret scan on every push** (continuous defense). |
+
+---
+
+## 💾 How the memory works
+
+Files, not a database. The whole point is that it's **versionable, human-readable,
+hand-editable, and dependency-free**.
+
+- **`~/.claude/memory/` holds one file per fact**, plus a `MEMORY.md` **index** that's
+  loaded into context at **every session**. The index is one line per memory — never the
+  content — so it stays cheap to load.
+- **Each memory file has frontmatter**: `name` (kebab-case slug), `description` (the
+  one-liner used to judge relevance at recall time), and `metadata.type`.
+- **Four types**, each with a clear job:
+  `user` (who you are), `feedback` (how you want the agent to work — with the *why*),
+  `project` (facts not derivable from code or git), `reference` (URLs, dashboards, tickets).
+- **Hooks drive it both ways.** `SessionStart` reminds Claude to **read** `MEMORY.md`;
+  `PreCompact` reminds it to **write** durable facts before the context is compressed and lost.
+- **The golden rule: save only the non-derivable.** Never store what the repo already
+  knows (code structure, git log, conventions). One fact per file, and only if it can't
+  be re-derived. That discipline is what keeps the signal from drowning in noise.
+
+Deep dive → **[`HOW-IT-WORKS.md`](HOW-IT-WORKS.md)** (section 3).
 
 ---
 
 ## 🏗️ Architecture
 
 <div align="center">
-<img src="assets/architecture.svg" alt="Architecture SGRR AGI V2 — modèle, fondations, déclenchement des skills" width="92%" />
+<img src="assets/architecture.svg" alt="SGRR AGI V2 architecture — model, foundations, skill triggering" width="92%" />
 </div>
 
-Le patron canonique : **Commande → Agent → Skill** — mais avec une nuance que beaucoup ratent.
+The canonical pattern: **Command → Agent → Skill** — but with a nuance most people miss.
 
-- **Commande** = point d'entrée / orchestrateur (`/ma-commande`).
-- **Agent (sous-agent)** = spécialiste avec un jeu d'outils restreint, contexte isolé.
-- **Skill** = savoir/procédure réutilisable injecté dans le contexte.
+- **Command** = entry point / orchestrator (`/my-command`).
+- **Agent (sub-agent)** = specialist with a restricted toolset, isolated context.
+- **Skill** = reusable knowledge/procedure injected into context.
 
-> ⚠️ **Une skill ne se déclenche pas que via une commande.** Claude **auto-invoque** la
-> skill pertinente dès qu'elle s'applique — **même sans aucune commande**. La commande est
-> un chemin explicite ; l'auto-invocation est le chemin par défaut. Le schéma ci-dessus
-> montre les **deux**.
+> ⚠️ **A skill doesn't only fire through a command.** Claude **auto-invokes** the relevant
+> skill the moment it applies — **even with no command at all**. The command is the explicit
+> path; auto-invocation is the default path. The diagram above shows **both**.
 
-Le tout posé sur 6 fondations : `settings.json` (la seule loi réellement appliquée),
-**hooks** (injection de contexte + tips par tour + **veille des MAJ** qui s'auto-améliore),
-**mémoire** (fichiers persistants),
-**MCP** (docs live, navigateur), **plugins**, **rules** (contexte paresseux). Détail
-complet → **[`FONCTIONNEMENT.md`](FONCTIONNEMENT.md)**.
-
----
-
-## 🔒 Sécurité & vie privée
-
-Ce repo est construit pour **résister à quelqu'un qui essaie d'en extraire des infos sur le propriétaire** :
-
-- **0 secret** — aucun token, clé API ou credential. `.gitignore` blinde les formes de secrets (`shpat_*`, `sk-*`, `*.env`, `.credentials.json`…).
-- **0 donnée perso** — pas d'email, pas de vrai nom, pas de chemins, pas de noms de projets/business. Tout est `<PLACEHOLDER>`.
-- **Défense active** — un workflow GitHub Actions scanne les secrets à **chaque push**, et un script `preflight` + un hook `pre-commit` bloquent les fuites avant même le commit.
-- **Auteur des commits anonymisé** — aucune adresse email réelle dans l'historique git.
-
-Modèle de menace complet, garanties et checklist → **[`SECURITE.md`](SECURITE.md)**.
+It all sits on 6 foundations: `settings.json` (the only law actually enforced),
+**hooks** (context injection + tips per turn + **self-improvement** watchers),
+**memory** (persistent files),
+**MCP** (live docs, browser), **plugins**, **rules** (lazy context). Full detail
+→ **[`HOW-IT-WORKS.md`](HOW-IT-WORKS.md)**.
 
 ---
 
-## ✅ Inclus (1:1) vs ❌ Exclu (projets privés)
+## 🔄 A rig that improves itself
 
-**Inclus — copie conforme de la capacité :** la config, les permissions, les hooks
-génériques, la philosophie `CLAUDE.md`, l'architecture mémoire, l'ensemble des **plugins
-publics** et le manifeste des **skills publics**. Un pote qui installe obtient le même rig
-— et le **self-test de parité** (`scripts/verify-install.*`) le prouve.
+Most setups freeze the day you write them and rot from there. This one has a built-in
+self-improvement loop, in two halves:
 
-**Exclu — pour ta protection :** tous les secrets, et toutes les skills/instructions
-spécifiques à des projets privés (business, automations perso, personas). Elles ne sont
-ni listées ni référencées ici.
-
----
-
-## 🏗️ Origine & crédit
-
-Ce rig — la config, les hooks, la philosophie, l'architecture mémoire, le pattern
-Commande→Agent→Skill — a été **conçu et assemblé par [SGRR](https://github.com/Ertinox7711)**.
-Une fois installé, ton Claude **sait** qu'il tourne sur le **SGRR AGI V2** et applique sa
-méthode : *anticipe, vérifie, exécute*. Tu tiens une réplique fidèle du rig original.
-
-Sous licence **MIT** — utilise, modifie, partage. Un crédit fait toujours plaisir, et une
-⭐ encore plus.
+- **Update watch** (`scripts/check-cc-updates.*`) — a `SessionStart` hook (throttled to
+  one network call / 12h) that detects every new Claude Code release, has you read the
+  changelog, and **proposes** what the rig should adopt. Never more than one version behind.
+- **`/rig-audit`** (`commands/rig-audit.md`) — on demand, it analyzes **all your sessions
+  and project folders**, cross-references them against what the rig currently provides, and
+  outputs a **prioritized proposal** of upgrades (missing rules, memory to persist, commands
+  worth creating, settings drift, hook opportunities). It's **report-only** — it changes
+  nothing until you pick the items. A `SessionStart` nudge (`scripts/rig-audit-nudge.*`,
+  every 7 days) reminds you it exists. **No personal data ever leaves your machine.**
 
 ---
 
-## 🙏 Crédits
+## 🔒 Security & privacy
 
-- [shanraisshan/claude-code-best-practice](https://github.com/shanraisshan/claude-code-best-practice) (MIT) — patrons agents/commands/rules.
-- Marketplace officielle des plugins Claude Code + auteurs communautaires (superpowers, caveman…) — voir [`SETUP.md`](SETUP.md).
+This repo is built to **withstand someone trying to extract info about its owner**:
+
+- **0 secrets** — no token, API key, or credential. `.gitignore` hard-blocks secret shapes (`shpat_*`, `sk-*`, `*.env`, `.credentials.json`…).
+- **0 personal data** — no email, no real name, no paths, no project/business names. Everything is a `<PLACEHOLDER>`.
+- **Active defense** — a GitHub Actions workflow scans for secrets on **every push**, and a `preflight` script + a `pre-commit` hook block leaks before the commit even happens.
+- **Anonymized commit author** — no real email address anywhere in the git history.
+
+Full threat model, guarantees, and checklist → **[`SECURITY.md`](SECURITY.md)**.
+
+---
+
+## ✅ Included (1:1) vs ❌ Excluded (private projects)
+
+**Included — a faithful copy of the capability:** the config, the permissions, the generic
+hooks, the `CLAUDE.md` philosophy, the memory architecture, every **public plugin**, and the
+**public skill** manifest. A friend who installs it gets the same rig — and the **parity
+self-test** (`scripts/verify-install.*`) proves it.
+
+**Excluded — for your protection:** all secrets, and every skill/instruction specific to
+private projects (business, personal automations, personas). None of it is listed or
+referenced here.
+
+---
+
+## 🏗️ Origin & credit
+
+This rig — the config, the hooks, the philosophy, the memory architecture, the
+Command→Agent→Skill pattern — was **designed and assembled by [SGRR](https://github.com/Ertinox7711)**.
+Once installed, your Claude **knows** it runs on the **SGRR AGI V2** and applies its method:
+*anticipate, verify, execute*. You hold a faithful replica of the original rig.
+
+Licensed under **MIT** — use it, modify it, share it. Credit is always appreciated, and a
+⭐ even more.
 
 <div align="center">
-<sub>Construit avec Claude Code · conçu par <b>SGRR</b> · <code>SGRR AGI V2</code></sub>
+<sub>Built with Claude Code · designed by <b>SGRR</b> · <code>SGRR AGI V2</code></sub>
 <br/>
 <sub><code>claude-code</code> · <code>anthropic</code> · <code>ai-agent</code> · <code>llm</code> · <code>scaffold</code> · <code>config</code> · <code>dotfiles</code> · <code>hooks</code> · <code>skills</code> · <code>subagents</code> · <code>mcp</code> · <code>memory</code> · <code>productivity</code> · <code>developer-tools</code></sub>
 </div>
