@@ -95,7 +95,11 @@ else { Bad "PITFALLS.md missing (copy PITFALLS.md -> ~/.claude/)" }
 $tipScript = Test-Path (Join-Path $claude 'scripts\pitfall-tips.ps1')
 $tipHook = $false
 if ($settings -and $settings.hooks -and $settings.hooks.PreToolUse) {
-  $tipHook = (($settings.hooks.PreToolUse | Out-String) -match 'pitfall-tips')
+  foreach ($entry in @($settings.hooks.PreToolUse)) {
+    foreach ($h in @($entry.hooks)) {
+      if ($h.command -match 'pitfall-tips') { $tipHook = $true }
+    }
+  }
 }
 if ($tipScript -and $tipHook) { Ok "live pitfall coach wired (PreToolUse -> scripts/pitfall-tips.ps1)" }
 elseif ($tipScript) { Bad "pitfall-tips.ps1 present but PreToolUse hook not wired in settings.json" }
