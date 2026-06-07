@@ -29,6 +29,11 @@ rk_*
 ghp_*
 gho_*
 
+# ── EXCEPTIONS ──────────────────────────────────────────────────────
+# Fichiers légitimes du repo dont le NOM matche un motif ci-dessus
+# (ex : "secret-scan.yml" contient "secret" mais c'est notre workflow).
+!.github/workflows/secret-scan.yml
+
 # ── DOSSIERS SENSIBLES ──────────────────────────────────────────────
 .aws/
 .ssh/
