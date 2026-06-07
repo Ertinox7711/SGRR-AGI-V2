@@ -135,6 +135,12 @@ without adding a single byte of overhead to a session that doesn't touch them.
 The composition: a command dispatches one or more agents; each agent invokes
 the relevant skills. Context isolation + specialization + reuse.
 
+> 🟢 **Installed ≠ loaded.** The one trap this pattern hides: a plugin can sit installed
+> on disk while being inactive in *your current session*. `/session-check` (a rig command
+> **and** an auto-firing skill) gives a GO/NO-GO verdict — right repo/dir, rig config
+> present, superpowers enabled, and skills genuinely live *this* session. That last part
+> is the thing no disk check can tell you; the agent attests it from its own context.
+
 ---
 
 ## 🎁 The things nobody thinks about

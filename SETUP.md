@@ -104,6 +104,12 @@ don't copy. Most arrive *with* the plugins above (e.g. `superpowers` brings its
 skill set). For standalone skill packs, add their marketplace and enable according
 to their README. Respect each pack's license.
 
+**The one skill this rig ships itself:** `skills/session-check/SKILL.md` — the
+`/session-check` readiness check (it's both a slash command and an auto-firing skill).
+The installers copy it to `~/.claude/skills/session-check/`. It fires when you ask things
+like "am I in the right repo?" or "is the rig actually loaded?", and returns a GO/NO-GO
+verdict. It's the only skill the rig owns — everything else comes bundled with the plugins.
+
 ---
 
 Done. Restart Claude Code. Verify with `/plugin` (active plugins) and a quick

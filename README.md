@@ -106,6 +106,7 @@ The single most important thing in the repo: **you paste one prompt, it installs
 | **[`memory/MEMORY.md`](memory/MEMORY.md)** | Template for the persistent memory system. |
 | **[`rules/example-project.md`](rules/example-project.md)** | Example `paths:` rule that loads lazily (light context). |
 | **[`commands/rig-audit.md`](commands/rig-audit.md)** | The **`/rig-audit`** command: analyzes all your sessions + project folders and proposes concrete upgrades to the rig. **Report-only.** |
+| **[`commands/session-check.md`](commands/session-check.md)** + **[`skills/session-check/SKILL.md`](skills/session-check/SKILL.md)** | The **`/session-check`** command **and** auto-firing skill: a GO/NO-GO readiness verdict — confirms you're in the right repo/dir **and** the rig + superpowers + skills are **loaded this session**, not just installed on disk. |
 | **[`install.ps1`](install.ps1)** / **[`install.sh`](install.sh)** | File installers (no Claude), with auto-backup. |
 | `scripts/verify-install.*` | **Parity self-test**: proves your install = the original rig. |
 | `scripts/check-cc-updates.*` | **Claude Code update watch**: a `SessionStart` hook that spots every new version, tells you, and proposes adoptions — one half of the **self-improvement loop**. |

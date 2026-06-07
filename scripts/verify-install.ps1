@@ -105,6 +105,13 @@ if ($tipScript -and $tipHook) { Ok "live pitfall coach wired (PreToolUse -> scri
 elseif ($tipScript) { Bad "pitfall-tips.ps1 present but PreToolUse hook not wired in settings.json" }
 else { Bad "pitfall coach missing (copy scripts/pitfall-tips.ps1 + add the PreToolUse hook)" }
 
+# 15. Session-check (right-repo + rig-live readiness command + skill)
+$scCmd = Test-Path (Join-Path $claude 'commands\session-check.md')
+$scSkill = Test-Path (Join-Path $claude 'skills\session-check\SKILL.md')
+if ($scCmd -and $scSkill) { Ok "session-check present (/session-check command + skill)" }
+elseif ($scCmd) { Bad "session-check skill missing (copy skills/session-check/SKILL.md)" }
+else { Bad "session-check missing (copy commands/session-check.md + skills/session-check/SKILL.md)" }
+
 # Verdict
 Head "Result: $pass OK / $fail FAIL"
 if ($fail -eq 0) {

@@ -132,15 +132,15 @@ PY
 }
 
 cyan "Target: $CLAUDE"
-for d in "$CLAUDE" "$CLAUDE/memory" "$CLAUDE/rules" "$CLAUDE/scripts" "$CLAUDE/commands"; do
+for d in "$CLAUDE" "$CLAUDE/memory" "$CLAUDE/rules" "$CLAUDE/scripts" "$CLAUDE/commands" "$CLAUDE/skills" "$CLAUDE/skills/session-check"; do
   if [ ! -d "$d" ]; then
     if [ "$DRY" = 1 ]; then yellow "would create $d"; else mkdir -p "$d"; green "created $d"; fi
   fi
 done
 
 # Plain-copy files (clobber with backup). settings.json is handled separately (smart-merge).
-declare -a SRC=( "CLAUDE.md" "PITFALLS.md" "USAGE.md"      "memory/MEMORY.md" "rules/example-project.md" "commands/rig-audit.md" )
-declare -a DST=( "CLAUDE.md" "PITFALLS.md" "SGRR-GUIDE.md" "memory/MEMORY.md" "rules/example-project.md" "commands/rig-audit.md" )
+declare -a SRC=( "CLAUDE.md" "PITFALLS.md" "USAGE.md"      "memory/MEMORY.md" "rules/example-project.md" "commands/rig-audit.md" "commands/session-check.md" "skills/session-check/SKILL.md" )
+declare -a DST=( "CLAUDE.md" "PITFALLS.md" "SGRR-GUIDE.md" "memory/MEMORY.md" "rules/example-project.md" "commands/rig-audit.md" "commands/session-check.md" "skills/session-check/SKILL.md" )
 
 for i in "${!SRC[@]}"; do
   s="$REPO/${SRC[$i]}"; d="$CLAUDE/${DST[$i]}"

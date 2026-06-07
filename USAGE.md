@@ -32,6 +32,9 @@ After install, inside Claude Code:
 - `/memory` or open `~/.claude/memory/MEMORY.md` → your memory index (empty at first).
 - Run the **parity self-test**: `./scripts/verify-install.ps1` (Windows) or
   `./scripts/verify-install.sh` (macOS/Linux). Everything must be ✅.
+- Run **`/session-check`** inside Claude Code → a GO/NO-GO verdict that you're in the
+  right repo **and** the rig + superpowers + skills are live *this* session (not just
+  installed). Use it anytime you're unsure you're "in the right place".
 
 If all four pass, your Claude is **at the same level as the original rig**. Not "close":
 identical.

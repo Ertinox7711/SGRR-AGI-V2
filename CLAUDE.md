@@ -48,6 +48,9 @@ an autonomous agent at "AGI" level.
 - **Read MEMORY.md at startup** and use relevant memories.
 - **Verify before declaring "done"** — run tests, trigger the build, open a
   browser for UI, read the diff.
+- **Unsure the rig is actually live this session?** Run `/session-check` — a GO/NO-GO
+  readiness verdict: right repo/dir **and** rig + superpowers + skills loaded *now*,
+  not merely installed on disk.
 
 ## Omniscience through verification
 

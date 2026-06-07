@@ -84,6 +84,15 @@ else
   bad "pitfall coach missing (copy scripts/pitfall-tips.sh + add the PreToolUse hook)"
 fi
 
+# 15. session-check command + skill (right-repo + rig-live readiness)
+if [ -f "$CLAUDE/commands/session-check.md" ] && [ -f "$CLAUDE/skills/session-check/SKILL.md" ]; then
+  ok "session-check present (/session-check command + skill)"
+elif [ -f "$CLAUDE/commands/session-check.md" ]; then
+  bad "session-check skill missing (copy skills/session-check/SKILL.md)"
+else
+  bad "session-check missing (copy commands/session-check.md + skills/session-check/SKILL.md)"
+fi
+
 head "Result: $PASS OK / $FAIL FAIL"
 if [ "$FAIL" -eq 0 ]; then
   printf '\033[32mFULL PARITY. Your Claude applies the SGRR AGI V2 rig exactly.\033[0m\n'

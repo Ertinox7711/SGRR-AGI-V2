@@ -153,7 +153,7 @@ function Merge-Settings($templatePath, $livePath, $dry) {
 }
 
 Step "Target: $claude"
-foreach ($d in @($claude, (Join-Path $claude 'memory'), (Join-Path $claude 'rules'), (Join-Path $claude 'scripts'), (Join-Path $claude 'commands'))) {
+foreach ($d in @($claude, (Join-Path $claude 'memory'), (Join-Path $claude 'rules'), (Join-Path $claude 'scripts'), (Join-Path $claude 'commands'), (Join-Path $claude 'skills'), (Join-Path $claude 'skills\session-check'))) {
   if (-not (Test-Path $d)) {
     if ($DryRun) { Warn "would create $d" } else { New-Item -ItemType Directory -Force -Path $d | Out-Null; Ok "created $d" }
   }
@@ -167,7 +167,9 @@ $files = @(
   @{ src = 'USAGE.md';                 dst = 'SGRR-GUIDE.md' },
   @{ src = 'memory\MEMORY.md';         dst = 'memory\MEMORY.md' },
   @{ src = 'rules\example-project.md'; dst = 'rules\example-project.md' },
-  @{ src = 'commands\rig-audit.md';    dst = 'commands\rig-audit.md' }
+  @{ src = 'commands\rig-audit.md';    dst = 'commands\rig-audit.md' },
+  @{ src = 'commands\session-check.md';     dst = 'commands\session-check.md' },
+  @{ src = 'skills\session-check\SKILL.md'; dst = 'skills\session-check\SKILL.md' }
 )
 
 foreach ($f in $files) {
