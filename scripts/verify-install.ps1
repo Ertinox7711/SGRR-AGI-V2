@@ -1,6 +1,6 @@
 #Requires -Version 5.1
 <#
-  verify-install.ps1 — SGRR AGI V2 (Windows)
+  verify-install.ps1 - SGRR AGI V2 (Windows)
 
   PARITY self-test: proves your ~/.claude install applies EXACTLY the same config and
   the same philosophy as the original rig. Not "roughly".
@@ -19,7 +19,7 @@ function Ok($m)   { Write-Host "  [OK]   $m" -ForegroundColor Green; $script:pas
 function Bad($m)  { Write-Host "  [FAIL] $m" -ForegroundColor Red;   $script:fail++ }
 function Head($m) { Write-Host "`n$m" -ForegroundColor Cyan }
 
-Head "SGRR AGI V2 — parity self-test ($claude)"
+Head "SGRR AGI V2 - parity self-test ($claude)"
 
 # 1. settings.json exists + valid JSON
 $settingsPath = Join-Path $claude 'settings.json'
@@ -42,26 +42,26 @@ if ($settings) {
   $plugins = @()
   if ($settings.enabledPlugins) { $plugins = ($settings.enabledPlugins.PSObject.Properties | Where-Object { $_.Value -eq $true }).Name }
   if ($plugins.Count -ge 12) { Ok "$($plugins.Count) plugins enabled (>= 12 expected)" }
-  else { Bad "$($plugins.Count) plugins enabled (12 expected — re-run /plugin)" }
+  else { Bad "$($plugins.Count) plugins enabled (12 expected - re-run /plugin)" }
 
-  # 5. The 4 context-injection hooks
-  $needHooks = 'UserPromptSubmit','SessionStart','PreCompact','Stop'
+  # 5. The 5 context-injection hooks
+  $needHooks = 'PreToolUse','UserPromptSubmit','SessionStart','PreCompact','Stop'
   $haveHooks = @(); if ($settings.hooks) { $haveHooks = $settings.hooks.PSObject.Properties.Name }
   $missing = $needHooks | Where-Object { $_ -notin $haveHooks }
-  if (-not $missing) { Ok "4 hooks present (UserPromptSubmit/SessionStart/PreCompact/Stop)" }
+  if (-not $missing) { Ok "5 hooks present (PreToolUse/UserPromptSubmit/SessionStart/PreCompact/Stop)" }
   else { Bad "missing hooks: $($missing -join ', ')" }
 
   # 6. Destructive-permission safety net
   $askCount = 0; if ($settings.permissions.ask) { $askCount = @($settings.permissions.ask).Count }
   if ($askCount -ge 10) { Ok "$askCount destructive commands gated behind confirmation (permissions.ask)" }
-  else { Bad "permissions.ask too short ($askCount) — safety net incomplete" }
+  else { Bad "permissions.ask too short ($askCount) - safety net incomplete" }
 }
 
 # 7. CLAUDE.md present + SGRR signature
 $claudeMd = Join-Path $claude 'CLAUDE.md'
 if (Test-Path $claudeMd) {
   if (Select-String -Path $claudeMd -Pattern 'SGRR AGI V2' -Quiet) { Ok "CLAUDE.md present (SGRR AGI V2 signature detected)" }
-  else { Ok "CLAUDE.md present (signature absent — custom or removed, OK)" }
+  else { Ok "CLAUDE.md present (signature absent - custom or removed, OK)" }
 } else { Bad "CLAUDE.md missing" }
 
 # 8. Memory
@@ -86,6 +86,20 @@ $auditNudge = Test-Path (Join-Path $claude 'scripts\rig-audit-nudge.ps1')
 if ($auditCmd -and $auditNudge) { Ok "rig self-audit present (/rig-audit command + periodic nudge)" }
 elseif ($auditCmd) { Bad "rig-audit nudge missing (copy scripts/rig-audit-nudge.ps1)" }
 else { Bad "/rig-audit command missing (copy commands/rig-audit.md -> ~/.claude/commands/)" }
+
+# 13. PITFALLS catalog (the mistakes the rig refuses to repeat)
+if (Test-Path (Join-Path $claude 'PITFALLS.md')) { Ok "PITFALLS.md present (generalized mistake catalog)" }
+else { Bad "PITFALLS.md missing (copy PITFALLS.md -> ~/.claude/)" }
+
+# 14. Live pitfall coach (PreToolUse hook + script)
+$tipScript = Test-Path (Join-Path $claude 'scripts\pitfall-tips.ps1')
+$tipHook = $false
+if ($settings -and $settings.hooks -and $settings.hooks.PreToolUse) {
+  $tipHook = (($settings.hooks.PreToolUse | Out-String) -match 'pitfall-tips')
+}
+if ($tipScript -and $tipHook) { Ok "live pitfall coach wired (PreToolUse -> scripts/pitfall-tips.ps1)" }
+elseif ($tipScript) { Bad "pitfall-tips.ps1 present but PreToolUse hook not wired in settings.json" }
+else { Bad "pitfall coach missing (copy scripts/pitfall-tips.ps1 + add the PreToolUse hook)" }
 
 # Verdict
 Head "Result: $pass OK / $fail FAIL"

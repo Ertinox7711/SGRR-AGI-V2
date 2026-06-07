@@ -68,6 +68,19 @@
     }
   },
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"$env:USERPROFILE\\.claude\\scripts\\pitfall-tips.ps1\"",
+            "timeout": 8
+          }
+        ]
+      }
+    ],
     "UserPromptSubmit": [
       {
         "hooks": [

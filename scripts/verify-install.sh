@@ -37,10 +37,10 @@ if [ -f "$S" ]; then
   # 4. >= 12 plugins enabled
   PCOUNT=$(grep -Eo '"[A-Za-z0-9_-]+@[A-Za-z0-9_-]+"[[:space:]]*:[[:space:]]*true' "$S" | wc -l | tr -d ' ')
   [ "${PCOUNT:-0}" -ge 12 ] && ok "$PCOUNT plugins enabled (>= 12)" || bad "$PCOUNT plugins enabled (12 expected — re-run /plugin)"
-  # 5. 4 hooks
+  # 5. 5 hooks
   MISS=""
-  for h in UserPromptSubmit SessionStart PreCompact Stop; do grep -q "\"$h\"" "$S" || MISS="$MISS $h"; done
-  [ -z "$MISS" ] && ok "4 hooks present (UserPromptSubmit/SessionStart/PreCompact/Stop)" || bad "missing hooks:$MISS"
+  for h in PreToolUse UserPromptSubmit SessionStart PreCompact Stop; do grep -q "\"$h\"" "$S" || MISS="$MISS $h"; done
+  [ -z "$MISS" ] && ok "5 hooks present (PreToolUse/UserPromptSubmit/SessionStart/PreCompact/Stop)" || bad "missing hooks:$MISS"
   # 6. destructive-permission safety net
   ACOUNT=$(grep -Eo '"Bash\(' "$S" | wc -l | tr -d ' ')
   [ "${ACOUNT:-0}" -ge 10 ] && ok "$ACOUNT Bash() guards (permissions.ask)" || bad "permission net too short ($ACOUNT)"
@@ -70,6 +70,18 @@ elif [ -f "$CLAUDE/commands/rig-audit.md" ]; then
   bad "rig-audit nudge missing (copy scripts/rig-audit-nudge.sh)"
 else
   bad "/rig-audit command missing (copy commands/rig-audit.md -> ~/.claude/commands/)"
+fi
+
+# 13. PITFALLS catalog (the mistakes the rig refuses to repeat)
+[ -f "$CLAUDE/PITFALLS.md" ] && ok "PITFALLS.md present (generalized mistake catalog)" || bad "PITFALLS.md missing (copy PITFALLS.md -> ~/.claude/)"
+
+# 14. live pitfall coach (PreToolUse hook + script)
+if [ -f "$CLAUDE/scripts/pitfall-tips.sh" ] && grep -q 'pitfall-tips' "$S" 2>/dev/null; then
+  ok "live pitfall coach wired (PreToolUse -> scripts/pitfall-tips.sh)"
+elif [ -f "$CLAUDE/scripts/pitfall-tips.sh" ]; then
+  bad "pitfall-tips.sh present but PreToolUse hook not wired in settings.json"
+else
+  bad "pitfall coach missing (copy scripts/pitfall-tips.sh + add the PreToolUse hook)"
 fi
 
 head "Result: $PASS OK / $FAIL FAIL"

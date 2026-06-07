@@ -68,6 +68,18 @@
     }
   },
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$HOME/.claude/scripts/pitfall-tips.sh\"",
+            "timeout": 8
+          }
+        ]
+      }
+    ],
     "UserPromptSubmit": [
       {
         "hooks": [
