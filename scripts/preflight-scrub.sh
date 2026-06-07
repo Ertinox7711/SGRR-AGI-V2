@@ -11,7 +11,7 @@ ok()   { printf '\033[32m  ok  %s\033[0m\n' "$1"; }
 printf '\033[36m==> Audit preflight : %s\033[0m\n' "$(pwd)"
 
 ALLOW='<[A-Z_]+>|users\.noreply\.github\.com|example\.(com|org)|\b(you|user|name|runner|youruser)\b|EXAMPLE'
-SKIP='\.gitleaks\.toml$|SECURITE\.md$|preflight-scrub\.(ps1|sh)$|scripts/hooks/pre-commit$|^assets/|/assets/'
+SKIP='\.gitleaks\.toml$|SECURITE\.md$|preflight-scrub\.(ps1|sh)$|scripts/hooks/pre-commit$|secret-scan\.yml$|^assets/|/assets/'
 
 # Fichiers suivis + non-ignorés (inclut les nouveaux pas encore commités)
 files=$(git ls-files --cached --others --exclude-standard 2>/dev/null || find . -type f -not -path './.git/*')

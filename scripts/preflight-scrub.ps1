@@ -36,7 +36,7 @@ $patterns = [ordered]@{
   'chemin home absolu' = '([A-Za-z]:\\Users\\[^\\/<> "'']+)|(/home/[^/<> "'']+)|(/Users/[^/<> "'']+)'
 }
 $allow = '<[A-Z_]+>|users\.noreply\.github\.com|example\.(com|org)|\b(you|user|name|runner|youruser)\b|EXAMPLE'
-$skipFiles = '\.gitleaks\.toml$|SECURITE\.md$|preflight-scrub\.(ps1|sh)$|(^|[\\/])scripts[\\/]hooks[\\/]pre-commit$|(^|[\\/])assets[\\/]'
+$skipFiles = '\.gitleaks\.toml$|SECURITE\.md$|preflight-scrub\.(ps1|sh)$|(^|[\\/])scripts[\\/]hooks[\\/]pre-commit$|secret-scan\.yml$|(^|[\\/])assets[\\/]'
 
 foreach ($file in $tracked) {
   if ($file -match $skipFiles) { continue }
