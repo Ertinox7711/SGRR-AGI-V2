@@ -11,6 +11,10 @@
 #
 # Rule for adding a line: only a directory you did not write, whose findings you have
 # actually read. Never add one of your own files to make the scan pass.
+#
+# Keep this list IN SYNC with the paths block of .gitleaks.toml. gitleaks reads its own
+# config, not this file, so the same decision has to be written twice - and the CI job
+# goes red the moment they disagree.
 
 # Vendored dev-workflow toolkit: ~200 test fixtures using test@test.com / git@github.com
 skills/gstack/

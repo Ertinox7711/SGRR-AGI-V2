@@ -52,11 +52,10 @@ regexes = [
   '''users\.noreply\.github\.com''',       # GitHub noreply email
   '''example\.(com|org)''',
   '''<REDACTED_TOKEN>''',
-  # Secret-sink fixture of a vendored third-party skill: a deliberately fake AWS key
-  # (sequential letters) asserted on by skills/gstack/test/brain-sync.test.ts. Listed as
-  # the literal value rather than allowlisting the whole tree, so a REAL key vendored in
-  # that same directory would still be caught.
-  '''AKIAABCDEFGHIJKLMNOP''',
+  # A value that IS a variable reference is not a credential. The other 7 findings of
+  # that first run were all the same documented line, `curl -s -u "$STRIPE_SECRET_KEY:"`
+  # in skills/stripe-dispute/SKILL.md, read as basic-auth credentials.
+  '''\$\{?[A-Z][A-Z0-9_]{2,}\}?''',
 ]
 paths = [
   '''\.gitleaks\.toml$''',                          # this file holds the patterns themselves
@@ -65,4 +64,17 @@ paths = [
   '''(^|/)scripts/preflight-scrub\.(ps1|sh)$''',    # scanner script — carries the detection patterns by design
   '''(^|/)scripts/hooks/pre-commit$''',             # pre-commit scanner — same
   '''(^|/)\.github/workflows/secret-scan\.yml$''',  # CI scanner workflow — same
+  # Vendored third-party skills, published upstream by their own authors. The first run
+  # of this job on the full payload reported 18 findings; 11 were here and every one was
+  # a secret-SINK fixture or a false positive: 'super-secret-auth-token-12345', a sample
+  # JWT, 'SECRET_TOKEN_SHOULD_NOT_LEAK', the constant Sec-WebSocket-Key from RFC 6455, a
+  # match inside minified xterm.js, and the upstream project's own Supabase ANON key
+  # (a browser-side key, public by design). None of it is ours, all of it is already
+  # public at the source, and a permanently red gate is a gate nobody reads.
+  # THIS LIST MUST STAY IN SYNC WITH .scrubignore - same four trees, same reason,
+  # one decision recorded in two dialects.
+  '''(^|/)skills/gstack/''',
+  '''(^|/)skills/huashu-design/''',
+  '''(^|/)skills/html-ppt/''',
+  '''(^|/)skills/playwright-skill/''',
 ]
