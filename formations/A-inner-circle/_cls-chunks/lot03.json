@@ -1,0 +1,272 @@
+[
+ {
+  "i": 60,
+  "live": "16/07",
+  "nom": "Alibaba",
+  "verdict": "Etape de sourcing obligatoire, 2 sur 3",
+  "prix": "Pas d'autre detail dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:57"
+ },
+ {
+  "i": 61,
+  "live": "16/07",
+  "nom": "688 [1688.com]",
+  "verdict": "Etape de sourcing obligatoire, 3 sur 3",
+  "prix": "Pas d'autre detail dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:57"
+ },
+ {
+  "i": 62,
+  "live": "16/07",
+  "nom": "Google Images",
+  "verdict": "Etape obligatoire avant de conclure « introuvable » ; photos toutes IA = signal que le concurrent ne l'a pas",
+  "prix": "Gratuit",
+  "canal": "non precise",
+  "ts": "00:28:17"
+ },
+ {
+  "i": 63,
+  "live": "16/07",
+  "nom": "Amazon",
+  "verdict": "A eviter comme terrain et comme source : reflexe d'achat qui tue le scaling, et avis de merde qui annoncent des chargebacks",
+  "prix": "Pas de chiffre",
+  "canal": "non precise",
+  "ts": "00:20:54 (+00:33:38)"
+ },
+ {
+  "i": 64,
+  "live": "16/07",
+  "nom": "VidaXL [« vida xl »]",
+  "verdict": "pas d'avis tranche : citee comme seule voie actuelle pour sourcer du gros produit en Europe, avec contact direct",
+  "prix": "Pas de chiffre",
+  "canal": "non precise",
+  "ts": "00:33:10"
+ },
+ {
+  "i": 65,
+  "live": "16/07",
+  "nom": "trust2 [correction probable : Trustoo]",
+  "verdict": "Marche : app d'avis utilisee majoritairement par Arthur",
+  "prix": "Pas de prix cite",
+  "canal": "non precise",
+  "ts": "00:51:00"
+ },
+ {
+  "i": 66,
+  "live": "16/07",
+  "nom": "Vital ou Gtumi [correction probable : Vitals ou Judge.me]",
+  "verdict": "pas d'avis : « ca depend vraiment de ton site et d'a quel point c'est ton produit a toi » ; par defaut grille moche style Amazon avec images et texte, les avis ultra sexy peuvent paraitre fake",
+  "prix": "Pas de prix cite",
+  "canal": "non precise",
+  "ts": "00:50:28 (+00:50:38, 00:50:54)"
+ },
+ {
+  "i": 67,
+  "live": "16/07",
+  "nom": "cloud x Icefield [correction probable : Claude x Higgsfield]",
+  "verdict": "Marche : pipeline photos produits d'Arthur, son prompt perso envoye a Claude qui execute tout",
+  "prix": "150 dollars par mois chez Arthur ; plan minimum 50 dollars non teste ; batch de 20 images",
+  "canal": "non precise",
+  "ts": "00:56:47 (+00:56:57, 00:57:29)"
+ },
+ {
+  "i": 68,
+  "live": "16/07",
+  "nom": "GMC Protect (service du prestataire)",
+  "verdict": "A eviter en l'etat : juge surprice, utilite pas comprise, non teste",
+  "prix": "400 balles par mois",
+  "canal": "non precise",
+  "ts": "00:44:26"
+ },
+ {
+  "i": 69,
+  "live": "16/07",
+  "nom": "Call GMC done with you (Terry / Thierry, meme personne)",
+  "verdict": "Recommande par defaut, sauf si beaucoup de cash",
+  "prix": "170 ; 200 EUR les 30 minutes ; environ 160 EUR pour un debannissement ; 0 commission Arthur sur les calls",
+  "canal": "non precise",
+  "ts": "00:40:48 (+00:39:35, 00:40:08, 00:40:54, 00:39:41)"
+ },
+ {
+  "i": 70,
+  "live": "16/07",
+  "nom": "Done for you GMC (Terry / Thierry)",
+  "verdict": "Conditionnel : seulement si un shop marche deja en FR et qu'on veut l'envoyer UK, FR et Allemagne",
+  "prix": "2500 en prix de base ; « done for you 1005 » [probablement 1500] ; 1500 pour un multi-marches fait en 2 jours",
+  "canal": "non precise",
+  "ts": "00:40:26 (+00:40:48, 00:41:02)"
+ },
+ {
+  "i": 71,
+  "live": "16/07",
+  "nom": "Consulting et module CRO de Louis [« Louis Soren »]",
+  "verdict": "Marche : Arthur l'a paye lui-meme, resultat cite sur Cafe des Guerriers (30 vers 50 uniquement avec du CRO)",
+  "prix": "Full 1-1 pendant 3 mois, base de 2 A/B tests par semaine ; contact et nom exact a confirmer par reecoute 00:41:20-00:44:00",
+  "canal": "non precise",
+  "ts": "00:41:48 (+00:43:22, 00:43:44)"
+ },
+ {
+  "i": 72,
+  "live": "16/07",
+  "nom": "Accompagnement « Romas » [nom probablement mal transcrit]",
+  "verdict": "A eviter : 48 h pour envoyer 2 screenshots de social proof, tres bon en marketing mais incertain en e-commerce, bullshitometre declenche (doute portant sur le volume, pas sur la mecanique du flux)",
+  "prix": "5000 a 10 000 produits en PMax feed only puis duplication x3 ou x4 des winners",
+  "canal": "Performance Max feed only (process du prestataire, pas d'Arthur)",
+  "ts": "00:44:52 (+00:45:12, 00:45:54, 00:46:10)"
+ },
+ {
+  "i": 73,
+  "live": "16/07",
+  "nom": "Module « open-cloud » (abandonne) et Hermes",
+  "verdict": "pas d'avis produit : module tue par la sortie de Hermes pendant sa production",
+  "prix": "Perime en 2 semaines",
+  "canal": "non precise",
+  "ts": "00:55:53"
+ },
+ {
+  "i": 74,
+  "live": "16/07",
+  "nom": "« cloud code » [Claude Code]",
+  "verdict": "pas d'avis : demande par un membre pour un futur module IA",
+  "prix": "Pas de chiffre",
+  "canal": "non precise",
+  "ts": "00:54:34"
+ },
+ {
+  "i": 75,
+  "live": "16/07",
+  "nom": "Site de Dorian Rose",
+  "verdict": "pas d'avis produit : reference de structure citee par Arthur, les bulles de choix des le debut de page",
+  "prix": "Pas de chiffre",
+  "canal": "non precise",
+  "ts": "00:53:08"
+ },
+ {
+  "i": 76,
+  "live": "16/07",
+  "nom": "Interview de « ma SEO »",
+  "verdict": "pas d'avis produit : renvoyee aux membres a la place de dashboards quotidiens",
+  "prix": "Pas de chiffre",
+  "canal": "non precise",
+  "ts": "01:01:08"
+ },
+ {
+  "i": 77,
+  "live": "22/07",
+  "nom": "Remontoirs",
+  "verdict": "Marche. Archétype Q4 : evergreen plus vocation cadeau, produit de la formation. « Est-ce qu'on a tendance à s'offrir des remontoirs ? Oui »",
+  "prix": "1 K en temps normal, 4 à 5 K pendant le Q4 [K inféré]",
+  "canal": "non precise",
+  "ts": "00:21:37, 00:22:25, 00:26:55, 00:46:53"
+ },
+ {
+  "i": 78,
+  "live": "22/07",
+  "nom": "Commodes",
+  "verdict": "À éviter : « très peu » offert, donc pas un produit Q4",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:21:41"
+ },
+ {
+  "i": 79,
+  "live": "22/07",
+  "nom": "Support pour la télé",
+  "verdict": "À éviter : « très peu » offert, donc pas un produit Q4",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:21:45"
+ },
+ {
+  "i": 80,
+  "live": "22/07",
+  "nom": "Sapins de Noël",
+  "verdict": "À éviter : produit pur Noël, « c'est évident que le produit va s'arrêter »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:22:08"
+ },
+ {
+  "i": 81,
+  "live": "22/07",
+  "nom": "Plantes artificielles / fleurs artificielles",
+  "verdict": "Marche sur le marché US uniquement ; ailleurs « dans 95 % du temps c'est de la merde ». À skip si on n'a pas encore chiffré ; Arthur pourrait le lancer parce qu'il est « un malade de l'optimisation »",
+  "prix": "1 à 2 K toute l'année, x4 x5 au Q4 [K inféré] ; paniers moyens bas",
+  "canal": "non precise",
+  "ts": "00:22:47, 00:29:34"
+ },
+ {
+  "i": 82,
+  "live": "22/07",
+  "nom": "Van Cleef / Cartier",
+  "verdict": "Pas une piste produit : cités comme destination des gros budgets de Noël, justifient le plafond de prix Q4",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:23:38"
+ },
+ {
+  "i": 83,
+  "live": "22/07",
+  "nom": "Table basse de luxe",
+  "verdict": "À éviter : contre-exemple, les gros budgets de Noël n'achètent pas ça",
+  "prix": "éviter 1500 balles",
+  "canal": "non precise",
+  "ts": "00:23:41"
+ },
+ {
+  "i": 84,
+  "live": "22/07",
+  "nom": "Vestes chauffantes",
+  "verdict": "À éviter : « c'est des produits de merde », pas de marge sauf en no-shippant la batterie, SAV de fou, ultra saisonnier, environ 50 dropshippers avec le même site et la même offre",
+  "prix": "39,99 contre 49,99 chez les concurrents",
+  "canal": "non precise",
+  "ts": "00:23:56, 00:24:06"
+ },
+ {
+  "i": 85,
+  "live": "22/07",
+  "nom": "Échiquier [Whisper : « Et chez qui »]",
+  "verdict": "« C'est un bon produit, c'est un très bon produit », même niche que les remontoirs, marche bien pendant le Q4, mais Arthur n'irait pas : pas assez de cash sur le marché français",
+  "prix": "3 à 4 atteignable contre son objectif 15 à 20 [unité inférée]",
+  "canal": "non precise",
+  "ts": "00:26:16"
+ },
+ {
+  "i": 86,
+  "live": "22/07",
+  "nom": "Couteaux, sets de couteaux, couteaux japonais, couteau de chef",
+  "verdict": "Marche : cadeau homme de base, produit un peu mondial sur Google, le mot couteau n'est pas banni. Conditions : éviter les mots-clés à trop grosses marques et prévoir un branding de fou",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:03, 00:30:49, 01:08:29"
+ },
+ {
+  "i": 87,
+  "live": "22/07",
+  "nom": "Montres, boîte à montre",
+  "verdict": "Marche : cadeau homme de base, remonte tout de suite dans les listes d'idées cadeaux",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:04"
+ },
+ {
+  "i": 88,
+  "live": "22/07",
+  "nom": "Rangement de chaussures ultra premium",
+  "verdict": "Exemple positif de cadeau homme",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:08"
+ },
+ {
+  "i": 89,
+  "live": "22/07",
+  "nom": "Mousepad Apple",
+  "verdict": "Pas une piste produit : illustre la mécanique du cadeau déduit de la passion identifiée du destinataire",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:45"
+ }
+]

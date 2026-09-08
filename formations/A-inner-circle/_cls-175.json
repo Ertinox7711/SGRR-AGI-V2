@@ -1,0 +1,1402 @@
+[
+ {
+  "i": 0,
+  "nom": "Sofa / canape (grosse niche)",
+  "categorie": "NICHE",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict dit \"pas d'avis\" et \"niche trop grosse\", cite par un membre comme contre-exemple ; marche trop large, pas un produit chassable. Aucune metrique donnee."
+ },
+ {
+  "i": 1,
+  "nom": "Acteurs style Kickstarter",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict : \"a eviter comme reference concurrentielle\" = acteurs du marche, pas un produit a vendre."
+ },
+ {
+  "i": 2,
+  "nom": "Cave a vin [\"cabavin\" Whisper]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "Verdict \"marche : archetype du produit non visuel pour du Search\" = piste produit validee. Verdict precise \"pas de prix\", donc rien a recopier."
+ },
+ {
+  "i": 3,
+  "nom": "Etendoir a linge [\"etendoir a l'age\" Whisper]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict : \"exemple neutre, qualifie par Arthur lui-meme de 'tres mauvais exemple'\" = aucun avis porte sur la piste. Pas de prix."
+ },
+ {
+  "i": 4,
+  "nom": "Tondeuse",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict commence par \"exemple neutre de produit technique sans besoin de visuel\" ; hesitation avec NUANCE a cause de \"c'est plus la saison\", mais aucun avis de fond n'est porte. Pas de prix."
+ },
+ {
+  "i": 5,
+  "nom": "Papier peint",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "30 EUR/m2 puis 20 EUR/m2 dans le meme developpement ; panier de 12 a 30 m2",
+  "note": "Verdict \"marche : archetype du high-ticket par bundle\". Prix = prix au m2 et taille de panier du produit lui-meme, recopie tel quel (les deux valeurs 30 et 20 sont conservees comme dans le verdict)."
+ },
+ {
+  "i": 6,
+  "nom": "Cloture de jardin",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "20 EUR l'unite x 15 unites necessaires",
+  "note": "Verdict \"marche : meme logique de bundle\". Prix unitaire + quantite du produit lui-meme."
+ },
+ {
+  "i": 7,
+  "nom": "Produits a 2 000 / 3 000 EUR (categorie)",
+  "categorie": "NICHE",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "2 000 a 3 000 EUR",
+  "note": "Verdict \"a eviter : cher = volumineux = insourcable ou marge de merde\" ; l'entree est une tranche de prix, donc une categorie trop large, pas un produit precis. Le montant est bien un prix de produit."
+ },
+ {
+  "i": 8,
+  "nom": "Pergolas",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Verdict : \"a eviter\". Le chiffre du champ prix (250 EUR) est un budget de testing ads, pas le prix du produit, donc laisse vide."
+ },
+ {
+  "i": 9,
+  "nom": "Canape retractable / \"canape dents\" [transcription incertaine]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict : \"exemple neutre : sert a illustrer le test de demande par la presence sur AliExpress\". Produit precis (contrairement a l'entree 0 \"grosse niche\"). Pas de prix."
+ },
+ {
+  "i": 10,
+  "nom": "AliExpress (plateforme de sourcing)",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Plateforme de sourcing utilisee comme indicateur de demande et de prix reel. Les 62 EUR / 50 EUR concernent le produit non nomme d'Arthur (entree 14), pas la plateforme, donc prix vide ici."
+ },
+ {
+  "i": 11,
+  "nom": "Alibaba (plateforme de sourcing)",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Plateforme de sourcing, verdict \"a eviter comme reference de prix : le prix affiche n'est jamais le vrai prix paye\". Les 500 EUR de livraison / 3 mois / MOQ 1 sont des conditions de sourcing, pas un prix produit."
+ },
+ {
+  "i": 12,
+  "nom": "Europage [Europages] (annuaire fournisseurs FR/EU)",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Annuaire fournisseurs, \"etape de contre-verification du sourcing\". Pas de prix."
+ },
+ {
+  "i": 13,
+  "nom": "\"le BigPay\" [annuaire fournisseurs non identifie, Whisper]",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict : \"pas d'avis : cite comme seconde source FR/EU, nom mange par Whisper\" = annuaire/outil non identifiable, pas une piste produit. Pas de prix."
+ },
+ {
+  "i": 14,
+  "nom": "Produit non nomme d'Arthur (produit principal actuel)",
+  "categorie": "AUTRE",
+  "verdict_arthur": "SO",
+  "prix_utile": "vente 200 EUR, cout agent 50 EUR, AliExpress 62 EUR ; cout produit environ 30 % du CA",
+  "note": "Produit non nomme = inchassable, donc AUTRE malgre le verdict \"marche\". Les montants concernent bien le produit lui-meme (prix de vente et cout d'achat), recopies tels quels."
+ },
+ {
+  "i": 15,
+  "nom": "Vetements / fashion (niche)",
+  "categorie": "NICHE",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Marche large explicitement nomme \"(niche)\", verdict \"a eviter, deconseille formellement : retours 'l'enfer sur terre', chargebacks\". Les chiffres (ROAS 2, 50 000 euros) sont des resultats de shops, pas un prix produit."
+ },
+ {
+  "i": 16,
+  "nom": "Shops fashion de la marketplace du school de Terry",
+  "categorie": "AUTRE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict : \"cites par un membre ... shops eclates, rien a en tirer\" = des boutiques citees en resultat, ni produit ni niche ; hesitation avec CONCURRENT, mais ce ne sont pas des acteurs du marche vise. ROAS 2 / sous 50 000 EUR = CA de shops, pas un prix produit."
+ },
+ {
+  "i": 17,
+  "nom": "Baskets (tailles 41 / 41.5 / 42)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict : \"exemple neutre du probleme fashion\" ; produit precis mais utilise seulement pour illustrer les retours multi-tailles, hesitation avec DECONSEILLE puisque la niche fashion est ecartee ailleurs. Pas de prix."
+ },
+ {
+  "i": 18,
+  "nom": "Robes d'ete",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Verdict \"a eviter : pas assez de recherche, marges de merde, annonces de CA bullshit\". Les \"10 k\" sont des CA annonces par des vendeurs, pas un prix produit."
+ },
+ {
+  "i": 19,
+  "nom": "Amazon (comme concurrent institutionnel)",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Nomme explicitement \"comme concurrent institutionnel\" ; \"Amazon est pas en ads donc ca va\" = analyse de concurrence. Le prix cite est celui d'Amazon en comparaison, pas le prix d'une piste."
+ },
+ {
+  "i": 20,
+  "nom": "Produit d'un membre (Sorene) sur marche a institutionnels",
+  "categorie": "AUTRE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Produit non nomme d'un membre, verdict \"marge OK mais trop de gros concurrents\" ; le champ prix est signale \"chiffres du membre non confirmes, transcript elliptique et coupe\" et melange CPC, donc rien de recopiable en prix produit fiable."
+ },
+ {
+  "i": 21,
+  "nom": "Minia [Minea] (logiciel de recherche produit)",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Logiciel de recherche produit, verdict \"a eviter : 'c'est a chier', pousse pour 50 % de commission\". Les 50 % sont une commission d'affiliation sur l'outil, pas un prix produit."
+ },
+ {
+  "i": 22,
+  "nom": "Copify (logiciel de recherche produit)",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Logiciel de recherche produit, \"meme verdict que Minea\". La commission de 50 % concerne l'outil."
+ },
+ {
+  "i": 23,
+  "nom": "TrainTrack [TrendTrack]",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Outil de verification produit : \"marche, mais pour VERIFIER seulement, pas pour trouver\". Prix non aborde."
+ },
+ {
+  "i": 24,
+  "nom": "BrandSearch / Brain search",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Outil : \"BrandSearch c'est TrainTrack booste\", pour verifier seulement. Prix non aborde."
+ },
+ {
+  "i": 25,
+  "nom": "Remontoirs [\"remontoires\" Whisper]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict : \"exemple neutre de produit qui s'offre, pas une recommandation d'achat\" = piste produit citee sans avis. \"pas de prix dans ce live\"."
+ },
+ {
+  "i": 26,
+  "nom": "Assouline, gros livres de deco",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict : \"exemple neutre, explicitement non prescriptif : 'Je ne vous dis pas vendez des livres de deco'\" = famille de produits offrables citee sans avis ; hesitation avec CONCURRENT car Assouline est une marque, mais Arthur en parle comme d'un type de produit. Pas de prix."
+ },
+ {
+  "i": 27,
+  "nom": "Produit cadeau non nomme (nouveau test d'Arthur, garde secret pour eviter le leak)",
+  "categorie": "AUTRE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Produit volontairement non nomme (\"garde secret pour eviter le leak\") donc inchassable malgre le verdict \"marche\". Le champ prix dit \"prix de vente non donne\" : les 8 k / 20 k / 60 sont des CA, pas un prix produit."
+ },
+ {
+  "i": 28,
+  "nom": "Outil : Claude",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Nomme \"Outil\" dans l'entree : \"sert a lister des produits techniques et a piloter le generateur d'images\". Prix non aborde."
+ },
+ {
+  "i": 29,
+  "nom": "Outil : \"Icefield\" [Higgsfield]",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Nomme \"Outil\" : \"generateur d'images pilote par Claude\". Prix non aborde."
+ },
+ {
+  "i": 30,
+  "nom": "Lunettes de soleil",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict = \"exemple neutre : illustration du template non transposable\", aucun avis porte ; hesitation PRODUIT/NICHE tranchee en PRODUIT car l'article est assez precis, le \"pas de prix\" est explicite."
+ },
+ {
+  "i": 31,
+  "nom": "Theme Shopify : Full stack",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Theme Shopify = logiciel utilise pour construire la boutique ; \"modele en recurrent (abonnement)\" = prix d'un outil donc prix vide. Hesitation avec SERVICE_FORMATION, ecartee car ici aucun passage par le contact de la formation."
+ },
+ {
+  "i": 32,
+  "nom": "Theme Shopify : Prestige",
+  "categorie": "SERVICE_FORMATION",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Fourni \"15 $ via le contact de la formation\" = prestation de l'entourage d'Arthur ; les 15 $ sont un tarif d'acces au theme, pas un prix produit."
+ },
+ {
+  "i": 33,
+  "nom": "Theme Shopify : Impact",
+  "categorie": "SERVICE_FORMATION",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Meme cas que Prestige : \"15 $ via le contact de la formation\" = prestation fournie par son contact, tarif d'outil/prestation donc prix vide."
+ },
+ {
+  "i": 34,
+  "nom": "Remontoirs (watch winders), testing du membre",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "Panier moyen 150 a 200",
+  "note": "Verdict : \"Produit juge bon par le membre et non contredit par Arthur\", l'arret vient de la campagne pas du produit. Seul le panier moyen est recopie ; 2 ventes, journee a 300 et 350 depenses = resultats/depenses du membre."
+ },
+ {
+  "i": 35,
+  "nom": "Remontoir (positionnement premium)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "Verdict : \"Marche : produit premium assume par Arthur\", codes premium justifies. \"Prix non aborde dans ce live\"."
+ },
+ {
+  "i": 36,
+  "nom": "Remontoir de luxe / remontoir compact / remontoir plusieurs montres",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict commence par \"pas d'avis\" (exemple de mots cles pour les liens de destination) ; reste une piste produit precise, prix non aborde."
+ },
+ {
+  "i": 37,
+  "nom": "Boites a montre, ajoutees a la campagne qui vend",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Verdict : \"A eviter : leur ajout a detourne le budget et arrete les ventes\". \"Zero vente depuis l'ajout\" = resultat, pas un prix."
+ },
+ {
+  "i": 38,
+  "nom": "Boites a montre, en campagne separee",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Verdict conditionnel : \"Interessant, a tester, mais uniquement dans une campagne differente\". Prix non aborde."
+ },
+ {
+  "i": 39,
+  "nom": "Canape",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict : \"pas d'avis (exemple neutre : chaque type de produit se scale differemment)\"."
+ },
+ {
+  "i": 40,
+  "nom": "Cave a vin [« cabavin »]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict : \"pas d'avis (exemple neutre de scaling)\" ; cave a vin reste une piste produit precise."
+ },
+ {
+  "i": 41,
+  "nom": "Produits pour les enfants",
+  "categorie": "NICHE",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Categorie large, aucun article precis ; verdict : \"pas d'avis sur le produit\", seule une regle de ton (jamais de site premium type remontoir) est associee."
+ },
+ {
+  "i": 42,
+  "nom": "Jouets Club (retail jouets)",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Enseigne retail citee comme acteur du marche : \"exemple retail : on ne vend pas du grand public avec des arguments premium\", et \"pas d'avis\"."
+ },
+ {
+  "i": 43,
+  "nom": "Produit pour bebe / jeune mere",
+  "categorie": "NICHE",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict : \"pas d'avis sur un produit precis\" + regle de persona (\"elle veut confortable et safe, pas premium\") ; donc marche/persona, pas un article chassable."
+ },
+ {
+  "i": 44,
+  "nom": "Camera (achat perso d'Arthur)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "6000 balles",
+  "note": "Verdict : \"pas d'avis (exemple neutre : produit technique vendu avec des arguments techniques)\" ; les 6000 balles sont le prix d'achat du produit lui-meme. Hesitation avec AUTRE car c'est un achat perso d'Arthur, pas une piste proposee."
+ },
+ {
+  "i": 45,
+  "nom": "Shop « Minolea » [nom probablement mal transcrit]",
+  "categorie": "AUTRE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "C'est une boutique de membre auditee en direct (\"flop audite en direct\"), pas un produit ; 520/450 depenses, CTR et CPC = chiffres du membre donc prix vide."
+ },
+ {
+  "i": 46,
+  "nom": "Produit pour animaux / « leader robot » (produit du shop Minolea)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Verdict : \"A eviter : tres dur a scaler, devenu un produit Amazon, personne connu ne l'a scale\". Les chiffres cites decrivent la concurrence, pas un prix."
+ },
+ {
+  "i": 47,
+  "nom": "Produit du concurrent francais du membre (non nomme)",
+  "categorie": "AUTRE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Entree explicitement \"non nomme\" donc non chassable ; les 1 k/jour du concurrent et les 300/jour estimes sont des chiffres d'affaires. Hesitation avec PRODUIT car le verdict est actionnable (\"lancer le meme produit au UK\"), mais sans nom le tableau serait trompeur."
+ },
+ {
+  "i": 48,
+  "nom": "Mobilier de jardin",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "Verdict : \"Marche : seule niche validee le jour du live, avec Enzo, demande toute l'annee\" ; aucun prix ni marge donne, Amazon et VidaXL ne sont que des voies de sourcing."
+ },
+ {
+  "i": 49,
+  "nom": "Gros produit lourd (exemple generique)",
+  "categorie": "AUTRE",
+  "verdict_arthur": "SO",
+  "prix_utile": "150 EUR de produit plus 120 EUR de livraison, 15 kilos",
+  "note": "\"exemple generique\" sans produit nomme : c'est un anti-critere de sourcing (\"frais de livraison non negociables\"), pas une piste. Hesitation avec PRODUIT DECONSEILLE ; le chiffre recopie porte bien sur le produit et sa livraison."
+ },
+ {
+  "i": 50,
+  "nom": "Produit de maison (experience passee d'Arthur)",
+  "categorie": "AUTRE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Produit non nomme, tire d'une \"experience passee d'Arthur\", et le verdict est conditionnel a la situation (\"A eviter dans cette configuration : concurrent avec stock local\"). Hesitation avec NICHE (mobilier/produit de maison), ecartee pour ne pas laisser croire que la niche est disqualifiee."
+ },
+ {
+  "i": 51,
+  "nom": "Robes d'ete",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Verdict : \"A eviter : exemple de strategie bullshit d'un autre formateur, seul playbook saisonnier explicitement rejete du live\". La \"promesse de 10k day\" est un chiffre d'affaires promis, pas un prix."
+ },
+ {
+  "i": 52,
+  "nom": "Produits pas high ticket",
+  "categorie": "NICHE",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "Classe de produits definie par le niveau de prix, trop large pour etre chassee ; verdict : \"Marchent : Arthur rejette explicitement l'idee inverse\". Hesitation avec AUTRE."
+ },
+ {
+  "i": 53,
+  "nom": "Shop fashion d'Arthur",
+  "categorie": "AUTRE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict : \"pas d'avis produit (cas d'un GMC US qui ne passe pas)\" ; c'est sa boutique et un incident GMC. 1000 variantes et 2 GMC crees ne sont pas des prix."
+ },
+ {
+  "i": 54,
+  "nom": "Cafe des Guerriers (marque d'un pote)",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Marque nommee citee comme acteur, verdict : \"pas d'avis produit (case study CRO)\" ; les 200k par mois et le passage de 30 a 50 sont du chiffre d'affaires. Hesitation avec AUTRE (case study d'un pote, pas un concurrent d'Arthur)."
+ },
+ {
+  "i": 55,
+  "nom": "Planche pilates",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "« qui vendent tous a 500 EUR, qui n'ont meme pas a vendre en dessous de 1500 EUR » [passage douteux a la transcription]",
+  "note": "Verdict : \"A eviter : marche detruit par les no-shippers, rien a faire\". Les montants recopies sont des prix de vente du produit sur le marche, tels quels, avec la reserve de transcription du fichier."
+ },
+ {
+  "i": 56,
+  "nom": "« Angpan » [correction probable : handpan]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Verdict a double face : produit juge \"tres tres bon\" par Arthur qui l'a deja lance, \"mais marche FR dead, brutalise par les no-shippers, donc a eviter en FR\", avec sortie proposee sur un autre marche (allemand). Prix non aborde."
+ },
+ {
+  "i": 57,
+  "nom": "ads pixel finder (extension Chrome)",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Extension Chrome utilisee par Arthur pour lire le compte Google Ads d'un site ; \"Gratuit\" = prix d'un outil, donc prix vide."
+ },
+ {
+  "i": 58,
+  "nom": "Google Transparency (Google Ads Transparency Center)",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Plateforme d'espionnage des annonces (\"montre les pubs et le canal, jamais le budget\") ; les elements cites sont des dates de diffusion, pas des prix."
+ },
+ {
+  "i": 59,
+  "nom": "AliExpress",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Place de marche utilisee comme \"etape de sourcing obligatoire, 1 sur 3\" ; les 250 EUR et 140 EUR illustrent une regle de sourcing generique (pas de marge / no-ship), pas le prix d'un produit identifie."
+ },
+ {
+  "i": 60,
+  "nom": "Alibaba",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Plateforme de sourcing : verdict = « Etape de sourcing obligatoire, 2 sur 3 ». Aucun prix cite."
+ },
+ {
+  "i": 61,
+  "nom": "688 [1688.com]",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Plateforme de sourcing : « Etape de sourcing obligatoire, 3 sur 3 ». Aucun prix cite."
+ },
+ {
+  "i": 62,
+  "nom": "Google Images",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Outil de verification : « Etape obligatoire avant de conclure introuvable ». Le « Gratuit » du champ prix est le cout de l outil, pas un prix produit."
+ },
+ {
+  "i": 63,
+  "nom": "Amazon",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Place de marche traitee comme terrain et comme source : « A eviter comme terrain et comme source ». Hesitation avec CONCURRENT (enseigne du marche), mais le verdict la cite comme canal/source, donc OUTIL."
+ },
+ {
+  "i": 64,
+  "nom": "VidaXL [« vida xl »]",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Plateforme/fournisseur de sourcing : « seule voie actuelle pour sourcer du gros produit en Europe, avec contact direct ». Hesitation avec CONCURRENT (fournisseur nomme) tranchee en OUTIL car citee comme moyen de sourcing."
+ },
+ {
+  "i": 65,
+  "nom": "trust2 [correction probable : Trustoo]",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "App Shopify d avis : « app d avis utilisee majoritairement par Arthur »."
+ },
+ {
+  "i": 66,
+  "nom": "Vital ou Gtumi [correction probable : Vitals ou Judge.me]",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Apps d avis : verdict « pas d avis : ca depend vraiment de ton site ». Aucun prix cite."
+ },
+ {
+  "i": 67,
+  "nom": "cloud x Icefield [correction probable : Claude x Higgsfield]",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Stack logicielle de generation d images : « pipeline photos produits d Arthur, son prompt perso envoye a Claude ». Les 150 dollars par mois sont l abonnement de l outil, pas un prix produit."
+ },
+ {
+  "i": 68,
+  "nom": "GMC Protect (service du prestataire)",
+  "categorie": "SERVICE_FORMATION",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Prestation d un prestataire de l entourage d Arthur : « A eviter en l etat : juge surprice, utilite pas comprise, non teste ». Les 400 balles par mois sont un tarif de prestation."
+ },
+ {
+  "i": 69,
+  "nom": "Call GMC done with you (Terry / Thierry, meme personne)",
+  "categorie": "SERVICE_FORMATION",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Prestation d accompagnement recommandee par Arthur (« Recommande par defaut, sauf si beaucoup de cash », « 0 commission Arthur sur les calls »). 170 / 200 EUR / 160 EUR = tarifs de prestation."
+ },
+ {
+  "i": 70,
+  "nom": "Done for you GMC (Terry / Thierry)",
+  "categorie": "SERVICE_FORMATION",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Prestation done for you : « Conditionnel : seulement si un shop marche deja en FR ». 2500 / 1500 = tarifs de prestation, pas un prix produit."
+ },
+ {
+  "i": 71,
+  "nom": "Consulting et module CRO de Louis [« Louis Soren »]",
+  "categorie": "SERVICE_FORMATION",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Consulting + module fourni par l entourage d Arthur : « Arthur l a paye lui-meme ». Le « 30 vers 50 » est un resultat de CRO, pas un prix."
+ },
+ {
+  "i": 72,
+  "nom": "Accompagnement « Romas » [nom probablement mal transcrit]",
+  "categorie": "SERVICE_FORMATION",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Accompagnement d un prestataire externe : « A eviter ... bullshitometre declenche ». Le « 5000 a 10 000 produits en PMax » est un volume de feed, pas un prix."
+ },
+ {
+  "i": 73,
+  "nom": "Module « open-cloud » (abandonne) et Hermes",
+  "categorie": "SERVICE_FORMATION",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Module de la formation d Arthur : « pas d avis produit : module tue par la sortie de Hermes pendant sa production ». Hesitation avec OUTIL a cause de la mention Hermes, tranchee sur le module (livrable de formation)."
+ },
+ {
+  "i": 74,
+  "nom": "« cloud code » [Claude Code]",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Logiciel IA : « pas d avis : demande par un membre pour un futur module IA »."
+ },
+ {
+  "i": 75,
+  "nom": "Site de Dorian Rose",
+  "categorie": "AUTRE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "« pas d avis produit : reference de structure citee par Arthur, les bulles de choix des le debut de page ». Hesitation avec CONCURRENT, mais il est cite comme reference de structure de page, pas comme acteur d un marche."
+ },
+ {
+  "i": 76,
+  "nom": "Interview de « ma SEO »",
+  "categorie": "SERVICE_FORMATION",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Ressource fournie aux membres : « pas d avis produit : renvoyee aux membres a la place de dashboards quotidiens ». Hesitation avec AUTRE (c est un contenu/une personne)."
+ },
+ {
+  "i": 77,
+  "nom": "Remontoirs",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "Piste produit validee : « Marche. Archetype Q4 : evergreen plus vocation cadeau, produit de la formation ». Le « 1 K / 4 a 5 K Q4 » est un potentiel de chiffre d affaires, pas un prix de vente."
+ },
+ {
+  "i": 78,
+  "nom": "Commodes",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Piste produit ecartee : « A eviter : tres peu offert, donc pas un produit Q4 ». Prix non aborde."
+ },
+ {
+  "i": 79,
+  "nom": "Support pour la tele",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Piste produit ecartee : « A eviter : tres peu offert, donc pas un produit Q4 ». Prix non aborde."
+ },
+ {
+  "i": 80,
+  "nom": "Sapins de Noel",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Piste produit ecartee : « A eviter : produit pur Noel, c est evident que le produit va s arreter ». Prix non aborde."
+ },
+ {
+  "i": 81,
+  "nom": "Plantes artificielles / fleurs artificielles",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Conditions fortes sans trancher : « Marche sur le marche US uniquement ; ailleurs dans 95 % du temps c est de la merde. A skip si on n a pas encore chiffre ». Le « 1 a 2 K, x4 x5 au Q4 » est un potentiel de chiffre d affaires ; « paniers moyens bas » sans chiffre."
+ },
+ {
+  "i": 82,
+  "nom": "Van Cleef / Cartier",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Marques citees comme acteurs du marche cadeau : « Pas une piste produit : cites comme destination des gros budgets de Noel »."
+ },
+ {
+  "i": 83,
+  "nom": "Table basse de luxe",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "eviter 1500 balles",
+  "note": "Piste produit ecartee en contre-exemple : « A eviter : contre-exemple, les gros budgets de Noel n achetent pas ca ». Le 1500 balles est bien un prix de vente du produit (plafond a eviter)."
+ },
+ {
+  "i": 84,
+  "nom": "Vestes chauffantes",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "39,99 contre 49,99 chez les concurrents",
+  "note": "Piste produit disqualifiee : « c est des produits de merde, pas de marge ... environ 50 dropshippers avec le meme site ». Prix = prix de vente du produit et de ses concurrents."
+ },
+ {
+  "i": 85,
+  "nom": "Echiquier [Whisper : « Et chez qui »]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Pour-et-contre : « C est un tres bon produit ... mais Arthur n irait pas : pas assez de cash sur le marche francais ». Le « 3 a 4 contre objectif 15 a 20 » est un niveau de chiffre d affaires, pas un prix."
+ },
+ {
+  "i": 86,
+  "nom": "Couteaux, sets de couteaux, couteaux japonais, couteau de chef",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "« Marche : cadeau homme de base, produit un peu mondial sur Google, le mot couteau n est pas banni » ; conditions citees (mots-cles marques, branding) mais il tranche positivement."
+ },
+ {
+  "i": 87,
+  "nom": "Montres, boite a montre",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "« Marche : cadeau homme de base, remonte tout de suite dans les listes d idees cadeaux ». Prix non aborde."
+ },
+ {
+  "i": 88,
+  "nom": "Rangement de chaussures ultra premium",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "« Exemple positif de cadeau homme » : hesitation avec NEUTRE car c est un exemple, tranchee en VALIDE parce que l exemple est qualifie de positif."
+ },
+ {
+  "i": 89,
+  "nom": "Mousepad Apple",
+  "categorie": "AUTRE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Le verdict le disqualifie explicitement comme piste : « Pas une piste produit : illustre la mecanique du cadeau deduit de la passion identifiee du destinataire »."
+ },
+ {
+  "i": 90,
+  "nom": "Niche pêche",
+  "categorie": "NICHE",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "Verdict dit « une niche qui peut plutôt bien marcher » : marché large, pas un article precis ; avis positif fonde sur les fans."
+ },
+ {
+  "i": 91,
+  "nom": "Niche sport",
+  "categorie": "NICHE",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "« Les trucs de sport aussi marchent bien » = marche large valide par le nombre de pratiquants, pas un produit precis."
+ },
+ {
+  "i": 92,
+  "nom": "Livres à souligner [transcription incertaine]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Verdict explicite « Pas d'avis : exemple neutre trouvé dans les listes d'idées cadeaux » ; l'article reste assez precis pour etre chasse."
+ },
+ {
+  "i": 93,
+  "nom": "Bottes de compression / bottes de pressothérapie",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "coûtait 500 balles, aujourd'hui 220",
+  "note": "« À éviter : moi je crois pas du tout en ce produit » ; prix recopie = prix de vente du produit, effondre par Jolt."
+ },
+ {
+  "i": 94,
+  "nom": "Jolt",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict : « Pas une piste produit : marque qui a dégommé le marché du sport récup, ils sont partout »."
+ },
+ {
+  "i": 95,
+  "nom": "Saunas, bains froids, ice baths",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "coûtait 5k euros, finit par coûter 1k5",
+  "note": "« À éviter : prix effondrés » ; le chiffre est bien le prix de vente du produit dans le temps."
+ },
+ {
+  "i": 96,
+  "nom": "Niche sécurité",
+  "categorie": "NICHE",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Nomme « niche » et verdict en pour-et-contre : « fonctionne et montera au Q4 » mais « les gens ne vont pas forcément offrir des trucs de sécurité ». Le « pas de x5 x6 » est un multiplicateur Q4, pas un prix."
+ },
+ {
+  "i": 97,
+  "nom": "Robot aspirateur",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Pour-et-contre non tranche : « je pense pas que ça fasse un très bon produit cadeau, mais ça se vendra toujours plus »."
+ },
+ {
+  "i": 98,
+  "nom": "Château gonflable",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "« À éviter : pas du tout », produit full été, « tu les vendras quasiment pas en Q4 »."
+ },
+ {
+  "i": 99,
+  "nom": "Platine vinyle",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "concurrence 119 à 200 euros",
+  "note": "« Ça marche très bien », deja lancee et chiffree par Arthur ; reserve d'execution « extrêmement dur à sourcer » notee mais il tranche positivement. Le « 3 à 4k/jour » est du CA, ecarte du prix."
+ },
+ {
+  "i": 100,
+  "nom": "Jeux de table",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "Verdict « Marche : même catégorie Q4 que remontoirs, couteaux, platine vinyle »."
+ },
+ {
+  "i": 101,
+  "nom": "Luminaires, lampes, horloges",
+  "categorie": "NICHE",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "Arthur les nomme lui-meme « des niches qui vont plutôt bien fonctionner » ; le « x2 acquis, chance de x5 » est un multiplicateur Q4, pas un prix."
+ },
+ {
+  "i": 102,
+  "nom": "Lustres",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Article precis mais avis mitige : « pas forcément le produit le plus phare pour Q4 », x2 seulement (multiplicateur, pas un prix)."
+ },
+ {
+  "i": 103,
+  "nom": "Lampes de chevet, lampes déco (achetées chez Blossom)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "« Ce genre de truc ça marche très très très très bien » parce que « y'a plein de gens qui savent plus quoi offrir »."
+ },
+ {
+  "i": 104,
+  "nom": "Miroir",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "Verdict « Marche : bon cadeau, même logique que la lampe déco »."
+ },
+ {
+  "i": 105,
+  "nom": "Belle horloge, petit réveil AP",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "« Marche : les gens aiment ce genre de produit », Arthur en a un sur son bureau."
+ },
+ {
+  "i": 106,
+  "nom": "Fnac / Nature et Découvertes",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict : « Source de recherche produit, pas un produit à vendre » — enseignes utilisees comme outil de recherche ; hesitation avec CONCURRENT tranchee par le mot « source »."
+ },
+ {
+  "i": 107,
+  "nom": "Diamant Audio Technica",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "« Pas une piste produit : composant obligatoire de la platine vinyle » — marque/fournisseur nomme ; hesitation avec AUTRE, classe CONCURRENT car c'est un fournisseur nomme."
+ },
+ {
+  "i": 108,
+  "nom": "Argon Audio",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "200 euros",
+  "note": "« Pas une piste produit : concurrent très chaud en France sur la platine vinyle » ; les 200 euros = prix de vente pratique sur le marche de la platine."
+ },
+ {
+  "i": 109,
+  "nom": "Sonomateriol / Darty / Fnac (platine vinyle)",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "Fnac 120 puis 179 pour la bonne qualité, Sonomateriol 119, Darty 135",
+  "note": "« Pas une piste produit : concurrence institutionnelle » ; prix recopies = prix de vente marche de la platine vinyle."
+ },
+ {
+  "i": 110,
+  "nom": "Décoration et fashion",
+  "categorie": "NICHE",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Categories larges ; verdict en pour-et-contre : « seuls prods no limit capables de 15k/jour » mais « catégorie de PLAFOND et non recommandation d'entrée », dans le bloc « quasiment mission impossible en étant profitable ». Les 15k/jour vs 1 à 2k/jour = CA, pas un prix."
+ },
+ {
+  "i": 111,
+  "nom": "Shop maison généraliste / canapés",
+  "categorie": "NICHE",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Marche large (shop maison generaliste) ; pour-et-contre : « quasiment mission impossible en étant profitable, mais ce sont les seuls produits scalables à l'infini », concurrents qui « dépensent vos life savings ». Verdict dit « non chiffré directement »."
+ },
+ {
+  "i": 112,
+  "nom": "Papier peint (US)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Piste produit precise, lancee par Arthur, mais conditionnee : « à éviter sans budget massif ». Les chiffres cites sont volume de recherche, CA/jour du leader et budget mensuel, aucun prix de vente."
+ },
+ {
+  "i": 113,
+  "nom": "AirPods Pro",
+  "categorie": "RECOMPENSE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "« Pas une piste produit : lot du concours interne (palier 1k/jour) » ; le « environ 280 » est la valeur du lot, pas un prix de vente."
+ },
+ {
+  "i": 114,
+  "nom": "Whoop / porte-carte Vuitton",
+  "categorie": "RECOMPENSE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "« Pas une piste produit : lots alternatifs du concours interne » ; « un an de Whoop offert » = cadeau, pas un prix."
+ },
+ {
+  "i": 115,
+  "nom": "AirPods Max, workshop demi-journée, bracelet Hermès",
+  "categorie": "RECOMPENSE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "« Pas une piste produit : lots du palier 2k/jour du concours interne » ; la demi-journee de rescale est un lot fourni, pas un tarif de vente."
+ },
+ {
+  "i": 116,
+  "nom": "Chaise Herman Miller, MacBook Pro, grosse enceinte",
+  "categorie": "RECOMPENSE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "« Pas une piste produit : lots du palier 5k/jour du concours interne » ; chaise 2K / MacBook 4.5-3.5-2 / reconditionne 1.7 = valeurs des lots, pas des prix de vente."
+ },
+ {
+  "i": 117,
+  "nom": "Déco scandinave middle ticket [Whisper : « mini sclume », probablement Sklum]",
+  "categorie": "NICHE",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "middle ticket",
+  "note": "Verdict dit lui-meme « formulée comme niche c'est trop large, il faut redescendre sur un produit précis » ; avis conditionne : « ça peut être parfait » mais « il faut un GMC obligatoire »."
+ },
+ {
+  "i": 118,
+  "nom": "Canapé japonais et décos japonaises [Whisper : « Japon dit », probablement Japandi]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "« Marchent très très très bien. Et encore mieux pendant le Q4 » ; hesitation avec NICHE car « décos japonaises » est large, mais le verdict le presente comme le tip pour faire de la deco « sans aller sur de l'ultra broad » donc c'est bien une piste chassable."
+ },
+ {
+  "i": 119,
+  "nom": "Produits GMC non nommés trouvés par Arthur pour le Q4",
+  "categorie": "AUTRE",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Produits non nommes (« Arthur garde les noms ») : rien de chassable, meme si le verdict dit « bons produits mais pas bon pour un premier shop »."
+ },
+ {
+  "i": 120,
+  "nom": "Accessoires d'appareil photo",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Le verdict la designe comme « Piste de la famille accessoires de passion » donc piste produit, mais « citée depuis son propre achat » sans avis porte."
+ },
+ {
+  "i": 121,
+  "nom": "Chaises de bar",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Produit precis et verdict « À éviter : je t'avoue je pense pas trop », marche lu comme sature."
+ },
+ {
+  "i": 122,
+  "nom": "Faux tableau / tableau art numérique / cadre artistique",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "400 à 500 balles de vente pour un coût d'achat faible ; annonces concurrentes vues à 1200 et 1700",
+  "note": "« Je crois que ça cartonne ce genre de truc, vraiment » : produit precis valide ; prix = prix de vente et prix concurrents donc conserve."
+ },
+ {
+  "i": 123,
+  "nom": "Atelier du Cohen",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict explicite « Pas une piste produit : marque citée par un membre à propos du branding produit »."
+ },
+ {
+  "i": 124,
+  "nom": "Produits cadeaux et produits artistiques",
+  "categorie": "NICHE",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "Categorie large (« tous les trucs cadeaux, les trucs artistiques ») et non un article precis, mais « ça marche très très très bien »."
+ },
+ {
+  "i": 125,
+  "nom": "Shop randonnée / chaussures de randonnée homme",
+  "categorie": "NICHE",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "Columbia à 78 balles",
+  "note": "Hesitation PRODUIT/NICHE : le nom dit « shop randonnée » et le verdict raisonne marche (Décathlon sur 95 % des produits) donc NICHE ; « perso je déconseille ». Le 95 % n'est pas un prix, seul le prix concurrent Columbia est repris."
+ },
+ {
+  "i": 126,
+  "nom": "Babyphone / caméras de surveillance pour bébés",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "« Validé explicitement : je peux te valider le produit ». Le « 1k/jour stable » est un palier de chiffre d'affaires, pas un prix produit, donc prix vide."
+ },
+ {
+  "i": 127,
+  "nom": "Jeux de dames",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "annonces à 50 et 60 balles",
+  "note": "Jeu de table = produit ; « À éviter : volume faussé par le jeu en ligne » et « je vois que des annonces ultra cheap ». Prix = annonces concurrentes du produit."
+ },
+ {
+  "i": 128,
+  "nom": "Jeux de poker",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "« À éviter / prudence : volume de recherche faussé par le poker en ligne ». Les 100 000 / 65 000 sont des volumes de recherche, pas un prix."
+ },
+ {
+  "i": 129,
+  "nom": "Jeux d'échecs (comme niche jeux)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Hesitation avec NICHE car le nom precise « comme niche jeux » ; garde PRODUIT (un echiquier est chassable). Verdict « À éviter / prudence : même biais de volume », contradiction non arbitree signalee avec l'echiquier valide ailleurs."
+ },
+ {
+  "i": 130,
+  "nom": "Jeux de fléchettes",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "« Mitigé positif : je pense que ça marche, j'ai juste peur que ça coûte pas grand chose » = reserve non tranchee."
+ },
+ {
+  "i": 131,
+  "nom": "Catalogue luxuryformen.com (le site lui-même)",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Le verdict le qualifie de « Source de recherche validée en direct », site parcouru comme outil d'idees produit, pas un article a vendre."
+ },
+ {
+  "i": 132,
+  "nom": "Accessoires pour le champagne (spiritueux et boissons, catalogue luxuryformen)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Famille d'accessoires traitee comme piste ; « Ok c'est sympa » = positif faible sans trancher."
+ },
+ {
+  "i": 133,
+  "nom": "Décoration murale (catalogue luxuryformen)",
+  "categorie": "NICHE",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Hesitation PRODUIT/NICHE : « décoration murale » reste une categorie large, donc NICHE ; verdict = constat de prix « ils vendent super cher », pas une validation."
+ },
+ {
+  "i": 134,
+  "nom": "Organisateur de sac de golf (catalogue luxuryformen)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Produit precis ; « putain qui l'a cru » puis « sac de golf, il y a beaucoup d'idées là-dessus » = interet sans validation nette."
+ },
+ {
+  "i": 135,
+  "nom": "Top 50 des cadeaux / Veuve Clicquot / truc personnalisé (catalogue luxuryformen)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Famille de produits cadeaux parcourue comme piste ; « Sympa, très sympa » = positif faible, aucun critere donne."
+ },
+ {
+  "i": 136,
+  "nom": "Watch case (catalogue luxuryformen)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "« C'est un typiquement le genre de produit qu'on vend » et « un pote à lui l'a » = valide par la pratique."
+ },
+ {
+  "i": 137,
+  "nom": "Travel bag (catalogue luxuryformen)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Produit du catalogue simplement passe en revue ; verdict reduit a « Ok, ok, ok » = aucun avis porte."
+ },
+ {
+  "i": 138,
+  "nom": "Trucs de padel (catalogue luxuryformen)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Famille accessoires padel citee dans le catalogue ; verdict « Ok » seul = aucun avis."
+ },
+ {
+  "i": 139,
+  "nom": "Réveil intelligent (catalogue luxuryformen)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Produit precis, verdict « Ok tac » = simple passage en revue sans avis."
+ },
+ {
+  "i": 140,
+  "nom": "Planche à steak (catalogue luxuryformen)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "« Je connaissais pas le produit mais c'est cool » = positif faible, pas une validation."
+ },
+ {
+  "i": 141,
+  "nom": "Remontoirs (catalogue luxuryformen) [Whisper : « des remontoires »]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Le verdict porte sur le SITE (« ce site est pas mal », « des idées de cadeaux un peu mec ») et non sur le remontoir lui-meme, donc aucun avis produit."
+ },
+ {
+  "i": 142,
+  "nom": "Couteau (catalogue luxuryformen)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "« Ça reprend à peu près ce que… c'est stylé ça » = appreciation esthetique, pas de validation chiffree."
+ },
+ {
+  "i": 143,
+  "nom": "Fake Rimowa (catalogue luxuryformen) [Whisper : « rimovas »]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Article du catalogue (contrefacon) ; verdict explicite « Constat neutre, pas d'avis : ils ont des rimovas, enfin des fake rimovas, mais voilà »."
+ },
+ {
+  "i": 144,
+  "nom": "Étui de poker (catalogue luxuryformen)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Produit precis ; « Etuit de poker, why not » = ouverture sans trancher."
+ },
+ {
+  "i": 145,
+  "nom": "Tire-bouchon (catalogue luxuryformen)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "« Seul verdict négatif du catalogue : je ne suis pas persuadé du délire »."
+ },
+ {
+  "i": 146,
+  "nom": "Produits culinaires et partie cuisine",
+  "categorie": "NICHE",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Le verdict parle de « Catégorie à creuser » et « probablement des choses à faire pour la partie cuisine » = marche large, encouragement hedge."
+ },
+ {
+  "i": 147,
+  "nom": "BHV (Paris)",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict explicite « Source de recherche produit, pas un produit » (« full full full banger au BHV, il y a toutes les catégories ») ; hesitation avec CONCURRENT car c'est une enseigne, mais ici utilisee comme outil de chasse."
+ },
+ {
+  "i": 148,
+  "nom": "Abris de jardin",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Produit precis d'exterieur ; verdict « Pas d'avis : je n'ai jamais vraiment fait de la niche extérieure », seule remarque = saisonnalite."
+ },
+ {
+  "i": 149,
+  "nom": "Galeries Lafayette (Paris)",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict explicite « Source de recherche produit, pas un produit » (« allez vous faire une journée dans le BHV, au Galerie Lafayette aussi ») ; meme traitement que BHV."
+ },
+ {
+  "i": 150,
+  "nom": "Dragon Mart (mall chinois de Dubaï)",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict = « Source de recherche produit » : lieu/place de sourcing utilisé comme outil de chasse, pas un article à vendre. Prix « non abordé »."
+ },
+ {
+  "i": 151,
+  "nom": "Dubai Mall",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict = « Source de recherche produit » (« je regarde un peu toutes les catégories, je m'inspire ») : lieu de sourcing/inspiration, pas un produit."
+ },
+ {
+  "i": 152,
+  "nom": "Mini tronçonneuse",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Produit précis ; verdict « À éviter en Search » (« en search je ne pense pas »). Hésitation DECONSEILLE/NUANCE car il ajoute « sans exclure que ça fonctionne » en Shopping."
+ },
+ {
+  "i": 153,
+  "nom": "Remorque pour chevaux [Whisper : « remorque pour les cheveux »]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Produit précis ; « Ça doit marcher mais sûrement pas sur le marché français » = condition de marché, pas de tranche franche."
+ },
+ {
+  "i": 154,
+  "nom": "Coiffeuses",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Produit précis ; « c'est 100 % dead », « 100 % éteints », trop de gros concurrents. Le champ prix contenait « 100 % dead » = pas un prix, donc vidé."
+ },
+ {
+  "i": 155,
+  "nom": "Cookware, sets de cuisine, poêles titane et inox [Whisper : « Cookware 7 », « poil en titane »]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "Famille de produits qu'il vend lui-même : « j'ai Cookware 7, tous les trucs pour la cuisine etc qui marchent bien »."
+ },
+ {
+  "i": 156,
+  "nom": "Toilette sèche",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Produit précis ; « À éviter », clientèle sans argent qui « ne va pas aller se faire dropshipper »."
+ },
+ {
+  "i": 157,
+  "nom": "Détecteur de métaux",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "500 $ visés, Amazon 120, grosses marques 1000",
+  "note": "Produit précis ; « À éviter malgré un oui de façade », écrasé par les deux bouts, marché de brand search. Prix = prix de vente visé et prix marché du produit, donc conservés."
+ },
+ {
+  "i": 158,
+  "nom": "le détecteur.fr",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict explicite : « Pas une piste produit : gros concurrent identifié par un membre » sur le détecteur de métaux."
+ },
+ {
+  "i": 159,
+  "nom": "Sèche-serviette électrique",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "VALIDE",
+  "prix_utile": "",
+  "note": "Produit précis ; « Ouais à pousser. Pousse le produit » puis « bon call ». Hésitation avec NUANCE : réserve « peur des concurrents type Leroy Merlin » + « Vérifie quand même tout »."
+ },
+ {
+  "i": 160,
+  "nom": "Vase (niche déco scandinave)",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "15 balles",
+  "note": "Article précis (vase) malgré la mention « niche déco » dans le nom ; écarté sur le prix : « je pense que ça coûte 15 balles »."
+ },
+ {
+  "i": 161,
+  "nom": "Caméras de chasse",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Produit précis ; « le marché il est saturé, baisé », 1000 personnes l'ont lancé. « 1000 personnes » n'est pas un prix → champ vidé."
+ },
+ {
+  "i": 162,
+  "nom": "Jumelles",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Produit précis ; « qualité de merde. Tu vas bankrupt », chargebacks."
+ },
+ {
+  "i": 163,
+  "nom": "Colonne de douche",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "vente espérée 300 à 400 balles, achat 150, Ikea vend 120",
+  "note": "Produit précis ; « À éviter », positionnement impossible, mauvaise habitude d'achat. Prix = vente/achat/prix marché du produit, donc conservés."
+ },
+ {
+  "i": 164,
+  "nom": "Ikea",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict explicite : « Pas une piste produit : référence de prix plancher qui tue la colonne de douche ». Le 120 est le prix Ikea de la colonne, cité comme benchmark concurrent, pas le prix de cette entrée."
+ },
+ {
+  "i": 165,
+  "nom": "Cloison de séparation",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NUANCE",
+  "prix_utile": "",
+  "note": "Produit précis ; « Ça peut fonctionner […] j'aime bien le prod » MAIS « ça dépend juste de comment il est vendu et quel marché » = conditions."
+ },
+ {
+  "i": 166,
+  "nom": "Fauteuil / chaise gaming [Whisper : « chess gaming »]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Produit précis ; « non pas du tout », trop de gros concurrents, pas de marge, trop lourd."
+ },
+ {
+  "i": 167,
+  "nom": "Simulateur de chaise F1",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "Logitech 400 balles",
+  "note": "Produit précis ; « laisse tomber c'est mort » (Logitech + Sim Racing occupent le marché). Prix = prix marché du produit, conservé."
+ },
+ {
+  "i": 168,
+  "nom": "Virgin Mobile (Dubai Mall)",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict : « Pas une piste produit : lieu de sourcing physique » où il a vu les simulateurs F1 → classé comme source de sourcing, cohérent avec Dragon Mart/Dubai Mall. Hésitation avec CONCURRENT (c'est une enseigne)."
+ },
+ {
+  "i": 169,
+  "nom": "Simulateur de conduite",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Produit précis ; « c'est globalement la même chose » que le simulateur F1, « pas de truc là dessus »."
+ },
+ {
+  "i": 170,
+  "nom": "Étendoir à linge",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "15 balles",
+  "note": "Produit précis ; « non absolument pas parce que ça vaut 15 balles » = prix du produit, conservé."
+ },
+ {
+  "i": 171,
+  "nom": "Lit cabane enfant",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "DECONSEILLE",
+  "prix_utile": "",
+  "note": "Produit précis ; « je n'aime pas du tout le produit […] c'est insourçable »."
+ },
+ {
+  "i": 172,
+  "nom": "Treuil électrique [Whisper : « Troïe électrique »]",
+  "categorie": "PRODUIT",
+  "verdict_arthur": "NEUTRE",
+  "prix_utile": "",
+  "note": "Produit précis mais verdict = « Pas d'avis » (« je ne peux pas te donner mon avis »). « concurrents depuis 20 ans » n'est pas un prix → champ vidé."
+ },
+ {
+  "i": 173,
+  "nom": "Top Regal / Home Tools [Whisper : « Top Real » corrigé par Arthur]",
+  "categorie": "CONCURRENT",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict explicite : « Pas une piste produit : vieux sites repérés sur le SERP treuil, ça fait très distributeur » = acteurs du marché."
+ },
+ {
+  "i": 174,
+  "nom": "Base44 / Lovable / Higgsfield [Whisper : « Loveable », « Icefield »]",
+  "categorie": "OUTIL",
+  "verdict_arthur": "SO",
+  "prix_utile": "",
+  "note": "Verdict : « Pas des produits e-commerce : SaaS cités dans le segment 1 » (Base44 vs Lovable) = logiciels/plateformes."
+ }
+]

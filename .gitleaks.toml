@@ -77,4 +77,10 @@ paths = [
   '''(^|/)skills/huashu-design/''',
   '''(^|/)skills/html-ppt/''',
   '''(^|/)skills/playwright-skill/''',
+  # The owner's own training libraries. ecom_tokens.json is the course platform's chapter
+  # index and carries ~100 Mux signed playback JWTs (expired), so the jwt and
+  # generic-api-key rules light up on a file that is a table of contents. This tree is
+  # covered instead by the pre-commit hook, which - unlike this allowlist - still HARD
+  # blocks a real Shopify/Anthropic/GitHub/AWS/Slack token anywhere under formations/.
+  '''(^|/)formations/''',
 ]

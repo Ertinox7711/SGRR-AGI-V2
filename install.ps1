@@ -241,8 +241,12 @@ if (-not $Minimal) {
   Copy-Tree 'docs'    'docs'    -Dry:$DryRun
   Copy-Tree 'shops'   'shops'   -Dry:$DryRun
   Copy-Tree 'shopify' 'shopify' -Dry:$DryRun
+  # The training libraries. ~32 MB of text, and the reason the repo is private - the
+  # bundles under formations/bundles/ are meant to be pasted straight into a chat, so
+  # they have to land next to everything else for the install to be one click.
+  Copy-Tree 'formations' 'formations' -Dry:$DryRun
 } else {
-  Warn "-Minimal: skipped skills/, docs/, shops/, shopify/"
+  Warn "-Minimal: skipped skills/, docs/, shops/, shopify/, formations/"
 }
 
 # ---- machine-local config the hooks read (never overwritten once it exists) --------

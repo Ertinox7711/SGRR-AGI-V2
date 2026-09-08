@@ -1,0 +1,272 @@
+[
+ {
+  "i": 120,
+  "live": "22/07",
+  "nom": "Accessoires d'appareil photo",
+  "verdict": "Piste de la famille accessoires de passion, citée depuis son propre achat",
+  "prix": "non abordé dans ce live",
+  "canal": "Search",
+  "ts": "00:44:33"
+ },
+ {
+  "i": 121,
+  "live": "22/07",
+  "nom": "Chaises de bar",
+  "verdict": "À éviter : « je t'avoue je pense pas trop. J'ai l'impression que c'est full aligné » [Whisper : dernier mot douteux, lu comme saturé]",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:44:37"
+ },
+ {
+  "i": 122,
+  "live": "22/07",
+  "nom": "Faux tableau / tableau art numérique / cadre artistique",
+  "verdict": "« Je crois que ça cartonne ce genre de truc, vraiment » : cadeau typique pour parents et grands-parents, se vend toute l'année. Mot-clé à trouver, « tableau numérique » rend zéro recherche",
+  "prix": "400 à 500 balles de vente pour un coût d'achat faible ; annonces concurrentes vues à 1200 et 1700",
+  "canal": "Search",
+  "ts": "00:45:02"
+ },
+ {
+  "i": 123,
+  "live": "22/07",
+  "nom": "Atelier du Cohen",
+  "verdict": "Pas une piste produit : marque citée par un membre à propos du branding produit",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:46:40"
+ },
+ {
+  "i": 124,
+  "live": "22/07",
+  "nom": "Produits cadeaux et produits artistiques",
+  "verdict": "« Tous les trucs cadeaux, les trucs artistiques, ça marche très très très bien »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:47:38"
+ },
+ {
+  "i": 125,
+  "live": "22/07",
+  "nom": "Shop randonnée / chaussures de randonnée homme",
+  "verdict": "À éviter : « perso je déconseille », Décathlon sur 95 % des produits et tire les prix vers le bas ; marchait très bien il y a quelques années",
+  "prix": "Décathlon sur 95 % des produits ; Columbia à 78 balles",
+  "canal": "Shopping",
+  "ts": "00:48:13"
+ },
+ {
+  "i": 126,
+  "live": "22/07",
+  "nom": "Babyphone / caméras de surveillance pour bébés",
+  "verdict": "Validé explicitement : « je peux te valider le produit ». Niche bébé dure à pénétrer jusqu'au 1k/jour stable, puis scale horizontal grâce au nombre de produits",
+  "prix": "1k/jour stable = le palier dur",
+  "canal": "non precise",
+  "ts": "00:49:17"
+ },
+ {
+  "i": 127,
+  "live": "22/07",
+  "nom": "Jeux de dames",
+  "verdict": "À éviter : volume faussé par le jeu en ligne et « je vois que des annonces ultra cheap »",
+  "prix": "annonces à 50 et 60 balles",
+  "canal": "non precise",
+  "ts": "00:49:46"
+ },
+ {
+  "i": 128,
+  "live": "22/07",
+  "nom": "Jeux de poker",
+  "verdict": "À éviter / prudence : volume de recherche faussé par le poker en ligne",
+  "prix": "100 000 recherches dont environ 65 000 pour du poker en ligne",
+  "canal": "non precise",
+  "ts": "00:49:55"
+ },
+ {
+  "i": 129,
+  "live": "22/07",
+  "nom": "Jeux d'échecs (comme niche jeux)",
+  "verdict": "À éviter / prudence : même biais de volume que poker et dames. Contradiction non arbitrée avec l'échiquier validé à 00:26:16",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:49:57"
+ },
+ {
+  "i": 130,
+  "live": "22/07",
+  "nom": "Jeux de fléchettes",
+  "verdict": "Mitigé positif : « je pense que ça marche, j'ai juste peur que ça coûte pas grand chose »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:50:11"
+ },
+ {
+  "i": 131,
+  "live": "22/07",
+  "nom": "Catalogue luxuryformen.com (le site lui-même)",
+  "verdict": "Source de recherche validée en direct : « c'est le genre de truc que j'irais faire pour le Q4 », « on vient de trouver un petit banger », lien posté dans le chat",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:50:22"
+ },
+ {
+  "i": 132,
+  "live": "22/07",
+  "nom": "Accessoires pour le champagne (spiritueux et boissons, catalogue luxuryformen)",
+  "verdict": "« Ouais c'est des accessoires. En gros des trucs pour le champagne, de la déco. Ok c'est sympa »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:50:43"
+ },
+ {
+  "i": 133,
+  "live": "22/07",
+  "nom": "Décoration murale (catalogue luxuryformen)",
+  "verdict": "« Ouais, ouais ils vendent super cher »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:50:56"
+ },
+ {
+  "i": 134,
+  "live": "22/07",
+  "nom": "Organisateur de sac de golf (catalogue luxuryformen)",
+  "verdict": "« Organisateur de sac de golf, putain qui l'a cru » puis « sac de golf, il y a beaucoup d'idées là-dessus »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:02"
+ },
+ {
+  "i": 135,
+  "live": "22/07",
+  "nom": "Top 50 des cadeaux / Veuve Clicquot / truc personnalisé (catalogue luxuryformen)",
+  "verdict": "« Sympa, très sympa »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:19"
+ },
+ {
+  "i": 136,
+  "live": "22/07",
+  "nom": "Watch case (catalogue luxuryformen)",
+  "verdict": "« C'est un typiquement le genre de produit qu'on vend » ; un pote à lui l'a",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:27"
+ },
+ {
+  "i": 137,
+  "live": "22/07",
+  "nom": "Travel bag (catalogue luxuryformen)",
+  "verdict": "« Ok, ok, ok »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:30"
+ },
+ {
+  "i": 138,
+  "live": "22/07",
+  "nom": "Trucs de padel (catalogue luxuryformen)",
+  "verdict": "« Ok »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:33"
+ },
+ {
+  "i": 139,
+  "live": "22/07",
+  "nom": "Réveil intelligent (catalogue luxuryformen)",
+  "verdict": "« Ok tac »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:35"
+ },
+ {
+  "i": 140,
+  "live": "22/07",
+  "nom": "Planche à steak (catalogue luxuryformen)",
+  "verdict": "« Je connaissais pas le produit mais c'est cool »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:39"
+ },
+ {
+  "i": 141,
+  "live": "22/07",
+  "nom": "Remontoirs (catalogue luxuryformen) [Whisper : « des remontoires »]",
+  "verdict": "« Ouais ce site est pas mal. Si vous voulez des idées de cadeaux un peu mec etc, c'est vraiment cool »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:43"
+ },
+ {
+  "i": 142,
+  "live": "22/07",
+  "nom": "Couteau (catalogue luxuryformen)",
+  "verdict": "« Ça reprend à peu près ce que… c'est stylé ça »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:52:09"
+ },
+ {
+  "i": 143,
+  "live": "22/07",
+  "nom": "Fake Rimowa (catalogue luxuryformen) [Whisper : « rimovas »]",
+  "verdict": "Constat neutre, pas d'avis : « ils ont des rimovas, enfin des fake rimovas, mais voilà »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:52:22"
+ },
+ {
+  "i": 144,
+  "live": "22/07",
+  "nom": "Étui de poker (catalogue luxuryformen)",
+  "verdict": "« Etuit de poker, why not »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:53:04"
+ },
+ {
+  "i": 145,
+  "live": "22/07",
+  "nom": "Tire-bouchon (catalogue luxuryformen)",
+  "verdict": "Seul verdict négatif du catalogue : « je ne suis pas persuadé du délire »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:53:06"
+ },
+ {
+  "i": 146,
+  "live": "22/07",
+  "nom": "Produits culinaires et partie cuisine",
+  "verdict": "Catégorie à creuser depuis le catalogue : « vous allez devoir pouvoir faire pas mal de produits culinaires. Il y a probablement des choses à faire pour la partie cuisine aussi »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:53:15"
+ },
+ {
+  "i": 147,
+  "live": "22/07",
+  "nom": "BHV (Paris)",
+  "verdict": "Source de recherche produit, pas un produit : « il y a vraiment full full full banger au BHV, parce qu'il y a toutes les catégories » ; Arthur y est allé les deux dernières années. État : environ 80 % des boutiques fermées depuis Shein, Shein part, 37 marques de retour confirmé il y a 2 jours",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:53:25, 00:54:25, 00:54:44"
+ },
+ {
+  "i": 148,
+  "live": "22/07",
+  "nom": "Abris de jardin",
+  "verdict": "Pas d'avis : « moi perso, je n'ai jamais vraiment fait de la niche extérieure ». Remarque de saisonnalité : « c'est l'heure d'abris de jardin là »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:53:49"
+ },
+ {
+  "i": 149,
+  "live": "22/07",
+  "nom": "Galeries Lafayette (Paris)",
+  "verdict": "Source de recherche produit, pas un produit : « allez vous faire une journée dans le BHV, au Galerie Lafayette aussi »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:55:29"
+ }
+]

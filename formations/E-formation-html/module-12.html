@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 12 — Troubleshooting</title><link rel="stylesheet" href="_style.css"></head>
+<body><div class="wrap">
+<span class="crumb">Module 12 · SOS</span>
+<h1>Troubleshooting</h1>
+<p>À consulter en panique. Tableau de diagnostic rapide pour les problèmes les plus fréquents — cause probable + fix immédiat.</p>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 12.1</span><span>~10 min</span><span class="tag optional">Diagnostic</span></div>
+<h3>Table des problèmes fréquents</h3>
+<table>
+<tr><th>Problème</th><th>Cause probable</th><th>Fix</th></tr>
+<tr><td>Le perso change de tête entre 2 plans</td><td>Bloc PERSO pas recollé tel quel</td><td>Re-copier-coller depuis PROMPTS-MASTER</td></tr>
+<tr><td>Le décor change</td><td>Bloc DÉCOR reformulé</td><td>Re-copier-coller depuis TEMPLATE</td></tr>
+<tr><td>Lip sync raté</td><td>Réplique trop longue</td><td>Couper en 2 plans</td></tr>
+<tr><td>Voix mauvais accent</td><td>Prompt anim flou sur l'émotion</td><td>Préciser body language + ajouter <code>perfect French lip sync</code></td></tr>
+<tr><td>Censuré sur certains mots</td><td>Outil bloque vulgarités</td><td>Substituer (ex: "zebi"→"frérot", "wallah"→"putain")</td></tr>
+<tr><td>Audience décroche après 8 sec</td><td>Hook trop mou</td><td>Recouper : démarrer sur la réplique choc, pas sur l'intro</td></tr>
+<tr><td>Algo plafonne</td><td>Cadence cassée</td><td>Rétablir 1 ep / jour pendant 7 jours minimum</td></tr>
+</table>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 12.2</span><span>~5 min</span><span class="tag optional">Méthodologie</span></div>
+<h3>Méthode de debug systématique</h3>
+<ol>
+<li><strong>Isoler</strong> : reproduire le problème sur 1 seul plan.</li>
+<li><strong>Comparer</strong> : ouvrir un plan de référence qui a marché. Diff les prompts mot pour mot.</li>
+<li><strong>Minimum changer</strong> : régénérer en changeant UNE seule variable à la fois.</li>
+<li><strong>Documenter</strong> : si tu trouves le fix, l'ajouter dans ton <code>CLAUDE.md</code> projet.</li>
+</ol>
+<div class="callout warn"><strong>Piège classique</strong>Changer 3 trucs en même temps et "ça marche !" → tu ne sauras jamais lequel des 3 a fixé. Tu refera la même erreur dans 2 semaines.</div>
+</div>
+
+<div class="nav">
+<a href="module-11.html"><small>← Module précédent</small><strong>11 · Scale</strong></a>
+<a href="annexes.html"><small>Suivant →</small><strong>Annexes templates</strong></a>
+</div>
+<div class="footer">Module 12 · Formation Fruits IA</div>
+</div></body></html>

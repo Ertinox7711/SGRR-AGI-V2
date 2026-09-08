@@ -25,3 +25,9 @@ skills/html-ppt/
 
 # Upstream API reference with doc examples (test@test.com, /Users/me)
 skills/playwright-skill/
+
+# The owner's own training libraries: course transcripts, supplier and prospect addresses,
+# his own shop's contact address. This is the material the private repo exists to carry.
+# Demoting it changes NOTHING about credentials - a Shopify/Anthropic/GitHub/AWS token
+# under this path still blocks the commit. Only PII is demoted here.
+formations/

@@ -1,0 +1,272 @@
+[
+ {
+  "i": 30,
+  "live": "10/07",
+  "nom": "Lunettes de soleil",
+  "verdict": "exemple neutre : illustration du template non transposable d'une niche a l'autre",
+  "prix": "pas de prix ; niche visuelle opposee aux tondeuses",
+  "canal": "non precise",
+  "ts": "00:42:37"
+ },
+ {
+  "i": 31,
+  "live": "10/07",
+  "nom": "Theme Shopify : Full stack",
+  "verdict": "a eviter : \"c'est de la dope, c'est que pour aller prendre du recurrent\"",
+  "prix": "modele en recurrent (abonnement), montant non precise",
+  "canal": "non precise",
+  "ts": "00:43:26"
+ },
+ {
+  "i": 32,
+  "live": "10/07",
+  "nom": "Theme Shopify : Prestige",
+  "verdict": "marche, pour du premium : \"le simple efficace\"",
+  "prix": "15 $ via le contact de la formation",
+  "canal": "non precise",
+  "ts": "00:44:12"
+ },
+ {
+  "i": 33,
+  "live": "10/07",
+  "nom": "Theme Shopify : Impact",
+  "verdict": "marche : seul theme qui, tres bien execute, peut \"a peu pres\" matcher tous les produits, et \"encore, il le fait pas parfaitement\"",
+  "prix": "15 $ via le contact de la formation",
+  "canal": "non precise",
+  "ts": "00:44:39"
+ },
+ {
+  "i": 34,
+  "live": "16/07",
+  "nom": "Remontoirs (watch winders), testing du membre",
+  "verdict": "Produit juge bon par le membre et non contredit par Arthur : l'arret des ventes vient de la campagne, pas du produit (« si tu avais deja fait des ventes, il n'y a pas de raison que ca ne continue pas »)",
+  "prix": "Panier moyen 150 a 200 ; 2 ventes ; une journee a 300 ; 350 depenses sur la semaine morte",
+  "canal": "non precise",
+  "ts": "00:01:32 (+00:00:58, 00:01:44, 00:02:20)"
+ },
+ {
+  "i": 35,
+  "live": "16/07",
+  "nom": "Remontoir (positionnement premium)",
+  "verdict": "Marche : produit premium assume par Arthur, polices et codes premium justifies, explicitement non transposables aux autres produits",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:06:14 (+00:06:26)"
+ },
+ {
+  "i": 36,
+  "live": "16/07",
+  "nom": "Remontoir de luxe / remontoir compact / remontoir plusieurs montres",
+  "verdict": "pas d'avis (exemple de mots cles pour la question des liens de destination)",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "Search (mots cles)",
+  "ts": "00:51:58"
+ },
+ {
+  "i": 37,
+  "live": "16/07",
+  "nom": "Boites a montre, ajoutees a la campagne qui vend",
+  "verdict": "A eviter : leur ajout a detourne le budget et arrete les ventes",
+  "prix": "Zero vente depuis l'ajout",
+  "canal": "non precise",
+  "ts": "00:01:48 (+00:02:00)"
+ },
+ {
+  "i": 38,
+  "live": "16/07",
+  "nom": "Boites a montre, en campagne separee",
+  "verdict": "Interessant, a tester, mais uniquement dans une campagne differente",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:02:12 (+00:02:14)"
+ },
+ {
+  "i": 39,
+  "live": "16/07",
+  "nom": "Canape",
+  "verdict": "pas d'avis (exemple neutre : chaque type de produit se scale differemment)",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:04:26"
+ },
+ {
+  "i": 40,
+  "live": "16/07",
+  "nom": "Cave a vin [« cabavin »]",
+  "verdict": "pas d'avis (exemple neutre de scaling)",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:04:28"
+ },
+ {
+  "i": 41,
+  "live": "16/07",
+  "nom": "Produits pour les enfants",
+  "verdict": "pas d'avis sur le produit ; regle associee : jamais de site premium type remontoir, arguments propres a la famille",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:06:26 (+00:06:52)"
+ },
+ {
+  "i": 42,
+  "live": "16/07",
+  "nom": "Jouets Club (retail jouets)",
+  "verdict": "pas d'avis (exemple retail : on ne vend pas du grand public avec des arguments premium)",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:06:42"
+ },
+ {
+  "i": 43,
+  "live": "16/07",
+  "nom": "Produit pour bebe / jeune mere",
+  "verdict": "pas d'avis sur un produit precis ; regle associee : elle veut confortable et safe, pas premium",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:07:16"
+ },
+ {
+  "i": 44,
+  "live": "16/07",
+  "nom": "Camera (achat perso d'Arthur)",
+  "verdict": "pas d'avis (exemple neutre : produit technique vendu avec des arguments techniques, jamais premium)",
+  "prix": "6000 balles",
+  "canal": "non precise",
+  "ts": "00:08:24"
+ },
+ {
+  "i": 45,
+  "live": "16/07",
+  "nom": "Shop « Minolea » [nom probablement mal transcrit]",
+  "verdict": "A eviter : flop audite en direct",
+  "prix": "520 depenses sur 3 semaines, 0 vente ; 450 depenses sans un seul ajout au panier ni panier abandonne ; CTR 4,9 puis 4 ; CPC moyen 0,90 ; panier moyen haut",
+  "canal": "Teste en full Search ; verdict Arthur : les acheteurs qualifies sont probablement en Shopping",
+  "ts": "00:17:23 (+00:17:53, 00:18:07, 00:19:10, 00:20:08)"
+ },
+ {
+  "i": 46,
+  "live": "16/07",
+  "nom": "Produit pour animaux / « leader robot » (produit du shop Minolea)",
+  "verdict": "A eviter : tres dur a scaler, devenu un produit Amazon, personne connu ne l'a scale",
+  "prix": "Concurrence : 1 quasi institutionnel plus 2 a 3 dropshippers ; 1 ou 2 concurrents Search au UK",
+  "canal": "Shopping, et beaucoup moins cher (produit visuel)",
+  "ts": "00:20:54 (+00:18:42, 00:21:10, 00:21:54)"
+ },
+ {
+  "i": 47,
+  "live": "16/07",
+  "nom": "Produit du concurrent francais du membre (non nomme)",
+  "verdict": "A eviter sur le marche francais, le concurrent y est installe : lancer le meme produit au UK",
+  "prix": "Concurrent qui frole les 1 k/jour, sur le marche depuis un mois deux mois ; l'entrant ne prendrait que 300/jour",
+  "canal": "non precise",
+  "ts": "00:25:57 (+00:26:07, 00:26:23, 00:27:31)"
+ },
+ {
+  "i": 48,
+  "live": "16/07",
+  "nom": "Mobilier de jardin",
+  "verdict": "Marche : seule niche validee le jour du live, avec Enzo, demande toute l'annee. Inexploitable en l'etat : ni prix, ni marge, ni marche, ni fournisseur precis",
+  "prix": "Validee le 16 juillet, « c'est toute l'annee » ; sourcable sur Amazon mais avis de merde donc a ecarter par cette voie ; VidaXL cite comme seule voie EU",
+  "canal": "non precise",
+  "ts": "00:33:24 (+00:33:38, 00:33:10)"
+ },
+ {
+  "i": 49,
+  "live": "16/07",
+  "nom": "Gros produit lourd (exemple generique)",
+  "verdict": "A eviter : frais de livraison non negociables, Arthur en fait tres peu",
+  "prix": "150 EUR de produit plus 120 EUR de livraison, 15 kilos",
+  "canal": "non precise",
+  "ts": "00:30:13 (+00:30:07, 00:30:25)"
+ },
+ {
+  "i": 50,
+  "live": "16/07",
+  "nom": "Produit de maison (experience passee d'Arthur)",
+  "verdict": "A eviter dans cette configuration : concurrent avec stock local",
+  "prix": "Concurrent livrant en 3 jours, palette contre commande a la piece, reassort hebdo ou mensuel",
+  "canal": "non precise",
+  "ts": "00:30:41 (+00:30:51)"
+ },
+ {
+  "i": 51,
+  "live": "16/07",
+  "nom": "Robes d'ete",
+  "verdict": "A eviter : exemple de strategie bullshit d'un autre formateur, seul playbook saisonnier explicitement rejete du live",
+  "prix": "Promesse de 10k day",
+  "canal": "non precise",
+  "ts": "00:46:50"
+ },
+ {
+  "i": 52,
+  "live": "16/07",
+  "nom": "Produits pas high ticket",
+  "verdict": "Marchent : Arthur rejette explicitement l'idee inverse",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:46:56"
+ },
+ {
+  "i": 53,
+  "live": "16/07",
+  "nom": "Shop fashion d'Arthur",
+  "verdict": "pas d'avis produit (cas d'un GMC US qui ne passe pas)",
+  "prix": "Plus de 1000 variantes, 2 GMC crees, test avec adresse francaise, echec",
+  "canal": "non precise",
+  "ts": "00:39:13 (+00:39:25, 00:38:59)"
+ },
+ {
+  "i": 54,
+  "live": "16/07",
+  "nom": "Cafe des Guerriers (marque d'un pote)",
+  "verdict": "pas d'avis produit (case study CRO)",
+  "prix": "Environ 200k par mois, bloque a 30, passe a 50 uniquement avec du CRO",
+  "canal": "non precise",
+  "ts": "00:43:40 (+00:43:44)"
+ },
+ {
+  "i": 55,
+  "live": "16/07",
+  "nom": "Planche pilates",
+  "verdict": "A eviter : marche detruit par les no-shippers, rien a faire",
+  "prix": "80 % du marche = no-shippers, « qui vendent tous a 500 EUR, qui n'ont meme pas a vendre en dessous de 1500 EUR » [passage douteux a la transcription]",
+  "canal": "non precise",
+  "ts": "00:59:30 (+00:59:32)"
+ },
+ {
+  "i": 56,
+  "live": "16/07",
+  "nom": "« Angpan » [correction probable : handpan]",
+  "verdict": "Produit juge « tres tres bon » par Arthur qui l'a deja lance, mais marche FR dead, brutalise par les no-shippers, donc a eviter en FR",
+  "prix": "Prix non aborde dans ce live ; sortie proposee : autre marche, l'allemand cite comme meilleur",
+  "canal": "non precise",
+  "ts": "00:59:56 (+01:00:18)"
+ },
+ {
+  "i": 57,
+  "live": "16/07",
+  "nom": "ads pixel finder (extension Chrome)",
+  "verdict": "Marche : utilisee par Arthur, acces direct au compte Google Ads d'un site et a son Transparency",
+  "prix": "Gratuit",
+  "canal": "Sert a lire Search et Shopping",
+  "ts": "00:24:05 (+00:24:47)"
+ },
+ {
+  "i": 58,
+  "live": "16/07",
+  "nom": "Google Transparency (Google Ads Transparency Center)",
+  "verdict": "Marche : montre les pubs et le canal, jamais le budget",
+  "prix": "Anciennete des annonces plus derniere diffusion (exemple : derniere diffusion au 10 juin)",
+  "canal": "Search / Shopping / les deux",
+  "ts": "00:23:26 (+00:44:02, 00:24:23)"
+ },
+ {
+  "i": 59,
+  "live": "16/07",
+  "nom": "AliExpress",
+  "verdict": "Etape de sourcing obligatoire, 1 sur 3",
+  "prix": "Prix Ali proche du prix de revente = pas de marge ou no-ship ; 250 EUR livraison incluse ne devient pas 140 EUR via agent",
+  "canal": "non precise",
+  "ts": "00:27:57 (+00:29:01, 00:31:33)"
+ }
+]

@@ -35,9 +35,14 @@ ranked from most starred to most niche.
 
 - **End-to-end security pipeline — unique in the ecosystem.** No competitor combines
   gitleaks in CI + a blocking pre-commit hook + a `preflight-scrub` script that
-  catches personal data *before* the push + an anonymized git author. Result: you
-  share your setup **publicly** without leaking tokens, email addresses, or file paths.
-  Everyone else publishes their dotfiles and crosses their fingers.
+  catches personal data *before* the push + an anonymized git author. Result: you can
+  share your setup without leaking tokens, email addresses, or file paths. Everyone
+  else publishes their dotfiles and crosses their fingers.
+
+  > This particular repo is **private** — it also carries paid course material that is
+  > not ours to publish (see [`SECURITY.md`](SECURITY.md) §0). The pipeline is unchanged
+  > and still holds to the public-repo standard; the comparison above is about what the
+  > rig makes possible, not about where this copy of it lives.
 
 - **1-prompt install, for real.** One `git clone` + one pasted prompt = a complete,
   working environment (settings, `CLAUDE.md`, hooks, memory, rules). The most popular

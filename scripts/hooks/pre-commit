@@ -33,26 +33,46 @@ fi
 # (PITFALLS.md -> secret leak). Same list as preflight-scrub.ps1/.sh; kept in sync by hand.
 # The prefixes/pager/external-diff flags are pinned so a contributor's own git config
 # (diff.noprefix, diff.external, color.ui) cannot change what the parser below sees.
-report=$(git --no-pager diff --cached --unified=0 --diff-filter=ACM \
+# core.quotePath=false is NOT cosmetic: by default git renders any non-ASCII filename as
+# a QUOTED, octal-escaped string (+++ "b/.../d\303\251cision.md"). 87 files of the course
+# libraries have accented names, and the old /^\+\+\+ b\// pattern missed every one of
+# them - their lines were still scanned but attributed to "?", so .scrubignore could not
+# reach them and every address in them would have blocked the commit under a filename
+# nobody could act on.
+report=$(git --no-pager -c core.quotePath=false diff --cached --unified=0 --diff-filter=ACM \
   --no-ext-diff --no-color --src-prefix=a/ --dst-prefix=b/ | awk -v ig="$ignore_rx" '
-  /^\+\+\+ b\// {
-    file = substr($0, 7)
+  /^\+\+\+ / {
+    file = substr($0, 5)
+    # git appends a TAB to an unquoted header path that contains a space - which every
+    # course module does ("01 - La bonne decision.md"). Strip it or the hook prints a
+    # filename that does not exist for the person told to go fix it. A name really
+    # ending in a tab would be quoted instead, so this can only remove the separator.
+    sub(/\t$/, "", file)
+    # A name holding a quote, a backslash or a control char is still quoted even with
+    # quotePath=false, so unwrap it here rather than losing the attribution again.
+    if (substr(file, 1, 1) == "\"") file = substr(file, 2, length(file) - 2)
+    if (substr(file, 1, 2) == "b/") file = substr(file, 3)
+    else file = "?"     # /dev/null (a deletion) or a prefix we did not ask for
     self_file = (file ~ /^(\.gitleaks\.toml|\.scrubignore|SECURITY\.md|scripts\/preflight-scrub\.(ps1|sh)|scripts\/hooks\/pre-commit|\.github\/workflows\/secret-scan\.yml|assets\/)/)
     skip = (ig != "" && file ~ ig)
     next
   }
-  /^\+\+\+/     { file = "?"; self_file = 0; skip = 0; next }
   /^\+/ {
     if (self_file) next
     line = substr($0, 2)
+    # .scrubignore demotes PII (an address, a home path) in reviewed third-party code and
+    # in the owner'"'"'s own training libraries. It NEVER demotes a credential: a live token
+    # committed under one of those paths is exactly as dead as anywhere else. The one
+    # allowed exception is named, not a whole directory.
     lvl = skip ? "note" : "LEAK"
+    if (line ~ /AKIAABCDEFGHIJKLMNOP/) next   # vendored secret-sink fixture, sequential letters
 
-    if (line ~ /shp(at|ca|pa|ss)_[a-fA-F0-9]{32}/)            print lvl "|Shopify token|" file
-    if (line ~ /sk-ant-[a-zA-Z0-9_-]{20,}/ && line !~ /EXAMPLE/) print lvl "|Anthropic key|" file
-    if (line ~ /sk-[a-zA-Z0-9]{20,}T3BlbkFJ/)                 print lvl "|OpenAI key|" file
-    if (line ~ /gh[pousr]_[A-Za-z0-9]{36,}/)                  print lvl "|GitHub token|" file
-    if (line ~ /AKIA[0-9A-Z]{16}/)                            print lvl "|AWS key|" file
-    if (line ~ /xox[baprs]-[A-Za-z0-9-]{10,}/)                print lvl "|Slack token|" file
+    if (line ~ /shp(at|ca|pa|ss)_[a-fA-F0-9]{32}/)            print "LEAK|Shopify token|" file
+    if (line ~ /sk-ant-[a-zA-Z0-9_-]{20,}/ && line !~ /EXAMPLE/) print "LEAK|Anthropic key|" file
+    if (line ~ /sk-[a-zA-Z0-9]{20,}T3BlbkFJ/)                 print "LEAK|OpenAI key|" file
+    if (line ~ /gh[pousr]_[A-Za-z0-9]{36,}/)                  print "LEAK|GitHub token|" file
+    if (line ~ /AKIA[0-9A-Z]{16}/)                            print "LEAK|AWS key|" file
+    if (line ~ /xox[baprs]-[A-Za-z0-9-]{10,}/)                print "LEAK|Slack token|" file
 
     if (line ~ /(api[_-]?key|API[_-]?KEY|[Ss]ecret|SECRET|password|PASSWORD|passwd|token|TOKEN)[ \t]*[:=][ \t]*["'"'"'][A-Za-z0-9_-]{24,}["'"'"']/ \
         && line !~ /<[A-Z_]+>/ && line !~ /EXAMPLE/)

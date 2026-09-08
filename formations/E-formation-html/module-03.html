@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 3 — Décors & bible visuelle</title><link rel="stylesheet" href="_style.css"></head>
+<body><div class="wrap">
+<span class="crumb">Module 3 · Bible visuelle</span>
+<h1>Décors &amp; bible visuelle</h1>
+<p>Tes décors sont aussi importants que tes persos. 6 à 8 décors lockés = saison entière cohérente. Au-delà, tu perds le contrôle.</p>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 3.1</span><span>~6 min</span><span class="tag essential">Décors</span></div>
+<h3>Lister les décors récurrents</h3>
+<p>6 à 8 décors max pour toute la saison. La réutilisation = la cohérence.</p>
+<table>
+<tr><th>Décor type</th><th>Usage</th></tr>
+<tr><td>Plage sunset</td><td>Intros / outros présentatrice</td></tr>
+<tr><td>Entrée villa golden hour</td><td>Arrivées candidats</td></tr>
+<tr><td>Salon villa intérieur nuit</td><td>Interactions sociales</td></tr>
+<tr><td>Bord piscine jour</td><td>Chill, tensions latentes</td></tr>
+<tr><td>Bord piscine nuit</td><td>Romance, drama</td></tr>
+<tr><td>Confessionnal / booth ITW</td><td>Apartés caméra (6-13×/épisode)</td></tr>
+<tr><td>Plage nuit</td><td>Révélations, ruptures</td></tr>
+</table>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 3.2</span><span>~7 min</span><span class="tag essential">Bloc décor</span></div>
+<h3>Écrire un bloc décor lockable</h3>
+<p>Format identique pour tous les décors :</p>
+<pre><code>Setting: [LIEU] — [détails visuels], [lumière], [ambiance], [éléments distinctifs].</code></pre>
+<h4>Exemple validé</h4>
+<pre><code>Setting: tropical luxury beach at golden sunset —
+turquoise crystal ocean, palm trees swaying,
+white Mediterranean villa visible in distance,
+warm orange-pink sky, golden volumetric light,
+soft sand foreground, lens flare from setting sun.</code></pre>
+<p>Tu écris ces blocs <strong>UNE FOIS</strong> dans <code>00-REFS/templates-gpt/TEMPLATE-IMAGE-SCENE.md</code>. Ensuite copier-coller à vie.</p>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 3.3</span><span>~5 min</span><span class="tag essential">Seeds</span></div>
+<h3>Locker un seed visuel</h3>
+<p>Quand un décor sort parfait, l'outil te donne un <em>seed</em> (numéro unique). Note-le immédiatement dans <code>00-REFS/seeds/SEEDS.md</code>.</p>
+<p>Réutiliser ce seed à chaque plan dans ce décor = continuité parfaite.</p>
+<div class="callout warn"><strong>Le seed le plus critique</strong>Ton confessionnal / booth ITW. Présent 6-13× par épisode = signature visuelle de la série. À locker DÈS le 2e épisode où il apparaît.</div>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 3.4</span><span>~8 min</span><span class="tag essential">Anti-dérive</span></div>
+<h3>La règle de l'anti-dérive</h3>
+<p>Chaque prompt image doit empiler dans cet ordre EXACT :</p>
+<pre><code>[STYLE GLOBAL — ligne fixe]
++ [DÉCOR LOCKÉ — copié de TEMPLATE]
++ [PERSO LOCKÉ — copié de PROMPTS-MASTER]
++ [POSE + ÉMOTION du plan]
++ [STYLE GLOBAL FIN — ligne fixe]</code></pre>
+<div class="callout danger"><strong>Conséquence</strong>Si tu suis cet ordre, tes épisodes 1 et 14 auront le MÊME univers visuel. Sans ça, tu perds tout après 3 épisodes — c'est le piège n°1.</div>
+</div>
+
+<div class="nav">
+<a href="module-02.html"><small>← Module précédent</small><strong>2 · Univers</strong></a>
+<a href="module-04.html"><small>Module suivant →</small><strong>4 · Script</strong></a>
+</div>
+<div class="footer">Module 3 · Formation Fruits IA</div>
+</div></body></html>

@@ -16,6 +16,29 @@ the owner.** Everything here is designed so there is **nothing to find**.
 
 ---
 
+## 0. The repository is PRIVATE, and that is now load-bearing
+
+Everything below was written for a **public** repo, and none of it has been relaxed —
+the scanners, the hook, the CI job and the anonymised history all still hold to the same
+standard. What changed is that one more thing is now at stake.
+
+`formations/` carries **paid third-party course material** (see
+[`formations/README.md`](formations/README.md)). No credential is in it — that is what
+the layers below are for — but it is not the owner's to publish. So the visibility of
+this repo is itself a control:
+
+| | before | now |
+|---|---|---|
+| repo visibility | public | **private** |
+| what a leak costs | the owner's personal data | that, **plus** redistributing someone else's paid course |
+| how it is enforced | the four scanning layers below | the same four layers, **plus** the visibility setting |
+
+A scanner cannot detect "this file is not mine to publish". Only the visibility setting
+can, so treat flipping it as an irreversible action: the moment the repo is public, the
+history has published `formations/` even if the folder is deleted in the next commit.
+
+---
+
 ## 1. Threat Model — What We Defend Against
 
 | Attacker | What they attempt | Our defense |
@@ -60,7 +83,28 @@ prefix). The secret never reaches history.
 
 ### Layer 4 — `preflight-scrub` (manual audit)
 `scripts/preflight-scrub.ps1` (and `.sh`) scans the **entire repo** on demand and lists
-any potential leak. Run it before a first public push, or after a large addition.
+any potential leak. Run it before any first push, or after a large addition.
+
+Two properties of this layer were paid for in bugs and are worth stating outright:
+
+- **It reports what it could not read.** A scanner that skips a file in silence prints
+  the same green line as one that read it and found nothing. Both twins now fail on an
+  unreadable target instead. This caught 87 course files whose accented names git renders
+  as quoted octal escapes (`"…/d\303\251cision.md"`): the bash twin's `grep` could not
+  open them and lost the error to `2>/dev/null`; the PowerShell twin's `Test-Path` threw
+  on the embedded quote and killed the run. Both are pinned to `core.quotePath=false`.
+- **The two twins must agree finding for finding, not just verdict for verdict.** Diffing
+  their output is what exposed that the PowerShell patterns were case-*sensitive* while
+  the bash ones run under `grep -Ei` — so `C:\USERS\…` was caught on Linux and missed on
+  Windows. 182 findings against 181, and the one line of difference was the bug.
+
+### Layer 4b — `.scrubignore` demotes PII, never credentials
+Paths listed in `.scrubignore` (vendored third-party skills, and `formations/`) have
+their **PII** findings printed as grey notes rather than blocking — still counted, never
+silently dropped. A **credential** found under one of those paths blocks regardless: a
+live Shopify / Anthropic / OpenAI / GitHub / AWS / Slack token is exactly as dead there
+as anywhere else. Both scrubbers and the hook implement that split, and each is verified
+by planting a token under `formations/` and confirming the commit is refused.
 
 ### Layer 5 — GitHub Actions (continuous defense)
 `.github/workflows/secret-scan.yml` runs **gitleaks** on **every push and every PR**.
@@ -91,7 +135,12 @@ git log -p | grep -Ei 'shpat_|sk-|api[_-]?key|password'   # must return nothing
 [ ] pre-commit hook installed (scripts/hooks/pre-commit -> .git/hooks/)
 [ ] secret-scan.yml active (Actions tab once pushed)
 [ ] repo set to PRIVATE if intended for friends, not the general public
+[ ] preflight-scrub reported 0 unreadable targets (a skipped file is not a clean file)
+[ ] both twins agree finding-for-finding, not just CLEAN-for-CLEAN
 ```
+
+This repo's own answer to the last two lines: **PRIVATE**, 0 unreadable, and 182 notes /
+0 leaks from each twin, identical line for line.
 
 ## 6. For the Installer (You, the User)
 

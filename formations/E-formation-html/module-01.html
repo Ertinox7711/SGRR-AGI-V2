@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 1 — Infrastructure</title><link rel="stylesheet" href="_style.css"></head>
+<body><div class="wrap">
+<span class="crumb">Module 1 · Infrastructure</span>
+<h1>Poser l'infrastructure</h1>
+<p>Une chaîne de prod a besoin d'une usine. Avant tout prompt, structure tes dossiers, ton nommage, et tes fichiers maîtres. Ce module économise 30% du temps total de la saison.</p>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 1.1</span><span>~8 min</span><span class="tag essential">Setup</span></div>
+<h3>Créer la structure de dossiers</h3>
+<p>Sur ton ordi, crée le dossier de la série puis exactement cette arborescence :</p>
+<pre><code>LA-SERIE/
+├── CLAUDE.md                  ← notes globales projet
+├── GUIDE-PRODUCTION.md        ← ton guide perso
+├── 00-REFS/                   ← TOUTES les références
+│   ├── persos/
+│   ├── decors/
+│   ├── duos/
+│   ├── groupes/
+│   ├── logo/
+│   ├── seeds/                 ← seeds outil vidéo (rejouer un rendu)
+│   ├── templates-gpt/
+│   ├── voix/
+│   ├── VOCABULAIRE/           ← lexique argot du show
+│   └── PROMPTS-MASTER.md      ← prompts persos lockés
+├── 01-SCRIPTS/                ← un fichier .md par épisode
+├── 02-IMAGES/E01/             ← images fixes des plans
+├── 02-VIDEOS/E01/             ← vidéos animées brutes
+├── 03-VIDEOS-BRUTES/
+├── 04-MONTAGE/
+├── 05-EXPORTS/                ← fichiers finaux uploadés
+├── 06-ASSETS/                 ← sons, fonts, effets
+├── 07-BRAND-DEALS/
+├── 09-PLANNING/
+└── 10-TIKTOK/                 ← captions, hashtags, analytics</code></pre>
+<div class="callout"><strong>Astuce</strong>Préfixe numérique (00-, 01-, 02-) → tri automatique alphabétique correspond à l'ordre de prod.</div>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 1.2</span><span>~5 min</span><span class="tag essential">Convention</span></div>
+<h3>Convention de nommage</h3>
+<table>
+<tr><th>Type</th><th>Format</th><th>Exemple</th></tr>
+<tr><td>Image plan</td><td><code>PLAN-XX-PERSO-emotion.png</code></td><td><code>PLAN-04-LIMONO-furieux.png</code></td></tr>
+<tr><td>Vidéo plan</td><td><code>PLAN-XX-PERSO-action.mp4</code></td><td><code>PLAN-04-LIMONO-arrive.mp4</code></td></tr>
+<tr><td>Script épisode</td><td><code>EXX-TITRE.md</code></td><td><code>E01-LA-VILLA.md</code></td></tr>
+<tr><td>Export final</td><td><code>EXX-FINAL.mp4</code></td><td><code>E01-FINAL.mp4</code></td></tr>
+</table>
+<div class="callout warn"><strong>Règles strictes</strong>Pas d'espaces. Pas d'accents. Tout en majuscules pour les codes (PLAN, E01). Préfixe numérique sur 2 chiffres (04 pas 4).</div>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 1.3</span><span>~6 min</span><span class="tag essential">Mémoire projet</span></div>
+<h3>Le fichier CLAUDE.md (mémoire du projet)</h3>
+<p>Ce fichier sert de mémoire externe quand tu reviens sur le projet après 3 jours. Contenu type :</p>
+<ul>
+<li>Nom de la série + concept en une phrase</li>
+<li>Stack outils choisie (chatbot, image gen, vidéo gen, montage)</li>
+<li>Casting complet + body types</li>
+<li>Voix par perso (références audio)</li>
+<li>Lexique argot principal</li>
+<li>Règles à ne JAMAIS oublier (mots bannis, ratio, etc.)</li>
+</ul>
+<div class="callout"><strong>Habitude</strong>Tu rouvres ce fichier au début de chaque session de prod. Sinon tu dérives — un dialogue qui sort du ton, une couleur qui change.</div>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 1.4</span><span>~7 min</span><span class="tag essential">Bible figée</span></div>
+<h3>Le fichier PROMPTS-MASTER.md</h3>
+<p>Un bloc prompt par personnage, dans un format identique. Une fois lock → JAMAIS modifié.</p>
+<h4>Pourquoi figer</h4>
+<p>Si tu modifies le bloc PECHITA en E07, ta PECHITA E01 et ta PECHITA E07 n'ont plus la même tête. Saison entière à refaire.</p>
+<h4>Si gros changement</h4>
+<p>Versionner manuellement : <code>PROMPTS-MASTER-V2.md</code>. Saison 2 utilise V2. Saison 1 reste V1 figée.</p>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 1.5</span><span>~3 min</span><span class="tag essential">Sécurité</span></div>
+<h3>Sauvegarder dès le jour 1</h3>
+<ul>
+<li>Synchroniser le dossier complet sur un cloud (Drive / iCloud / Dropbox).</li>
+<li>Activer la synchro automatique en arrière-plan.</li>
+<li>Optionnel : git + dépôt privé pour historique des prompts.</li>
+</ul>
+<div class="callout danger"><strong>Histoire vraie</strong>Disque dur crashe = 3 mois de prompts persos perdus + cohérence visuelle morte. Tu repars de zéro.</div>
+</div>
+
+<div class="nav">
+<a href="module-00.html"><small>← Module précédent</small><strong>0 · Mindset</strong></a>
+<a href="module-02.html"><small>Module suivant →</small><strong>2 · Univers &amp; casting</strong></a>
+</div>
+<div class="footer">Module 1 · Formation Fruits IA</div>
+</div></body></html>

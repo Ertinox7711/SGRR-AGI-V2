@@ -8,7 +8,7 @@
 
 Config (`settings.json`), behavioral philosophy (`CLAUDE.md`), context-injection
 hooks, a memory system, a plugin/skill manifest — **and** a security pipeline that
-lets you share your setup publicly **without leaking a single piece of personal data**.
+lets you share your setup **without leaking a single piece of personal data**.
 
 ![License](https://img.shields.io/badge/license-MIT-22d3ee)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-ready-818cf8)
@@ -22,12 +22,27 @@ lets you share your setup publicly **without leaking a single piece of personal 
 
 <sub>🏗️ Designed by **SGRR** · `Claude Code` · `Anthropic` · `AI agent` · `scaffold` · `dotfiles` · `hooks` · `skills` · `subagents` · `MCP` · `memory` · `template`</sub>
 
-### ⭐ If this rig saves you time, drop a star — it helps push it to N°1.
-
-[![GitHub stars](https://img.shields.io/github/stars/Ertinox7711/SGRR-AGI-V2?style=social)](https://github.com/Ertinox7711/SGRR-AGI-V2/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/Ertinox7711/SGRR-AGI-V2?style=social)](https://github.com/Ertinox7711/SGRR-AGI-V2/network/members)
-
 </div>
+
+---
+
+> ## 🔒 This repository is PRIVATE — and has to stay that way
+>
+> It was public until it gained a `formations/` folder holding **paid third-party course
+> material**: transcripts of the Inner Circle and Ecom-Boss libraries, a Google Merchant
+> Center playbook, a TikTok course. That content belongs to the people who sold it. It is
+> here so that the owner and one friend can work from it, and for no other purpose.
+>
+> - **Do not flip this repo back to public.** Doing so republishes every file in
+>   `formations/`, and the git history keeps them even if they are deleted afterwards.
+> - **Do not fork it outward, do not redistribute `formations/`.** The MIT licence below
+>   covers the rig — the scaffold, the hooks, the skills, the docs. It does not cover, and
+>   cannot cover, someone else's course.
+> - Everything outside `formations/` is still MIT and still leak-free: the security
+>   pipeline described here was built for a public repo and has not been relaxed.
+>
+> The star and fork badges that used to sit here were removed with the switch — a private
+> repo has no public stargazers, and the badge would have rendered as a broken image.
 
 ---
 
@@ -135,6 +150,7 @@ Two things are left, and both live **inside** Claude Code (a script cannot do th
 | `docs/` | 1 | The external skill-library index (name → path → one-liner), the reflex described in `CLAUDE.md`. |
 | `shops/` | — | [`GO-SHOPS.md`](shops/GO-SHOPS.md): the **multi-store operating manual** — folder-derived identity, the registry, the three protection layers, the shared store skeleton, plus a ready-to-copy `scaffold/`. |
 | `shopify/` | — | [`GO-SHOPIFY.md`](shopify/GO-SHOPIFY.md): the **Shopify operating manual** — reference-site cloning, product validation economics, the scoring grid, the 9 discovery methods, Google Ads structure, copy/CRO, Liquid wiring, the API traps, the pre-ads gates. |
+| `formations/` | **341** | 🔒 **The training libraries** — course transcripts, the GMC playbook, the TikTok course, the owner's own HTML formation, plus three paste-ready `bundles/`. **Paid third-party material: private, not redistributable.** Read [`formations/README.md`](formations/README.md) first; the 3.36 GB of audio is out of git and inventoried in [`AUDIO-MANIFEST.md`](formations/AUDIO-MANIFEST.md). |
 
 **12 hooks are wired by the install** — 3 `SessionStart` (update watch, rig-audit nudge,
 store-token freshness) and 9 `PreToolUse` gates (protected paths, asset deletion, store

@@ -1,0 +1,107 @@
+{
+ "storiesflooring.co.uk": {
+  "n": 250,
+  "vendors": [
+   "COREtec",
+   "Elements",
+   "F. Ball",
+   "Karndean",
+   "Lusso Flooring",
+   "Stories Flooring",
+   "Textures"
+  ],
+  "first": "2021-02-24",
+  "last": "2026-07-22",
+  "p_lo": 0.0,
+  "p_hi": 331.0,
+  "url": "https://storiesflooring.co.uk/products/herringbone-engineered-oak-flooring-dunwick-smoked-grey-90mm-15mm",
+  "title": "Herringbone Engineered Oak Flooring Dunwick Smoked Grey 90mm x 15mm",
+  "ptypes": [
+   "Accessory",
+   "Engineered Wood",
+   "LVT",
+   "Laminate",
+   "Product Sample Item",
+   "SPC"
+  ]
+ },
+ "www.thewoodflooringhub.co.uk": {
+  "n": 17,
+  "vendors": [
+   "The Wood Flooring Hub"
+  ],
+  "first": "2023-10-04",
+  "last": "2023-11-21",
+  "p_lo": 0.0,
+  "p_hi": 85.0,
+  "url": "https://www.thewoodflooringhub.co.uk/products/sample-parquet-solid-oak-unfinished-m2",
+  "title": "SAMPLE Parquet - solid oak unfinished (m2)",
+  "ptypes": [
+   ""
+  ]
+ },
+ "floorstore.co.uk": {
+  "n": 159,
+  "vendors": [
+   "The Floor Store",
+   "The Patio Store Backup"
+  ],
+  "first": "2026-04-07",
+  "last": "2026-07-08",
+  "p_lo": 4.99,
+  "p_hi": 108.08,
+  "url": "https://floorstore.co.uk/products/manor-grey-oak-herringbone-laminate",
+  "title": "Manor Grey Oak Herringbone Laminate Flooring",
+  "ptypes": [
+   ""
+  ]
+ },
+ "www.flooringrevolution.co.uk": {
+  "n": 250,
+  "vendors": [
+   "Barlinek",
+   "Berry Alloc",
+   "Dalian",
+   "Faus",
+   "Flooring Revolution",
+   "Impero",
+   "Innovation",
+   "Kastamonu"
+  ],
+  "first": "2025-10-11",
+  "last": "2026-05-28",
+  "p_lo": 0.0,
+  "p_hi": 166.06,
+  "url": "https://www.flooringrevolution.co.uk/products/faus-seathwaite-8mm-laminate-waterproof-parquet-flooring-classic-oak-sample",
+  "title": "Faus Seathwaite 8mm Laminate Waterproof Parquet Flooring - Classic Oak-SAMPLE",
+  "ptypes": [
+   "",
+   "Accessories",
+   "Adhesives",
+   "Engineered",
+   "LVT",
+   "Laminate"
+  ]
+ },
+ "www.harddecorshop.co.uk": {
+  "n": 234,
+  "vendors": [
+   "Hard Decor Store",
+   "Samples"
+  ],
+  "first": "2024-04-03",
+  "last": "2024-05-07",
+  "p_lo": 0.0,
+  "p_hi": 92.39,
+  "url": "https://www.harddecorshop.co.uk/products/fleece-engineered-oak-herringbone",
+  "title": "Fleece Engineered Oak Herringbone",
+  "ptypes": [
+   "",
+   "Engineered Oak",
+   "Engineered Oak Accessory",
+   "Oak Threshold",
+   "Sample",
+   "Samples"
+  ]
+ }
+}

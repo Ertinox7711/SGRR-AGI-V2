@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 5 — Générer les images fixes</title><link rel="stylesheet" href="_style.css"></head>
+<body><div class="wrap">
+<span class="crumb">Module 5 · Images</span>
+<h1>Générer les images fixes</h1>
+<p>Chaque plan = une image fixe générée AVANT animation. C'est ton first frame. Si l'image fixe est moche, l'anim sera moche.</p>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 5.1</span><span>~8 min</span><span class="tag essential">Template</span></div>
+<h3>Le template prompt scène</h3>
+<pre><code>Setting: [DÉCOR LOCKÉ copié]
+
+Place [PERSO] alone center frame, [angle/cadrage]:
+- HEAD [forme fruit + texture peau + stem]
+- BODY human [m/f] Pixar proportions, [BODY TYPE], [color]-tinted smooth skin
+- [HAIR — couleur, mouvement]
+- Big expressive cartoon eyes, [makeup/face details]
+- [OUTFIT détaillé]
+
+Pose: [POSE + EXPRESSION + ÉTAT ÉMOTIONNEL]
+
+3D Disney/Pixar animated style, ultra realistic CGI, 8K Hollywood quality.
+Cinematic depth of field, [lighting type], magazine cover quality.</code></pre>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 5.2</span><span>~7 min</span><span class="tag essential">Workflow</span></div>
+<h3>Workflow image par plan (~3 min/image)</h3>
+<ol>
+<li>Ouvrir le générateur d'images IA.</li>
+<li>Coller : décor (depuis template) + perso (depuis prompts master) + pose du plan.</li>
+<li>Générer <strong>3 à 4 variations</strong>.</li>
+<li>Choisir la meilleure.</li>
+<li>Si moyen → regénérer SANS reformuler (souvent c'est l'aléatoire qui tranche).</li>
+<li>Télécharger → renommer <code>PLAN-XX-NOM-emotion.png</code> → ranger dans <code>02-IMAGES/E01/</code>.</li>
+</ol>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 5.3</span><span>~9 min</span><span class="tag essential">Fixes</span></div>
+<h3>Erreurs fréquentes &amp; fixes</h3>
+<table>
+<tr><th>Problème</th><th>Solution</th></tr>
+<tr><td>Texte anglais incrusté</td><td>Ajouter <code>no english text, French only</code></td></tr>
+<tr><td>Watermark / texte parasite</td><td>Ajouter <code>no text overlay</code></td></tr>
+<tr><td>Perso méconnaissable</td><td>Recoller le bloc PERSO complet depuis prompts master</td></tr>
+<tr><td>Décor change</td><td>Recoller le bloc DÉCOR mot pour mot</td></tr>
+<tr><td>Mauvais body type</td><td>Forcer en majuscules : <code>HOURGLASS CURVY</code> / <code>TALL ATHLETIC</code></td></tr>
+</table>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 5.4</span><span>~6 min</span><span class="tag essential">Duo</span></div>
+<h3>Plans à 2 personnages</h3>
+<ul>
+<li>Demander 1 seule image avec les 2 persos cadrés.</li>
+<li>Préciser les positions : <code>left frame</code>, <code>right frame</code>, <code>facing each other</code>.</li>
+<li>Tu animeras ENSUITE deux fois la même image pour faire parler chacun à son tour.</li>
+</ul>
+<div class="callout"><strong>Astuce</strong>Pour les plans à 2, écrire les deux blocs perso complets l'un après l'autre. Ne pas raccourcir — la cohérence vient de la répétition mot pour mot.</div>
+</div>
+
+<div class="nav">
+<a href="module-04.html"><small>← Module précédent</small><strong>4 · Script</strong></a>
+<a href="module-06.html"><small>Module suivant →</small><strong>6 · Animation</strong></a>
+</div>
+<div class="footer">Module 5 · Formation Fruits IA</div>
+</div></body></html>

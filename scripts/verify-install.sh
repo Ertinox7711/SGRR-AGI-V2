@@ -150,6 +150,14 @@ check_file 'scripts/check-cc-updates.sh'   'Claude Code update watch'
 check_file 'scripts/preflight-scrub.sh'    'preflight leak scrub'
 check_file 'shops/GO-SHOPS.md'             'GO-SHOPS.md (multi-store manual)'
 check_file 'shopify/GO-SHOPIFY.md'         'GO-SHOPIFY.md (Shopify manual)'
+check_file 'formations/README.md'          'formations/ training libraries'
+check_file 'formations/AUDIO-MANIFEST.md'  'formations/ audio manifest (82 files out of git)'
+
+# The bundles are what makes the libraries usable in one paste, so count them separately:
+# an install that copied the folder but dropped the three big files is not a full install.
+N_BUNDLE=$(find "$CLAUDE/formations/bundles" -maxdepth 1 -type f -name '*.md' 2>/dev/null | wc -l | tr -d ' ')
+[ "${N_BUNDLE:-0}" -ge 3 ] && ok "formations/bundles/ $N_BUNDLE paste-ready bundles" \
+  || wrn "formations/bundles/ only $N_BUNDLE (3 expected — re-run install without --minimal)"
 
 # ---- machine-local config ------------------------------------------------------------
 sect "Local config"

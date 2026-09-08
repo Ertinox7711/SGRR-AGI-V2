@@ -89,6 +89,24 @@ Each entry is the same three lines:
   backspace, not a word boundary). **So: plant a fake secret of every class you claim to
   detect, watch the gate reject it, then remove it.** And keep the platform twins in
   parity — the same scan, one case-sensitive, reported 111 leaks the other called clean.
+- **A file the scanner could not OPEN prints the same green line as a file it read and
+  cleared.** Adding 341 course files exposed this: 87 of them have accented names, and
+  git's default `core.quotePath` renders those as a *quoted, octal-escaped* string —
+  `"formations/.../d\303\251cision.md"`. The bash twin's `grep` could not open a file by
+  that literal name, the error went to the `2>/dev/null` it was already discarding, and
+  it printed **CLEAN over 87 unread files**. The PowerShell twin failed the opposite way,
+  hard: `Test-Path` threw on the embedded quote and `$ErrorActionPreference = 'Stop'`
+  killed the run after two lines. Same root cause, opposite symptom — one silent, one
+  loud, and the silent one is the dangerous one. **Fix: pin `git -c
+  core.quotePath=false`, and make "unreadable target" a finding rather than a `continue`.
+  A scan that skipped input is an unknown, not a pass.**
+- **Diff the twins finding-for-finding, not verdict-for-verdict.** Both said CLEAN; one
+  listed 182 findings and the other 181. That single line was a real detection gap — the
+  PowerShell patterns were case-*sensitive* while the bash ones ran under `grep -Ei`, so
+  `C:\USERS\YOU` was caught on Linux and missed on Windows, the one platform where paths
+  actually are case-insensitive. Two green scanners that disagree are one broken scanner.
+  (Writing that example in this file made the fixed scanner reject the commit — which is
+  the shortest possible proof that the fix works.)
 
 ## 7. 🚫 The bypass — `bypass`
 

@@ -124,10 +124,18 @@ foreach ($f in @(
   @{ p = 'scripts\check-cc-updates.ps1';   m = 'Claude Code update watch' },
   @{ p = 'scripts\preflight-scrub.ps1';    m = 'preflight leak scrub' },
   @{ p = 'shops\GO-SHOPS.md';              m = 'GO-SHOPS.md (multi-store manual)' },
-  @{ p = 'shopify\GO-SHOPIFY.md';          m = 'GO-SHOPIFY.md (Shopify manual)' }
+  @{ p = 'shopify\GO-SHOPIFY.md';          m = 'GO-SHOPIFY.md (Shopify manual)' },
+  @{ p = 'formations\README.md';           m = 'formations/ training libraries' },
+  @{ p = 'formations\AUDIO-MANIFEST.md';   m = 'formations/ audio manifest (82 files out of git)' }
 )) {
-  if (Test-Path (Join-Path $claude $f.p)) { Ok $f.m } else { Bad "$($f.m) missing ($($f.p))" }
+  if (Test-Path -LiteralPath (Join-Path $claude $f.p)) { Ok $f.m } else { Bad "$($f.m) missing ($($f.p))" }
 }
+
+# The bundles are what makes the libraries usable in one paste, so count them separately:
+# an install that copied the folder but dropped the three big files is not a full install.
+$nBundle = @(Get-ChildItem (Join-Path $claude 'formations\bundles') -File -Filter '*.md' -ErrorAction SilentlyContinue).Count
+if ($nBundle -ge 3) { Ok "formations/bundles/ $nBundle paste-ready bundles" }
+else { Wrn "formations/bundles/ only $nBundle (3 expected - re-run install without -Minimal)" }
 
 # ---- machine-local config -----------------------------------------------------------
 Head "Local config"

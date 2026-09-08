@@ -1,0 +1,1577 @@
+[
+ {
+  "i": 0,
+  "live": "10/07",
+  "nom": "Sofa / canape (grosse niche)",
+  "verdict": "pas d'avis : cite par un membre comme contre-exemple de niche trop grosse, Arthur ne tranche pas",
+  "prix": "aucune metrique donnee",
+  "canal": "non precise",
+  "ts": "00:00:43"
+ },
+ {
+  "i": 1,
+  "live": "10/07",
+  "nom": "Acteurs style Kickstarter",
+  "verdict": "a eviter comme reference concurrentielle : hors jeu et attaquables sur le prix",
+  "prix": "aucune metrique",
+  "canal": "non precise",
+  "ts": "00:02:15"
+ },
+ {
+  "i": 2,
+  "live": "10/07",
+  "nom": "Cave a vin [\"cabavin\" Whisper]",
+  "verdict": "marche : archetype du produit non visuel pour du Search",
+  "prix": "pas de prix ; \"les gens ils ont pas besoin de la voir avant de cliquer sur le site\"",
+  "canal": "Search",
+  "ts": "00:06:43"
+ },
+ {
+  "i": 3,
+  "live": "10/07",
+  "nom": "Etendoir a linge [\"etendoir a l'age\" Whisper]",
+  "verdict": "exemple neutre, qualifie par Arthur lui-meme de \"tres mauvais exemple\"",
+  "prix": "pas de prix ; produit non visuel",
+  "canal": "Search",
+  "ts": "00:07:25"
+ },
+ {
+  "i": 4,
+  "live": "10/07",
+  "nom": "Tondeuse",
+  "verdict": "exemple neutre de produit technique sans besoin de visuel, mais \"c'est plus la saison\" ; reprise plus tard comme niche opposee aux lunettes de soleil pour le template",
+  "prix": "pas de prix ; niche jardin hors saison au 10 juillet",
+  "canal": "Search",
+  "ts": "00:08:01 et 00:42:38"
+ },
+ {
+  "i": 5,
+  "live": "10/07",
+  "nom": "Papier peint",
+  "verdict": "marche : archetype du high-ticket par bundle",
+  "prix": "30 EUR/m2 puis 20 EUR/m2 dans le meme developpement ; panier de 12 a 30 m2",
+  "canal": "non precise",
+  "ts": "00:08:36 et 00:09:49"
+ },
+ {
+  "i": 6,
+  "live": "10/07",
+  "nom": "Cloture de jardin",
+  "verdict": "marche : meme logique de bundle",
+  "prix": "20 EUR l'unite x 15 unites necessaires",
+  "canal": "non precise",
+  "ts": "00:09:21"
+ },
+ {
+  "i": 7,
+  "live": "10/07",
+  "nom": "Produits a 2 000 / 3 000 EUR (categorie)",
+  "verdict": "a eviter : cher = volumineux = insourcable ou marge de merde",
+  "prix": "2 000 a 3 000 EUR",
+  "canal": "non precise",
+  "ts": "00:09:05"
+ },
+ {
+  "i": 8,
+  "live": "10/07",
+  "nom": "Pergolas",
+  "verdict": "a eviter",
+  "prix": "incompatible avec 250 EUR de budget de testing",
+  "canal": "non precise",
+  "ts": "00:10:15"
+ },
+ {
+  "i": 9,
+  "live": "10/07",
+  "nom": "Canape retractable / \"canape dents\" [transcription incertaine]",
+  "verdict": "exemple neutre : sert a illustrer le test de demande par la presence sur AliExpress",
+  "prix": "pas de prix ; \"s'il est tres demande, il sera sur Aliexpress\"",
+  "canal": "non precise",
+  "ts": "00:11:43"
+ },
+ {
+  "i": 10,
+  "live": "10/07",
+  "nom": "AliExpress (plateforme de sourcing)",
+  "verdict": "marche : bon premier indicateur du vrai prix paye ; un produit tres demande y figure toujours",
+  "prix": "produit a 62 EUR contre 50 EUR via agent ; livraison parfois 2 jours et gratuite",
+  "canal": "non precise",
+  "ts": "00:10:49 et 00:15:47"
+ },
+ {
+  "i": 11,
+  "live": "10/07",
+  "nom": "Alibaba (plateforme de sourcing)",
+  "verdict": "a eviter comme reference de prix : le prix affiche n'est jamais le vrai prix paye",
+  "prix": "environ 500 EUR de livraison, 3 mois de delai ; MOQ 1 obtenu par le membre",
+  "canal": "non precise",
+  "ts": "00:10:46 et 00:10:52"
+ },
+ {
+  "i": 12,
+  "live": "10/07",
+  "nom": "Europage [Europages] (annuaire fournisseurs FR/EU)",
+  "verdict": "marche comme etape de contre-verification du sourcing : rien trouve nulle part = pas de demande",
+  "prix": "pas de prix",
+  "canal": "non precise",
+  "ts": "00:11:16"
+ },
+ {
+  "i": 13,
+  "live": "10/07",
+  "nom": "\"le BigPay\" [annuaire fournisseurs non identifie, Whisper]",
+  "verdict": "pas d'avis : cite comme seconde source FR/EU, nom mange par Whisper, etape non executable en l'etat",
+  "prix": "pas de prix",
+  "canal": "non precise",
+  "ts": "00:11:16"
+ },
+ {
+  "i": 14,
+  "live": "10/07",
+  "nom": "Produit non nomme d'Arthur (produit principal actuel)",
+  "verdict": "marche",
+  "prix": "vente 200 EUR, cout agent 50 EUR, AliExpress 62 EUR ; cout produit environ 30 % du CA",
+  "canal": "non precise",
+  "ts": "00:12:21"
+ },
+ {
+  "i": 15,
+  "live": "10/07",
+  "nom": "Vetements / fashion (niche)",
+  "verdict": "a eviter, deconseille formellement : retours \"l'enfer sur terre\", chargebacks, Shopify Payment et Paypal bloques, incompatible avec une garantie satisfait ou rembourse",
+  "prix": "shops a ROAS 2 ; \"ils vendent pas 50 000 euros\", micro-argent",
+  "canal": "non precise",
+  "ts": "00:17:39"
+ },
+ {
+  "i": 16,
+  "live": "10/07",
+  "nom": "Shops fashion de la marketplace du school de Terry",
+  "verdict": "cites par un membre (\"ils se vendent\") ; verdict Arthur : shops eclates, rien a en tirer",
+  "prix": "ROAS 2 ; sous 50 000 EUR",
+  "canal": "non precise",
+  "ts": "00:16:51 et 00:17:06"
+ },
+ {
+  "i": 17,
+  "live": "10/07",
+  "nom": "Baskets (tailles 41 / 41.5 / 42)",
+  "verdict": "exemple neutre du probleme fashion",
+  "prix": "pas de prix ; les clients commandent 3 tailles et renvoient les trois quarts",
+  "canal": "non precise",
+  "ts": "00:18:24"
+ },
+ {
+  "i": 18,
+  "live": "10/07",
+  "nom": "Robes d'ete",
+  "verdict": "a eviter : pas assez de recherche, marges de merde, annonces de CA bullshit",
+  "prix": "\"10 cadeilles\" [10 k] annonces par des vendeurs en Hollande",
+  "canal": "non precise",
+  "ts": "00:18:45"
+ },
+ {
+  "i": 19,
+  "live": "10/07",
+  "nom": "Amazon (comme concurrent institutionnel)",
+  "verdict": "a eviter si l'institutionnel fait des ads ; tolerable dans ce cas car \"Amazon est pas en ads donc ca va\"",
+  "prix": "prix Amazon = une fraction du prix de vente d'Arthur",
+  "canal": "non precise (le cas membre porte sur des institutionnels en Shopping)",
+  "ts": "00:25:13"
+ },
+ {
+  "i": 20,
+  "live": "10/07",
+  "nom": "Produit d'un membre (Sorene) sur marche a institutionnels",
+  "verdict": "cite par un membre ; verdict Arthur : marge OK mais trop de gros concurrents sur le marche",
+  "prix": "prix 100 a 200 ; CPC testing 1,10 vs CPC moyen 0,9 ; \"vendu 150, achete 40\" = chiffres du membre non confirmes, transcript elliptique et coupe",
+  "canal": "non precise",
+  "ts": "00:26:26 et 00:27:12"
+ },
+ {
+  "i": 21,
+  "live": "10/07",
+  "nom": "Minia [Minea] (logiciel de recherche produit)",
+  "verdict": "a eviter : \"c'est a chier\", pousse pour 50 % de commission, quasiment en marque blanche",
+  "prix": "50 % de commission d'affiliation",
+  "canal": "non precise",
+  "ts": "00:27:49"
+ },
+ {
+  "i": 22,
+  "live": "10/07",
+  "nom": "Copify (logiciel de recherche produit)",
+  "verdict": "a eviter : meme verdict que Minea",
+  "prix": "50 % de commission d'affiliation",
+  "canal": "non precise",
+  "ts": "00:27:49"
+ },
+ {
+  "i": 23,
+  "live": "10/07",
+  "nom": "TrainTrack [TrendTrack]",
+  "verdict": "marche, mais pour VERIFIER seulement, pas pour trouver",
+  "prix": "prix non aborde",
+  "canal": "non precise",
+  "ts": "00:27:56 et 00:28:45"
+ },
+ {
+  "i": 24,
+  "live": "10/07",
+  "nom": "BrandSearch / Brain search",
+  "verdict": "marche, pour verifier seulement : \"BrandSearch c'est TrainTrack booste\"",
+  "prix": "prix non aborde",
+  "canal": "non precise",
+  "ts": "00:28:01"
+ },
+ {
+  "i": 25,
+  "live": "10/07",
+  "nom": "Remontoirs [\"remontoires\" Whisper]",
+  "verdict": "exemple neutre de produit qui s'offre, pas une recommandation d'achat",
+  "prix": "pas de prix dans ce live",
+  "canal": "non precise",
+  "ts": "00:29:41"
+ },
+ {
+  "i": 26,
+  "live": "10/07",
+  "nom": "Assouline, gros livres de deco",
+  "verdict": "exemple neutre, explicitement non prescriptif : \"Je ne vous dis pas vendez des livres de deco\"",
+  "prix": "pas de prix",
+  "canal": "non precise",
+  "ts": "00:29:50"
+ },
+ {
+  "i": 27,
+  "live": "10/07",
+  "nom": "Produit cadeau non nomme (nouveau test d'Arthur, garde secret pour eviter le leak)",
+  "verdict": "marche",
+  "prix": "prix de vente non donne ; 8 k en 2 semaines, 2 journees a 1 k/jour, environ 20 k de CA/mois, projection \"au moins 60\" sur le Q4 a budget constant (K deduit)",
+  "canal": "non precise (le nouveau shop d'Arthur tourne en Shopping + Search [00:47:47], l'identite avec ce produit n'est pas affirmee dans le live)",
+  "ts": "00:30:36 et 00:31:06"
+ },
+ {
+  "i": 28,
+  "live": "10/07",
+  "nom": "Outil : Claude",
+  "verdict": "marche : sert a lister des produits techniques et a piloter le generateur d'images",
+  "prix": "prix non aborde",
+  "canal": "non precise",
+  "ts": "00:07:31 et 00:42:45"
+ },
+ {
+  "i": 29,
+  "live": "10/07",
+  "nom": "Outil : \"Icefield\" [Higgsfield]",
+  "verdict": "marche : generateur d'images pilote par Claude, \"c'est lui qui parle a Icefield pour lui donner le meilleur prompt possible\"",
+  "prix": "prix non aborde",
+  "canal": "non precise",
+  "ts": "00:42:56"
+ },
+ {
+  "i": 30,
+  "live": "10/07",
+  "nom": "Lunettes de soleil",
+  "verdict": "exemple neutre : illustration du template non transposable d'une niche a l'autre",
+  "prix": "pas de prix ; niche visuelle opposee aux tondeuses",
+  "canal": "non precise",
+  "ts": "00:42:37"
+ },
+ {
+  "i": 31,
+  "live": "10/07",
+  "nom": "Theme Shopify : Full stack",
+  "verdict": "a eviter : \"c'est de la dope, c'est que pour aller prendre du recurrent\"",
+  "prix": "modele en recurrent (abonnement), montant non precise",
+  "canal": "non precise",
+  "ts": "00:43:26"
+ },
+ {
+  "i": 32,
+  "live": "10/07",
+  "nom": "Theme Shopify : Prestige",
+  "verdict": "marche, pour du premium : \"le simple efficace\"",
+  "prix": "15 $ via le contact de la formation",
+  "canal": "non precise",
+  "ts": "00:44:12"
+ },
+ {
+  "i": 33,
+  "live": "10/07",
+  "nom": "Theme Shopify : Impact",
+  "verdict": "marche : seul theme qui, tres bien execute, peut \"a peu pres\" matcher tous les produits, et \"encore, il le fait pas parfaitement\"",
+  "prix": "15 $ via le contact de la formation",
+  "canal": "non precise",
+  "ts": "00:44:39"
+ },
+ {
+  "i": 34,
+  "live": "16/07",
+  "nom": "Remontoirs (watch winders), testing du membre",
+  "verdict": "Produit juge bon par le membre et non contredit par Arthur : l'arret des ventes vient de la campagne, pas du produit (« si tu avais deja fait des ventes, il n'y a pas de raison que ca ne continue pas »)",
+  "prix": "Panier moyen 150 a 200 ; 2 ventes ; une journee a 300 ; 350 depenses sur la semaine morte",
+  "canal": "non precise",
+  "ts": "00:01:32 (+00:00:58, 00:01:44, 00:02:20)"
+ },
+ {
+  "i": 35,
+  "live": "16/07",
+  "nom": "Remontoir (positionnement premium)",
+  "verdict": "Marche : produit premium assume par Arthur, polices et codes premium justifies, explicitement non transposables aux autres produits",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:06:14 (+00:06:26)"
+ },
+ {
+  "i": 36,
+  "live": "16/07",
+  "nom": "Remontoir de luxe / remontoir compact / remontoir plusieurs montres",
+  "verdict": "pas d'avis (exemple de mots cles pour la question des liens de destination)",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "Search (mots cles)",
+  "ts": "00:51:58"
+ },
+ {
+  "i": 37,
+  "live": "16/07",
+  "nom": "Boites a montre, ajoutees a la campagne qui vend",
+  "verdict": "A eviter : leur ajout a detourne le budget et arrete les ventes",
+  "prix": "Zero vente depuis l'ajout",
+  "canal": "non precise",
+  "ts": "00:01:48 (+00:02:00)"
+ },
+ {
+  "i": 38,
+  "live": "16/07",
+  "nom": "Boites a montre, en campagne separee",
+  "verdict": "Interessant, a tester, mais uniquement dans une campagne differente",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:02:12 (+00:02:14)"
+ },
+ {
+  "i": 39,
+  "live": "16/07",
+  "nom": "Canape",
+  "verdict": "pas d'avis (exemple neutre : chaque type de produit se scale differemment)",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:04:26"
+ },
+ {
+  "i": 40,
+  "live": "16/07",
+  "nom": "Cave a vin [« cabavin »]",
+  "verdict": "pas d'avis (exemple neutre de scaling)",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:04:28"
+ },
+ {
+  "i": 41,
+  "live": "16/07",
+  "nom": "Produits pour les enfants",
+  "verdict": "pas d'avis sur le produit ; regle associee : jamais de site premium type remontoir, arguments propres a la famille",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:06:26 (+00:06:52)"
+ },
+ {
+  "i": 42,
+  "live": "16/07",
+  "nom": "Jouets Club (retail jouets)",
+  "verdict": "pas d'avis (exemple retail : on ne vend pas du grand public avec des arguments premium)",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:06:42"
+ },
+ {
+  "i": 43,
+  "live": "16/07",
+  "nom": "Produit pour bebe / jeune mere",
+  "verdict": "pas d'avis sur un produit precis ; regle associee : elle veut confortable et safe, pas premium",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:07:16"
+ },
+ {
+  "i": 44,
+  "live": "16/07",
+  "nom": "Camera (achat perso d'Arthur)",
+  "verdict": "pas d'avis (exemple neutre : produit technique vendu avec des arguments techniques, jamais premium)",
+  "prix": "6000 balles",
+  "canal": "non precise",
+  "ts": "00:08:24"
+ },
+ {
+  "i": 45,
+  "live": "16/07",
+  "nom": "Shop « Minolea » [nom probablement mal transcrit]",
+  "verdict": "A eviter : flop audite en direct",
+  "prix": "520 depenses sur 3 semaines, 0 vente ; 450 depenses sans un seul ajout au panier ni panier abandonne ; CTR 4,9 puis 4 ; CPC moyen 0,90 ; panier moyen haut",
+  "canal": "Teste en full Search ; verdict Arthur : les acheteurs qualifies sont probablement en Shopping",
+  "ts": "00:17:23 (+00:17:53, 00:18:07, 00:19:10, 00:20:08)"
+ },
+ {
+  "i": 46,
+  "live": "16/07",
+  "nom": "Produit pour animaux / « leader robot » (produit du shop Minolea)",
+  "verdict": "A eviter : tres dur a scaler, devenu un produit Amazon, personne connu ne l'a scale",
+  "prix": "Concurrence : 1 quasi institutionnel plus 2 a 3 dropshippers ; 1 ou 2 concurrents Search au UK",
+  "canal": "Shopping, et beaucoup moins cher (produit visuel)",
+  "ts": "00:20:54 (+00:18:42, 00:21:10, 00:21:54)"
+ },
+ {
+  "i": 47,
+  "live": "16/07",
+  "nom": "Produit du concurrent francais du membre (non nomme)",
+  "verdict": "A eviter sur le marche francais, le concurrent y est installe : lancer le meme produit au UK",
+  "prix": "Concurrent qui frole les 1 k/jour, sur le marche depuis un mois deux mois ; l'entrant ne prendrait que 300/jour",
+  "canal": "non precise",
+  "ts": "00:25:57 (+00:26:07, 00:26:23, 00:27:31)"
+ },
+ {
+  "i": 48,
+  "live": "16/07",
+  "nom": "Mobilier de jardin",
+  "verdict": "Marche : seule niche validee le jour du live, avec Enzo, demande toute l'annee. Inexploitable en l'etat : ni prix, ni marge, ni marche, ni fournisseur precis",
+  "prix": "Validee le 16 juillet, « c'est toute l'annee » ; sourcable sur Amazon mais avis de merde donc a ecarter par cette voie ; VidaXL cite comme seule voie EU",
+  "canal": "non precise",
+  "ts": "00:33:24 (+00:33:38, 00:33:10)"
+ },
+ {
+  "i": 49,
+  "live": "16/07",
+  "nom": "Gros produit lourd (exemple generique)",
+  "verdict": "A eviter : frais de livraison non negociables, Arthur en fait tres peu",
+  "prix": "150 EUR de produit plus 120 EUR de livraison, 15 kilos",
+  "canal": "non precise",
+  "ts": "00:30:13 (+00:30:07, 00:30:25)"
+ },
+ {
+  "i": 50,
+  "live": "16/07",
+  "nom": "Produit de maison (experience passee d'Arthur)",
+  "verdict": "A eviter dans cette configuration : concurrent avec stock local",
+  "prix": "Concurrent livrant en 3 jours, palette contre commande a la piece, reassort hebdo ou mensuel",
+  "canal": "non precise",
+  "ts": "00:30:41 (+00:30:51)"
+ },
+ {
+  "i": 51,
+  "live": "16/07",
+  "nom": "Robes d'ete",
+  "verdict": "A eviter : exemple de strategie bullshit d'un autre formateur, seul playbook saisonnier explicitement rejete du live",
+  "prix": "Promesse de 10k day",
+  "canal": "non precise",
+  "ts": "00:46:50"
+ },
+ {
+  "i": 52,
+  "live": "16/07",
+  "nom": "Produits pas high ticket",
+  "verdict": "Marchent : Arthur rejette explicitement l'idee inverse",
+  "prix": "Prix non aborde dans ce live",
+  "canal": "non precise",
+  "ts": "00:46:56"
+ },
+ {
+  "i": 53,
+  "live": "16/07",
+  "nom": "Shop fashion d'Arthur",
+  "verdict": "pas d'avis produit (cas d'un GMC US qui ne passe pas)",
+  "prix": "Plus de 1000 variantes, 2 GMC crees, test avec adresse francaise, echec",
+  "canal": "non precise",
+  "ts": "00:39:13 (+00:39:25, 00:38:59)"
+ },
+ {
+  "i": 54,
+  "live": "16/07",
+  "nom": "Cafe des Guerriers (marque d'un pote)",
+  "verdict": "pas d'avis produit (case study CRO)",
+  "prix": "Environ 200k par mois, bloque a 30, passe a 50 uniquement avec du CRO",
+  "canal": "non precise",
+  "ts": "00:43:40 (+00:43:44)"
+ },
+ {
+  "i": 55,
+  "live": "16/07",
+  "nom": "Planche pilates",
+  "verdict": "A eviter : marche detruit par les no-shippers, rien a faire",
+  "prix": "80 % du marche = no-shippers, « qui vendent tous a 500 EUR, qui n'ont meme pas a vendre en dessous de 1500 EUR » [passage douteux a la transcription]",
+  "canal": "non precise",
+  "ts": "00:59:30 (+00:59:32)"
+ },
+ {
+  "i": 56,
+  "live": "16/07",
+  "nom": "« Angpan » [correction probable : handpan]",
+  "verdict": "Produit juge « tres tres bon » par Arthur qui l'a deja lance, mais marche FR dead, brutalise par les no-shippers, donc a eviter en FR",
+  "prix": "Prix non aborde dans ce live ; sortie proposee : autre marche, l'allemand cite comme meilleur",
+  "canal": "non precise",
+  "ts": "00:59:56 (+01:00:18)"
+ },
+ {
+  "i": 57,
+  "live": "16/07",
+  "nom": "ads pixel finder (extension Chrome)",
+  "verdict": "Marche : utilisee par Arthur, acces direct au compte Google Ads d'un site et a son Transparency",
+  "prix": "Gratuit",
+  "canal": "Sert a lire Search et Shopping",
+  "ts": "00:24:05 (+00:24:47)"
+ },
+ {
+  "i": 58,
+  "live": "16/07",
+  "nom": "Google Transparency (Google Ads Transparency Center)",
+  "verdict": "Marche : montre les pubs et le canal, jamais le budget",
+  "prix": "Anciennete des annonces plus derniere diffusion (exemple : derniere diffusion au 10 juin)",
+  "canal": "Search / Shopping / les deux",
+  "ts": "00:23:26 (+00:44:02, 00:24:23)"
+ },
+ {
+  "i": 59,
+  "live": "16/07",
+  "nom": "AliExpress",
+  "verdict": "Etape de sourcing obligatoire, 1 sur 3",
+  "prix": "Prix Ali proche du prix de revente = pas de marge ou no-ship ; 250 EUR livraison incluse ne devient pas 140 EUR via agent",
+  "canal": "non precise",
+  "ts": "00:27:57 (+00:29:01, 00:31:33)"
+ },
+ {
+  "i": 60,
+  "live": "16/07",
+  "nom": "Alibaba",
+  "verdict": "Etape de sourcing obligatoire, 2 sur 3",
+  "prix": "Pas d'autre detail dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:57"
+ },
+ {
+  "i": 61,
+  "live": "16/07",
+  "nom": "688 [1688.com]",
+  "verdict": "Etape de sourcing obligatoire, 3 sur 3",
+  "prix": "Pas d'autre detail dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:57"
+ },
+ {
+  "i": 62,
+  "live": "16/07",
+  "nom": "Google Images",
+  "verdict": "Etape obligatoire avant de conclure « introuvable » ; photos toutes IA = signal que le concurrent ne l'a pas",
+  "prix": "Gratuit",
+  "canal": "non precise",
+  "ts": "00:28:17"
+ },
+ {
+  "i": 63,
+  "live": "16/07",
+  "nom": "Amazon",
+  "verdict": "A eviter comme terrain et comme source : reflexe d'achat qui tue le scaling, et avis de merde qui annoncent des chargebacks",
+  "prix": "Pas de chiffre",
+  "canal": "non precise",
+  "ts": "00:20:54 (+00:33:38)"
+ },
+ {
+  "i": 64,
+  "live": "16/07",
+  "nom": "VidaXL [« vida xl »]",
+  "verdict": "pas d'avis tranche : citee comme seule voie actuelle pour sourcer du gros produit en Europe, avec contact direct",
+  "prix": "Pas de chiffre",
+  "canal": "non precise",
+  "ts": "00:33:10"
+ },
+ {
+  "i": 65,
+  "live": "16/07",
+  "nom": "trust2 [correction probable : Trustoo]",
+  "verdict": "Marche : app d'avis utilisee majoritairement par Arthur",
+  "prix": "Pas de prix cite",
+  "canal": "non precise",
+  "ts": "00:51:00"
+ },
+ {
+  "i": 66,
+  "live": "16/07",
+  "nom": "Vital ou Gtumi [correction probable : Vitals ou Judge.me]",
+  "verdict": "pas d'avis : « ca depend vraiment de ton site et d'a quel point c'est ton produit a toi » ; par defaut grille moche style Amazon avec images et texte, les avis ultra sexy peuvent paraitre fake",
+  "prix": "Pas de prix cite",
+  "canal": "non precise",
+  "ts": "00:50:28 (+00:50:38, 00:50:54)"
+ },
+ {
+  "i": 67,
+  "live": "16/07",
+  "nom": "cloud x Icefield [correction probable : Claude x Higgsfield]",
+  "verdict": "Marche : pipeline photos produits d'Arthur, son prompt perso envoye a Claude qui execute tout",
+  "prix": "150 dollars par mois chez Arthur ; plan minimum 50 dollars non teste ; batch de 20 images",
+  "canal": "non precise",
+  "ts": "00:56:47 (+00:56:57, 00:57:29)"
+ },
+ {
+  "i": 68,
+  "live": "16/07",
+  "nom": "GMC Protect (service du prestataire)",
+  "verdict": "A eviter en l'etat : juge surprice, utilite pas comprise, non teste",
+  "prix": "400 balles par mois",
+  "canal": "non precise",
+  "ts": "00:44:26"
+ },
+ {
+  "i": 69,
+  "live": "16/07",
+  "nom": "Call GMC done with you (Terry / Thierry, meme personne)",
+  "verdict": "Recommande par defaut, sauf si beaucoup de cash",
+  "prix": "170 ; 200 EUR les 30 minutes ; environ 160 EUR pour un debannissement ; 0 commission Arthur sur les calls",
+  "canal": "non precise",
+  "ts": "00:40:48 (+00:39:35, 00:40:08, 00:40:54, 00:39:41)"
+ },
+ {
+  "i": 70,
+  "live": "16/07",
+  "nom": "Done for you GMC (Terry / Thierry)",
+  "verdict": "Conditionnel : seulement si un shop marche deja en FR et qu'on veut l'envoyer UK, FR et Allemagne",
+  "prix": "2500 en prix de base ; « done for you 1005 » [probablement 1500] ; 1500 pour un multi-marches fait en 2 jours",
+  "canal": "non precise",
+  "ts": "00:40:26 (+00:40:48, 00:41:02)"
+ },
+ {
+  "i": 71,
+  "live": "16/07",
+  "nom": "Consulting et module CRO de Louis [« Louis Soren »]",
+  "verdict": "Marche : Arthur l'a paye lui-meme, resultat cite sur Cafe des Guerriers (30 vers 50 uniquement avec du CRO)",
+  "prix": "Full 1-1 pendant 3 mois, base de 2 A/B tests par semaine ; contact et nom exact a confirmer par reecoute 00:41:20-00:44:00",
+  "canal": "non precise",
+  "ts": "00:41:48 (+00:43:22, 00:43:44)"
+ },
+ {
+  "i": 72,
+  "live": "16/07",
+  "nom": "Accompagnement « Romas » [nom probablement mal transcrit]",
+  "verdict": "A eviter : 48 h pour envoyer 2 screenshots de social proof, tres bon en marketing mais incertain en e-commerce, bullshitometre declenche (doute portant sur le volume, pas sur la mecanique du flux)",
+  "prix": "5000 a 10 000 produits en PMax feed only puis duplication x3 ou x4 des winners",
+  "canal": "Performance Max feed only (process du prestataire, pas d'Arthur)",
+  "ts": "00:44:52 (+00:45:12, 00:45:54, 00:46:10)"
+ },
+ {
+  "i": 73,
+  "live": "16/07",
+  "nom": "Module « open-cloud » (abandonne) et Hermes",
+  "verdict": "pas d'avis produit : module tue par la sortie de Hermes pendant sa production",
+  "prix": "Perime en 2 semaines",
+  "canal": "non precise",
+  "ts": "00:55:53"
+ },
+ {
+  "i": 74,
+  "live": "16/07",
+  "nom": "« cloud code » [Claude Code]",
+  "verdict": "pas d'avis : demande par un membre pour un futur module IA",
+  "prix": "Pas de chiffre",
+  "canal": "non precise",
+  "ts": "00:54:34"
+ },
+ {
+  "i": 75,
+  "live": "16/07",
+  "nom": "Site de Dorian Rose",
+  "verdict": "pas d'avis produit : reference de structure citee par Arthur, les bulles de choix des le debut de page",
+  "prix": "Pas de chiffre",
+  "canal": "non precise",
+  "ts": "00:53:08"
+ },
+ {
+  "i": 76,
+  "live": "16/07",
+  "nom": "Interview de « ma SEO »",
+  "verdict": "pas d'avis produit : renvoyee aux membres a la place de dashboards quotidiens",
+  "prix": "Pas de chiffre",
+  "canal": "non precise",
+  "ts": "01:01:08"
+ },
+ {
+  "i": 77,
+  "live": "22/07",
+  "nom": "Remontoirs",
+  "verdict": "Marche. Archétype Q4 : evergreen plus vocation cadeau, produit de la formation. « Est-ce qu'on a tendance à s'offrir des remontoirs ? Oui »",
+  "prix": "1 K en temps normal, 4 à 5 K pendant le Q4 [K inféré]",
+  "canal": "non precise",
+  "ts": "00:21:37, 00:22:25, 00:26:55, 00:46:53"
+ },
+ {
+  "i": 78,
+  "live": "22/07",
+  "nom": "Commodes",
+  "verdict": "À éviter : « très peu » offert, donc pas un produit Q4",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:21:41"
+ },
+ {
+  "i": 79,
+  "live": "22/07",
+  "nom": "Support pour la télé",
+  "verdict": "À éviter : « très peu » offert, donc pas un produit Q4",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:21:45"
+ },
+ {
+  "i": 80,
+  "live": "22/07",
+  "nom": "Sapins de Noël",
+  "verdict": "À éviter : produit pur Noël, « c'est évident que le produit va s'arrêter »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:22:08"
+ },
+ {
+  "i": 81,
+  "live": "22/07",
+  "nom": "Plantes artificielles / fleurs artificielles",
+  "verdict": "Marche sur le marché US uniquement ; ailleurs « dans 95 % du temps c'est de la merde ». À skip si on n'a pas encore chiffré ; Arthur pourrait le lancer parce qu'il est « un malade de l'optimisation »",
+  "prix": "1 à 2 K toute l'année, x4 x5 au Q4 [K inféré] ; paniers moyens bas",
+  "canal": "non precise",
+  "ts": "00:22:47, 00:29:34"
+ },
+ {
+  "i": 82,
+  "live": "22/07",
+  "nom": "Van Cleef / Cartier",
+  "verdict": "Pas une piste produit : cités comme destination des gros budgets de Noël, justifient le plafond de prix Q4",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:23:38"
+ },
+ {
+  "i": 83,
+  "live": "22/07",
+  "nom": "Table basse de luxe",
+  "verdict": "À éviter : contre-exemple, les gros budgets de Noël n'achètent pas ça",
+  "prix": "éviter 1500 balles",
+  "canal": "non precise",
+  "ts": "00:23:41"
+ },
+ {
+  "i": 84,
+  "live": "22/07",
+  "nom": "Vestes chauffantes",
+  "verdict": "À éviter : « c'est des produits de merde », pas de marge sauf en no-shippant la batterie, SAV de fou, ultra saisonnier, environ 50 dropshippers avec le même site et la même offre",
+  "prix": "39,99 contre 49,99 chez les concurrents",
+  "canal": "non precise",
+  "ts": "00:23:56, 00:24:06"
+ },
+ {
+  "i": 85,
+  "live": "22/07",
+  "nom": "Échiquier [Whisper : « Et chez qui »]",
+  "verdict": "« C'est un bon produit, c'est un très bon produit », même niche que les remontoirs, marche bien pendant le Q4, mais Arthur n'irait pas : pas assez de cash sur le marché français",
+  "prix": "3 à 4 atteignable contre son objectif 15 à 20 [unité inférée]",
+  "canal": "non precise",
+  "ts": "00:26:16"
+ },
+ {
+  "i": 86,
+  "live": "22/07",
+  "nom": "Couteaux, sets de couteaux, couteaux japonais, couteau de chef",
+  "verdict": "Marche : cadeau homme de base, produit un peu mondial sur Google, le mot couteau n'est pas banni. Conditions : éviter les mots-clés à trop grosses marques et prévoir un branding de fou",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:03, 00:30:49, 01:08:29"
+ },
+ {
+  "i": 87,
+  "live": "22/07",
+  "nom": "Montres, boîte à montre",
+  "verdict": "Marche : cadeau homme de base, remonte tout de suite dans les listes d'idées cadeaux",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:04"
+ },
+ {
+  "i": 88,
+  "live": "22/07",
+  "nom": "Rangement de chaussures ultra premium",
+  "verdict": "Exemple positif de cadeau homme",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:08"
+ },
+ {
+  "i": 89,
+  "live": "22/07",
+  "nom": "Mousepad Apple",
+  "verdict": "Pas une piste produit : illustre la mécanique du cadeau déduit de la passion identifiée du destinataire",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:45"
+ },
+ {
+  "i": 90,
+  "live": "22/07",
+  "nom": "Niche pêche",
+  "verdict": "« Une niche qui peut plutôt bien marcher parce que les mecs qui parlent de pêche ils sont fans »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:52"
+ },
+ {
+  "i": 91,
+  "live": "22/07",
+  "nom": "Niche sport",
+  "verdict": "« Les trucs de sport aussi marchent bien », par le nombre de pratiquants",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:27:58"
+ },
+ {
+  "i": 92,
+  "live": "22/07",
+  "nom": "Livres à souligner [transcription incertaine]",
+  "verdict": "Pas d'avis : exemple neutre trouvé dans les listes d'idées cadeaux",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:28:25"
+ },
+ {
+  "i": 93,
+  "live": "22/07",
+  "nom": "Bottes de compression / bottes de pressothérapie",
+  "verdict": "À éviter : « moi je crois pas du tout en ce produit », marché dégommé par Jolt en acquisition Meta et Google, prix effondrés",
+  "prix": "coûtait 500 balles, aujourd'hui 220",
+  "canal": "non precise",
+  "ts": "00:28:30"
+ },
+ {
+  "i": 94,
+  "live": "22/07",
+  "nom": "Jolt",
+  "verdict": "Pas une piste produit : marque qui a dégommé le marché du sport récup, « ils sont partout »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:28:41"
+ },
+ {
+  "i": 95,
+  "live": "22/07",
+  "nom": "Saunas, bains froids, ice baths",
+  "verdict": "À éviter : prix effondrés sur toute la niche sport récupération",
+  "prix": "coûtait 5k euros, finit par coûter 1k5",
+  "canal": "non precise",
+  "ts": "00:29:03"
+ },
+ {
+  "i": 96,
+  "live": "22/07",
+  "nom": "Niche sécurité",
+  "verdict": "Fonctionne et montera comme toutes les niches au Q4, mais « les gens ne vont pas forcément offrir des trucs de sécurité » donc pas de x5 x6",
+  "prix": "pas de x5 x6 sur les chiffres habituels",
+  "canal": "non precise",
+  "ts": "00:29:13"
+ },
+ {
+  "i": 97,
+  "live": "22/07",
+  "nom": "Robot aspirateur",
+  "verdict": "« Je pense pas que ça fasse un très bon produit cadeau, mais ça se vendra toujours plus »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:30:08"
+ },
+ {
+  "i": 98,
+  "live": "22/07",
+  "nom": "Château gonflable",
+  "verdict": "À éviter : « pas du tout », produit full été, « tu les vendras quasiment pas en Q4 »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:30:13"
+ },
+ {
+  "i": 99,
+  "live": "22/07",
+  "nom": "Platine vinyle",
+  "verdict": "« Ça marche très bien », rentre carrément dans la case Q4, déjà lancée et chiffrée par Arthur, mais « extrêmement dur à sourcer ». Diamant Audio Technica obligatoire",
+  "prix": "scalable à 3 à 4k/jour pour un débutant ; concurrence 119 à 200 euros",
+  "canal": "non precise",
+  "ts": "00:30:19, 00:32:12"
+ },
+ {
+  "i": 100,
+  "live": "22/07",
+  "nom": "Jeux de table",
+  "verdict": "Marche : même catégorie Q4 que remontoirs, couteaux, platine vinyle",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:30:38"
+ },
+ {
+  "i": 101,
+  "live": "22/07",
+  "nom": "Luminaires, lampes, horloges",
+  "verdict": "« C'est des niches qui vont plutôt bien fonctionner »",
+  "prix": "x2 acquis, chance de x5",
+  "canal": "non precise",
+  "ts": "00:31:07"
+ },
+ {
+  "i": 102,
+  "live": "22/07",
+  "nom": "Lustres",
+  "verdict": "« Pas forcément le produit le plus phare pour Q4 » : x2 seulement",
+  "prix": "x2 quoi qu'il arrive",
+  "canal": "non precise",
+  "ts": "00:31:12"
+ },
+ {
+  "i": 103,
+  "live": "22/07",
+  "nom": "Lampes de chevet, lampes déco (achetées chez Blossom)",
+  "verdict": "« Ce genre de truc ça marche très très très très bien », parce que « y'a plein de gens qui savent plus quoi offrir »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:31:25"
+ },
+ {
+  "i": 104,
+  "live": "22/07",
+  "nom": "Miroir",
+  "verdict": "Marche : bon cadeau, même logique que la lampe déco",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:31:45"
+ },
+ {
+  "i": 105,
+  "live": "22/07",
+  "nom": "Belle horloge, petit réveil AP",
+  "verdict": "Marche : « les gens aiment ce genre de produit », Arthur en a un sur son bureau",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:31:47"
+ },
+ {
+  "i": 106,
+  "live": "22/07",
+  "nom": "Fnac / Nature et Découvertes",
+  "verdict": "Source de recherche produit, pas un produit à vendre : « regardez ce qu'ils s'offrent […] ils ont toutes ces catégories là »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:32:00"
+ },
+ {
+  "i": 107,
+  "live": "22/07",
+  "nom": "Diamant Audio Technica",
+  "verdict": "Pas une piste produit : composant obligatoire de la platine vinyle, « si tu n'as pas le diamant Audio Technica ta platine ce sera de la merde »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:32:24"
+ },
+ {
+  "i": 108,
+  "live": "22/07",
+  "nom": "Argon Audio",
+  "verdict": "Pas une piste produit : concurrent très chaud en France sur la platine vinyle",
+  "prix": "200 euros",
+  "canal": "Shopping",
+  "ts": "00:32:44"
+ },
+ {
+  "i": 109,
+  "live": "22/07",
+  "nom": "Sonomateriol / Darty / Fnac (platine vinyle)",
+  "verdict": "Pas une piste produit : concurrence institutionnelle qui complique le marché",
+  "prix": "Fnac 120 puis 179 pour la bonne qualité, Sonomateriol 119, Darty 135",
+  "canal": "Shopping",
+  "ts": "00:33:06"
+ },
+ {
+  "i": 110,
+  "live": "22/07",
+  "nom": "Décoration et fashion",
+  "verdict": "Catégorie de PLAFOND et non recommandation d'entrée : seuls prods no limit capables de 15k/jour sur Google, le reste plafonne à 1 à 2k/jour, dans le même bloc que « quasiment mission impossible en étant profitable »",
+  "prix": "15k/jour contre 1 à 2k/jour",
+  "canal": "non precise",
+  "ts": "00:33:21, 00:33:33"
+ },
+ {
+  "i": 111,
+  "live": "22/07",
+  "nom": "Shop maison généraliste / canapés",
+  "verdict": "« Quasiment mission impossible en étant profitable, mais qui en fait ce sont les seuls produits qui sont scalables à l'infini » ; les concurrents « dépensent probablement vos life savings »",
+  "prix": "non chiffré directement",
+  "canal": "non precise",
+  "ts": "00:33:33, 00:33:41"
+ },
+ {
+  "i": 112,
+  "live": "22/07",
+  "nom": "Papier peint (US)",
+  "verdict": "Ultra grand public, scalable à l'infini, lancé par Arthur lui-même, mais à éviter sans budget massif",
+  "prix": "10 millions de recherches / mois ; leader à 15k/jour ; 400 à 450k euros / mois pour tenir",
+  "canal": "non precise",
+  "ts": "00:34:24"
+ },
+ {
+  "i": 113,
+  "live": "22/07",
+  "nom": "AirPods Pro",
+  "verdict": "Pas une piste produit : lot du concours interne (palier 1k/jour)",
+  "prix": "environ 280",
+  "canal": "non precise",
+  "ts": "00:38:16, 01:00:11"
+ },
+ {
+  "i": 114,
+  "live": "22/07",
+  "nom": "Whoop / porte-carte Vuitton",
+  "verdict": "Pas une piste produit : lots alternatifs du concours interne",
+  "prix": "un an de Whoop offert",
+  "canal": "non precise",
+  "ts": "00:38:17"
+ },
+ {
+  "i": 115,
+  "live": "22/07",
+  "nom": "AirPods Max, workshop demi-journée, bracelet Hermès",
+  "verdict": "Pas une piste produit : lots du palier 2k/jour du concours interne",
+  "prix": "demi-journée pour rescaler le shop",
+  "canal": "non precise",
+  "ts": "00:39:18"
+ },
+ {
+  "i": 116,
+  "live": "22/07",
+  "nom": "Chaise Herman Miller, MacBook Pro, grosse enceinte",
+  "verdict": "Pas une piste produit : lots du palier 5k/jour du concours interne",
+  "prix": "chaise 2K ; MacBook 4.5 / 3.5 / 2, reconditionné 1.7",
+  "canal": "non precise",
+  "ts": "00:39:25"
+ },
+ {
+  "i": 117,
+  "live": "22/07",
+  "nom": "Déco scandinave middle ticket [Whisper : « mini sclume », probablement Sklum]",
+  "verdict": "« C'est très bien Julien, il faut un GMC obligatoire […] ça peut être parfait », pas mal de recherche dessus. Mais formulée comme niche c'est trop large, il faut redescendre sur un produit précis",
+  "prix": "middle ticket",
+  "canal": "Shopping",
+  "ts": "00:39:57, 01:05:25"
+ },
+ {
+  "i": 118,
+  "live": "22/07",
+  "nom": "Canapé japonais et décos japonaises [Whisper : « Japon dit », probablement Japandi]",
+  "verdict": "« Marchent très très très très très très bien. Et encore mieux pendant le Q4 » ; tip pour faire de la déco sans aller sur de l'ultra broad",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:40:19"
+ },
+ {
+  "i": 119,
+  "live": "22/07",
+  "nom": "Produits GMC non nommés trouvés par Arthur pour le Q4",
+  "verdict": "Bons produits mais produits GMC, « donc pas bon pour un premier shop » ; Arthur garde les noms",
+  "prix": "non abordé dans ce live",
+  "canal": "Shopping",
+  "ts": "00:40:37"
+ },
+ {
+  "i": 120,
+  "live": "22/07",
+  "nom": "Accessoires d'appareil photo",
+  "verdict": "Piste de la famille accessoires de passion, citée depuis son propre achat",
+  "prix": "non abordé dans ce live",
+  "canal": "Search",
+  "ts": "00:44:33"
+ },
+ {
+  "i": 121,
+  "live": "22/07",
+  "nom": "Chaises de bar",
+  "verdict": "À éviter : « je t'avoue je pense pas trop. J'ai l'impression que c'est full aligné » [Whisper : dernier mot douteux, lu comme saturé]",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:44:37"
+ },
+ {
+  "i": 122,
+  "live": "22/07",
+  "nom": "Faux tableau / tableau art numérique / cadre artistique",
+  "verdict": "« Je crois que ça cartonne ce genre de truc, vraiment » : cadeau typique pour parents et grands-parents, se vend toute l'année. Mot-clé à trouver, « tableau numérique » rend zéro recherche",
+  "prix": "400 à 500 balles de vente pour un coût d'achat faible ; annonces concurrentes vues à 1200 et 1700",
+  "canal": "Search",
+  "ts": "00:45:02"
+ },
+ {
+  "i": 123,
+  "live": "22/07",
+  "nom": "Atelier du Cohen",
+  "verdict": "Pas une piste produit : marque citée par un membre à propos du branding produit",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:46:40"
+ },
+ {
+  "i": 124,
+  "live": "22/07",
+  "nom": "Produits cadeaux et produits artistiques",
+  "verdict": "« Tous les trucs cadeaux, les trucs artistiques, ça marche très très très bien »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:47:38"
+ },
+ {
+  "i": 125,
+  "live": "22/07",
+  "nom": "Shop randonnée / chaussures de randonnée homme",
+  "verdict": "À éviter : « perso je déconseille », Décathlon sur 95 % des produits et tire les prix vers le bas ; marchait très bien il y a quelques années",
+  "prix": "Décathlon sur 95 % des produits ; Columbia à 78 balles",
+  "canal": "Shopping",
+  "ts": "00:48:13"
+ },
+ {
+  "i": 126,
+  "live": "22/07",
+  "nom": "Babyphone / caméras de surveillance pour bébés",
+  "verdict": "Validé explicitement : « je peux te valider le produit ». Niche bébé dure à pénétrer jusqu'au 1k/jour stable, puis scale horizontal grâce au nombre de produits",
+  "prix": "1k/jour stable = le palier dur",
+  "canal": "non precise",
+  "ts": "00:49:17"
+ },
+ {
+  "i": 127,
+  "live": "22/07",
+  "nom": "Jeux de dames",
+  "verdict": "À éviter : volume faussé par le jeu en ligne et « je vois que des annonces ultra cheap »",
+  "prix": "annonces à 50 et 60 balles",
+  "canal": "non precise",
+  "ts": "00:49:46"
+ },
+ {
+  "i": 128,
+  "live": "22/07",
+  "nom": "Jeux de poker",
+  "verdict": "À éviter / prudence : volume de recherche faussé par le poker en ligne",
+  "prix": "100 000 recherches dont environ 65 000 pour du poker en ligne",
+  "canal": "non precise",
+  "ts": "00:49:55"
+ },
+ {
+  "i": 129,
+  "live": "22/07",
+  "nom": "Jeux d'échecs (comme niche jeux)",
+  "verdict": "À éviter / prudence : même biais de volume que poker et dames. Contradiction non arbitrée avec l'échiquier validé à 00:26:16",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:49:57"
+ },
+ {
+  "i": 130,
+  "live": "22/07",
+  "nom": "Jeux de fléchettes",
+  "verdict": "Mitigé positif : « je pense que ça marche, j'ai juste peur que ça coûte pas grand chose »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:50:11"
+ },
+ {
+  "i": 131,
+  "live": "22/07",
+  "nom": "Catalogue luxuryformen.com (le site lui-même)",
+  "verdict": "Source de recherche validée en direct : « c'est le genre de truc que j'irais faire pour le Q4 », « on vient de trouver un petit banger », lien posté dans le chat",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:50:22"
+ },
+ {
+  "i": 132,
+  "live": "22/07",
+  "nom": "Accessoires pour le champagne (spiritueux et boissons, catalogue luxuryformen)",
+  "verdict": "« Ouais c'est des accessoires. En gros des trucs pour le champagne, de la déco. Ok c'est sympa »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:50:43"
+ },
+ {
+  "i": 133,
+  "live": "22/07",
+  "nom": "Décoration murale (catalogue luxuryformen)",
+  "verdict": "« Ouais, ouais ils vendent super cher »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:50:56"
+ },
+ {
+  "i": 134,
+  "live": "22/07",
+  "nom": "Organisateur de sac de golf (catalogue luxuryformen)",
+  "verdict": "« Organisateur de sac de golf, putain qui l'a cru » puis « sac de golf, il y a beaucoup d'idées là-dessus »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:02"
+ },
+ {
+  "i": 135,
+  "live": "22/07",
+  "nom": "Top 50 des cadeaux / Veuve Clicquot / truc personnalisé (catalogue luxuryformen)",
+  "verdict": "« Sympa, très sympa »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:19"
+ },
+ {
+  "i": 136,
+  "live": "22/07",
+  "nom": "Watch case (catalogue luxuryformen)",
+  "verdict": "« C'est un typiquement le genre de produit qu'on vend » ; un pote à lui l'a",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:27"
+ },
+ {
+  "i": 137,
+  "live": "22/07",
+  "nom": "Travel bag (catalogue luxuryformen)",
+  "verdict": "« Ok, ok, ok »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:30"
+ },
+ {
+  "i": 138,
+  "live": "22/07",
+  "nom": "Trucs de padel (catalogue luxuryformen)",
+  "verdict": "« Ok »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:33"
+ },
+ {
+  "i": 139,
+  "live": "22/07",
+  "nom": "Réveil intelligent (catalogue luxuryformen)",
+  "verdict": "« Ok tac »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:35"
+ },
+ {
+  "i": 140,
+  "live": "22/07",
+  "nom": "Planche à steak (catalogue luxuryformen)",
+  "verdict": "« Je connaissais pas le produit mais c'est cool »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:39"
+ },
+ {
+  "i": 141,
+  "live": "22/07",
+  "nom": "Remontoirs (catalogue luxuryformen) [Whisper : « des remontoires »]",
+  "verdict": "« Ouais ce site est pas mal. Si vous voulez des idées de cadeaux un peu mec etc, c'est vraiment cool »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:51:43"
+ },
+ {
+  "i": 142,
+  "live": "22/07",
+  "nom": "Couteau (catalogue luxuryformen)",
+  "verdict": "« Ça reprend à peu près ce que… c'est stylé ça »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:52:09"
+ },
+ {
+  "i": 143,
+  "live": "22/07",
+  "nom": "Fake Rimowa (catalogue luxuryformen) [Whisper : « rimovas »]",
+  "verdict": "Constat neutre, pas d'avis : « ils ont des rimovas, enfin des fake rimovas, mais voilà »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:52:22"
+ },
+ {
+  "i": 144,
+  "live": "22/07",
+  "nom": "Étui de poker (catalogue luxuryformen)",
+  "verdict": "« Etuit de poker, why not »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:53:04"
+ },
+ {
+  "i": 145,
+  "live": "22/07",
+  "nom": "Tire-bouchon (catalogue luxuryformen)",
+  "verdict": "Seul verdict négatif du catalogue : « je ne suis pas persuadé du délire »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:53:06"
+ },
+ {
+  "i": 146,
+  "live": "22/07",
+  "nom": "Produits culinaires et partie cuisine",
+  "verdict": "Catégorie à creuser depuis le catalogue : « vous allez devoir pouvoir faire pas mal de produits culinaires. Il y a probablement des choses à faire pour la partie cuisine aussi »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:53:15"
+ },
+ {
+  "i": 147,
+  "live": "22/07",
+  "nom": "BHV (Paris)",
+  "verdict": "Source de recherche produit, pas un produit : « il y a vraiment full full full banger au BHV, parce qu'il y a toutes les catégories » ; Arthur y est allé les deux dernières années. État : environ 80 % des boutiques fermées depuis Shein, Shein part, 37 marques de retour confirmé il y a 2 jours",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:53:25, 00:54:25, 00:54:44"
+ },
+ {
+  "i": 148,
+  "live": "22/07",
+  "nom": "Abris de jardin",
+  "verdict": "Pas d'avis : « moi perso, je n'ai jamais vraiment fait de la niche extérieure ». Remarque de saisonnalité : « c'est l'heure d'abris de jardin là »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:53:49"
+ },
+ {
+  "i": 149,
+  "live": "22/07",
+  "nom": "Galeries Lafayette (Paris)",
+  "verdict": "Source de recherche produit, pas un produit : « allez vous faire une journée dans le BHV, au Galerie Lafayette aussi »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:55:29"
+ },
+ {
+  "i": 150,
+  "live": "22/07",
+  "nom": "Dragon Mart (mall chinois de Dubaï)",
+  "verdict": "Source de recherche produit, revendication la plus forte du live : « j'ai globalement trouvé tous mes produits et tous vos produits là-bas »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:55:42"
+ },
+ {
+  "i": 151,
+  "live": "22/07",
+  "nom": "Dubai Mall",
+  "verdict": "Source de recherche produit : « je vais souvent au Dubaï Mall. Je regarde un peu toutes les catégories […] je cherche, je m'inspire »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:56:07, 01:09:01"
+ },
+ {
+  "i": 152,
+  "live": "22/07",
+  "nom": "Mini tronçonneuse",
+  "verdict": "À éviter en Search : Leroy Merlin la vend, beaucoup de dropshippers mais uniquement en Shopping, « en search je ne pense pas parce que je ne vois que des mecs en shopping », sans exclure que ça fonctionne",
+  "prix": "non abordé dans ce live",
+  "canal": "Shopping",
+  "ts": "00:56:18"
+ },
+ {
+  "i": 153,
+  "live": "22/07",
+  "nom": "Remorque pour chevaux [Whisper : « remorque pour les cheveux »]",
+  "verdict": "« Ça doit marcher mais sûrement pas sur le marché français ». C'est ce produit qui déclenche la règle « toujours comparer les marchés »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:56:43"
+ },
+ {
+  "i": 154,
+  "live": "22/07",
+  "nom": "Coiffeuses",
+  "verdict": "À éviter : « c'est 100 % dead », « des produits qui sont 100 % éteints », trop de gros concurrents",
+  "prix": "100 % dead",
+  "canal": "non precise",
+  "ts": "00:57:38"
+ },
+ {
+  "i": 155,
+  "live": "22/07",
+  "nom": "Cookware, sets de cuisine, poêles titane et inox [Whisper : « Cookware 7 », « poil en titane »]",
+  "verdict": "Marche : « moi aujourd'hui j'ai Cookware 7, tous les trucs pour la cuisine etc qui marchent bien »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:58:49"
+ },
+ {
+  "i": 156,
+  "live": "22/07",
+  "nom": "Toilette sèche",
+  "verdict": "À éviter : « c'est un produit de gens brocs qui n'ont pas d'argent. Les gens qui chient dans le sec ne vont pas aller se faire dropshipper »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:00:35"
+ },
+ {
+  "i": 157,
+  "live": "22/07",
+  "nom": "Détecteur de métaux",
+  "verdict": "À éviter malgré un oui de façade : réserve sur le panier moyen, écrasé par les deux bouts, pas d'exact match, marché de brand search avec des compagnies installées depuis des dizaines d'années ; Arthur ne l'a pas run, UK pas mal mort, US ou FR peut-être",
+  "prix": "500 $ visés, Amazon 120, grosses marques 1000",
+  "canal": "non precise",
+  "ts": "01:03:00, 01:03:41"
+ },
+ {
+  "i": 158,
+  "live": "22/07",
+  "nom": "le détecteur.fr",
+  "verdict": "Pas une piste produit : gros concurrent identifié par un membre sur le détecteur de métaux, « qui fait même du méta »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:04:14"
+ },
+ {
+  "i": 159,
+  "live": "22/07",
+  "nom": "Sèche-serviette électrique",
+  "verdict": "« Why not carrément. Ouais à pousser. Pousse le produit » ; Arthur est vraiment intéressé, mais peur des concurrents type Leroy Merlin. Après vérification SERP : « ils sont un peu partout […] bon call. Vérifie quand même tout »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:05:16"
+ },
+ {
+  "i": 160,
+  "live": "22/07",
+  "nom": "Vase (niche déco scandinave)",
+  "verdict": "À éviter : « je pense que ça coûte rien du tout, je pense que ça coûte 15 balles »",
+  "prix": "15 balles",
+  "canal": "non precise",
+  "ts": "01:05:23"
+ },
+ {
+  "i": 161,
+  "live": "22/07",
+  "nom": "Caméras de chasse",
+  "verdict": "À éviter : produit exemple de la formation de Gaspard, « y'a 1000 personnes qui ont lancé le prod. Donc le marché il est saturé, baisé »",
+  "prix": "1000 personnes",
+  "canal": "non precise",
+  "ts": "01:06:18"
+ },
+ {
+  "i": 162,
+  "live": "22/07",
+  "nom": "Jumelles",
+  "verdict": "À éviter : « y'a quelqu'un qui l'avait lancé, c'est de la qualité de merde. Tu vas bankrupt. Des chargebacks que tu vas te prendre en très peu de temps »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:06:43"
+ },
+ {
+  "i": 163,
+  "live": "22/07",
+  "nom": "Colonne de douche",
+  "verdict": "À éviter : mauvais retour client qui a chiffré mais break even, positionnement impossible bas de gamme ou ultra premium, très axé Shopping (« les gens qui font du search, en fait c'est du Paymax »), mauvaise habitude d'achat",
+  "prix": "vente espérée 300 à 400 balles, achat 150, Ikea vend 120",
+  "canal": "Shopping",
+  "ts": "01:07:12"
+ },
+ {
+  "i": 164,
+  "live": "22/07",
+  "nom": "Ikea",
+  "verdict": "Pas une piste produit : référence de prix plancher qui tue la colonne de douche, et exemple du réflexe d'achat du client",
+  "prix": "120",
+  "canal": "non precise",
+  "ts": "01:07:42"
+ },
+ {
+  "i": 165,
+  "live": "22/07",
+  "nom": "Cloison de séparation",
+  "verdict": "« Ça peut fonctionner […] moi j'aime bien le prod. Ça dépend juste de comment il est vendu et quel marché » ; conseil d'aller chercher les marchés",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:08:21"
+ },
+ {
+  "i": 166,
+  "live": "22/07",
+  "nom": "Fauteuil / chaise gaming [Whisper : « chess gaming »]",
+  "verdict": "À éviter : « non pas du tout », trop de gros concurrents, pas de marge, produit trop lourd et mal shippé",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:08:40"
+ },
+ {
+  "i": 167,
+  "live": "22/07",
+  "nom": "Simulateur de chaise F1",
+  "verdict": "À éviter : produit sympa, Arthur y a pensé, mais Logitech les vend 400 balles et Sim Racing partenaire F1 Red Bull défonce le marché, « laisse tomber c'est mort »",
+  "prix": "Logitech 400 balles",
+  "canal": "non precise",
+  "ts": "01:08:59"
+ },
+ {
+  "i": 168,
+  "live": "22/07",
+  "nom": "Virgin Mobile (Dubai Mall)",
+  "verdict": "Pas une piste produit : lieu de sourcing physique où Arthur a vu les simulateurs F1 partout",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:09:06"
+ },
+ {
+  "i": 169,
+  "live": "22/07",
+  "nom": "Simulateur de conduite",
+  "verdict": "À éviter : « c'est pareil, c'est globalement la même chose » que le simulateur F1, « pas de truc là dessus »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:10:02"
+ },
+ {
+  "i": 170,
+  "live": "22/07",
+  "nom": "Étendoir à linge",
+  "verdict": "À éviter : « non absolument pas parce que ça vaut 15 balles »",
+  "prix": "15 balles",
+  "canal": "non precise",
+  "ts": "01:11:20"
+ },
+ {
+  "i": 171,
+  "live": "22/07",
+  "nom": "Lit cabane enfant",
+  "verdict": "À éviter : « je n'aime pas du tout le produit. On a des gens qui l'ont essayé, c'est insourçable »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:11:27"
+ },
+ {
+  "i": 172,
+  "live": "22/07",
+  "nom": "Treuil électrique [Whisper : « Troïe électrique »]",
+  "verdict": "Pas d'avis : gamme ultra technique qu'Arthur ne connaît pas assez, « je ne peux pas te donner mon avis, je n'ai pas envie de te dire une connerie » ; SERP de vieux sites qui font très distributeur",
+  "prix": "concurrents depuis 20 ans",
+  "canal": "non precise",
+  "ts": "01:11:44"
+ },
+ {
+  "i": 173,
+  "live": "22/07",
+  "nom": "Top Regal / Home Tools [Whisper : « Top Real » corrigé par Arthur]",
+  "verdict": "Pas une piste produit : vieux sites repérés sur le SERP treuil, « ça fait très distributeur »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:12:20"
+ },
+ {
+  "i": 174,
+  "live": "22/07",
+  "nom": "Base44 / Lovable / Higgsfield [Whisper : « Loveable », « Icefield »]",
+  "verdict": "Pas des produits e-commerce : SaaS cités dans le segment 1 (Base44 jugé 50 fois mieux que Lovable pour un petit SaaS)",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:13:22"
+ }
+]

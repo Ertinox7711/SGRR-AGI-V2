@@ -1,0 +1,42 @@
+{
+ "live": "2026-07-10 - Live Recherche Produit  10072026",
+ "dir": "C:\\Users\\maths\\Documents\\Ecom-Inner-Circle\\_chunks-2026-07-10",
+ "segments": 2990,
+ "chunks": [
+  {
+   "file": "C:\\Users\\maths\\Documents\\Ecom-Inner-Circle\\_chunks-2026-07-10\\chunk01_000000-001301.md",
+   "name": "chunk01_000000-001301.md",
+   "from": "00:00:00",
+   "to": "00:13:01",
+   "segs": 600
+  },
+  {
+   "file": "C:\\Users\\maths\\Documents\\Ecom-Inner-Circle\\_chunks-2026-07-10\\chunk02_001302-002243.md",
+   "name": "chunk02_001302-002243.md",
+   "from": "00:13:02",
+   "to": "00:22:43",
+   "segs": 600
+  },
+  {
+   "file": "C:\\Users\\maths\\Documents\\Ecom-Inner-Circle\\_chunks-2026-07-10\\chunk03_002243-003219.md",
+   "name": "chunk03_002243-003219.md",
+   "from": "00:22:43",
+   "to": "00:32:19",
+   "segs": 600
+  },
+  {
+   "file": "C:\\Users\\maths\\Documents\\Ecom-Inner-Circle\\_chunks-2026-07-10\\chunk04_003221-004230.md",
+   "name": "chunk04_003221-004230.md",
+   "from": "00:32:21",
+   "to": "00:42:30",
+   "segs": 600
+  },
+  {
+   "file": "C:\\Users\\maths\\Documents\\Ecom-Inner-Circle\\_chunks-2026-07-10\\chunk05_004231-005204.md",
+   "name": "chunk05_004231-005204.md",
+   "from": "00:42:31",
+   "to": "00:52:04",
+   "segs": 590
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+# Page contact
+
+- **Module:** SHOPIFY (#5)
+- **Section:** Pages annexes
+- **Épisode:** 10
+- **Durée:** 00:02:41
+- **videoId:** `fc862719eb104329b89ea413a649baa1`
+
+## Transcript (français, horodaté)
+
+[00:00:00] Alors on va probablement arriver sur la vidéo la plus courte de toute cette formation. Je vais
+[00:00:05] vous montrer simplement comment faire la page contact, sachant que Shopify l'a déjà préfaite
+[00:00:09] pour vous. Donc vous allez dans page d'accueil ici, puis page, la page contact est déjà là,
+[00:00:15] il y a déjà le formulaire de contact, vous allez juste, alors moi c'est ce que je vous montre en
+[00:00:20] anglais, vous allez juste rajouter deux trois petits détails, attendez je vous déplace ça,
+[00:00:23] ça bug, tac, très bien. Alors la page est là, ok, vous allez juste rajouter une section au-dessus
+[00:00:30] avec un texte, donc on va mettre, alors c'est juste en dessous, c'est dans, c'est où, texte enrichi,
+[00:00:37] parfait. Voilà, vous allez rajouter le texte juste en haut, au-dessus du formulaire de contact, on va
+[00:00:44] enlever le titre, tac, on va enlever le bouton, parfait, et ici vous devez vous marquer, donc
+[00:00:50] service client français,
+[00:00:53] voilà, disponible 7 jours sur 7 de 9 heures, mieux on va mettre de 9 heures, c'est bien, de 9 heures à 19 heures, par email,
+[00:01:16] slash téléphone, slash chat en direct. Voilà, c'est hyper simple, il n'y a pas beaucoup plus de choses à mettre que ça,
+[00:01:30] vous avez mis en dessous le formulaire de contact, on va juste remettre un peu moins d'espace en haut,
+[00:01:33] on va aller sur le calais, et c'est bon,
+[00:01:35] on va mettre un peu moins d'espace en haut, on va aller sur le calais, et c'est bon, on va mettre un peu moins d'espace en haut, on va aller sur le calais, et c'est bon,
+[00:01:36] vous avez ça, parfait, limite on peut peut-être même ajouter un, ouais non, si si quoi que ça peut se faire, on va rajouter une image au-dessus, j'ai hésité à le mettre, mais en fait on va le mettre, c'est cool, vous allez mettre une image, on enlève le titre, le texte, le bouton, bam, c'est votre bannière, vous allez mettre une image avec des gens, donc on doit comprendre que c'est le service client, donc ça peut être un atelier de réparation, ça peut être un endroit où on voit quelqu'un au téléphone, voilà, je n'ai évidemment pas cette image là, c'est bon, on va aller sur le calais, et c'est bon, on va aller sur le calais, et c'est bon, on va aller sur le calais, et c'est bon, on va aller sur le calais, et c'est bon, on va aller sur le calais,
+[00:02:06] ça sera à vous de la créer, je vais mettre encore une fois une image exemple, mais qui ne sera pas la bonne, je vais mettre celle-là par exemple, mais ce n'est pas la bonne image, ici, d'avoir une image comme la mienne, vous allez simplement avoir une image d'avec, on comprend qu'en fait là c'est l'endroit où on va vous contacter, c'est l'endroit où on va régler les problèmes, donc produit technique, vous mettez un endroit où ça répare le produit, un truc comme ça, vous allez mettre simplement une image avec une boutique, avec quelqu'un qui pose une question de dos, un vendeur qui pose une question, comme si on comprend qu'on est chez Rolex et qu'on pose une question à un vendeur, c'est tout, voilà,
+[00:02:36] pas plus dur que ça, vous savez comment faire la page contact, Shopify vous a déjà prémâché le travail, et voilà.
+
+## Transcript (texte continu)
+
+Alors on va probablement arriver sur la vidéo la plus courte de toute cette formation. Je vais vous montrer simplement comment faire la page contact, sachant que Shopify l'a déjà préfaite pour vous. Donc vous allez dans page d'accueil ici, puis page, la page contact est déjà là, il y a déjà le formulaire de contact, vous allez juste, alors moi c'est ce que je vous montre en anglais, vous allez juste rajouter deux trois petits détails, attendez je vous déplace ça, ça bug, tac, très bien. Alors la page est là, ok, vous allez juste rajouter une section au-dessus avec un texte, donc on va mettre, alors c'est juste en dessous, c'est dans, c'est où, texte enrichi, parfait. Voilà, vous allez rajouter le texte juste en haut, au-dessus du formulaire de contact, on va enlever le titre, tac, on va enlever le bouton, parfait, et ici vous devez vous marquer, donc service client français, voilà, disponible 7 jours sur 7 de 9 heures, mieux on va mettre de 9 heures, c'est bien, de 9 heures à 19 heures, par email, slash téléphone, slash chat en direct. Voilà, c'est hyper simple, il n'y a pas beaucoup plus de choses à mettre que ça, vous avez mis en dessous le formulaire de contact, on va juste remettre un peu moins d'espace en haut, on va aller sur le calais, et c'est bon, on va mettre un peu moins d'espace en haut, on va aller sur le calais, et c'est bon, on va mettre un peu moins d'espace en haut, on va aller sur le calais, et c'est bon, vous avez ça, parfait, limite on peut peut-être même ajouter un, ouais non, si si quoi que ça peut se faire, on va rajouter une image au-dessus, j'ai hésité à le mettre, mais en fait on va le mettre, c'est cool, vous allez mettre une image, on enlève le titre, le texte, le bouton, bam, c'est votre bannière, vous allez mettre une image avec des gens, donc on doit comprendre que c'est le service client, donc ça peut être un atelier de réparation, ça peut être un endroit où on voit quelqu'un au téléphone, voilà, je n'ai évidemment pas cette image là, c'est bon, on va aller sur le calais, et c'est bon, on va aller sur le calais, et c'est bon, on va aller sur le calais, et c'est bon, on va aller sur le calais, et c'est bon, on va aller sur le calais, ça sera à vous de la créer, je vais mettre encore une fois une image exemple, mais qui ne sera pas la bonne, je vais mettre celle-là par exemple, mais ce n'est pas la bonne image, ici, d'avoir une image comme la mienne, vous allez simplement avoir une image d'avec, on comprend qu'en fait là c'est l'endroit où on va vous contacter, c'est l'endroit où on va régler les problèmes, donc produit technique, vous mettez un endroit où ça répare le produit, un truc comme ça, vous allez mettre simplement une image avec une boutique, avec quelqu'un qui pose une question de dos, un vendeur qui pose une question, comme si on comprend qu'on est chez Rolex et qu'on pose une question à un vendeur, c'est tout, voilà, pas plus dur que ça, vous savez comment faire la page contact, Shopify vous a déjà prémâché le travail, et voilà.

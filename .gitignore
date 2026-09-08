@@ -48,6 +48,12 @@ gho_*
 # token registries and secret-sink tests; they hold no value of either).
 !skills/gstack/**/*token*
 !skills/gstack/**/*secret*
+# The course platform's own chapter index. It is called *token*.json because it carries
+# Mux signed playback tokens (short-lived JWTs, the ones in this copy expired in 2026-06)
+# next to the module titles and video ids - it is the table of contents of the library,
+# not a credential of ours. Named here on purpose: the whole point of this block is that
+# nothing gets dropped by its FILENAME without someone deciding it.
+!formations/**/ecom_tokens.json
 
 # ── SENSITIVE FOLDERS ───────────────────────────────────────────────
 .aws/
@@ -71,11 +77,28 @@ projects/
 node_modules/
 .DS_Store
 Thumbs.db
+# Kept: the transcription run log of the live replays - it is how the .md transcripts in
+# formations/ were produced (whisper large-v3, cuda/fp16), not runtime noise. This line
+# has to sit AFTER *.log above: in .gitignore the LAST matching rule wins, so putting the
+# negation up in the EXCEPTIONS block silently did nothing.
+!formations/**/*.log
 
 # -- LOCAL, MACHINE-SPECIFIC CONFIG (never commit: names your real folders) ----
 protected-zones.json
 shops-registry.json
 shops-registry.md
-/formations/          # BUILT bundles at the repo root only - shopify/formations/ IS published
 .asset-delete-unlock
 .pitfall-tips-cache.json
+
+# -- AUDIO ---------------------------------------------------------------------
+# formations/ used to be ignored wholesale, back when this repo was public. It is
+# private now and the training libraries ship with it - EXCEPT the audio: GitHub refuses
+# any single file over 100 MB and one replay is 104.7 MB, so a plain push cannot even
+# succeed. Every one of the 82 files is inventoried in formations/AUDIO-MANIFEST.md and
+# formations/scripts/add-audio.ps1 puts them back. Delete these five lines only together
+# with turning on Git LFS, or the next push will fail on the first big file.
+*.mp3
+*.m4a
+*.wav
+*.mp4
+*.mov

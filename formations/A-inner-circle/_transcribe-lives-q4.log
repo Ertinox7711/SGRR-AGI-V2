@@ -1,0 +1,58 @@
+== 3 lives ==
+DL live-recherche-prod-q4-22072026
+   OK 41.6 MB in 150s
+DL live-recherche-produit-10072026
+   OK 28.7 MB in 125s
+DL live-16072026-recherche-prod-et-faq
+   OK 35.0 MB in 137s
+== large-v3 on cuda/fp16 ==
+TRANSCRIBE live-recherche-prod-q4-22072026
+   ... 200 segs, t=426s
+   ... 400 segs, t=705s
+   ... 600 segs, t=884s
+   ... 800 segs, t=1071s
+   ... 1000 segs, t=1247s
+   ... 1200 segs, t=1442s
+   ... 1400 segs, t=1638s
+   ... 1600 segs, t=1824s
+   ... 1800 segs, t=2016s
+   ... 2000 segs, t=2227s
+   ... 2200 segs, t=2445s
+   ... 2400 segs, t=2625s
+   ... 2600 segs, t=2831s
+   ... 2800 segs, t=3021s
+   ... 3000 segs, t=3226s
+   ... 3200 segs, t=3445s
+   ... 3400 segs, t=3639s
+   ... 3600 segs, t=3826s
+   ... 3800 segs, t=4023s
+   ... 4000 segs, t=4238s
+OK C:\Users\maths\Documents\Ecom-Inner-Circle\lives-recherche-produit-2026-07\2026-07-22 - RECHERCHE PROD Q4  22072026.md (4455s audio, 687s proc, 4193 segs)
+TRANSCRIBE live-recherche-produit-10072026
+   ... 200 segs, t=361s
+   ... 400 segs, t=585s
+   ... 600 segs, t=781s
+   ... 800 segs, t=982s
+   ... 1000 segs, t=1170s
+   ... 1200 segs, t=1363s
+   ... 1400 segs, t=1551s
+   ... 1600 segs, t=1752s
+   ... 1800 segs, t=1940s
+   ... 2000 segs, t=2156s
+   ... 2200 segs, t=2354s
+   ... 2400 segs, t=2551s
+   ... 2600 segs, t=2737s
+   ... 2800 segs, t=2943s
+OK C:\Users\maths\Documents\Ecom-Inner-Circle\lives-recherche-produit-2026-07\2026-07-10 - Live Recherche Produit  10072026.md (3125s audio, 453s proc, 2990 segs)
+TRANSCRIBE live-16072026-recherche-prod-et-faq
+   ... 200 segs, t=409s
+   ... 400 segs, t=820s
+   ... 600 segs, t=1246s
+   ... 800 segs, t=1660s
+   ... 1000 segs, t=2070s
+   ... 1200 segs, t=2472s
+   ... 1400 segs, t=2874s
+   ... 1600 segs, t=3276s
+   ... 1800 segs, t=3688s
+OK C:\Users\maths\Documents\Ecom-Inner-Circle\lives-recherche-produit-2026-07\2026-07-16 - Live recherche prod et faq  16072026.md (3789s audio, 454s proc, 1850 segs)
+== DONE ==

@@ -1,0 +1,256 @@
+{
+ "factory-direct-flooring": {
+  "no": "54483552",
+  "inc": null,
+  "status": null,
+  "diss": null,
+  "name": null,
+  "addr": null,
+  "sic": []
+ },
+ "directwoodflooring": {
+  "no": "08080202",
+  "inc": "23 May 2012",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "1 Vincent Avenue, Crownhill, Milton Keynes, England, MK8 0AB",
+  "sic": [
+   "64921 Credit granting by non-deposit taking finance houses and oth"
+  ]
+ },
+ "luxuryflooring": {
+  "no": "08424072",
+  "inc": "28 February 2013",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "1 Canal Place, Leeds, England, LS12 2DU",
+  "sic": [
+   "47530 Retail sale of carpets, rugs, wall and floor coverings in sp"
+  ]
+ },
+ "lumberkingflooring": {
+  "no": "12751357",
+  "inc": "17 July 2020",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "Verdemar House, 230 Park View, Whitley Bay, Tyne &amp; Wear, England, NE26 3QR",
+  "sic": [
+   "47990 Other retail sale not in stores, stalls or markets"
+  ]
+ },
+ "flooringsupplies": {
+  "no": "00758868",
+  "inc": null,
+  "status": null,
+  "diss": null,
+  "name": null,
+  "addr": null,
+  "sic": []
+ },
+ "directflooring": {
+  "no": "SC216744",
+  "inc": "12 March 2001",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "C/O 10th Floor, 133 Finnieston Street, Glasgow, Scotland, G3 8HB",
+  "sic": [
+   "47530 Retail sale of carpets, rugs, wall and floor coverings in sp"
+  ]
+ },
+ "woodandbeyond": {
+  "no": "05605374",
+  "inc": "27 October 2005",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "877 Finchley Road, London, United Kingdom, NW11 8RR",
+  "sic": [
+   "46730 Wholesale of wood, construction materials and sanitary equip"
+  ]
+ },
+ "thewoodenfloorstore": {
+  "no": "NI043867",
+  "inc": "20 August 2002",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "4 Falcon Road, Belfast, BT12 6RD",
+  "sic": [
+   "47530 Retail sale of carpets, rugs, wall and floor coverings in sp"
+  ]
+ },
+ "storiesflooring": {
+  "no": "11318290",
+  "inc": "19 April 2018",
+  "status": "Dissolved",
+  "diss": "25 June 2025",
+  "name": null,
+  "addr": "Wentworth House 122 New Road Side, Horsforth, Leeds, West Yorkshire, LS18 4QB",
+  "sic": [
+   "47530 Retail sale of carpets, rugs, wall and floor coverings in sp"
+  ]
+ },
+ "naturalwoodfloor": {
+  "no": "02969171",
+  "inc": "19 September 1994",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "17 Bourne Court Southend Road, Woodford Green, Essex, England, IG8 8HD",
+  "sic": [
+   "46730 Wholesale of wood, construction materials and sanitary equip",
+   "47520 Retail sale of hardware, paints and glass in specialised sto",
+   "47530 Retail sale of carpets, rugs, wall and floor coverings in sp"
+  ]
+ },
+ "ukflooringcentre": {
+  "no": "11741931",
+  "inc": "27 December 2018",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "Suite 2003,Fleet House, Springhead Enterprise Park Springhead Road, Northfleet, Gravesend, England, DA11 8HJ",
+  "sic": [
+   "47530 Retail sale of carpets, rugs, wall and floor coverings in sp",
+   "47910 Retail sale via mail order houses or via Internet"
+  ]
+ },
+ "tedtodd": {
+  "no": "02848796",
+  "inc": "27 August 1993",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "18 Chesford Grange, Woolston, Warrington, Cheshire, WA1 4RQ",
+  "sic": [
+   "46730 Wholesale of wood, construction materials and sanitary equip"
+  ]
+ },
+ "sourcewoodfloors": {
+  "no": "06433406",
+  "inc": "21 November 2007",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "Units 9 &amp; 10, Diss Business Centre Dark Lane, Scole, Diss, Norfolk, England, IP21 4HD",
+  "sic": [
+   "47910 Retail sale via mail order houses or via Internet"
+  ]
+ },
+ "onestepbeyondflooring": {
+  "no": "06021309",
+  "inc": "6 December 2006",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "3rd Floor 86-90 Paul Street, London, England, EC2A 4NE",
+  "sic": [
+   "43330 Floor and wall covering",
+   "70100 Activities of head offices"
+  ]
+ },
+ "jfjwoodflooring": {
+  "no": "08559265",
+  "inc": "6 June 2013",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "Ridge View Workshops, North Molton, South Molton, Devon, England, EX36 3HG",
+  "sic": [
+   "16290 Manufacture of other products of wood; manufacture of articl"
+  ]
+ },
+ "harddecorshop": {
+  "no": "14478786",
+  "inc": "11 November 2022",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "Unit 3 Elgar Business Centre Moseley Road, Hallow, Worcester, England, WR2 6NJ",
+  "sic": [
+   "43330 Floor and wall covering"
+  ]
+ },
+ "flooringsurgeons": {
+  "no": "10390644",
+  "inc": "22 September 2016",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "78 Westbury Road, Edgbaston, Birmingham, United Kingdom, B17 8JH",
+  "sic": [
+   "47530 Retail sale of carpets, rugs, wall and floor coverings in sp"
+  ]
+ },
+ "flooringrevolution": {
+  "no": "07924240",
+  "inc": "25 January 2012",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "Henson Close Henson Close, South Church Enterprise Park, Bishop Auckland, England, DL14 6WA",
+  "sic": [
+   "46470 Wholesale of furniture, carpets and lighting equipment"
+  ]
+ },
+ "floor-land": {
+  "no": "14611808",
+  "inc": "23 January 2023",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "18 Wharf Industrial Estate, Wharf Street, Warrington, England, WA1 2HT",
+  "sic": [
+   "43330 Floor and wall covering",
+   "47530 Retail sale of carpets, rugs, wall and floor coverings in sp"
+  ]
+ },
+ "ecohardwood": {
+  "no": "08234374",
+  "inc": "1 October 2012",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "Unit D &amp; E Joyce Court, Bollo Bridge Road, Acton, United Kingdom, W3 8DR",
+  "sic": [
+   "47789 Other retail sale of new goods in specialised stores (not co"
+  ]
+ },
+ "easystepflooring": {
+  "no": "13571315",
+  "inc": "17 August 2021",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "128 City Road, London, United Kingdom, EC1V 2NX",
+  "sic": [
+   "47530 Retail sale of carpets, rugs, wall and floor coverings in sp"
+  ]
+ },
+ "ambiencehardwoodflooring": {
+  "no": "05868645",
+  "inc": "6 July 2006",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "Unit 5 Euston Street, Freemens Common, Leicester, LE2 7ST",
+  "sic": [
+   "43330 Floor and wall covering"
+  ]
+ },
+ "akirby": {
+  "no": "02037421",
+  "inc": "15 July 1986",
+  "status": "Active",
+  "diss": null,
+  "name": null,
+  "addr": "Burbidge House Canal Wood Industrial Estate, Chirk, Wrexham, Wales, LL14 5RL",
+  "sic": [
+   "16100 Sawmilling and planing of wood"
+  ]
+ }
+}

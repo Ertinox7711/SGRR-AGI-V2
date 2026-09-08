@@ -1,0 +1,272 @@
+[
+ {
+  "i": 0,
+  "live": "10/07",
+  "nom": "Sofa / canape (grosse niche)",
+  "verdict": "pas d'avis : cite par un membre comme contre-exemple de niche trop grosse, Arthur ne tranche pas",
+  "prix": "aucune metrique donnee",
+  "canal": "non precise",
+  "ts": "00:00:43"
+ },
+ {
+  "i": 1,
+  "live": "10/07",
+  "nom": "Acteurs style Kickstarter",
+  "verdict": "a eviter comme reference concurrentielle : hors jeu et attaquables sur le prix",
+  "prix": "aucune metrique",
+  "canal": "non precise",
+  "ts": "00:02:15"
+ },
+ {
+  "i": 2,
+  "live": "10/07",
+  "nom": "Cave a vin [\"cabavin\" Whisper]",
+  "verdict": "marche : archetype du produit non visuel pour du Search",
+  "prix": "pas de prix ; \"les gens ils ont pas besoin de la voir avant de cliquer sur le site\"",
+  "canal": "Search",
+  "ts": "00:06:43"
+ },
+ {
+  "i": 3,
+  "live": "10/07",
+  "nom": "Etendoir a linge [\"etendoir a l'age\" Whisper]",
+  "verdict": "exemple neutre, qualifie par Arthur lui-meme de \"tres mauvais exemple\"",
+  "prix": "pas de prix ; produit non visuel",
+  "canal": "Search",
+  "ts": "00:07:25"
+ },
+ {
+  "i": 4,
+  "live": "10/07",
+  "nom": "Tondeuse",
+  "verdict": "exemple neutre de produit technique sans besoin de visuel, mais \"c'est plus la saison\" ; reprise plus tard comme niche opposee aux lunettes de soleil pour le template",
+  "prix": "pas de prix ; niche jardin hors saison au 10 juillet",
+  "canal": "Search",
+  "ts": "00:08:01 et 00:42:38"
+ },
+ {
+  "i": 5,
+  "live": "10/07",
+  "nom": "Papier peint",
+  "verdict": "marche : archetype du high-ticket par bundle",
+  "prix": "30 EUR/m2 puis 20 EUR/m2 dans le meme developpement ; panier de 12 a 30 m2",
+  "canal": "non precise",
+  "ts": "00:08:36 et 00:09:49"
+ },
+ {
+  "i": 6,
+  "live": "10/07",
+  "nom": "Cloture de jardin",
+  "verdict": "marche : meme logique de bundle",
+  "prix": "20 EUR l'unite x 15 unites necessaires",
+  "canal": "non precise",
+  "ts": "00:09:21"
+ },
+ {
+  "i": 7,
+  "live": "10/07",
+  "nom": "Produits a 2 000 / 3 000 EUR (categorie)",
+  "verdict": "a eviter : cher = volumineux = insourcable ou marge de merde",
+  "prix": "2 000 a 3 000 EUR",
+  "canal": "non precise",
+  "ts": "00:09:05"
+ },
+ {
+  "i": 8,
+  "live": "10/07",
+  "nom": "Pergolas",
+  "verdict": "a eviter",
+  "prix": "incompatible avec 250 EUR de budget de testing",
+  "canal": "non precise",
+  "ts": "00:10:15"
+ },
+ {
+  "i": 9,
+  "live": "10/07",
+  "nom": "Canape retractable / \"canape dents\" [transcription incertaine]",
+  "verdict": "exemple neutre : sert a illustrer le test de demande par la presence sur AliExpress",
+  "prix": "pas de prix ; \"s'il est tres demande, il sera sur Aliexpress\"",
+  "canal": "non precise",
+  "ts": "00:11:43"
+ },
+ {
+  "i": 10,
+  "live": "10/07",
+  "nom": "AliExpress (plateforme de sourcing)",
+  "verdict": "marche : bon premier indicateur du vrai prix paye ; un produit tres demande y figure toujours",
+  "prix": "produit a 62 EUR contre 50 EUR via agent ; livraison parfois 2 jours et gratuite",
+  "canal": "non precise",
+  "ts": "00:10:49 et 00:15:47"
+ },
+ {
+  "i": 11,
+  "live": "10/07",
+  "nom": "Alibaba (plateforme de sourcing)",
+  "verdict": "a eviter comme reference de prix : le prix affiche n'est jamais le vrai prix paye",
+  "prix": "environ 500 EUR de livraison, 3 mois de delai ; MOQ 1 obtenu par le membre",
+  "canal": "non precise",
+  "ts": "00:10:46 et 00:10:52"
+ },
+ {
+  "i": 12,
+  "live": "10/07",
+  "nom": "Europage [Europages] (annuaire fournisseurs FR/EU)",
+  "verdict": "marche comme etape de contre-verification du sourcing : rien trouve nulle part = pas de demande",
+  "prix": "pas de prix",
+  "canal": "non precise",
+  "ts": "00:11:16"
+ },
+ {
+  "i": 13,
+  "live": "10/07",
+  "nom": "\"le BigPay\" [annuaire fournisseurs non identifie, Whisper]",
+  "verdict": "pas d'avis : cite comme seconde source FR/EU, nom mange par Whisper, etape non executable en l'etat",
+  "prix": "pas de prix",
+  "canal": "non precise",
+  "ts": "00:11:16"
+ },
+ {
+  "i": 14,
+  "live": "10/07",
+  "nom": "Produit non nomme d'Arthur (produit principal actuel)",
+  "verdict": "marche",
+  "prix": "vente 200 EUR, cout agent 50 EUR, AliExpress 62 EUR ; cout produit environ 30 % du CA",
+  "canal": "non precise",
+  "ts": "00:12:21"
+ },
+ {
+  "i": 15,
+  "live": "10/07",
+  "nom": "Vetements / fashion (niche)",
+  "verdict": "a eviter, deconseille formellement : retours \"l'enfer sur terre\", chargebacks, Shopify Payment et Paypal bloques, incompatible avec une garantie satisfait ou rembourse",
+  "prix": "shops a ROAS 2 ; \"ils vendent pas 50 000 euros\", micro-argent",
+  "canal": "non precise",
+  "ts": "00:17:39"
+ },
+ {
+  "i": 16,
+  "live": "10/07",
+  "nom": "Shops fashion de la marketplace du school de Terry",
+  "verdict": "cites par un membre (\"ils se vendent\") ; verdict Arthur : shops eclates, rien a en tirer",
+  "prix": "ROAS 2 ; sous 50 000 EUR",
+  "canal": "non precise",
+  "ts": "00:16:51 et 00:17:06"
+ },
+ {
+  "i": 17,
+  "live": "10/07",
+  "nom": "Baskets (tailles 41 / 41.5 / 42)",
+  "verdict": "exemple neutre du probleme fashion",
+  "prix": "pas de prix ; les clients commandent 3 tailles et renvoient les trois quarts",
+  "canal": "non precise",
+  "ts": "00:18:24"
+ },
+ {
+  "i": 18,
+  "live": "10/07",
+  "nom": "Robes d'ete",
+  "verdict": "a eviter : pas assez de recherche, marges de merde, annonces de CA bullshit",
+  "prix": "\"10 cadeilles\" [10 k] annonces par des vendeurs en Hollande",
+  "canal": "non precise",
+  "ts": "00:18:45"
+ },
+ {
+  "i": 19,
+  "live": "10/07",
+  "nom": "Amazon (comme concurrent institutionnel)",
+  "verdict": "a eviter si l'institutionnel fait des ads ; tolerable dans ce cas car \"Amazon est pas en ads donc ca va\"",
+  "prix": "prix Amazon = une fraction du prix de vente d'Arthur",
+  "canal": "non precise (le cas membre porte sur des institutionnels en Shopping)",
+  "ts": "00:25:13"
+ },
+ {
+  "i": 20,
+  "live": "10/07",
+  "nom": "Produit d'un membre (Sorene) sur marche a institutionnels",
+  "verdict": "cite par un membre ; verdict Arthur : marge OK mais trop de gros concurrents sur le marche",
+  "prix": "prix 100 a 200 ; CPC testing 1,10 vs CPC moyen 0,9 ; \"vendu 150, achete 40\" = chiffres du membre non confirmes, transcript elliptique et coupe",
+  "canal": "non precise",
+  "ts": "00:26:26 et 00:27:12"
+ },
+ {
+  "i": 21,
+  "live": "10/07",
+  "nom": "Minia [Minea] (logiciel de recherche produit)",
+  "verdict": "a eviter : \"c'est a chier\", pousse pour 50 % de commission, quasiment en marque blanche",
+  "prix": "50 % de commission d'affiliation",
+  "canal": "non precise",
+  "ts": "00:27:49"
+ },
+ {
+  "i": 22,
+  "live": "10/07",
+  "nom": "Copify (logiciel de recherche produit)",
+  "verdict": "a eviter : meme verdict que Minea",
+  "prix": "50 % de commission d'affiliation",
+  "canal": "non precise",
+  "ts": "00:27:49"
+ },
+ {
+  "i": 23,
+  "live": "10/07",
+  "nom": "TrainTrack [TrendTrack]",
+  "verdict": "marche, mais pour VERIFIER seulement, pas pour trouver",
+  "prix": "prix non aborde",
+  "canal": "non precise",
+  "ts": "00:27:56 et 00:28:45"
+ },
+ {
+  "i": 24,
+  "live": "10/07",
+  "nom": "BrandSearch / Brain search",
+  "verdict": "marche, pour verifier seulement : \"BrandSearch c'est TrainTrack booste\"",
+  "prix": "prix non aborde",
+  "canal": "non precise",
+  "ts": "00:28:01"
+ },
+ {
+  "i": 25,
+  "live": "10/07",
+  "nom": "Remontoirs [\"remontoires\" Whisper]",
+  "verdict": "exemple neutre de produit qui s'offre, pas une recommandation d'achat",
+  "prix": "pas de prix dans ce live",
+  "canal": "non precise",
+  "ts": "00:29:41"
+ },
+ {
+  "i": 26,
+  "live": "10/07",
+  "nom": "Assouline, gros livres de deco",
+  "verdict": "exemple neutre, explicitement non prescriptif : \"Je ne vous dis pas vendez des livres de deco\"",
+  "prix": "pas de prix",
+  "canal": "non precise",
+  "ts": "00:29:50"
+ },
+ {
+  "i": 27,
+  "live": "10/07",
+  "nom": "Produit cadeau non nomme (nouveau test d'Arthur, garde secret pour eviter le leak)",
+  "verdict": "marche",
+  "prix": "prix de vente non donne ; 8 k en 2 semaines, 2 journees a 1 k/jour, environ 20 k de CA/mois, projection \"au moins 60\" sur le Q4 a budget constant (K deduit)",
+  "canal": "non precise (le nouveau shop d'Arthur tourne en Shopping + Search [00:47:47], l'identite avec ce produit n'est pas affirmee dans le live)",
+  "ts": "00:30:36 et 00:31:06"
+ },
+ {
+  "i": 28,
+  "live": "10/07",
+  "nom": "Outil : Claude",
+  "verdict": "marche : sert a lister des produits techniques et a piloter le generateur d'images",
+  "prix": "prix non aborde",
+  "canal": "non precise",
+  "ts": "00:07:31 et 00:42:45"
+ },
+ {
+  "i": 29,
+  "live": "10/07",
+  "nom": "Outil : \"Icefield\" [Higgsfield]",
+  "verdict": "marche : generateur d'images pilote par Claude, \"c'est lui qui parle a Icefield pour lui donner le meilleur prompt possible\"",
+  "prix": "prix non aborde",
+  "canal": "non precise",
+  "ts": "00:42:56"
+ }
+]

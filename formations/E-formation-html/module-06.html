@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 6 — Animer les plans</title><link rel="stylesheet" href="_style.css"></head>
+<body><div class="wrap">
+<span class="crumb">Module 6 · Animation</span>
+<h1>Animer les plans</h1>
+<p>L'étape qui transforme tes images fixes en série. Outils vidéo IA modernes = animation + voix + lip sync + ambiance sonore en UN seul rendu.</p>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 6.1</span><span>~5 min</span><span class="tag essential">All-in-one</span></div>
+<h3>Pourquoi animation + voix + son tout-en-un</h3>
+<ul>
+<li>Les outils vidéo IA modernes génèrent <strong>animation + voix + lip sync + ambiance sonore</strong> en un seul rendu.</li>
+<li>Pas besoin de générateur de voix séparé sauf cas exceptionnel.</li>
+<li>Tu gagnes 70% du temps de prod vs workflow voix séparée.</li>
+</ul>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 6.2</span><span>~7 min</span><span class="tag essential">Règles</span></div>
+<h3>Les règles ABSOLUES du prompt animation</h3>
+<div class="callout danger"><strong>Non-négociable</strong>
+<ul>
+<li><strong>PAS de durée</strong> ("5 seconds", "8 seconds") → l'outil gère.</li>
+<li><strong>PAS de timestamps</strong> ("0-2s", "Beat 1").</li>
+<li><strong>PAS de "vertical 9:16"</strong> → l'outil gère.</li>
+</ul>
+</div>
+<h4>Format dialogue STRICT</h4>
+<pre><code>@PERSO [ÉMOTION + body language] : "réplique en français"</code></pre>
+<p>Toujours inclure en fin de prompt :</p>
+<pre><code>hyper expressive animated face,
+perfect French lip sync,
+cinematic CGI quality.</code></pre>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 6.3</span><span>~6 min</span><span class="tag essential">Prompts</span></div>
+<h3>Générer les prompts animation</h3>
+<p>Coller dans ton chatbot scriptwriter (même conversation que le script) :</p>
+<pre><code>Pour chaque plan, génère un prompt d'animation.
+Règles : pas de durées, pas de timestamps, pas de "9:16".
+Format dialogue : @PERSO [ÉMOTION + body language] : "réplique"
+Toujours finir par : hyper expressive animated face,
+perfect French lip sync, cinematic CGI quality.</code></pre>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 6.4</span><span>~10 min</span><span class="tag essential">Workflow</span></div>
+<h3>Workflow animation par plan (5-10 min/plan)</h3>
+<ol>
+<li>Ouvrir l'outil vidéo IA.</li>
+<li>Nouveau projet ou nouvelle génération.</li>
+<li>Uploader l'image fixe du plan en <strong>first frame</strong>.</li>
+<li>Coller le prompt d'animation correspondant.</li>
+<li>Lancer la génération.</li>
+<li>Récupérer le rendu : vidéo + voix + son tous intégrés.</li>
+<li>Télécharger → renommer <code>PLAN-XX-NOM-action.mp4</code> → ranger dans <code>02-VIDEOS/E01/</code>.</li>
+<li>Si le rendu est parfait → noter le seed dans <code>00-REFS/seeds/SEEDS.md</code>.</li>
+</ol>
+</div>
+
+<div class="lesson">
+<div class="lesson-meta"><span>Leçon 6.5</span><span>~7 min</span><span class="tag essential">Récup</span></div>
+<h3>Que faire en cas de rendu raté</h3>
+<table>
+<tr><th>Échec n°</th><th>Action</th></tr>
+<tr><td>1er échec</td><td>Regénérer sans rien changer</td></tr>
+<tr><td>2e échec</td><td>Reformuler le body language (souvent c'est ça qui coince)</td></tr>
+<tr><td>3e échec</td><td>Recadrer l'image fixe (la pose initiale empêche l'anim)</td></tr>
+</table>
+<div class="callout warn"><strong>Watermark visible</strong>Ne PAS chercher à le supprimer dans la vidéo. Tu vas le masquer au montage avec une barre noire ou un sous-titre. Beaucoup plus rapide et propre.</div>
+</div>
+
+<div class="nav">
+<a href="module-05.html"><small>← Module précédent</small><strong>5 · Images</strong></a>
+<a href="module-07.html"><small>Module suivant →</small><strong>7 · Logo & musique</strong></a>
+</div>
+<div class="footer">Module 6 · Formation Fruits IA</div>
+</div></body></html>

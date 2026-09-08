@@ -1,0 +1,227 @@
+[
+ {
+  "i": 150,
+  "live": "22/07",
+  "nom": "Dragon Mart (mall chinois de Dubaï)",
+  "verdict": "Source de recherche produit, revendication la plus forte du live : « j'ai globalement trouvé tous mes produits et tous vos produits là-bas »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:55:42"
+ },
+ {
+  "i": 151,
+  "live": "22/07",
+  "nom": "Dubai Mall",
+  "verdict": "Source de recherche produit : « je vais souvent au Dubaï Mall. Je regarde un peu toutes les catégories […] je cherche, je m'inspire »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:56:07, 01:09:01"
+ },
+ {
+  "i": 152,
+  "live": "22/07",
+  "nom": "Mini tronçonneuse",
+  "verdict": "À éviter en Search : Leroy Merlin la vend, beaucoup de dropshippers mais uniquement en Shopping, « en search je ne pense pas parce que je ne vois que des mecs en shopping », sans exclure que ça fonctionne",
+  "prix": "non abordé dans ce live",
+  "canal": "Shopping",
+  "ts": "00:56:18"
+ },
+ {
+  "i": 153,
+  "live": "22/07",
+  "nom": "Remorque pour chevaux [Whisper : « remorque pour les cheveux »]",
+  "verdict": "« Ça doit marcher mais sûrement pas sur le marché français ». C'est ce produit qui déclenche la règle « toujours comparer les marchés »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:56:43"
+ },
+ {
+  "i": 154,
+  "live": "22/07",
+  "nom": "Coiffeuses",
+  "verdict": "À éviter : « c'est 100 % dead », « des produits qui sont 100 % éteints », trop de gros concurrents",
+  "prix": "100 % dead",
+  "canal": "non precise",
+  "ts": "00:57:38"
+ },
+ {
+  "i": 155,
+  "live": "22/07",
+  "nom": "Cookware, sets de cuisine, poêles titane et inox [Whisper : « Cookware 7 », « poil en titane »]",
+  "verdict": "Marche : « moi aujourd'hui j'ai Cookware 7, tous les trucs pour la cuisine etc qui marchent bien »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:58:49"
+ },
+ {
+  "i": 156,
+  "live": "22/07",
+  "nom": "Toilette sèche",
+  "verdict": "À éviter : « c'est un produit de gens brocs qui n'ont pas d'argent. Les gens qui chient dans le sec ne vont pas aller se faire dropshipper »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:00:35"
+ },
+ {
+  "i": 157,
+  "live": "22/07",
+  "nom": "Détecteur de métaux",
+  "verdict": "À éviter malgré un oui de façade : réserve sur le panier moyen, écrasé par les deux bouts, pas d'exact match, marché de brand search avec des compagnies installées depuis des dizaines d'années ; Arthur ne l'a pas run, UK pas mal mort, US ou FR peut-être",
+  "prix": "500 $ visés, Amazon 120, grosses marques 1000",
+  "canal": "non precise",
+  "ts": "01:03:00, 01:03:41"
+ },
+ {
+  "i": 158,
+  "live": "22/07",
+  "nom": "le détecteur.fr",
+  "verdict": "Pas une piste produit : gros concurrent identifié par un membre sur le détecteur de métaux, « qui fait même du méta »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:04:14"
+ },
+ {
+  "i": 159,
+  "live": "22/07",
+  "nom": "Sèche-serviette électrique",
+  "verdict": "« Why not carrément. Ouais à pousser. Pousse le produit » ; Arthur est vraiment intéressé, mais peur des concurrents type Leroy Merlin. Après vérification SERP : « ils sont un peu partout […] bon call. Vérifie quand même tout »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:05:16"
+ },
+ {
+  "i": 160,
+  "live": "22/07",
+  "nom": "Vase (niche déco scandinave)",
+  "verdict": "À éviter : « je pense que ça coûte rien du tout, je pense que ça coûte 15 balles »",
+  "prix": "15 balles",
+  "canal": "non precise",
+  "ts": "01:05:23"
+ },
+ {
+  "i": 161,
+  "live": "22/07",
+  "nom": "Caméras de chasse",
+  "verdict": "À éviter : produit exemple de la formation de Gaspard, « y'a 1000 personnes qui ont lancé le prod. Donc le marché il est saturé, baisé »",
+  "prix": "1000 personnes",
+  "canal": "non precise",
+  "ts": "01:06:18"
+ },
+ {
+  "i": 162,
+  "live": "22/07",
+  "nom": "Jumelles",
+  "verdict": "À éviter : « y'a quelqu'un qui l'avait lancé, c'est de la qualité de merde. Tu vas bankrupt. Des chargebacks que tu vas te prendre en très peu de temps »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:06:43"
+ },
+ {
+  "i": 163,
+  "live": "22/07",
+  "nom": "Colonne de douche",
+  "verdict": "À éviter : mauvais retour client qui a chiffré mais break even, positionnement impossible bas de gamme ou ultra premium, très axé Shopping (« les gens qui font du search, en fait c'est du Paymax »), mauvaise habitude d'achat",
+  "prix": "vente espérée 300 à 400 balles, achat 150, Ikea vend 120",
+  "canal": "Shopping",
+  "ts": "01:07:12"
+ },
+ {
+  "i": 164,
+  "live": "22/07",
+  "nom": "Ikea",
+  "verdict": "Pas une piste produit : référence de prix plancher qui tue la colonne de douche, et exemple du réflexe d'achat du client",
+  "prix": "120",
+  "canal": "non precise",
+  "ts": "01:07:42"
+ },
+ {
+  "i": 165,
+  "live": "22/07",
+  "nom": "Cloison de séparation",
+  "verdict": "« Ça peut fonctionner […] moi j'aime bien le prod. Ça dépend juste de comment il est vendu et quel marché » ; conseil d'aller chercher les marchés",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:08:21"
+ },
+ {
+  "i": 166,
+  "live": "22/07",
+  "nom": "Fauteuil / chaise gaming [Whisper : « chess gaming »]",
+  "verdict": "À éviter : « non pas du tout », trop de gros concurrents, pas de marge, produit trop lourd et mal shippé",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:08:40"
+ },
+ {
+  "i": 167,
+  "live": "22/07",
+  "nom": "Simulateur de chaise F1",
+  "verdict": "À éviter : produit sympa, Arthur y a pensé, mais Logitech les vend 400 balles et Sim Racing partenaire F1 Red Bull défonce le marché, « laisse tomber c'est mort »",
+  "prix": "Logitech 400 balles",
+  "canal": "non precise",
+  "ts": "01:08:59"
+ },
+ {
+  "i": 168,
+  "live": "22/07",
+  "nom": "Virgin Mobile (Dubai Mall)",
+  "verdict": "Pas une piste produit : lieu de sourcing physique où Arthur a vu les simulateurs F1 partout",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:09:06"
+ },
+ {
+  "i": 169,
+  "live": "22/07",
+  "nom": "Simulateur de conduite",
+  "verdict": "À éviter : « c'est pareil, c'est globalement la même chose » que le simulateur F1, « pas de truc là dessus »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:10:02"
+ },
+ {
+  "i": 170,
+  "live": "22/07",
+  "nom": "Étendoir à linge",
+  "verdict": "À éviter : « non absolument pas parce que ça vaut 15 balles »",
+  "prix": "15 balles",
+  "canal": "non precise",
+  "ts": "01:11:20"
+ },
+ {
+  "i": 171,
+  "live": "22/07",
+  "nom": "Lit cabane enfant",
+  "verdict": "À éviter : « je n'aime pas du tout le produit. On a des gens qui l'ont essayé, c'est insourçable »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:11:27"
+ },
+ {
+  "i": 172,
+  "live": "22/07",
+  "nom": "Treuil électrique [Whisper : « Troïe électrique »]",
+  "verdict": "Pas d'avis : gamme ultra technique qu'Arthur ne connaît pas assez, « je ne peux pas te donner mon avis, je n'ai pas envie de te dire une connerie » ; SERP de vieux sites qui font très distributeur",
+  "prix": "concurrents depuis 20 ans",
+  "canal": "non precise",
+  "ts": "01:11:44"
+ },
+ {
+  "i": 173,
+  "live": "22/07",
+  "nom": "Top Regal / Home Tools [Whisper : « Top Real » corrigé par Arthur]",
+  "verdict": "Pas une piste produit : vieux sites repérés sur le SERP treuil, « ça fait très distributeur »",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "01:12:20"
+ },
+ {
+  "i": 174,
+  "live": "22/07",
+  "nom": "Base44 / Lovable / Higgsfield [Whisper : « Loveable », « Icefield »]",
+  "verdict": "Pas des produits e-commerce : SaaS cités dans le segment 1 (Base44 jugé 50 fois mieux que Lovable pour un petit SaaS)",
+  "prix": "non abordé dans ce live",
+  "canal": "non precise",
+  "ts": "00:13:22"
+ }
+]

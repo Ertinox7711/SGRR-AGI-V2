@@ -206,8 +206,12 @@ if [ "$MINIMAL" = 0 ]; then
   copy_tree docs
   copy_tree shops
   copy_tree shopify
+  # The training libraries. ~32 MB of text, and the reason the repo is private - the
+  # bundles under formations/bundles/ are meant to be pasted straight into a chat, so
+  # they have to land next to everything else for the install to be one click.
+  copy_tree formations
 else
-  yellow "--minimal: skipped skills/, docs/, shops/, shopify/"
+  yellow "--minimal: skipped skills/, docs/, shops/, shopify/, formations/"
 fi
 
 cyan "Local config"
