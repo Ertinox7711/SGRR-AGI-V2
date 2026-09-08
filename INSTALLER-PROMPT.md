@@ -28,11 +28,12 @@ parity self-test.
 
 > ### 🔒 One thing to know before you install
 >
-> This repo is **private**, and it has to stay that way. Alongside the rig it carries
-> `formations/` — **paid course material** belonging to the people who sold it, shared
-> here so two people can work from it. Use it, search it, learn from it. Do **not** make
-> the repo public, fork it outward, or repost those folders. Everything else in here is
-> MIT. Details: [`formations/README.md`](formations/README.md), [`SECURITY.md`](SECURITY.md).
+> This repo is **normally private** — it is briefly public only so you can clone it, and
+> it flips back right after. Alongside the rig it carries `formations/` — **paid course
+> material** belonging to the people who sold it, shared here so two people can work from
+> it. Use it, search it, learn from it. Do **not** fork it outward or repost those
+> folders. Everything else in here is MIT. Details:
+> [`formations/README.md`](formations/README.md), [`SECURITY.md`](SECURITY.md).
 >
 > The installer copies `formations/` into `~/.claude/formations/` so Claude can read it
 > directly. Don't want 32 MB of course text on your machine? Run the install with
@@ -130,7 +131,12 @@ plugins (that's `/plugin` inside Claude Code) — run the prompt above afterward
 
 ## After install
 
-- Restart Claude Code.
+- Restart Claude Code. **Not optional** — hooks, `settings.json` and `CLAUDE.md` are read
+  at session start, so a session that was open during the install still runs the old one.
+- **Prove it actually changed something**: paste
+  [`CHECK-IT-WORKED.md`](CHECK-IT-WORKED.md) into the restarted session. Seven checks that
+  return evidence — a quoted line, a hook's real output, a command's real exit — instead
+  of a model telling you it feels different.
 - **`/session-check`** → GO/NO-GO: the rig is live *this session*, not just on disk.
 - `/plugin` → check that the plugins are enabled.
 - `/help` → the skills (superpowers…) show up.

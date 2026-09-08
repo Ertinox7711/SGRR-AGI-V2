@@ -57,6 +57,12 @@ You want the last line to read **`FULL PARITY`**. On a clean machine that is
 **29 OK / 2 WARN / 0 FAIL** — the two warnings are the two files only *you* can fill in,
 and the installer tells you which.
 
+**Then restart Claude Code and prove it actually changed something.** `FULL PARITY` means
+the files landed; it does not mean your session loaded them. Two minutes, one paste:
+[**`CHECK-IT-WORKED.md`**](CHECK-IT-WORKED.md) — a prompt that makes your Claude produce
+*evidence* (a quoted line, a hook's real output, a command's real exit) instead of
+reassurance, and tells you exactly what is missing if something is.
+
 **Already using Claude Code?** Then don't run anything by hand — open Claude Code in the
 cloned folder and paste [`INSTALLER-PROMPT.md`](INSTALLER-PROMPT.md) into it. It does the
 install, the plugins, the personalisation and the self-test, and asks you the three
@@ -72,29 +78,33 @@ requested or stored. Want to look before it touches anything? `GO.bat /dry` (or
 
 ### If `git clone` says "repository not found"
 
-The repo is private (on purpose — see just below). That error means your GitHub account
-has not been added to it yet. Ask the person who sent you the link to add you as a
-collaborator; the 404 is GitHub hiding a private repo, not a broken link.
+It means the repo has gone back to private and your GitHub account is not on it. That 404
+is GitHub hiding a private repo, not a broken link — ask the owner to add you as a
+collaborator (the *Add people* box takes an email address, not only a username).
 
 ---
 
-> ## 🔒 This repository is PRIVATE — and has to stay that way
+> ## 🔒 Clone it now — this repo is going back to private
 >
-> It was public until it gained a `formations/` folder holding **paid third-party course
-> material**: transcripts of the Inner Circle and Ecom-Boss libraries, a Google Merchant
-> Center playbook, a TikTok course. That content belongs to the people who sold it. It is
-> here so that the owner and one friend can work from it, and for no other purpose.
+> It is **temporarily public so one person can clone it**, and it flips back to private
+> straight after. Plan accordingly: clone once, keep the folder.
 >
-> - **Do not flip this repo back to public.** Doing so republishes every file in
->   `formations/`, and the git history keeps them even if they are deleted afterwards.
-> - **Do not fork it outward, do not redistribute `formations/`.** The MIT licence below
+> The reason it is normally private is the `formations/` folder, which holds **paid
+> third-party course material**: transcripts of the Inner Circle and Ecom-Boss libraries,
+> a Google Merchant Center playbook, a TikTok course. That content belongs to the people
+> who sold it. It is here so the owner and one friend can work from it, and for no other
+> purpose.
+>
+> - **Do not re-publish `formations/`, do not fork it outward.** The MIT licence below
 >   covers the rig — the scaffold, the hooks, the skills, the docs. It does not cover, and
 >   cannot cover, someone else's course.
+> - Deleting those files later would not undo a republish: git history keeps them, and
+>   GitHub caches and indexes what it has already served.
 > - Everything outside `formations/` is still MIT and still leak-free: the security
->   pipeline described here was built for a public repo and has not been relaxed.
+>   pipeline described here was built for a public repo and has not been relaxed one inch.
 >
-> The star and fork badges that used to sit here were removed with the switch — a private
-> repo has no public stargazers, and the badge would have rendered as a broken image.
+> The star and fork badges that used to sit here were removed, since they render as broken
+> images for as long as the repo is private.
 
 ---
 
