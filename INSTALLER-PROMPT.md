@@ -13,7 +13,7 @@ parity self-test.
 
 1. **Clone** this repo and open **Claude Code** in the cloned folder:
    ```
-   git clone <REPO_URL> sgrr-agi-v2
+   git clone https://github.com/Ertinox7711/SGRR-AGI-V2.git sgrr-agi-v2
    cd sgrr-agi-v2
    claude
    ```
@@ -23,6 +23,20 @@ parity self-test.
 
 > 🔒 No secret is requested or stored. You keep your Claude Code subscription and your
 > own keys. See [`SECURITY.md`](SECURITY.md).
+
+---
+
+> ### 🔒 One thing to know before you install
+>
+> This repo is **private**, and it has to stay that way. Alongside the rig it carries
+> `formations/` — **paid course material** belonging to the people who sold it, shared
+> here so two people can work from it. Use it, search it, learn from it. Do **not** make
+> the repo public, fork it outward, or repost those folders. Everything else in here is
+> MIT. Details: [`formations/README.md`](formations/README.md), [`SECURITY.md`](SECURITY.md).
+>
+> The installer copies `formations/` into `~/.claude/formations/` so Claude can read it
+> directly. Don't want 32 MB of course text on your machine? Run the install with
+> `--minimal` / `/minimal` — you get the whole rig without it.
 
 ---
 
@@ -40,8 +54,8 @@ autonomously; ask me ONLY the 3 personal values in step 6. Steps:
      - macOS/Linux  -> bash ./install.sh
    Run it with -DryRun / --dry-run FIRST, show me the summary, then run it for real.
    What it does: copies CLAUDE.md, PITFALLS.md, USAGE.md (as SGRR-GUIDE.md), and the
-   memory/ rules/ commands/ agents/ scripts/ skills/ docs/ shops/ shopify/ trees into
-   ~/.claude; seeds ~/.claude/protected-zones.json and ~/.claude/shops-registry.md only
+   memory/ rules/ commands/ agents/ scripts/ skills/ docs/ shops/ shopify/ formations/ trees
+   into ~/.claude; seeds ~/.claude/protected-zones.json and ~/.claude/shops-registry.md only
    if they do not exist yet; and SMART-MERGES settings.template.json (Windows) or
    settings.template.unix.json (unix) into my live settings.json - union only, my keys
    always win, nothing of mine removed, idempotent on re-run. Every file it overwrites
@@ -82,7 +96,8 @@ autonomously; ask me ONLY the 3 personal values in step 6. Steps:
 
 7. VERIFY + PARITY SELF-TEST. Confirm ~/.claude/settings.json is valid JSON; confirm
    CLAUDE.md, PITFALLS.md, SGRR-GUIDE.md, memory/MEMORY.md, rules/, commands/, agents/,
-   scripts/, skills/, docs/, shops/GO-SHOPS.md and shopify/GO-SHOPIFY.md are present;
+   scripts/, skills/, docs/, shops/GO-SHOPS.md, shopify/GO-SHOPIFY.md, formations/README.md
+   and the 3 files in formations/bundles/ are present;
    count the skills and the commands and tell me the numbers. Then run the parity
    self-test: .\scripts\verify-install.ps1 (Windows) or ./scripts/verify-install.sh
    (macOS/Linux). It must print "FULL PARITY" - that proves my Claude is AT THE SAME

@@ -26,6 +26,58 @@ lets you share your setup **without leaking a single piece of personal data**.
 
 ---
 
+# 👉 START HERE — you were sent this link
+
+Three commands. Nothing else. It takes about two minutes.
+
+```bash
+git clone https://github.com/Ertinox7711/SGRR-AGI-V2.git sgrr-agi-v2
+cd sgrr-agi-v2
+```
+
+**Windows** — double-click **`GO.bat`**, or:
+
+```bash
+powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
+```
+
+**macOS / Linux**:
+
+```bash
+./GO.sh
+```
+
+Then check it landed:
+
+```bash
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verify-install.ps1
+```
+
+You want the last line to read **`FULL PARITY`**. On a clean machine that is
+**29 OK / 2 WARN / 0 FAIL** — the two warnings are the two files only *you* can fill in,
+and the installer tells you which.
+
+**Already using Claude Code?** Then don't run anything by hand — open Claude Code in the
+cloned folder and paste [`INSTALLER-PROMPT.md`](INSTALLER-PROMPT.md) into it. It does the
+install, the plugins, the personalisation and the self-test, and asks you the three
+questions that depend on your machine.
+
+### What this does to a setup you already have
+
+It **merges**, it does not replace. Your own keys, plugins, permissions and hooks in
+`~/.claude/settings.json` are kept; anything it overwrites with different content is
+backed up next to it as `<file>.bak-<date>`. Nothing is uploaded, and no secret is read,
+requested or stored. Want to look before it touches anything? `GO.bat /dry` (or
+`./GO.sh --dry`) prints every action and writes nothing.
+
+### If `git clone` says "repository not found"
+
+The repo is private (on purpose — see just below). That error means your GitHub account
+has not been added to it yet. Ask the person who sent you the link to add you as a
+collaborator; the 404 is GitHub hiding a private repo, not a broken link.
+
+---
+
 > ## 🔒 This repository is PRIVATE — and has to stay that way
 >
 > It was public until it gained a `formations/` folder holding **paid third-party course

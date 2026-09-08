@@ -4,7 +4,7 @@
 #
 #  Run:  ./GO.sh              (macOS: double-click GO.command instead)
 #        ./GO.sh --dry-run    show what would happen, write nothing
-#        ./GO.sh --minimal    core only (no skills, docs, shops, shopify)
+#        ./GO.sh --minimal    core only (no skills, docs, shops, shopify, formations)
 #
 #  Installs the whole rig into ~/.claude and smart-merges the settings WITHOUT
 #  destroying your own keys, plugins, permissions or hooks. Nothing is uploaded.

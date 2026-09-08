@@ -5,14 +5,14 @@ REM  SGRR AGI V2 - ONE CLICK INSTALL (Windows)
 REM
 REM  Double-click this file. It installs the whole rig into %USERPROFILE%\.claude
 REM  (CLAUDE.md, PITFALLS.md, memory, rules, commands, agents, scripts, skills,
-REM  docs, shops, shopify) and smart-merges the settings WITHOUT destroying your
+REM  docs, shops, shopify, formations) and smart-merges the settings WITHOUT destroying your
 REM  own keys, plugins, permissions or hooks.
 REM
 REM  Nothing is uploaded. No secret is ever read, asked for, or stored.
 REM  Anything it overwrites with different content is backed up as <file>.bak-<date>.
 REM
 REM  Flags:  GO.bat /dry     -> show what would happen, write nothing
-REM          GO.bat /minimal -> core only (no skills, docs, shops, shopify)
+REM          GO.bat /minimal -> core only (no skills, docs, shops, shopify, formations)
 REM ===================================================================
 
 cd /d "%~dp0"
