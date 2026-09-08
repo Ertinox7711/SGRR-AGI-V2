@@ -28,7 +28,12 @@ lets you share your setup **without leaking a single piece of personal data**.
 
 # 👉 START HERE — you were sent this link
 
-Three commands. Nothing else. It takes about two minutes.
+**The short way: one prompt, pasted twice.** Open Claude Code anywhere and paste
+[**`ONE-PROMPT.md`**](ONE-PROMPT.md) — it clones, installs, personalises and self-tests,
+then tells you to restart. Restart, paste the same block again, and it flips to
+verification and hands you a table of evidence. Nothing to clone by hand.
+
+Prefer to drive it yourself? Three commands, about two minutes:
 
 ```bash
 git clone https://github.com/Ertinox7711/SGRR-AGI-V2.git sgrr-agi-v2
