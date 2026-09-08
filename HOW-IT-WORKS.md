@@ -36,43 +36,83 @@ The most important distinction in the entire setup:
 > **Prose in `CLAUDE.md` is a suggestion. `settings.json` is law.**
 
 `CLAUDE.md` says "confirm before `rm -rf`". But that's text — the model can
-miss it under pressure. `settings.json` `permissions.ask` *intercepts the command
-before execution* and asks you. It's the only truly binding safety net.
+miss it under pressure. A `PreToolUse` hook or a `permissions.ask` entry
+*intercepts the command before execution*. Those are the only truly binding safety nets.
 
-Our template does 3 things:
+The two platform templates take the same idea and enforce it with the mechanism that
+actually exists on that OS:
 
-1. **Permission net** — broad `allow` (so trivial work doesn't spam prompts),
-   but an explicit `ask` gate on **every** destructive command:
-   `rm`, `rmdir`, `shred`, `dd`, `mkfs`, `fdisk`, `chmod`, `chown`, `kill`, `pkill`,
-   `git push --force`, `git reset --hard`, `git clean`, `npm publish`, `docker`,
-   `kubectl`, `gcloud`, `firebase`. `deny` is empty by default (add hard bans as needed).
+1. **Enforcement.**
+   - **Windows** (`settings.template.json`): **9 `PreToolUse` gates**. Five can return a
+     hard `deny` — protected paths, asset deletion, store-token/identity mismatch,
+     destructive commands, browser navigation. They are real code with a real exit
+     code, not a prompt you can wave through.
+   - **macOS/Linux** (`settings.template.unix.json`): the guards are PowerShell, so the
+     unix side compensates with a 20-entry **`permissions.ask` net** over the same
+     command families — `rm`, `rmdir`, `shred`, `dd`, `mkfs`, `fdisk`, `chmod`, `chown`,
+     `kill`, `pkill`, force-push, hard reset, `git clean`, `npm publish`, `docker`,
+     `kubectl`, `gcloud`, `firebase` — plus the portable hooks.
+
+   Both fail **open** on a parse error: they are defense in depth, never the sole guard.
+   The prose in `CLAUDE.md` is the layer that does not depend on a parser.
 
 2. **Cheap sub-agents** — `env.CLAUDE_CODE_SUBAGENT_MODEL: "sonnet"`. The main loop
    stays on Opus (max intelligence), but when a sub-agent launches
    (explorer, reviewer…), it runs on Sonnet. You pay Sonnet for grunt-work,
-   Opus for reasoning. Massive savings on large projects.
+   Opus for reasoning. Massive savings on large projects. **On** in the unix template;
+   on Windows it is a deliberate one-line opt-in, because an over-stuffed `env` is
+   itself a known trap (`PITFALLS.md` → *auth env*).
 
 3. **`defaultMode: acceptEdits`** — file edits go through without confirmation
-   (reversible, local), while dangerous commands stay gated by `ask`. The right
+   (reversible, local), while dangerous commands stay gated. The right
    speed/safety balance.
+
+### The data-driven gate: `protected-zones.json`
+
+`protected-path-denylist.ps1` hard-codes **nothing**. It reads
+`~/.claude/protected-zones.json`, a list of `{ match, why, unlock }` entries, and denies
+any `Edit`/`Write`/`Bash` write whose target contains a zone fragment. Three consequences
+worth understanding:
+
+- Your real folder names live in **one local file**, never in the shared repo.
+- `match` is compared with a **boundary**, so `business/shopify` does not also freeze a
+  sibling `business/shopify-clone`.
+- No file, invalid JSON, or no matching zone → the gate **exits 0**. Which means: if you
+  never edit the seeded placeholder file, **it protects nothing**. That is the one install
+  step that fails silently.
+
+An entry with `unlock` names a file whose presence (containing an ISO-8601 timestamp)
+opens a supervised 24 h write window — the pattern for "read-only, except when I say so".
 
 ## 2. Hooks — per-turn context injection
 
 Hooks run a command at key moments and **inject their output into Claude's
 context**. We use them as automatic reminder injections:
 
-| Hook | When | What it injects |
-|------|------|-----------------|
-| `SessionStart` | session start | "Read MEMORY.md. Anticipate, parallelize, verify before saying done." |
-| `SessionStart` (update watcher) | session start, **throttled 12h** | detects a **new Claude Code version** and tells you to read the changelog + propose adoptions to the rig. |
-| `UserPromptSubmit` | every message | "Before a client/ commit: `npx tsc --noEmit`. Atomic commits. Verify before done." |
-| `PreCompact` | before context compression | "Save durable facts to memory before losing context." |
-| `Stop` | end of turn | "If code changed: tests passing? tsc clean? nothing uncommitted?" |
-| `PreToolUse` (pitfall coach) | before a Bash command runs | matches the command against known traps and injects the relevant **PITFALLS** lesson *before* it executes — advice only, never auto-allow/block. |
+**Windows — 12 wired hooks: 3 `SessionStart` + 9 `PreToolUse`.**
+
+| Hook | Matcher | Effect |
+|------|---------|--------|
+| `check-cc-updates.ps1` | SessionStart, **throttled 12h** | detects a **new Claude Code version**, tells you to read the changelog and propose adoptions to the rig. |
+| `rig-audit-nudge.ps1` | SessionStart, periodic | reminds you to run `/rig-audit` on the real sessions + folders. |
+| `shopify-token-check.ps1` | SessionStart | store credential older than its window → says so on line 1, before you act on stale auth. |
+| `browser-nav-denylist.ps1` | browser navigate / evaluate | **deny** |
+| `protected-path-denylist.ps1` | Edit/Write/Notebook/Bash | **deny** writes inside your protected zones |
+| `asset-delete-guard.ps1` | Bash / PowerShell | **deny** deletion of durable assets without a 24 h unlock |
+| `shop-identity-guard.ps1` | edits + store API mutations | advisory: *which store is this?* |
+| `shop-token-identity-block.ps1` | Bash / PowerShell | **deny** a credential reaching the wrong store |
+| `destructive-block.ps1` | Bash / PowerShell | **deny** raw force-push and friends |
+| `pitfall-tips.ps1` ×2 | Bash, PowerShell | advisory: injects the matching **PITFALLS** lesson *before* the command runs |
+| `trio-fanout-cap.ps1` | Task | caps sub-agent fan-out |
+
+**macOS/Linux — 5 hook events, all context-injection:** `SessionStart` ("Read MEMORY.md.
+Anticipate, parallelize, verify before saying done." + update watch + rig-audit nudge),
+`UserPromptSubmit` (the per-turn discipline reminder), `PreCompact` ("save durable facts
+before losing context"), `Stop` ("if code changed: tests passing? tsc clean? nothing
+uncommitted?"), and `PreToolUse` → `pitfall-tips.sh`.
 
 This is what maintains discipline **without you having to repeat it**. Model
-drifts? The hook re-injects it, every turn. The Windows version uses PowerShell;
-the `settings.template.unix.json` variant uses `echo`.
+drifts? The hook re-injects it, every turn.
 
 > 🔄 **The self-improvement loop.** The 2nd `SessionStart` hook (`scripts/check-cc-updates.*`)
 > compares the latest published Claude Code version to the one it already flagged for you. The
@@ -151,9 +191,12 @@ The ones that make the real difference — and that 95% of people miss:
    projects, without sacrificing reasoning quality (Opus stays on the decision loop).
    Most people leave everything on Opus and burn through their quota.
 
-2. **The `ask` net, not the prose.** Writing "be careful" in CLAUDE.md protects
-   nothing. The only real safeguard is `permissions.ask`. Put your destructive
-   commands there, full stop.
+2. **The gate, not the prose.** Writing "be careful" in CLAUDE.md protects nothing. Only
+   a `PreToolUse` hook that can return `deny` (Windows) or a `permissions.ask` entry
+   (unix) actually stops a command. Put your destructive families there, full stop —
+   and remember the corollary: **a gate whose config you never filled in is a gate that
+   exits 0**. `protected-zones.json` ships with placeholders on purpose; editing it is
+   the difference between a protected folder and a folder you *believe* is protected.
 
 3. **Hooks beat memory for discipline.** You can write "atomic commits" 10 times
    in CLAUDE.md — the model will drift. A `UserPromptSubmit` hook re-injects it
@@ -195,6 +238,23 @@ The ones that make the real difference — and that 95% of people miss:
     13 hard-won traps, and a `PreToolUse` hook (`scripts/pitfall-tips.*`) surfaces the
     matching lesson the instant you're about to repeat one — advice only, throttled for
     coaching tips, every-time for destructive ones. Avoiding a known trap beats adding a feature.
+
+13. **Identity derives from the folder, never from memory.** The moment you run more than
+    one store / tenant / client, the expensive failure is not a bug — it's the agent acting
+    on **B while believing it is on A**. The fix is structural: one folder = one entity, a
+    single registry as the only source of truth, identity resolved by **longest-prefix match
+    on the current path**, announced on line 1, and a hard gate that refuses to let a
+    credential from one folder reach another. Every handle, domain and ID that gets written
+    is **copied from the registry**, never typed from memory. Full manual:
+    [`shops/GO-SHOPS.md`](shops/GO-SHOPS.md).
+
+14. **A shipped rig needs a self-test, not a promise.** "Same level as the original" is a
+    claim until something checks it. `scripts/verify-install.*` walks the installed tree —
+    settings validity, unexpanded path tokens, every hook script actually on disk, the 8
+    guards wired, payload counts, the GO files, the local config — and separates a real
+    **FAIL** from a **WARN** (present but not personalised yet). It prints `FULL PARITY` or
+    tells you exactly what's missing. `--target` / `-Target` points it at any install root,
+    so the whole install can be rehearsed in a sandbox before it touches your real config.
 
 ---
 

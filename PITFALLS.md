@@ -80,6 +80,15 @@ Each entry is the same three lines:
   the CI workflow) from its *own* checks, in *every* layer, or it flags itself.
 - **Cheap check** — run the preflight/secret scan and confirm **exit 0** before the
   push, not after. Treat any non-zero as a hard stop.
+- **A green scanner proves nothing until you have seen it go red.** This repo's own
+  pre-commit hook passed a 1602-file commit while scanning *nothing*: it fed every
+  staged filename back to `git` as arguments, hit `Argument list too long`, captured an
+  empty diff inside `$( … )`, found no match, and exited 0 — a silent fail-open on
+  exactly the commit where it mattered most. Its Windows-path pattern was dead too
+  (`\\\\Users` in an `awk` regex literal demands *two* backslashes; `\b` there is a
+  backspace, not a word boundary). **So: plant a fake secret of every class you claim to
+  detect, watch the gate reject it, then remove it.** And keep the platform twins in
+  parity — the same scan, one case-sensitive, reported 111 leaks the other called clean.
 
 ## 7. 🚫 The bypass — `bypass`
 

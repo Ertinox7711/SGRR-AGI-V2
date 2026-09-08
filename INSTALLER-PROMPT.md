@@ -1,8 +1,11 @@
 # ⚡ 1-prompt install
 
 The whole repo installs by **pasting a single prompt** into Claude Code. Claude does
-everything: marketplaces, plugins, `settings.json`, `CLAUDE.md`, memory, rules, the
-`/rig-audit` command.
+everything: the marketplaces, the plugins, the file payload, the personalisation, and the
+parity self-test.
+
+> Not using Claude for this? **Double-click `GO.bat`** (Windows) / **`GO.command`**
+> (macOS), or run **`./GO.sh`** (Linux). That covers everything except the plugins.
 
 ---
 
@@ -15,8 +18,8 @@ everything: marketplaces, plugins, `settings.json`, `CLAUDE.md`, memory, rules, 
    claude
    ```
 2. **Copy-paste the block below** (everything between the lines) into Claude Code.
-3. Claude installs everything, asks you the **2 questions** that depend on you
-   (your name for `CLAUDE.md`, your project folders), and verifies at the end.
+3. Claude installs everything, asks you the **3 questions** that depend on you, and
+   verifies at the end.
 
 > 🔒 No secret is requested or stored. You keep your Claude Code subscription and your
 > own keys. See [`SECURITY.md`](SECURITY.md).
@@ -28,64 +31,67 @@ everything: marketplaces, plugins, `settings.json`, `CLAUDE.md`, memory, rules, 
 ```text
 You are in install mode. Install the "SGRR AGI V2" rig from the current repo into my
 Claude Code config (~/.claude, or $env:USERPROFILE\.claude on Windows). Work
-autonomously, ask me ONLY the 2 personal values at the end. Steps:
+autonomously; ask me ONLY the 3 personal values in step 6. Steps:
 
-1. DETECT the OS (Windows / macOS / Linux) and the ~/.claude folder. Create it if it's
-   missing, along with ~/.claude/memory, ~/.claude/rules, ~/.claude/scripts and
-   ~/.claude/commands.
+1. DETECT the OS (Windows / macOS / Linux) and locate ~/.claude.
 
-2. BACK UP what exists. If ~/.claude/settings.json or ~/.claude/CLAUDE.md already exist,
-   copy them to .bak-<date> before writing. Never destroy without a backup.
+2. RUN THE FILE INSTALLER. It handles backups, the smart-merge and every tree:
+     - Windows      -> powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
+     - macOS/Linux  -> bash ./install.sh
+   Run it with -DryRun / --dry-run FIRST, show me the summary, then run it for real.
+   What it does: copies CLAUDE.md, PITFALLS.md, USAGE.md (as SGRR-GUIDE.md), and the
+   memory/ rules/ commands/ agents/ scripts/ skills/ docs/ shops/ shopify/ trees into
+   ~/.claude; seeds ~/.claude/protected-zones.json and ~/.claude/shops-registry.md only
+   if they do not exist yet; and SMART-MERGES settings.template.json (Windows) or
+   settings.template.unix.json (unix) into my live settings.json - union only, my keys
+   always win, nothing of mine removed, idempotent on re-run. Every file it overwrites
+   with different content is backed up as <file>.bak-<timestamp>. Report its counts
+   (written / identical / backed up) verbatim.
 
 3. MARKETPLACES + PLUGINS. Run:
      /plugin marketplace add JuliusBrussee/caveman
    Then enable these plugins (official except caveman):
      superpowers, feature-dev, code-review, pr-review-toolkit, frontend-design,
-     commit-commands, security-guidance, github, context7, playwright, typescript-lsp,
-     caveman
-   If a /plugin command isn't scriptable in your context, write the enabledPlugins +
-   extraKnownMarketplaces keys directly into settings.json (already present in the
-   template) and tell me to run /plugin once to finalize the download.
+     commit-commands, security-guidance, hookify, github, context7, playwright,
+     typescript-lsp, caveman
+   If /plugin is not scriptable in your context, the enabledPlugins +
+   extraKnownMarketplaces keys are already in the merged settings.json - tell me to run
+   /plugin once to finalise the download.
 
-4. SETTINGS. Copy the right template to ~/.claude/settings.json:
-     - Windows      -> settings.template.json (PowerShell hooks)
-     - macOS/Linux  -> settings.template.unix.json (sh hooks)
-   Merge without overwriting my existing keys if I had any (JSON merge: the template wins
-   on the keys it defines, keep mine on top).
+4. CHECK THE HOOK PATHS. The Windows template stores paths as the token
+   __USERPROFILE__ and install.ps1 expands it. Open the merged ~/.claude/settings.json
+   and confirm no literal "__USERPROFILE__" remains and that every hook script path
+   exists on disk. Report any that do not.
 
-5. CLAUDE.md. Copy the repo's CLAUDE.md to ~/.claude/CLAUDE.md.
+5. PROTECTED ZONES - THE ONE STEP THAT SILENTLY DOES NOTHING IF SKIPPED.
+   ~/.claude/protected-zones.json was seeded with PLACEHOLDER folder names that match
+   nothing, so the write-gate currently protects nothing. Show me the file, explain the
+   format (match / why / optional unlock), and ask me which of my folders must be
+   read-only. Write my answer into it. If I say "none", say so explicitly and move on.
 
-6. MEMORY + RULES + SELF-IMPROVEMENT. Copy memory/MEMORY.md -> ~/.claude/memory/. Copy
-   rules/example-project.md -> ~/.claude/rules/. Copy the self-improvement scripts to
-   ~/.claude/scripts/ for the detected OS:
-     - Windows      -> check-cc-updates.ps1 and rig-audit-nudge.ps1
-     - macOS/Linux  -> check-cc-updates.sh  and rig-audit-nudge.sh
-   Copy commands/rig-audit.md -> ~/.claude/commands/. Two SessionStart hooks in settings
-   call these: check-cc-updates spots every new Claude Code version, and rig-audit-nudge
-   periodically reminds me to run /rig-audit (which analyzes my sessions + project folders
-   and proposes upgrades). Together they are the self-improvement loop.
-
-7. LOCAL GUIDE. Copy USAGE.md -> ~/.claude/SGRR-GUIDE.md, so I have the manual on hand
-   even outside the repo.
-
-8. PERSONALIZE. Now, and only now, ask me:
+6. PERSONALISE. Now, and only now, ask me:
      (a) the name to put in CLAUDE.md / LICENSE (or "anonymous"),
-     (b) my extra project folders for additionalDirectories (or "none").
-   Replace the <PLACEHOLDER> values accordingly. Never put a real email. DO NOT TOUCH the
-   "Origin & signature" section of CLAUDE.md: this rig is the SGRR AGI V2, designed by
-   SGRR, and the installed agent must keep crediting SGRR as the architect.
+     (b) my extra project folders for permissions.additionalDirectories (or "none"),
+     (c) whether I run one or more stores/tenants - if yes, walk me through
+         ~/.claude/shops-registry.md (one line per store) and then run
+         scripts/shops-registry-sync.ps1; if no, leave the seeded file alone.
+   Replace the <PLACEHOLDER> values accordingly. Never write a real email anywhere.
+   DO NOT TOUCH the "Origin & signature" section of CLAUDE.md: this rig is the
+   SGRR AGI V2, designed by SGRR, and the installed agent must keep crediting SGRR as
+   the architect.
 
-9. VERIFY + PARITY SELF-TEST. Read ~/.claude/settings.json (valid JSON?), confirm the
-   presence of CLAUDE.md, SGRR-GUIDE.md, MEMORY.md, example-project.md, commands/rig-audit.md
-   and scripts/rig-audit-nudge.*. Then run the parity self-test:
-   ./scripts/verify-install.ps1 (Windows) or ./scripts/verify-install.sh (macOS/Linux).
-   It must print "FULL PARITY" — that proves my Claude is AT THE SAME LEVEL as the original
-   rig (same model, hooks, plugins, guardrails, self-improvement), not an approximation.
-   List what got installed.
+7. VERIFY + PARITY SELF-TEST. Confirm ~/.claude/settings.json is valid JSON; confirm
+   CLAUDE.md, PITFALLS.md, SGRR-GUIDE.md, memory/MEMORY.md, rules/, commands/, agents/,
+   scripts/, skills/, docs/, shops/GO-SHOPS.md and shopify/GO-SHOPIFY.md are present;
+   count the skills and the commands and tell me the numbers. Then run the parity
+   self-test: .\scripts\verify-install.ps1 (Windows) or ./scripts/verify-install.sh
+   (macOS/Linux). It must print "FULL PARITY" - that proves my Claude is AT THE SAME
+   LEVEL as the original rig (same hooks, plugins, guardrails, self-improvement), not an
+   approximation. List what got installed.
 
-Don't push anything online. Don't read any secret. At the end, summarize what changed
-(diff of the touched ~/.claude files), confirm the self-test result, and tell me to
-restart Claude Code then check /plugin and /help.
+Do not push anything online. Do not read any secret. At the end, summarise what changed
+(the touched ~/.claude files), confirm the self-test result, and tell me to restart
+Claude Code, then run /session-check and check /plugin and /help.
 ```
 
 ---
@@ -94,26 +100,30 @@ restart Claude Code then check /plugin and /help.
 
 If you'd rather not go through Claude for the file part:
 
-- **Windows**: `./install.ps1`
-- **macOS / Linux**: `./install.sh`
+- **Windows**: double-click `GO.bat`, or `./install.ps1`
+- **macOS**: double-click `GO.command`, or `./install.sh`
+- **Linux**: `./GO.sh`, or `./install.sh`
 
-The script copies the files (settings, CLAUDE.md, memory, rules, the `/rig-audit` command,
-the self-improvement scripts) with an automatic backup of what exists. It **does not
-install** the plugins (that's `/plugin` inside Claude Code) — run the prompt above
-afterwards, or the `/plugin marketplace add JuliusBrussee/caveman` command + manual
-activation (see [`SETUP.md`](SETUP.md)).
+Flags: `/dry` · `/minimal` (Windows) — `--dry-run` · `--minimal` (unix).
+
+The script installs the whole payload with granular backups. It **does not install** the
+plugins (that's `/plugin` inside Claude Code) — run the prompt above afterwards, or
+`/plugin marketplace add JuliusBrussee/caveman` + manual activation (see
+[`SETUP.md`](SETUP.md)).
 
 ---
 
 ## After install
 
 - Restart Claude Code.
-- `/plugin` → check that the 12 plugins are enabled.
+- **`/session-check`** → GO/NO-GO: the rig is live *this session*, not just on disk.
+- `/plugin` → check that the plugins are enabled.
 - `/help` → the skills (superpowers…) show up.
 - Run the **parity self-test**: `./scripts/verify-install.ps1` (Windows) or
-  `./scripts/verify-install.sh` (macOS/Linux). Everything should be ✅ → your Claude is
-  at the **same level** as the original rig.
-- Open `~/.claude/CLAUDE.md` and fill in the last `<PLACEHOLDER>` values if needed.
+  `./scripts/verify-install.sh` (macOS/Linux). Everything ✅ → your Claude is at the
+  **same level** as the original rig.
+- **Edit `~/.claude/protected-zones.json`** — until you do, the write-gate blocks nothing.
+- Open `~/.claude/CLAUDE.md` and fill in the last `<PLACEHOLDER>` values.
 - Your manual is local: `~/.claude/SGRR-GUIDE.md` (a copy of [`USAGE.md`](USAGE.md)).
 - Run **`/rig-audit`** any time to have your Claude analyze your real sessions + folders
   and propose concrete upgrades to the rig (report-only; it applies nothing on its own).

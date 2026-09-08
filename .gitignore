@@ -31,7 +31,23 @@ gho_*
 # ── EXCEPTIONS ──────────────────────────────────────────────────────
 # Legit repo files whose NAME matches a pattern above
 # (e.g. "secret-scan.yml" contains "secret" but it's our workflow).
+#
+# This block is not cosmetic: without it, two hook scripts that settings.json REFERENCES
+# were silently excluded from the repo, so a fresh clone installed a settings.json
+# pointing at files that did not exist. A name-based secret filter needs the list of what
+# only LOOKS like a secret - the same lesson as PITFALLS.md -> secret leak, mirrored.
+# Each line below has been read; none contains a credential.
 !.github/workflows/secret-scan.yml
+!scripts/shop-token-identity-block.ps1
+!scripts/shopify-token-check.ps1
+!shops/scaffold/scripts/get-token.sh
+!shops/scaffold/.claude/settings.local.json
+!shops/scaffold/.secrets/*.example
+!skills/video-use/.env.example
+# Vendored third-party source whose FILE NAMES contain "token"/"secret" (they implement
+# token registries and secret-sink tests; they hold no value of either).
+!skills/gstack/**/*token*
+!skills/gstack/**/*secret*
 
 # ── SENSITIVE FOLDERS ───────────────────────────────────────────────
 .aws/
@@ -55,3 +71,11 @@ projects/
 node_modules/
 .DS_Store
 Thumbs.db
+
+# -- LOCAL, MACHINE-SPECIFIC CONFIG (never commit: names your real folders) ----
+protected-zones.json
+shops-registry.json
+shops-registry.md
+/formations/          # BUILT bundles at the repo root only - shopify/formations/ IS published
+.asset-delete-unlock
+.pitfall-tips-cache.json

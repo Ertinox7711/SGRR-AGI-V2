@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash scripts/get-token.sh:*)",
+      "Bash(node scripts/shop-probe.js:*)",
+      "Bash(node scripts/pull-theme-file.js:*)"
+    ]
+  }
+}

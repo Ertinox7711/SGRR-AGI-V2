@@ -33,23 +33,30 @@ description = "Generic high-entropy secret assignment"
 regex = '''(?i)(api[_-]?key|secret|token|passwd|password)\s*[:=]\s*['"][a-zA-Z0-9_\-]{24,}['"]'''
 tags = ["generic"]
 
-[[rules]]
-id = "absolute-home-path"
-description = "Absolute user home path (leaks identity)"
-regex = '''([A-Za-z]:\\Users\\[^\\/<>"' ]+)|(/home/[^/<>"' ]+)|(/Users/[^/<>"' ]+)'''
-tags = ["pii", "path"]
+# NOTE — absolute home paths are deliberately NOT a gitleaks rule.
+# There used to be one here. It fired on 55 lines that are all legitimate: the published
+# placeholder (C:/Users/YOU), GitHub Actions' own /home/runner, and the path-validation
+# fixtures of the vendored third-party skills. Keeping it green needed a placeholder
+# allowlist maintained in a FOURTH place, drifting against the three that already exist.
+# So the split is by job, not by tool: gitleaks owns SECRETS (and scans the whole
+# history for them); `scripts/preflight-scrub.sh` owns PII paths and addresses, runs in
+# the same workflow, and is the one place where .scrubignore decides what is reviewed
+# third-party code. One scanner, one allowlist, three call sites (hook, manual, CI).
 
 # --- Allowlist: what is NOT a leak ------------------------------------------
 
 [allowlist]
-description = "Placeholders, examples, and generic paths that are allowed"
+description = "Placeholders, examples, and reviewed test fixtures that are allowed"
 regexes = [
   '''<[A-Z_]+>''',                         # <PLACEHOLDER>, <YOUR_NAME>...
   '''users\.noreply\.github\.com''',       # GitHub noreply email
   '''example\.(com|org)''',
-  '''/home/(user|runner|youruser)\b''',    # generic example paths
-  '''[A-Za-z]:\\Users\\(you|user|name)\b''',
-  '''sk-ant-api03-EXAMPLE''',
+  '''<REDACTED_TOKEN>''',
+  # Secret-sink fixture of a vendored third-party skill: a deliberately fake AWS key
+  # (sequential letters) asserted on by skills/gstack/test/brain-sync.test.ts. Listed as
+  # the literal value rather than allowlisting the whole tree, so a REAL key vendored in
+  # that same directory would still be caught.
+  '''AKIAABCDEFGHIJKLMNOP''',
 ]
 paths = [
   '''\.gitleaks\.toml$''',                          # this file holds the patterns themselves

@@ -4,7 +4,7 @@
 
 # SGRR AGI V2 — the Claude Code power-rig
 
-**Turn a fresh Claude Code install into an autonomous, proactive, "AGI"-grade agent. In a single prompt.**
+**Turn a fresh Claude Code install into an autonomous, proactive, "AGI"-grade agent. In one click.**
 
 Config (`settings.json`), behavioral philosophy (`CLAUDE.md`), context-injection
 hooks, a memory system, a plugin/skill manifest — **and** a security pipeline that
@@ -12,7 +12,9 @@ lets you share your setup publicly **without leaking a single piece of personal 
 
 ![License](https://img.shields.io/badge/license-MIT-22d3ee)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-ready-818cf8)
-![Setup](https://img.shields.io/badge/setup-1_prompt-a78bfa)
+![Setup](https://img.shields.io/badge/setup-1_click-a78bfa)
+![Skills](https://img.shields.io/badge/skills-132-06b6d4)
+![Hooks](https://img.shields.io/badge/hooks-12_wired-8b5cf6)
 ![Secrets](https://img.shields.io/badge/secrets-0_included-2ea043)
 ![Self-improving](https://img.shields.io/badge/self--improving-yes-ef4444)
 ![Parity](https://img.shields.io/badge/parity-self--test-eab308)
@@ -38,7 +40,7 @@ the **scaffold** around it: the settings, the behavioral instructions, the memor
 architecture, and the list of *which* plugins/skills to install and *from where*.
 You keep your own Claude Code subscription, and you bring your own secrets.
 
-> Someone clones this repo → runs **a single prompt** → they get **exactly the same
+> Someone clones this repo → **double-clicks `GO.bat`** → they get **exactly the same
 > rig I run** (1:1 capability, proven by a parity self-test), without any of my secrets
 > or my private projects.
 
@@ -51,9 +53,11 @@ You keep your own Claude Code subscription, and you bring your own secrets.
 No fluff. The concrete levers that make this rig outrun a default Claude Code, in raw terms:
 
 - **~5× cheaper sub-agents.** The main loop stays on **Opus** (max reasoning); every
-  sub-agent (explorer, reviewer, translator…) runs on **Sonnet** via
-  `CLAUDE_CODE_SUBAGENT_MODEL`. You pay Sonnet for grunt-work, Opus for decisions.
-  On a large codebase that's the difference between burning your quota and barely feeling it.
+  sub-agent (explorer, reviewer, translator…) can run on **Sonnet** via
+  `CLAUDE_CODE_SUBAGENT_MODEL` — you pay Sonnet for grunt-work, Opus for decisions.
+  Shipped **on** in the unix template; on Windows it is a deliberate one-line opt-in
+  (`"env": {"CLAUDE_CODE_SUBAGENT_MODEL": "sonnet"}`), because an over-stuffed env is
+  itself a known trap (see `PITFALLS.md` / *auth env*).
 - **Parallelism is a reflex, not an afterthought.** `CLAUDE.md` forces independent tool
   calls into a **single message** — 5 reads at once instead of 5 round-trips. Same for
   sub-agents: independent work is dispatched together.
@@ -63,9 +67,13 @@ No fluff. The concrete levers that make this rig outrun a default Claude Code, i
 - **Discipline enforced by hooks, not hope.** A `UserPromptSubmit` hook re-injects the
   rules (atomic commits, `tsc` before commit, verify-before-done) **every turn** — the
   model can't drift. No re-explaining, no wasted turns.
-- **The `ask` net is real enforcement.** `permissions.ask` intercepts every destructive
-  command *before* it runs, while file edits flow through `acceptEdits` with zero friction.
-  Maximum speed on safe work, a hard stop on dangerous work.
+- **Real enforcement, not prose.** File edits flow through `acceptEdits` with zero
+  friction, while dangerous work is intercepted *before* it runs. Two shapes, by platform:
+  on **Windows**, 9 `PreToolUse` hooks that can **deny** outright (protected paths, asset
+  deletion, store identity, destructive commands, browser navigation); on **macOS/Linux**,
+  a `permissions.ask` net over the same command families (`rm`, `dd`, `mkfs`, `chmod`,
+  `kill`, force-push, hard reset, `docker`, `kubectl`, `npm publish`…).
+  Prose in `CLAUDE.md` is *not* enforced. These are.
 - **It self-improves.** Two `SessionStart` hooks keep the rig current: one watches for
   new Claude Code releases, the other nudges you to run **`/rig-audit`** (below). The
   setup never goes stale — it gets *better* the longer you run it.
@@ -74,26 +82,73 @@ Full mechanics, with the traps 95% of people miss → **[`HOW-IT-WORKS.md`](HOW-
 
 ---
 
-## ⚡ 1-prompt install
+## ⚡ 1-click install
 
-The single most important thing in the repo: **you paste one prompt, it installs everything.**
+**Windows — double-click [`GO.bat`](GO.bat).**
+**macOS — double-click [`GO.command`](GO.command).**  **Linux — `./GO.sh`.**
 
-1. Open Claude Code in the cloned folder.
-2. Copy-paste the contents of **[`INSTALLER-PROMPT.md`](INSTALLER-PROMPT.md)**.
-3. Claude adds the marketplaces, enables the plugins, writes `settings.json` and
-   `CLAUDE.md`, creates the memory and the rules, installs the guide locally, then runs
-   a **parity self-test**. **Done.**
+That's it. It installs the whole rig into `~/.claude`: `CLAUDE.md`, `PITFALLS.md`, the
+memory, **132 skills**, **20 commands**, **9 lazy rules**, **6 agents**, **24 hook
+scripts**, the docs, and the store / Shopify operating manuals. Your `settings.json` is
+**smart-merged, never clobbered** — your keys, plugins, permissions and your own hooks
+survive; re-running is idempotent; anything overwritten with *different* content is
+backed up as `<file>.bak-<timestamp>`.
 
-> Prefer a script? `./install.ps1` (Windows) or `./install.sh` (macOS/Linux) handle the
-> file part. Details in **[`SETUP.md`](SETUP.md)**.
+```bash
+GO.bat /dry       # Windows: show what would happen, write nothing
+./GO.sh --dry-run # macOS / Linux: same
+GO.bat /minimal   # core only, skip skills/ docs/ shops/ shopify/
+```
+
+Two things are left, and both live **inside** Claude Code (a script cannot do them):
+
+1. `/plugin marketplace add JuliusBrussee/caveman`, then enable the plugins in `SETUP.md`.
+2. Restart Claude Code and run **`/session-check`** — a GO/NO-GO verdict that the rig is
+   actually **live this session**, not merely on disk.
+
+> **Prefer to have Claude do it?** Open Claude Code in the cloned folder and paste
+> **[`INSTALLER-PROMPT.md`](INSTALLER-PROMPT.md)** — it adds the marketplaces, enables the
+> plugins, runs the installer and finishes with the parity self-test.
+> Manual, piece by piece → **[`SETUP.md`](SETUP.md)**.
+
+### After the install — 3 files to personalise
+
+| File | Why |
+|---|---|
+| `~/.claude/protected-zones.json` | Names **your** read-only / write-protected folders. The `PreToolUse` gate reads it and physically blocks writes there. Ships with placeholders — **edit it or the gate protects nothing**. |
+| `~/.claude/shops-registry.md` | Only if you run stores/tenants: one line per store. The identity hooks derive everything else from it. |
+| `~/.claude/CLAUDE.md` | Fill the `<PLACEHOLDER>`s. |
 
 ---
 
 ## 📦 What's inside
 
+### The payload — what lands in `~/.claude`
+
+| Folder | Count | What it is |
+|---|---|---|
+| `skills/` | **132** | The full skill library: session readiness, shop operations, product research, Liquid/theme work, design systems, browser automation, research, writing, the `gstack` toolchain… Auto-invoked the moment one applies. |
+| `commands/` | **20** | `/session-check`, `/rig-audit`, `/shop`, `/pitfall`, `/scrape403`, `/brain`, `/cmds`, `/matin`, the workflow commands… |
+| `rules/` | **9** | Lazy `paths:` rules — per-project context that loads **only** when you touch that project. |
+| `agents/` | **6** | Sub-agent definitions (restricted toolsets, isolated context). |
+| `scripts/` | **24** | The hook scripts behind the gates + the parity self-test, the preflight scrub, the registry sync. |
+| `docs/` | 1 | The external skill-library index (name → path → one-liner), the reflex described in `CLAUDE.md`. |
+| `shops/` | — | [`GO-SHOPS.md`](shops/GO-SHOPS.md): the **multi-store operating manual** — folder-derived identity, the registry, the three protection layers, the shared store skeleton, plus a ready-to-copy `scaffold/`. |
+| `shopify/` | — | [`GO-SHOPIFY.md`](shopify/GO-SHOPIFY.md): the **Shopify operating manual** — reference-site cloning, product validation economics, the scoring grid, the 9 discovery methods, Google Ads structure, copy/CRO, Liquid wiring, the API traps, the pre-ads gates. |
+
+**12 hooks are wired by the install** — 3 `SessionStart` (update watch, rig-audit nudge,
+store-token freshness) and 9 `PreToolUse` gates (protected paths, asset deletion, store
+identity ×2, destructive commands, browser navigation denylist, pitfall coaching ×2,
+sub-agent fan-out cap).
+
+### The files at the root
+
 | File | Role |
 |------|------|
-| **[`INSTALLER-PROMPT.md`](INSTALLER-PROMPT.md)** | The single prompt that installs the whole rig. |
+| **[`GO.bat`](GO.bat)** / **[`GO.command`](GO.command)** / **[`GO.sh`](GO.sh)** | **The 1-click entry point.** Double-click and the rig is installed. |
+| **[`INSTALLER-PROMPT.md`](INSTALLER-PROMPT.md)** | The single prompt that installs the whole rig from inside Claude Code. |
+| **[`protected-zones.example.json`](protected-zones.example.json)** | Template for the write-gate config. Copied to `~/.claude/protected-zones.json` at install — **edit it**. |
+| **[`settings.optional-hooks.json`](settings.optional-hooks.json)** | Machine-specific hooks (local bridges, WSL digests) kept **out** of the default install, documented so you can opt in. |
 | **[`settings.template.json`](settings.template.json)** | Ready `settings.json` (Windows): permission net (`allow`/`ask`/`deny`), cheap sub-agents (Sonnet), injection hooks (**tips every turn**). **Zero secrets.** |
 | **[`settings.template.unix.json`](settings.template.unix.json)** | Same thing, `sh` hooks for macOS/Linux. |
 | **[`CLAUDE.md`](CLAUDE.md)** | The "proactive AGI" philosophy — depersonalized, with the SGRR signature. |
@@ -213,14 +268,22 @@ Full threat model, guarantees, and checklist → **[`SECURITY.md`](SECURITY.md)*
 
 ## ✅ Included (1:1) vs ❌ Excluded (private projects)
 
-**Included — a faithful copy of the capability:** the config, the permissions, the generic
-hooks, the `CLAUDE.md` philosophy, the memory architecture, every **public plugin**, and the
-**public skill** manifest. A friend who installs it gets the same rig — and the **parity
-self-test** (`scripts/verify-install.*`) proves it.
+**Included — a faithful copy of the capability:** the config, the permissions, all 12
+hooks, the `CLAUDE.md` philosophy, the memory architecture, every public plugin, and the
+**whole working payload** — 132 skills, 20 commands, 9 rules, 6 agents, 24 scripts, the
+store and Shopify operating manuals. A friend who installs it gets the same rig — and the
+**parity self-test** (`scripts/verify-install.*`) proves it.
 
-**Excluded — for your protection:** all secrets, and every skill/instruction specific to
-private projects (business, personal automations, personas). None of it is listed or
-referenced here.
+**Excluded — deliberately, and here is the exact list:**
+
+| What | Why |
+|---|---|
+| Every secret, token, credential | Obvious. `.gitignore` blocks the shapes, the CI scans every push. |
+| Real folder names, store names, handles, domains, account ids, chat ids, emails | Replaced by `SHOP-A/B/C`, `<PLACEHOLDER>`, `<REDACTED_TOKEN>`. The mechanism ships; the identity does not. |
+| 12 skills + 3 rules + 1 session journal tied to private business workflows | They named third parties, personas, and a partner's real data. Not mine to publish. The last one removed was a store master-skill that carried a **supplier's contact address**, validated margin figures, and — through a throwaway "brand = X + Y" note — the derivation of the anonymised store's real name. Anonymising a file is not enough if one line lets you rebuild the name. |
+| The **verbatim transcripts of paid third-party courses** | Redistributing them would be infringement no matter who paid. The **method** distilled from them ships in full (`shopify/GO-SHOPIFY.md`); a loader (`shopify/formations/load-formations.ps1`) reads **your own local copies** if you own them, and writes the bundle **outside** any git repo so it can never be committed by accident. |
+
+Nothing excluded is referenced, indexed, or reconstructible from what's here.
 
 ---
 

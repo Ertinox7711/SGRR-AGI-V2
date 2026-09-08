@@ -2,25 +2,35 @@
 <#
   install.ps1 - SGRR AGI V2 (Windows)
 
-  Installs the FILE part of the rig into ~/.claude. Plain docs are copied with an
-  automatic backup of anything they overwrite. settings.json is NOT clobbered: it is
-  SMART-MERGED, so the rig config lands in YOUR OWN live Claude without throwing away
-  your keys, plugins, env, permissions, or your own hooks (re-running is idempotent).
+  Installs the whole rig into ~/.claude: CLAUDE.md, PITFALLS.md, memory, rules,
+  commands, agents, skills, hook scripts, docs, and the shop / Shopify GO files.
+
+  settings.json is NOT clobbered: it is SMART-MERGED, so the rig config lands in YOUR
+  OWN live Claude without throwing away your keys, plugins, env, permissions or your
+  own hooks. Re-running is idempotent. Every file it would overwrite with DIFFERENT
+  content is backed up next to itself as <file>.bak-<timestamp>; identical files are
+  skipped silently.
 
   Does NOT install plugins (that's /plugin inside Claude Code - see INSTALLER-PROMPT.md).
   Never reads, asks for, or stores any secret.
 
   Usage:
-    ./install.ps1            # install
-    ./install.ps1 -DryRun    # show what would happen, write nothing
+    ./install.ps1                    # install
+    ./install.ps1 -DryRun            # show what would happen, write nothing
+    ./install.ps1 -Minimal           # core only (no skills/, no docs/, no shops/, no shopify/)
+    ./install.ps1 -Target D:\x\.claude   # install somewhere else (sandbox / second profile)
 #>
 [CmdletBinding()]
-param([switch]$DryRun)
+param([switch]$DryRun, [switch]$Minimal, [string]$Target)
 
 $ErrorActionPreference = 'Stop'
 $repo   = $PSScriptRoot
-$claude = Join-Path $env:USERPROFILE '.claude'
+$claude = if ($Target) { [System.IO.Path]::GetFullPath($Target) } else { Join-Path $env:USERPROFILE '.claude' }
 $stamp  = Get-Date -Format 'yyyyMMdd-HHmmss'
+
+$script:nCopied = 0
+$script:nSkipped = 0
+$script:nBackedUp = 0
 
 function Step($msg) { Write-Host "==> $msg" -ForegroundColor Cyan }
 function Ok($msg)   { Write-Host "    ok  $msg" -ForegroundColor Green }
@@ -28,7 +38,12 @@ function Warn($msg) { Write-Host "    !!  $msg" -ForegroundColor Yellow }
 
 # Stable tokens that identify each rig-injected hook entry, so the merge can tell
 # "the rig already added this" from "the user wrote their own hook here".
-$hookTokens = @('pitfall-tips','check-cc-updates','rig-audit-nudge','SGRR AGI V2 rig','Read MEMORY.md','PRE-COMPACT','END-OF-TURN')
+$hookTokens = @(
+  'pitfall-tips','check-cc-updates','rig-audit-nudge','shopify-token-check',
+  'browser-nav-denylist','protected-path-denylist','asset-delete-guard',
+  'shop-identity-guard','shop-token-identity-block','destructive-block',
+  'trio-fanout-cap','SGRR AGI V2 rig','Read MEMORY.md','PRE-COMPACT','END-OF-TURN'
+)
 
 # ConvertFrom-Json yields PSCustomObjects, which are painful to merge. Turn the whole
 # tree into ordered hashtables / arrays / scalars so we can union keys cleanly.
@@ -66,6 +81,39 @@ function Write-JsonNoBom($obj, $path) {
   [System.IO.File]::WriteAllText($path, $json, (New-Object System.Text.UTF8Encoding($false)))
 }
 
+function Get-Sha256([string]$path) {
+  try { return (Get-FileHash -Path $path -Algorithm SHA256).Hash } catch { return $null }
+}
+
+# Copy one file, backing up the destination ONLY when it exists with different content.
+function Copy-OneFile([string]$src, [string]$dst, [switch]$Dry) {
+  $rel = $dst.Substring($claude.Length).TrimStart('\','/')
+  if (Test-Path $dst) {
+    if ((Get-Sha256 $src) -eq (Get-Sha256 $dst)) { $script:nSkipped++; return }
+    if ($Dry) { Warn "would back up $rel -> .bak-$stamp and overwrite" ; $script:nBackedUp++; $script:nCopied++; return }
+    Copy-Item $dst "$dst.bak-$stamp" -Force
+    $script:nBackedUp++
+  }
+  if ($Dry) { $script:nCopied++; return }
+  $parent = Split-Path $dst -Parent
+  if (-not (Test-Path $parent)) { New-Item -ItemType Directory -Force -Path $parent | Out-Null }
+  Copy-Item $src $dst -Force
+  $script:nCopied++
+}
+
+# Copy a whole tree from the repo into ~/.claude, file by file (so backups stay granular).
+function Copy-Tree([string]$relSrc, [string]$relDst, [switch]$Dry) {
+  $srcRoot = Join-Path $repo $relSrc
+  if (-not (Test-Path $srcRoot)) { Warn "source missing, skipping: $relSrc"; return }
+  $dstRoot = Join-Path $claude $relDst
+  $before = $script:nCopied
+  Get-ChildItem -Path $srcRoot -Recurse -File | ForEach-Object {
+    $rel = $_.FullName.Substring($srcRoot.Length).TrimStart('\','/')
+    Copy-OneFile $_.FullName (Join-Path $dstRoot $rel) -Dry:$Dry
+  }
+  Ok ("{0,-28} {1,4} file(s)" -f $relDst, ($script:nCopied - $before))
+}
+
 # Smart-merge the rig settings template INTO the user's live settings.json.
 #   - no live file  -> write the template verbatim (fresh install)
 #   - live present  -> back it up, then UNION in: top-level keys the user lacks, env vars,
@@ -74,7 +122,17 @@ function Write-JsonNoBom($obj, $path) {
 #                      nothing the user has is ever removed. Idempotent on re-run.
 function Merge-Settings($templatePath, $livePath, $dry) {
   if (-not (Test-Path $templatePath)) { Warn "settings template missing, skipping: $templatePath"; return }
-  $tpl = ConvertTo-HashtableDeep (Get-Content $templatePath -Raw | ConvertFrom-Json)
+
+  # The template carries __USERPROFILE__ instead of a hard-coded home dir; expand it now
+  # so the installed settings.json holds real absolute paths (no runtime expansion needed).
+  # Backslashes are doubled because we substitute INTO raw JSON text, where \ is an escape.
+  # "__USERPROFILE__\.claude" is resolved against the real install root first, so a custom
+  # -Target still produces hook paths that point at the files we actually copied.
+  $homeForTpl = Split-Path $claude -Parent
+  $tplRaw = (Get-Content $templatePath -Raw).
+    Replace('__USERPROFILE__\\.claude', $claude.Replace('\', '\\')).
+    Replace('__USERPROFILE__', $homeForTpl.Replace('\', '\\'))
+  $tpl = ConvertTo-HashtableDeep ($tplRaw | ConvertFrom-Json)
 
   if (-not (Test-Path $livePath)) {
     if ($dry) { Warn "would create settings.json (fresh, from template)"; return }
@@ -153,54 +211,64 @@ function Merge-Settings($templatePath, $livePath, $dry) {
 }
 
 Step "Target: $claude"
-foreach ($d in @($claude, (Join-Path $claude 'memory'), (Join-Path $claude 'rules'), (Join-Path $claude 'scripts'), (Join-Path $claude 'commands'), (Join-Path $claude 'skills'), (Join-Path $claude 'skills\session-check'))) {
-  if (-not (Test-Path $d)) {
-    if ($DryRun) { Warn "would create $d" } else { New-Item -ItemType Directory -Force -Path $d | Out-Null; Ok "created $d" }
-  }
+if (-not (Test-Path $claude)) {
+  if ($DryRun) { Warn "would create $claude" } else { New-Item -ItemType Directory -Force -Path $claude | Out-Null; Ok "created $claude" }
 }
 
-# Plain-copy files (clobber with backup). settings.json is handled separately (smart-merge).
-# (source-relative-to-repo, destination-relative-to-~/.claude)
+# ---- single files at the root of ~/.claude ---------------------------------------
+Step "Core files"
 $files = @(
-  @{ src = 'CLAUDE.md';                dst = 'CLAUDE.md' },
-  @{ src = 'PITFALLS.md';              dst = 'PITFALLS.md' },
-  @{ src = 'USAGE.md';                 dst = 'SGRR-GUIDE.md' },
-  @{ src = 'memory\MEMORY.md';         dst = 'memory\MEMORY.md' },
-  @{ src = 'rules\example-project.md'; dst = 'rules\example-project.md' },
-  @{ src = 'commands\rig-audit.md';    dst = 'commands\rig-audit.md' },
-  @{ src = 'commands\session-check.md';     dst = 'commands\session-check.md' },
-  @{ src = 'skills\session-check\SKILL.md'; dst = 'skills\session-check\SKILL.md' }
+  @{ src = 'CLAUDE.md';   dst = 'CLAUDE.md' },
+  @{ src = 'PITFALLS.md'; dst = 'PITFALLS.md' },
+  @{ src = 'USAGE.md';    dst = 'SGRR-GUIDE.md' }
 )
-
 foreach ($f in $files) {
   $srcPath = Join-Path $repo $f.src
-  $dstPath = Join-Path $claude $f.dst
   if (-not (Test-Path $srcPath)) { Warn "source missing, skipping: $($f.src)"; continue }
-
-  if (Test-Path $dstPath) {
-    $bak = "$dstPath.bak-$stamp"
-    if ($DryRun) { Warn "would back up $($f.dst) -> $($f.dst).bak-$stamp" }
-    else { Copy-Item $dstPath $bak -Force; Ok "backup $($f.dst) -> .bak-$stamp" }
-  }
-
-  if ($DryRun) { Warn "would copy $($f.src) -> $($f.dst)" }
-  else { Copy-Item $srcPath $dstPath -Force; Ok "installed $($f.dst)" }
+  Copy-OneFile $srcPath (Join-Path $claude $f.dst) -Dry:$DryRun
+  Ok "installed $($f.dst)"
 }
 
-# settings.json - smart-merge the rig config into the user's OWN live Claude settings
+# ---- trees ------------------------------------------------------------------------
+Step "Trees"
+Copy-Tree 'memory'   'memory'   -Dry:$DryRun
+Copy-Tree 'rules'    'rules'    -Dry:$DryRun
+Copy-Tree 'commands' 'commands' -Dry:$DryRun
+Copy-Tree 'agents'   'agents'   -Dry:$DryRun
+Copy-Tree 'scripts'  'scripts'  -Dry:$DryRun
+if (-not $Minimal) {
+  Copy-Tree 'skills'  'skills'  -Dry:$DryRun
+  Copy-Tree 'docs'    'docs'    -Dry:$DryRun
+  Copy-Tree 'shops'   'shops'   -Dry:$DryRun
+  Copy-Tree 'shopify' 'shopify' -Dry:$DryRun
+} else {
+  Warn "-Minimal: skipped skills/, docs/, shops/, shopify/"
+}
+
+# ---- machine-local config the hooks read (never overwritten once it exists) --------
+Step "Local config"
+$zonesSrc = Join-Path $repo 'protected-zones.example.json'
+$zonesDst = Join-Path $claude 'protected-zones.json'
+if (Test-Path $zonesDst) {
+  Ok "protected-zones.json already exists - left untouched"
+} elseif (Test-Path $zonesSrc) {
+  if ($DryRun) { Warn "would seed protected-zones.json from the example" }
+  else { Copy-Item $zonesSrc $zonesDst -Force; Ok "seeded protected-zones.json (EDIT IT: it currently lists placeholder folders)" }
+}
+$regSrc = Join-Path $repo 'shops\shops-registry.template.md'
+$regDst = Join-Path $claude 'shops-registry.md'
+if (Test-Path $regDst) {
+  Ok "shops-registry.md already exists - left untouched"
+} elseif (Test-Path $regSrc) {
+  if ($DryRun) { Warn "would seed shops-registry.md from the template" }
+  else { Copy-Item $regSrc $regDst -Force; Ok "seeded shops-registry.md (edit it, then run scripts/shops-registry-sync.ps1)" }
+}
+
+# ---- settings.json - smart-merge into the user's OWN live Claude settings ----------
+Step "settings.json"
 Merge-Settings (Join-Path $repo 'settings.template.json') (Join-Path $claude 'settings.json') $DryRun
 
-# Install the hook scripts (called by the PreToolUse / SessionStart hooks)
-foreach ($s in @('check-cc-updates.ps1','rig-audit-nudge.ps1','pitfall-tips.ps1')) {
-  $src = Join-Path $repo "scripts\$s"
-  $dst = Join-Path $claude "scripts\$s"
-  if (Test-Path $src) {
-    if ($DryRun) { Warn "would install scripts\$s" }
-    else { Copy-Item $src $dst -Force; Ok "installed scripts\$s" }
-  }
-}
-
-# Install the pre-commit hook into THIS repo (protects your future commits from leaks)
+# ---- pre-commit hook into THIS repo (protects your future commits from leaks) ------
 $gitHooks = Join-Path $repo '.git\hooks'
 $preCommitSrc = Join-Path $repo 'scripts\hooks\pre-commit'
 if ((Test-Path $gitHooks) -and (Test-Path $preCommitSrc)) {
@@ -209,12 +277,14 @@ if ((Test-Path $gitHooks) -and (Test-Path $preCommitSrc)) {
 }
 
 Write-Host ""
-Step "Files ready. Usage guide -> ~/.claude/SGRR-GUIDE.md"
-Step "settings.json was smart-merged into your live config (backup kept if it changed)."
+Step ("Files: {0} written, {1} identical (skipped), {2} backed up as .bak-{3}" -f $script:nCopied, $script:nSkipped, $script:nBackedUp, $stamp)
+Step "Usage guide -> ~/.claude/SGRR-GUIDE.md"
 Step "Remaining steps (inside Claude Code):"
 Write-Host "    1. /plugin marketplace add JuliusBrussee/caveman"
 Write-Host "    2. enable the plugins (see SETUP.md) or paste INSTALLER-PROMPT.md"
-Write-Host "    3. open ~/.claude/CLAUDE.md and fill in the <PLACEHOLDER>s"
-Write-Host "    4. ./scripts/verify-install.ps1  (parity self-test)"
-Write-Host "    5. restart Claude Code, check /plugin and /help"
+Write-Host "    3. edit ~/.claude/protected-zones.json - name YOUR read-only folders"
+Write-Host "    4. edit ~/.claude/shops-registry.md if you run stores, then scripts\shops-registry-sync.ps1"
+Write-Host "    5. open ~/.claude/CLAUDE.md and fill in the <PLACEHOLDER>s"
+Write-Host "    6. .\scripts\verify-install.ps1   (parity self-test)"
+Write-Host "    7. restart Claude Code, check /plugin and /help"
 if ($DryRun) { Write-Host "`n(Dry-run: nothing was written.)" -ForegroundColor Yellow }

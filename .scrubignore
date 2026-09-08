@@ -1,0 +1,23 @@
+# .scrubignore - paths the leak scanner reports as NOTE instead of LEAK.
+#
+# Why this file exists: a scanner that reports 218 findings of which 3 are real is a
+# scanner nobody reads. Everything listed here has been reviewed once by hand; it is
+# third-party code vendored with its own test fixtures and its own authors' contact
+# details, published by those authors. Findings there are still COUNTED and printed as
+# "note" lines - they are never silently dropped.
+#
+# Format: one path prefix or glob per line, forward slashes, relative to the repo root.
+# A line matches if the file path starts with it OR matches it as a glob.
+#
+# Rule for adding a line: only a directory you did not write, whose findings you have
+# actually read. Never add one of your own files to make the scan pass.
+
+# Vendored dev-workflow toolkit: ~200 test fixtures using test@test.com / git@github.com
+skills/gstack/
+
+# Third-party skills that ship their author's own public contact in their README
+skills/huashu-design/
+skills/html-ppt/
+
+# Upstream API reference with doc examples (test@test.com, /Users/me)
+skills/playwright-skill/

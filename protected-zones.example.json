@@ -1,0 +1,33 @@
+{
+  "_comment": [
+    "Copy to ~/.claude/protected-zones.json and edit. This file is READ BY the",
+    "PreToolUse hook scripts/protected-path-denylist.ps1, which turns each entry into a",
+    "hard write-gate: Edit/Write/NotebookEdit/MultiEdit on a path inside the zone, and",
+    "Bash commands that pair a zone path with a mutation token (rm, mv, >, sed -i, ...),",
+    "are DENIED. Reads always pass - a protected zone is read-only, not no-access.",
+    "",
+    "match  : a lowercase, forward-slash path fragment, matched literally against the",
+    "         normalized path. A boundary (end / slash / space / quote) is appended, so",
+    "         'business/shopify' does NOT match a sibling 'business/shopify-clone'.",
+    "         A fragment that is a prefix of another zone catches both.",
+    "why    : shown to the agent when it is blocked. Say why, so it stops arguing.",
+    "unlock : OPTIONAL. Path, relative to your home dir, of a file you create to grant",
+    "         a supervised 24h write window (put an ISO-8601 timestamp inside it).",
+    "         Omit the field entirely for a zone that must never be writable.",
+    "",
+    "No config file => no zones => the hook exits 0 and the prose rule in CLAUDE.md is",
+    "your only guard. Keep this file out of git (it names your real folders):",
+    "'protected-zones.json' is already in .gitignore."
+  ],
+  "zones": [
+    {
+      "match": "business/<your-read-only-project>",
+      "why": "<project> (READ-ONLY: read and analyze, never modify)"
+    },
+    {
+      "match": "business/<your-supervised-project>",
+      "why": "<project> (protected zone, writes need an explicit supervised GO)",
+      "unlock": ".claude/.<your-supervised-project>-write-unlock"
+    }
+  ]
+}

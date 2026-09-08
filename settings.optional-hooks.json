@@ -1,0 +1,55 @@
+{
+  "_readme": [
+    "OPTIONAL hooks - NOT installed by default because each one depends on software",
+    "that only exists on the author's machine. Paste the group you want into the",
+    "matching array of ~/.claude/settings.json (hooks.SessionStart / hooks.PreToolUse),",
+    "then edit the paths. If the target program is missing the hook just fails and the",
+    "session continues, but a failing hook on every start is noise - only add what you",
+    "actually run.",
+    "",
+    "Windows note: the installed settings.json uses absolute paths (install.ps1 expands",
+    "the __USERPROFILE__ token in settings.template.json). Do the same here.",
+    "",
+    "1. local-bridge     - runs a Python script at session start to push session context",
+    "                      into a companion agent / dashboard. Needs that script.",
+    "2. wsl-chat-digest  - pulls a digest of your agent chat channel from a WSL CLI, so",
+    "                      the session starts knowing what was said while you were away.",
+    "                      Needs WSL + that CLI on PATH.",
+    "3. ollama-ip-sync   - keeps a local LLM endpoint pointing at the right WSL IP after",
+    "                      a reboot (the IP changes). Ships as scripts/update-cc-ollama-ip.ps1."
+  ],
+
+  "local-bridge": {
+    "_where": "hooks.SessionStart",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "\"C:\\\\Python3xx\\\\python.exe\" \"__USERPROFILE__\\\\Documents\\\\<YOUR-BRIDGE>\\\\session_start_hook.py\"",
+        "timeout": 6
+      }
+    ]
+  },
+
+  "wsl-chat-digest": {
+    "_where": "hooks.SessionStart",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "\"C:\\\\Windows\\\\System32\\\\wsl.exe\" -u <YOUR-WSL-USER> -- bash -lic \"<your-digest-command>\"",
+        "timeout": 25
+      }
+    ]
+  },
+
+  "ollama-ip-sync": {
+    "_where": "hooks.SessionStart",
+    "hooks": [
+      {
+        "type": "command",
+        "shell": "powershell",
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\\\.claude\\\\scripts\\\\update-cc-ollama-ip.ps1\"",
+        "timeout": 8
+      }
+    ]
+  }
+}

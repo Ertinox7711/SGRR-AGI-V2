@@ -1,9 +1,4 @@
 {
-  "env": {
-    "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet"
-  },
-  "model": "opus",
-  "theme": "dark",
   "permissions": {
     "allow": [
       "Bash(*)",
@@ -15,49 +10,72 @@
       "WebFetch",
       "WebSearch",
       "Task",
-      "mcp__*"
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__computer",
+      "mcp__Claude_in_Chrome__find",
+      "mcp__Claude_in_Chrome__read_page",
+      "mcp__Claude_in_Chrome__get_page_text",
+      "mcp__Claude_in_Chrome__javascript_tool",
+      "mcp__Claude_in_Chrome__read_console_messages",
+      "mcp__Claude_in_Chrome__read_network_requests",
+      "mcp__Claude_in_Chrome__form_input",
+      "mcp__Claude_in_Chrome__tabs_create_mcp",
+      "mcp__Claude_in_Chrome__tabs_close_mcp",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_in_Chrome__select_browser",
+      "mcp__Claude_in_Chrome__list_connected_browsers",
+      "mcp__Claude_in_Chrome__browser_batch",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_navigate_back",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_type",
+      "mcp__plugin_playwright_playwright__browser_fill_form",
+      "mcp__plugin_playwright_playwright__browser_press_key",
+      "mcp__plugin_playwright_playwright__browser_hover",
+      "mcp__plugin_playwright_playwright__browser_select_option",
+      "mcp__plugin_playwright_playwright__browser_wait_for",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_tabs",
+      "mcp__plugin_playwright_playwright__browser_console_messages",
+      "mcp__plugin_playwright_playwright__browser_network_requests",
+      "mcp__playwright"
     ],
-    "ask": [
-      "Bash(rm *)",
-      "Bash(rmdir *)",
-      "Bash(shred *)",
-      "Bash(dd *)",
-      "Bash(mkfs *)",
-      "Bash(fdisk *)",
-      "Bash(chmod *)",
-      "Bash(chown *)",
-      "Bash(kill *)",
-      "Bash(killall *)",
-      "Bash(pkill *)",
-      "Bash(git push --force*)",
-      "Bash(git push -f*)",
-      "Bash(git reset --hard*)",
-      "Bash(git clean *)",
-      "Bash(npm publish*)",
-      "Bash(docker *)",
-      "Bash(kubectl *)",
-      "Bash(gcloud *)",
-      "Bash(firebase *)"
-    ],
-    "deny": [],
     "defaultMode": "acceptEdits",
-    "additionalDirectories": [
-      "<ADD_YOUR_EXTRA_PROJECT_DIRS_OR_DELETE_THIS_KEY>"
-    ]
+    "deny": [
+      "Bash(git push --force)",
+      "Bash(git push --force *)",
+      "Bash(git push -f)",
+      "Bash(git push -f *)"
+    ],
+    "additionalDirectories": []
+  },
+  "theme": "dark",
+  "statusLine": {
+    "type": "command",
+    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\caveman-statusline.ps1\""
   },
   "enabledPlugins": {
-    "superpowers@claude-plugins-official": true,
+    "caveman@caveman": true,
     "feature-dev@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
-    "pr-review-toolkit@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": false,
+    "claude-md-management@claude-plugins-official": false,
     "security-guidance@claude-plugins-official": true,
+    "hookify@claude-plugins-official": true,
+    "firebase@claude-plugins-official": false,
     "github@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": false,
     "typescript-lsp@claude-plugins-official": true,
-    "caveman@caveman": true
+    "pyright-lsp@claude-plugins-official": false,
+    "claude-mem@thedotmack": false,
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
@@ -68,46 +86,13 @@
     }
   },
   "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "shell": "powershell",
-            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"$env:USERPROFILE\\.claude\\scripts\\pitfall-tips.ps1\"",
-            "timeout": 8
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "shell": "powershell",
-            "command": "Write-Output '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"You run on the SGRR AGI V2 rig (architect: SGRR) - be proactive, dense, verified. Before any client/ commit: npx tsc --noEmit. Atomic commits (1 feature = 1 commit). Verify before declaring done. Invoke a skill only when one genuinely fits the task. END EVERY REPLY with two short lines: a one-line actionable tip about what just happened, then a one-line next-step proposal you can run next. Skip them only on a trivial reply; never pad with empty proposals.\"}}'"
-          }
-        ]
-      }
-    ],
     "SessionStart": [
       {
         "hooks": [
           {
             "type": "command",
             "shell": "powershell",
-            "command": "Write-Output '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"Read MEMORY.md at start. Anticipate, parallelize independent tool calls, verify before declaring done.\"}}'"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "shell": "powershell",
-            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"$env:USERPROFILE\\.claude\\scripts\\check-cc-updates.ps1\"",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\check-cc-updates.ps1\"",
             "timeout": 8
           }
         ]
@@ -117,37 +102,132 @@
           {
             "type": "command",
             "shell": "powershell",
-            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"$env:USERPROFILE\\.claude\\scripts\\rig-audit-nudge.ps1\"",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\rig-audit-nudge.ps1\"",
             "timeout": 8
           }
         ]
-      }
-    ],
-    "PreCompact": [
+      },
       {
         "hooks": [
           {
             "type": "command",
             "shell": "powershell",
-            "command": "Write-Output '{\"hookSpecificOutput\":{\"hookEventName\":\"PreCompact\",\"additionalContext\":\"PRE-COMPACT: save non-derivable facts to MEMORY (feedback corrections, project facts, references). Skip ephemeral state and conventions derivable from code. Commit clean local work before context compresses.\"}}'"
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\shopify-token-check.ps1\"",
+            "timeout": 5
           }
         ]
       }
     ],
-    "Stop": [
+    "PreToolUse": [
       {
+        "matcher": "mcp__plugin_playwright_playwright__browser_navigate|mcp__Claude_in_Chrome__navigate|mcp__Claude_in_Chrome__tabs_create_mcp|mcp__Claude_in_Chrome__computer|mcp__Claude_in_Chrome__javascript_tool|mcp__plugin_playwright_playwright__browser_evaluate",
         "hooks": [
           {
             "type": "command",
             "shell": "powershell",
-            "command": "Write-Output '{\"hookSpecificOutput\":{\"hookEventName\":\"Stop\",\"additionalContext\":\"END-OF-TURN: if code modified, verify (1) tests pass for touched modules, (2) tsc clean if client/ touched, (3) no unintended uncommitted work. If skipped any, report it.\"}}'"
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\browser-nav-denylist.ps1\"",
+            "timeout": 8
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|NotebookEdit|MultiEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\protected-path-denylist.ps1\"",
+            "timeout": 8
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\asset-delete-guard.ps1\"",
+            "timeout": 8
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|NotebookEdit|MultiEdit|Bash|mcp__.*(update-product|create-product|bulk-update-product-status|update-collection|create-collection|graphql_mutation|create-discount|set-inventory|switch-shop)",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\shop-identity-guard.ps1\"",
+            "timeout": 8
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\shop-token-identity-block.ps1\"",
+            "timeout": 8
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\destructive-block.ps1\"",
+            "timeout": 8
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\pitfall-tips.ps1\"",
+            "timeout": 8
+          }
+        ]
+      },
+      {
+        "matcher": "PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\pitfall-tips.ps1\"",
+            "timeout": 8
+          }
+        ]
+      },
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"__USERPROFILE__\\.claude\\scripts\\trio-fanout-cap.ps1\"",
+            "timeout": 8
           }
         ]
       }
     ]
   },
-  "effortLevel": "medium",
-  "autoCompactEnabled": true,
+  "effortLevel": "high",
+  "autoCompactWindow": 300000,
   "autoUpdatesChannel": "latest",
-  "agentPushNotifEnabled": true
+  "autoCompactEnabled": true,
+  "agentPushNotifEnabled": true,
+  "skipWorkflowUsageWarning": true,
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "playwright"
+  ]
 }

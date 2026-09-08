@@ -1,0 +1,15 @@
+{
+  "name": "__SHOP_SLUG__",
+  "private": true,
+  "version": "0.0.0",
+  "description": "__SHOP_NAME__ — outils boutique Shopify (Node >= 18, fetch natif, zéro dépendance)",
+  "type": "commonjs",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "probe": "node scripts/shop-probe.js",
+    "snapshot": "node scripts/shop-probe.js --dump",
+    "pull": "node scripts/pull-theme-file.js",
+    "push": "node scripts/push-any.js",
+    "purge": "node scripts/theme-purge-cache.js"
+  }
+}

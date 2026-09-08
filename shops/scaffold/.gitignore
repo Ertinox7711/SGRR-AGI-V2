@@ -1,0 +1,24 @@
+# Secrets — jamais versionnés (tokens, credentials app)
+.secrets/
+
+# Artefacts générés lourds
+*.pdf
+
+# Scratch local (dumps API thème, pulls live)
+.cache/
+scratch/
+data/_live-*/
+data/shots/
+
+# Images scrapées (trademark, placeholders temporaires — pas versionnées)
+data/scraped-images/
+
+# Images générées localement (IA)
+data/ai-gen/
+
+# Node
+node_modules/
+
+# OS
+Thumbs.db
+.DS_Store

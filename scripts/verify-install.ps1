@@ -2,26 +2,38 @@
 <#
   verify-install.ps1 - SGRR AGI V2 (Windows)
 
-  PARITY self-test: proves your ~/.claude install applies EXACTLY the same config and
-  the same philosophy as the original rig. Not "roughly".
+  PARITY self-test: proves your ~/.claude install carries the same payload and the same
+  enforced guardrails as the original rig. Not "roughly".
 
-  Output: one line per check (OK / FAIL), a verdict, an exit code.
-    exit 0 = full parity ; exit 1 = at least one gap.
+  Three outcomes per line:
+    [OK]   the rig is there
+    [WARN] present but not personalised yet - does NOT break parity, but read it
+    [FAIL] a real gap
+
+  exit 0 = full parity (warnings allowed) ; exit 1 = at least one gap.
 
   Usage:  ./scripts/verify-install.ps1
+          ./scripts/verify-install.ps1 -Target D:\sandbox\.claude   # check another install
 #>
 [CmdletBinding()]
-param()
+param([string]$Target)
 
-$claude = Join-Path $env:USERPROFILE '.claude'
-$pass = 0; $fail = 0
-function Ok($m)   { Write-Host "  [OK]   $m" -ForegroundColor Green; $script:pass++ }
-function Bad($m)  { Write-Host "  [FAIL] $m" -ForegroundColor Red;   $script:fail++ }
+$claude = if ($Target) { [System.IO.Path]::GetFullPath($Target) } else { Join-Path $env:USERPROFILE '.claude' }
+$pass = 0; $fail = 0; $warn = 0
+function Ok($m)   { Write-Host "  [OK]   $m" -ForegroundColor Green;  $script:pass++ }
+function Bad($m)  { Write-Host "  [FAIL] $m" -ForegroundColor Red;    $script:fail++ }
+function Wrn($m)  { Write-Host "  [WARN] $m" -ForegroundColor Yellow; $script:warn++ }
 function Head($m) { Write-Host "`n$m" -ForegroundColor Cyan }
+
+function Count-Files($rel, $filter) {
+  $p = Join-Path $claude $rel
+  if (-not (Test-Path $p)) { return 0 }
+  return @(Get-ChildItem $p -Recurse -File -Filter $filter -ErrorAction SilentlyContinue).Count
+}
 
 Head "SGRR AGI V2 - parity self-test ($claude)"
 
-# 1. settings.json exists + valid JSON
+# ---- settings.json -----------------------------------------------------------------
 $settingsPath = Join-Path $claude 'settings.json'
 $settings = $null
 if (Test-Path $settingsPath) {
@@ -30,92 +42,115 @@ if (Test-Path $settingsPath) {
 } else { Bad "settings.json missing" }
 
 if ($settings) {
-  # 2. Main model = opus
-  if ($settings.model -eq 'opus') { Ok "model = opus (max intelligence on the main loop)" }
-  else { Bad "model = '$($settings.model)' (expected: opus)" }
+  # the installer expands __USERPROFILE__; a leftover token means broken hook paths
+  if ((Get-Content $settingsPath -Raw) -match '__USERPROFILE__') {
+    Bad "settings.json still contains the literal __USERPROFILE__ token (re-run install.ps1)"
+  } else { Ok "no unexpanded path token in settings.json" }
 
-  # 3. Sub-agents on Sonnet (billed / 5)
-  if ($settings.env.CLAUDE_CODE_SUBAGENT_MODEL -eq 'sonnet') { Ok "sub-agents = sonnet (grunt-work cost divided)" }
-  else { Bad "CLAUDE_CODE_SUBAGENT_MODEL = '$($settings.env.CLAUDE_CODE_SUBAGENT_MODEL)' (expected: sonnet)" }
-
-  # 4. 12 plugins enabled
   $plugins = @()
   if ($settings.enabledPlugins) { $plugins = ($settings.enabledPlugins.PSObject.Properties | Where-Object { $_.Value -eq $true }).Name }
   if ($plugins.Count -ge 12) { Ok "$($plugins.Count) plugins enabled (>= 12 expected)" }
-  else { Bad "$($plugins.Count) plugins enabled (12 expected - re-run /plugin)" }
+  else { Bad "$($plugins.Count) plugins enabled (12 expected - run /plugin)" }
 
-  # 5. The 5 context-injection hooks
-  $needHooks = 'PreToolUse','UserPromptSubmit','SessionStart','PreCompact','Stop'
-  $haveHooks = @(); if ($settings.hooks) { $haveHooks = $settings.hooks.PSObject.Properties.Name }
-  $missing = $needHooks | Where-Object { $_ -notin $haveHooks }
-  if (-not $missing) { Ok "5 hooks present (PreToolUse/UserPromptSubmit/SessionStart/PreCompact/Stop)" }
-  else { Bad "missing hooks: $($missing -join ', ')" }
+  foreach ($evt in 'SessionStart','PreToolUse') {
+    if ($settings.hooks -and $settings.hooks.$evt) { Ok "hooks.$evt wired ($(@($settings.hooks.$evt).Count) group(s))" }
+    else { Bad "hooks.$evt missing" }
+  }
 
-  # 6. Destructive-permission safety net
-  $askCount = 0; if ($settings.permissions.ask) { $askCount = @($settings.permissions.ask).Count }
-  if ($askCount -ge 10) { Ok "$askCount destructive commands gated behind confirmation (permissions.ask)" }
-  else { Bad "permissions.ask too short ($askCount) - safety net incomplete" }
+  # every hook script referenced by settings.json must actually exist on disk
+  $refs = @(); $broken = @()
+  if ($settings.hooks) {
+    foreach ($evt in $settings.hooks.PSObject.Properties.Name) {
+      foreach ($entry in @($settings.hooks.$evt)) {
+        foreach ($h in @($entry.hooks)) {
+          $cmd = [string]$h.command
+          foreach ($m in [regex]::Matches($cmd, '"([^"]+\.(?:ps1|sh|py))"')) {
+            $p = $m.Groups[1].Value
+            $refs += $p
+            if (-not (Test-Path $p)) { $broken += $p }
+          }
+        }
+      }
+    }
+  }
+  if ($refs.Count -eq 0) { Bad "no hook script referenced in settings.json" }
+  elseif ($broken.Count -eq 0) { Ok "$($refs.Count) hook script path(s) referenced, all present on disk" }
+  else { Bad "hook script(s) referenced but MISSING: $($broken -join ', ')" }
+
+  # the guards that actually deny (the layer prose cannot provide)
+  $joined = ($refs -join ' ')
+  $needGuards = 'protected-path-denylist','asset-delete-guard','destructive-block','shop-identity-guard','shop-token-identity-block','browser-nav-denylist','pitfall-tips','trio-fanout-cap'
+  $missGuards = $needGuards | Where-Object { $joined -notmatch [regex]::Escape($_) }
+  if (-not $missGuards) { Ok "all 8 PreToolUse guards wired (deny + advisory layer complete)" }
+  else { Bad "guards not wired: $($missGuards -join ', ')" }
+
+  if ($settings.permissions.defaultMode -eq 'acceptEdits') { Ok "defaultMode = acceptEdits (zero friction on file edits)" }
+  else { Wrn "defaultMode = '$($settings.permissions.defaultMode)' (rig ships acceptEdits)" }
+
+  if ($settings.env.CLAUDE_CODE_SUBAGENT_MODEL) { Ok "sub-agents = $($settings.env.CLAUDE_CODE_SUBAGENT_MODEL) (grunt-work cost divided)" }
+  else { Wrn "CLAUDE_CODE_SUBAGENT_MODEL unset - sub-agents run on the main model (opt-in, see SETUP.md)" }
 }
 
-# 7. CLAUDE.md present + SGRR signature
+# ---- core docs ----------------------------------------------------------------------
+Head "Core files"
 $claudeMd = Join-Path $claude 'CLAUDE.md'
 if (Test-Path $claudeMd) {
   if (Select-String -Path $claudeMd -Pattern 'SGRR AGI V2' -Quiet) { Ok "CLAUDE.md present (SGRR AGI V2 signature detected)" }
   else { Ok "CLAUDE.md present (signature absent - custom or removed, OK)" }
 } else { Bad "CLAUDE.md missing" }
+if (Test-Path (Join-Path $claude 'PITFALLS.md'))    { Ok "PITFALLS.md present (generalized mistake catalog)" } else { Bad "PITFALLS.md missing" }
+if (Test-Path (Join-Path $claude 'SGRR-GUIDE.md'))  { Ok "SGRR-GUIDE.md present (local usage guide)" }        else { Bad "SGRR-GUIDE.md missing (copy USAGE.md)" }
+if (Test-Path (Join-Path $claude 'memory\MEMORY.md')) { Ok "memory/MEMORY.md present" }                        else { Bad "memory/MEMORY.md missing" }
 
-# 8. Memory
-if (Test-Path (Join-Path $claude 'memory\MEMORY.md')) { Ok "memory/MEMORY.md present" } else { Bad "memory/MEMORY.md missing" }
+# ---- payload ------------------------------------------------------------------------
+Head "Payload"
+$nRules = Count-Files 'rules' '*.md'
+$nCmds  = Count-Files 'commands' '*.md'
+$nSkill = @(Get-ChildItem (Join-Path $claude 'skills') -Directory -ErrorAction SilentlyContinue).Count
+$nAgent = Count-Files 'agents' '*.md'
+$nScript = @(Get-ChildItem (Join-Path $claude 'scripts') -Recurse -File -ErrorAction SilentlyContinue).Count
 
-# 9. Rules (lazy context)
-$rulesDir = Join-Path $claude 'rules'
-if ((Test-Path $rulesDir) -and (Get-ChildItem $rulesDir -Filter *.md -ErrorAction SilentlyContinue)) { Ok "rules/*.md present (lazy-loading paths:)" }
-else { Bad "rules/ empty or missing" }
+if ($nRules  -ge 5)   { Ok "rules/    $nRules lazy paths: rules" }      else { Bad "rules/ only $nRules (>= 5 expected)" }
+if ($nCmds   -ge 15)  { Ok "commands/ $nCmds slash commands" }          else { Bad "commands/ only $nCmds (>= 15 expected)" }
+if ($nSkill  -ge 100) { Ok "skills/   $nSkill skills" }                 else { Bad "skills/ only $nSkill (>= 100 expected - re-run install without -Minimal)" }
+if ($nAgent  -ge 1)   { Ok "agents/   $nAgent sub-agent definitions" }  else { Bad "agents/ empty" }
+if ($nScript -ge 20)  { Ok "scripts/  $nScript hook scripts + tools" }  else { Bad "scripts/ only $nScript (>= 20 expected)" }
 
-# 10. Local guide
-if (Test-Path (Join-Path $claude 'SGRR-GUIDE.md')) { Ok "SGRR-GUIDE.md present (local usage guide)" }
-else { Bad "SGRR-GUIDE.md missing (copy USAGE.md)" }
-
-# 11. Claude Code update watch (self-improvement loop)
-if (Test-Path (Join-Path $claude 'scripts\check-cc-updates.ps1')) { Ok "update watch present (scripts/check-cc-updates.ps1)" }
-else { Bad "update watch missing (copy scripts/check-cc-updates.ps1 -> ~/.claude/scripts/)" }
-
-# 12. Rig self-audit (/rig-audit command + periodic nudge)
-$auditCmd = Test-Path (Join-Path $claude 'commands\rig-audit.md')
-$auditNudge = Test-Path (Join-Path $claude 'scripts\rig-audit-nudge.ps1')
-if ($auditCmd -and $auditNudge) { Ok "rig self-audit present (/rig-audit command + periodic nudge)" }
-elseif ($auditCmd) { Bad "rig-audit nudge missing (copy scripts/rig-audit-nudge.ps1)" }
-else { Bad "/rig-audit command missing (copy commands/rig-audit.md -> ~/.claude/commands/)" }
-
-# 13. PITFALLS catalog (the mistakes the rig refuses to repeat)
-if (Test-Path (Join-Path $claude 'PITFALLS.md')) { Ok "PITFALLS.md present (generalized mistake catalog)" }
-else { Bad "PITFALLS.md missing (copy PITFALLS.md -> ~/.claude/)" }
-
-# 14. Live pitfall coach (PreToolUse hook + script)
-$tipScript = Test-Path (Join-Path $claude 'scripts\pitfall-tips.ps1')
-$tipHook = $false
-if ($settings -and $settings.hooks -and $settings.hooks.PreToolUse) {
-  foreach ($entry in @($settings.hooks.PreToolUse)) {
-    foreach ($h in @($entry.hooks)) {
-      if ($h.command -match 'pitfall-tips') { $tipHook = $true }
-    }
-  }
+foreach ($f in @(
+  @{ p = 'commands\session-check.md';      m = '/session-check command' },
+  @{ p = 'skills\session-check\SKILL.md';  m = 'session-check skill' },
+  @{ p = 'commands\rig-audit.md';          m = '/rig-audit command' },
+  @{ p = 'scripts\rig-audit-nudge.ps1';    m = 'rig-audit periodic nudge' },
+  @{ p = 'scripts\check-cc-updates.ps1';   m = 'Claude Code update watch' },
+  @{ p = 'scripts\preflight-scrub.ps1';    m = 'preflight leak scrub' },
+  @{ p = 'shops\GO-SHOPS.md';              m = 'GO-SHOPS.md (multi-store manual)' },
+  @{ p = 'shopify\GO-SHOPIFY.md';          m = 'GO-SHOPIFY.md (Shopify manual)' }
+)) {
+  if (Test-Path (Join-Path $claude $f.p)) { Ok $f.m } else { Bad "$($f.m) missing ($($f.p))" }
 }
-if ($tipScript -and $tipHook) { Ok "live pitfall coach wired (PreToolUse -> scripts/pitfall-tips.ps1)" }
-elseif ($tipScript) { Bad "pitfall-tips.ps1 present but PreToolUse hook not wired in settings.json" }
-else { Bad "pitfall coach missing (copy scripts/pitfall-tips.ps1 + add the PreToolUse hook)" }
 
-# 15. Session-check (right-repo + rig-live readiness command + skill)
-$scCmd = Test-Path (Join-Path $claude 'commands\session-check.md')
-$scSkill = Test-Path (Join-Path $claude 'skills\session-check\SKILL.md')
-if ($scCmd -and $scSkill) { Ok "session-check present (/session-check command + skill)" }
-elseif ($scCmd) { Bad "session-check skill missing (copy skills/session-check/SKILL.md)" }
-else { Bad "session-check missing (copy commands/session-check.md + skills/session-check/SKILL.md)" }
+# ---- machine-local config -----------------------------------------------------------
+Head "Local config"
+$zones = Join-Path $claude 'protected-zones.json'
+if (Test-Path $zones) {
+  $zRaw = Get-Content $zones -Raw
+  if ($zRaw -match '<your-') { Wrn "protected-zones.json still has PLACEHOLDER folders - the write-gate blocks NOTHING until you edit it" }
+  else {
+    try {
+      $zc = @(($zRaw | ConvertFrom-Json).zones).Count
+      if ($zc -gt 0) { Ok "protected-zones.json: $zc zone(s) armed" } else { Wrn "protected-zones.json has no zones - write-gate inactive (deliberate?)" }
+    } catch { Bad "protected-zones.json is invalid JSON - the gate exits 0 and protects nothing" }
+  }
+} else { Wrn "protected-zones.json absent - write-gate inactive (copy protected-zones.example.json)" }
 
-# Verdict
-Head "Result: $pass OK / $fail FAIL"
+$reg = Join-Path $claude 'shops-registry.md'
+if (Test-Path $reg) { Ok "shops-registry.md present" } else { Wrn "shops-registry.md absent (only needed if you run stores)" }
+
+# ---- verdict ------------------------------------------------------------------------
+Head "Result: $pass OK / $warn WARN / $fail FAIL"
 if ($fail -eq 0) {
   Write-Host "FULL PARITY. Your Claude applies the SGRR AGI V2 rig exactly." -ForegroundColor Green
+  if ($warn -gt 0) { Write-Host "($warn warning(s) above are personalisation steps, not gaps.)" -ForegroundColor Yellow }
   exit 0
 } else {
   Write-Host "GAP detected. Fix the [FAIL] lines above, then re-run." -ForegroundColor Yellow

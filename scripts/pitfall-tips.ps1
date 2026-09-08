@@ -23,7 +23,12 @@ try {
   if (-not $raw) { exit 0 }
 
   $cmd = $null
-  try { $cmd = ($raw | ConvertFrom-Json).tool_input.command } catch { exit 0 }
+  $cwd = ''
+  try {
+    $obj = $raw | ConvertFrom-Json
+    $cmd = $obj.tool_input.command
+    if ($obj.cwd) { $cwd = [string]$obj.cwd }
+  } catch { exit 0 }
   if (-not $cmd) { exit 0 }
 
   # Ordered trap table. ttl = throttle window in hours (0 = always fire).
@@ -41,12 +46,21 @@ try {
     @{ id = 'push';       ttl = 4; re = 'git\s+push\b';
        msg = 'PITFALLS/secret-leak + false-done: push is visible to others and history is forever. Before it: secret-scan/preflight exit 0, diff reviewed, build+tests green. Done = verified, not assumed. (PITFALLS.md)' },
     @{ id = 'commit';     ttl = 4; re = 'git\s+commit\b';
-       msg = 'PITFALLS/blind-commit: read git diff --cached in full before committing. One feature per commit, nothing out-of-scope staged; type-check typed code first. (PITFALLS.md)' }
+       msg = 'PITFALLS/blind-commit: read git diff --cached in full before committing. One feature per commit, nothing out-of-scope staged; type-check typed code first. (PITFALLS.md)' },
+    @{ id = 'liquid-sections'; ttl = 4; re = 'push-sections\.js|push-blocks\.js|themeFilesUpsert';
+       msg = 'SHOPIFY/liquid-modular: before pushing, every custom .liquid section MUST carry a complete {% schema %} (every visible text/image/color/spacing an editable setting, CSS scoped via section.id, sensible defaults, a preset name) and the wiring must be NON-DESTRUCTIVE (read templates/*.json, insert by anchor, skip-if-present, never rewrite a template wholesale). After the push: purge the theme cache. Watch for unterminated {% %} blocks - heredocs eat %} sequences.' },
+    @{ id = 'dev-server'; ttl = 0; re = 'npm\s+run\s+dev|pnpm\s+dev|yarn\s+dev|node\s+index\.js';
+       msg = 'PITFALLS/runaway-process: check for an ALREADY-RUNNING dev server before starting another (double work, double side effects, port conflict). List the processes / check the port first; kill or reuse the stale instance.' },
+    @{ id = 'outward-artifact'; ttl = 0; re = '\.prv\b|publish|deploy|--prod\b';
+       msg = 'PITFALLS/visible-to-others: this touches an outward-facing pipeline. Confirm the content is final and approved BEFORE creating or editing the artifact - published output is not reliably retractable.' }
+    # Add project-scoped tips of your own with cwdRe, so they only fire inside that
+    # project:  @{ id = 'myproj-x'; ttl = 0; cwdRe = 'MyProject'; re = '...'; msg = '...' }
   )
 
   $opts = [System.Text.RegularExpressions.RegexOptions]::IgnoreCase
   $hit = $null
   foreach ($r in $rules) {
+    if ($r.cwdRe -and -not [regex]::IsMatch($cwd, $r.cwdRe, $opts)) { continue }
     if ([regex]::IsMatch($cmd, $r.re, $opts)) { $hit = $r; break }
   }
   if (-not $hit) { exit 0 }

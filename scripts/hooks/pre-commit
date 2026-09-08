@@ -3,44 +3,92 @@
 # Scans the STAGED diff. Rejects the commit if a secret / PII pattern shows up.
 # Installed by install.ps1 / install.sh into .git/hooks/pre-commit.
 # Git for Windows ships bash, so this hook works on Windows too.
-set -euo pipefail
+#
+# Three failure modes this version exists to avoid:
+#   1. Passing every staged filename to git ("Argument list too long" on a big commit),
+#      which made the scan silently inspect NOTHING exactly when the commit was largest.
+#   2. Judging the whole diff as one blob: a single "<PLACEHOLDER>" anywhere used to
+#      disable the check for every other file. Attribution is now per line, per file.
+#   3. Reporting itself: the scanner's own patterns and its own config legitimately
+#      contain the shapes it hunts for (PITFALLS.md -> secret leak). See SELF below.
+set -uo pipefail
 
-# Staged files (Added/Copied/Modified), ignoring binaries handled by .gitignore.
-staged=$(git diff --cached --name-only --diff-filter=ACM)
-[ -z "$staged" ] && exit 0
+root=$(git rev-parse --show-toplevel 2>/dev/null) || exit 0
 
-# The staged content to inspect (added lines only).
-added=$(git diff --cached --unified=0 -- $staged | grep -E '^\+' | grep -Ev '^\+\+\+' || true)
-
-fail=0
-flag() { printf '\033[31m[pre-commit] LEAK: %s\033[0m\n' "$1" >&2; fail=1; }
-
-# Secret patterns (<...> placeholders and noreply are excluded below)
-echo "$added" | grep -Eq 'shp(at|ca|pa|ss)_[a-fA-F0-9]{32}'        && flag "Shopify token"
-echo "$added" | grep -Eq 'sk-ant-[a-zA-Z0-9_-]{20,}'               && flag "Anthropic key"
-echo "$added" | grep -Eq 'sk-[a-zA-Z0-9]{20,}T3BlbkFJ'             && flag "OpenAI key"
-echo "$added" | grep -Eq 'gh[pousr]_[A-Za-z0-9]{36,}'              && flag "GitHub token"
-echo "$added" | grep -Eq 'AKIA[0-9A-Z]{16}'                        && flag "AWS key"
-echo "$added" | grep -Eq 'xox[baprs]-[A-Za-z0-9-]{10,}'            && flag "Slack token"
-echo "$added" | grep -Eiq '(api[_-]?key|secret|password|passwd|token)[[:space:]]*[:=][[:space:]]*['"'"'"][A-Za-z0-9_-]{24,}['"'"'"]' \
-  && ! echo "$added" | grep -Eq '<[A-Z_]+>' && flag "generic assigned secret"
-
-# PII: absolute home paths
-echo "$added" | grep -Eq '([A-Za-z]:\\Users\\[^\\/<> ]+)|(/home/[^/<> ]+)|(/Users/[^/<> ]+)' \
-  && ! echo "$added" | grep -Eq '(you|user|name|runner)\b' && flag "absolute home path"
-
-# PII: real email (noreply / example allowed)
-if echo "$added" | grep -Eioq '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'; then
-  if echo "$added" | grep -Eio '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' \
-       | grep -Eiv '(noreply|users\.noreply\.github\.com|example\.(com|org)|@placeholder)' | grep -q '@'; then
-    flag "real email"
-  fi
+# Reviewed third-party trees (same file the preflight scrubber reads). Findings there are
+# printed as notes and do not block; everything else blocks.
+ignore_rx=''
+if [ -f "$root/.scrubignore" ]; then
+  while IFS= read -r line; do
+    line="${line%%$'\r'}"
+    case "$line" in ''|'#'*) continue ;; esac
+    esc=$(printf '%s' "$line" | sed 's/[.[\*^$()+?{|]/\\&/g')
+    ignore_rx="${ignore_rx:+$ignore_rx|}^$esc"
+  done < "$root/.scrubignore"
 fi
 
-if [ "$fail" -ne 0 ]; then
+# One diff, no filename arguments -> never blows the argv limit.
+# The SELF regex below is the scanner's own patterns and config - those files are SUPPOSED
+# to contain a token shape, a sample address and a "/Users/me" doc path
+# (PITFALLS.md -> secret leak). Same list as preflight-scrub.ps1/.sh; kept in sync by hand.
+# The prefixes/pager/external-diff flags are pinned so a contributor's own git config
+# (diff.noprefix, diff.external, color.ui) cannot change what the parser below sees.
+report=$(git --no-pager diff --cached --unified=0 --diff-filter=ACM \
+  --no-ext-diff --no-color --src-prefix=a/ --dst-prefix=b/ | awk -v ig="$ignore_rx" '
+  /^\+\+\+ b\// {
+    file = substr($0, 7)
+    self_file = (file ~ /^(\.gitleaks\.toml|\.scrubignore|SECURITY\.md|scripts\/preflight-scrub\.(ps1|sh)|scripts\/hooks\/pre-commit|\.github\/workflows\/secret-scan\.yml|assets\/)/)
+    skip = (ig != "" && file ~ ig)
+    next
+  }
+  /^\+\+\+/     { file = "?"; self_file = 0; skip = 0; next }
+  /^\+/ {
+    if (self_file) next
+    line = substr($0, 2)
+    lvl = skip ? "note" : "LEAK"
+
+    if (line ~ /shp(at|ca|pa|ss)_[a-fA-F0-9]{32}/)            print lvl "|Shopify token|" file
+    if (line ~ /sk-ant-[a-zA-Z0-9_-]{20,}/ && line !~ /EXAMPLE/) print lvl "|Anthropic key|" file
+    if (line ~ /sk-[a-zA-Z0-9]{20,}T3BlbkFJ/)                 print lvl "|OpenAI key|" file
+    if (line ~ /gh[pousr]_[A-Za-z0-9]{36,}/)                  print lvl "|GitHub token|" file
+    if (line ~ /AKIA[0-9A-Z]{16}/)                            print lvl "|AWS key|" file
+    if (line ~ /xox[baprs]-[A-Za-z0-9-]{10,}/)                print lvl "|Slack token|" file
+
+    if (line ~ /(api[_-]?key|API[_-]?KEY|[Ss]ecret|SECRET|password|PASSWORD|passwd|token|TOKEN)[ \t]*[:=][ \t]*["'"'"'][A-Za-z0-9_-]{24,}["'"'"']/ \
+        && line !~ /<[A-Z_]+>/ && line !~ /EXAMPLE/)
+      print lvl "|assigned secret|" file
+
+    # A home path counts only when a plausible USERNAME follows the separator, and the
+    # placeholder names are the ones this repo publishes on purpose.
+    # Two awk traps, both caught by a planted-secret test this line used to fail: inside a
+    # /regex/ literal "\\" ALREADY means one literal backslash, so the old "\\\\Users"
+    # demanded two and never matched a real Windows home path; and gawk reads "\b" as a
+    # BACKSPACE character, not a word boundary - hence the explicit class below.
+    if (line ~ /([A-Za-z]:\\Users\\[A-Za-z0-9._-]{2,})|(\/home\/[A-Za-z0-9._-]{2,})|(\/Users\/[A-Za-z0-9._-]{2,})/ \
+        && line !~ /(YOU|<[A-Z_]+>|[\\\/](you|user|username|youruser|runner)([^A-Za-z0-9._-]|$))/)
+      print lvl "|absolute home path|" file
+
+    if (line ~ /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z][A-Za-z]+/ \
+        && line !~ /(noreply|example\.(com|org)|placeholder|@(test|t|x|y)\.com|@test\.[a-z]+|@yourdomain\.|your@|@evil\.com|git@(github|gitlab)\.com|supabase\.(com|co)|@localhost)/)
+      print lvl "|real email|" file
+  }
+' | sort -u)
+
+leaks=$(printf '%s\n' "$report" | grep -c '^LEAK|' || true)
+notes=$(printf '%s\n' "$report" | grep -c '^note|' || true)
+
+if [ "${notes:-0}" -gt 0 ]; then
+  printf '\033[90m[pre-commit] %s finding(s) in reviewed third-party paths (.scrubignore) - not blocking.\033[0m\n' "$notes" >&2
+fi
+
+if [ "${leaks:-0}" -gt 0 ]; then
+  printf '%s\n' "$report" | grep '^LEAK|' | while IFS='|' read -r _ what file; do
+    printf '\033[31m[pre-commit] LEAK: %s in %s\033[0m\n' "$what" "$file" >&2
+  done
   echo "" >&2
-  echo "Commit rejected: remove the secret/PII above, or if it's a false positive," >&2
-  echo "adjust .gitleaks.toml then 'git commit --no-verify' (knowing what you're doing)." >&2
+  echo "Commit rejected: remove the secret/PII above. If it is genuinely a false" >&2
+  echo "positive, fix the pattern or add the reviewed path to .scrubignore - do NOT" >&2
+  echo "reach for --no-verify (PITFALLS.md -> the bypass)." >&2
   exit 1
 fi
 exit 0
