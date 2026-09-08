@@ -1,13 +1,31 @@
 # Training libraries — index
 
 The doctrine in [`../GO-SHOPIFY.md`](../GO-SHOPIFY.md) is distilled from four libraries.
-**Their verbatim content is not in this repo** — three of the four are paid third-party
-products, and redistributing them would be copyright infringement regardless of who paid for
-them. What ships here is the **index** plus a **loader that reads your own local copies**.
+This file is the **index** — what each library holds, module by module, so you can find a
+lesson without opening it.
 
-If you own these courses, the loader turns your local transcripts into one navigable bundle per
-library, in a fixed place the agent can find. If you don't, §4–§7 of `GO-SHOPIFY.md` still gives
-you the whole method — it is written to stand alone.
+**Where the verbatim content lives.** It used to be nowhere but your own disk, because three
+of these four are paid third-party products. It now ships in this repo under
+[`/formations/`](../../formations/README.md) — 343 files, seven libraries, ~32 MB of text —
+and the installer mirrors it into `~/.claude/formations/` so the agent reads it directly.
+That is only acceptable while the repo stays private, which is its normal state. **Do not
+republish those folders, do not fork this repo outward.**
+
+The **loader** still works and is still how you rebuild the bundles from your own copies:
+
+```powershell
+.\load-formations.ps1            # report only, writes nothing
+.\load-formations.ps1 -Bundle    # build ~/.claude/formations/<library>.md
+```
+
+The **audio** is the one part that is not in git: 82 files, 3.36 GB, one of them past
+GitHub's hard 100 MB per-file limit. Every file is listed with its SHA-256 in
+[`/formations/AUDIO-MANIFEST.md`](../../formations/AUDIO-MANIFEST.md), and
+`formations/scripts/add-audio.ps1` puts it back from a local copy. Nearly every replay ships
+its written transcript anyway, so the words are here — only the voice is not.
+
+If you don't own these courses, §4–§7 of `GO-SHOPIFY.md` still gives you the whole method —
+it is written to stand alone.
 
 ---
 
